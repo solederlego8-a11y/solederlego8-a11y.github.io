@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://solederlego8-a11y.github.io/sitemap.xml
+Sitemap: https://solederlego8-a11y.github.io/koteihi-labo/sitemap.xml
+Sitemap: https://solederlego8-a11y.github.io/ai-shain-lp/sitemap.xml
+Sitemap: https://solederlego8-a11y.github.io/mens-cosme-review/sitemap.xml
+Sitemap: https://solederlego8-a11y.github.io/saas-review-lab/sitemap.xml
