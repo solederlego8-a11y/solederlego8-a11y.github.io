@@ -14,10 +14,23 @@
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "WebSite",
-  "name": "運営メディア一覧",
-  "url": "https://solederlego8-a11y.github.io/",
-  "description": "固定費の見直し、中小企業向けAI活用、メンズコスメ、業務SaaSの4メディアを運営しています。"
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://solederlego8-a11y.github.io/#org",
+      "name": "フォローズ",
+      "url": "https://solederlego8-a11y.github.io/"
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://solederlego8-a11y.github.io/#website",
+      "name": "フォローズ",
+      "alternateName": "フォローズ 運営メディア",
+      "url": "https://solederlego8-a11y.github.io/",
+      "publisher": { "@id": "https://solederlego8-a11y.github.io/#org" },
+      "description": "固定費の見直し、中小企業向けAI活用、メンズコスメ、業務SaaS、占いの5メディアを運営しています。"
+    }
+  ]
 }
 </script>
 <style>
@@ -39,6 +52,7 @@ body{
 }
 .wrap{max-width:780px;margin:0 auto;padding:56px 20px 72px}
 header{margin-bottom:44px}
+.brand{margin:0 0 10px;font-size:.82rem;font-weight:600;letter-spacing:.18em;color:var(--accent)}
 h1{font-size:1.6rem;line-height:1.45;margin:0 0 14px;letter-spacing:.01em}
 .lead{color:var(--muted);margin:0;font-size:.97rem}
 h2{font-size:1.12rem;margin:48px 0 18px;padding-bottom:9px;border-bottom:1px solid var(--border)}
@@ -70,6 +84,7 @@ footer{margin-top:52px;padding-top:20px;border-top:1px solid var(--border);font-
 <div class="wrap">
 
 <header>
+  <p class="brand">フォローズ</p>
   <h1>運営メディア一覧</h1>
   <p class="lead">暮らしの固定費と、中小企業の業務コスト。「毎月かかり続けるお金」を見直すための情報を、テーマ別に4つのメディアで発信しています。</p>
 </header>
