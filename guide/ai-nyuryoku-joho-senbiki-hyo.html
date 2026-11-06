@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AIに入力してよい情報の線引きは？業務別の判断表（履歴書・顧客情報・社内資料）</title>
+<meta name="description" content="履歴書・顧客情報・社内資料などをAIに入力してよいかを、情報の種類と契約（個人プラン／商用プラン／外注／無料ツール）の2軸で絞る判断表。個人情報保護委員会と厚生労働省、Anthropic公式の記載を整理し、入力前に書き出す4点も示します。">
+<link rel="canonical" href="https://solederlego8-a11y.github.io/guide/ai-nyuryoku-joho-senbiki-hyo.html">
+<meta property="og:type" content="article">
+<meta property="og:title" content="AIに入力してよい情報の線引きは？業務別の判断表">
+<meta property="og:description" content="情報の種類と契約の種類の2軸で、AIに入れてよいかを絞る判断表。">
+<meta property="og:url" content="https://solederlego8-a11y.github.io/guide/ai-nyuryoku-joho-senbiki-hyo.html">
+<meta name="twitter:card" content="summary">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","headline":"AIに入力してよい情報の線引きは？業務別の判断表（履歴書・顧客情報・社内資料）","description":"履歴書・顧客情報・社内資料などをAIに入力してよいかを、情報の種類と契約の種類の2軸で絞る判断表。","datePublished":"2026-11-06","dateModified":"2026-11-06","inLanguage":"ja","mainEntityOfPage":{"@type":"WebPage","@id":"https://solederlego8-a11y.github.io/guide/ai-nyuryoku-joho-senbiki-hyo.html"},"author":{"@type":"Organization","name":"フォローズ 編集部","url":"https://solederlego8-a11y.github.io/"},"publisher":{"@type":"Organization","@id":"https://solederlego8-a11y.github.io/#org","name":"フォローズ","url":"https://solederlego8-a11y.github.io/"}}
+</script>
+<style>
+:root{
+  --bg:#f7f7f5; --surface:#fff; --text:#1a1a1a; --muted:#5d5d5d;
+  --border:#e2e2dd; --accent:#1f5f4f; --accent-soft:#e8f1ee;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#14161a; --surface:#1c1f24; --text:#ececec; --muted:#a6a6a6;
+    --border:#2d3138; --accent:#6fc2a8; --accent-soft:#1e2b28;
+  }
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,"Hiragino Sans","Noto Sans JP",sans-serif;line-height:1.85;-webkit-font-smoothing:antialiased}
+.wrap{max-width:780px;margin:0 auto;padding:40px 20px 72px}
+.crumb{font-size:.82rem;color:var(--muted);margin:0 0 22px}
+.crumb a{color:var(--accent)}
+h1{font-size:1.55rem;line-height:1.5;margin:0 0 12px}
+.meta{font-size:.84rem;color:var(--muted);margin:0 0 28px}
+h2{font-size:1.15rem;margin:46px 0 14px;padding-bottom:9px;border-bottom:1px solid var(--border)}
+h3{font-size:1.02rem;margin:28px 0 8px}
+p{margin:0 0 14px}
+a{color:var(--accent)}
+.answer{background:var(--accent-soft);border-left:4px solid var(--accent);border-radius:8px;padding:16px 20px;margin:0 0 26px}
+.answer p:last-child{margin:0}
+.box{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:16px 20px;margin:0 0 22px;font-size:.93rem}
+.box p:last-child{margin:0}
+.tblwrap{overflow-x:auto;margin:0 0 22px}
+table{border-collapse:collapse;width:100%;min-width:560px;background:var(--surface);font-size:.88rem}
+th,td{border:1px solid var(--border);padding:9px 11px;text-align:left;vertical-align:top}
+th{background:var(--accent-soft)}
+ul,ol{margin:0 0 16px;padding-left:1.4em}
+li{margin-bottom:6px}
+.related li{margin-bottom:9px}
+footer{margin-top:52px;padding-top:20px;border-top:1px solid var(--border);font-size:.84rem;color:var(--muted)}
+</style>
+<!-- faq-schema -->
+<script type="application/ld+json">
+{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "氏名を消せば、履歴書をAIに入力しても問題ありませんか。", "acceptedAnswer": {"@type": "Answer", "text": "問題ないとは言えません。氏名を外した情報が個人情報に当たるかは、他の情報との組み合わせによる個別判断で、AI社員の記事でも判断基準は確認できていないと書かれています。専門家に確認してください。"}}, {"@type": "Question", "name": "会社の契約ならChatGPTやClaudeに何を入れてもよいですか。", "acceptedAnswer": {"@type": "Answer", "text": "そうとは言えません。Claude Codeの商用プランでは学習に使われない旨が公式に書かれていますが、保持期間は標準で30日あり、契約書の条文や社内の情報区分が優先します。顧客の個人情報や秘密保持契約の対象情報は、原則として入れない区分にするのが安全側です。"}}, {"@type": "Question", "name": "個人のアカウントで業務の情報を扱ってもよいですか。", "acceptedAnswer": {"@type": "Answer", "text": "避けるのが安全です。Anthropic公式では、個人向けプランは学習利用の設定がオンだと保持期間が5年、オフでも30日と書かれており、会社が契約した商用プランと条件が異なります。"}}, {"@type": "Question", "name": "外注先に情報を渡すとき、何を決めておけばよいですか。", "acceptedAnswer": {"@type": "Answer", "text": "預ける情報の範囲、AIサービスへの入力の扱い、再委託の可否、契約終了時の返却と削除を書面で決めます。詳しい項目はAI社員の契約前チェックリストにあります。"}}]}
+</script>
+</head>
+<body>
+<div class="wrap">
+<p class="crumb"><a href="../">運営メディア一覧</a> ＞ <a href="./">判断ガイド</a> ＞ AIに入力してよい情報の線引き</p>
+<article>
+<h1>AIに入力してよい情報の線引きは？業務別の判断表（履歴書・顧客情報・社内資料）</h1>
+<p class="meta">最終更新日：<time datetime="2026-11-06">2026年11月6日</time>｜編集：フォローズ 編集部（運営：フォローズ）</p>
+
+<div class="answer">
+<p><strong>結論：</strong>AIに入力してよいかは「情報の種類」と「どの契約で使うか」の2つで決まります。公開済みの情報は入れやすく、応募者の履歴書や顧客の個人情報のような個人データは、利用目的の範囲内かと、提供事業者が機械学習に使わないことを確認するまで入れない、というのが公開資料から言える線です。</p>
+<p>「この情報なら必ず入れてよい」と断定できる行は、この記事の表にもありません。入力前に、情報の区分・使う契約・確認者の3点を書き出せない場合は、入力しない側に倒してください。</p>
+</div>
+
+<div class="box">
+<p><strong>この記事の立場：</strong>当編集部（フォローズ）が運営する別サイト（AI社員・凪AI・MOAI）の記事と、個人情報保護委員会・厚生労働省・Anthropicの公開資料を並べ替えた整理です。各サイトのサービスを紹介する立場にあるため、向かない場合も表に書いています。法律上の個別の助言ではありません。</p>
+</div>
+
+<h2>AIに入れてよい情報かは、まず何で分かれるのか？</h2>
+<p>情報の区分とは、社内で「公開」「社内限定」「厳重管理」のように情報を分けた線のことです。凪AIの記事では、この3段階に分けると運用しやすいと整理されています。次の表は、業務でよく出る情報を区分に当てはめ、根拠になる資料と入力前の確認事項を並べたものです（区分への当てはめは当編集部の整理です）。</p>
+<div class="tblwrap">
+<table>
+<tr><th>入れたい情報</th><th>区分の目安</th><th>公開資料から言えること</th><th>入力前に確認すること</th><th>詳しく読む</th></tr>
+<tr><td>自社サイトの掲載内容、公開済みの資料</td><td>公開情報</td><td>個人情報の問題は生じにくい</td><td>他社の著作物や未公開部分が混ざっていないか</td><td><a href="https://solederlego8-a11y.github.io/nagi-ai-hp/blog/posts/2026-10-09-claude-code-joho-rouei-shanai-rule.html">凪AI：社内ルールの作り方</a></td></tr>
+<tr><td>求人票・募集要項（応募者の情報を含まないもの）</td><td>公開情報</td><td>応募者の個人情報の問題は生じない（AI社員の整理）</td><td>労働条件の明示事項に漏れがないか</td><td><a href="https://solederlego8-a11y.github.io/ai-shain-lp/blog/oubosha-rirekisho-seiseiai-nyuryoku-kojin-joho.html">AI社員：履歴書とAI</a></td></tr>
+<tr><td>社内マニュアル、業務フロー、匿名化した集計</td><td>社内限定</td><td>対象業務と範囲を決めて入力可とする例が示されている（凪AI）</td><td>対象業務・範囲・使う契約を決めたか</td><td><a href="https://solederlego8-a11y.github.io/nagi-ai-hp/blog/posts/2026-10-09-claude-code-joho-rouei-shanai-rule.html">凪AI：社内ルールの作り方</a></td></tr>
+<tr><td>氏名・連絡先入りの履歴書や面接メモ</td><td>厳重管理（個人データ）</td><td>同意なく個人データを入力し、応答の出力以外の目的で扱われる場合は、個人情報保護法に違反する可能性がある（個人情報保護委員会の注意喚起として、AI社員の記事が整理）</td><td>利用目的の範囲内か／提供事業者が機械学習に利用しないこと等／利用規約の確認と記録</td><td><a href="https://solederlego8-a11y.github.io/ai-shain-lp/blog/oubosha-rirekisho-seiseiai-nyuryoku-kojin-joho.html">AI社員：履歴書とAI</a></td></tr>
+<tr><td>氏名だけ消した職務経歴</td><td>判断が分かれる</td><td>個人情報に当たるかは情報の組み合わせによる個別判断。判断基準は確認できていない（AI社員の記事）</td><td>専門家への確認</td><td><a href="https://solederlego8-a11y.github.io/ai-shain-lp/blog/oubosha-rirekisho-seiseiai-nyuryoku-kojin-joho.html">AI社員：履歴書とAI</a></td></tr>
+<tr><td>顧客の個人情報、認証情報、秘密保持契約の対象情報</td><td>厳重管理</td><td>凪AIの例では原則不可。例外は情報システム部門・法務の承認制</td><td>承認者と連絡先を決めたか</td><td><a href="https://solederlego8-a11y.github.io/nagi-ai-hp/blog/posts/2026-10-09-claude-code-joho-rouei-shanai-rule.html">凪AI：社内ルールの作り方</a></td></tr>
+<tr><td>本籍・出生地・思想信条・労働組合への加入状況</td><td>集めない項目</td><td>厚生労働省の指針で、募集では原則として収集してはならない項目（AI社員の記事が整理）</td><td>応募書類で求めていること自体を見直す</td><td><a href="https://solederlego8-a11y.github.io/ai-shain-lp/blog/oubosha-rirekisho-seiseiai-nyuryoku-kojin-joho.html">AI社員：履歴書とAI</a></td></tr>
+</table>
+</div>
+<p>表の出典は、個人情報保護委員会「生成AIサービスの利用に関する注意喚起等」（令和5年6月2日）、厚生労働省の職業安定法に基づく指針（第五）、凪AI・AI社員の各記事です。個人情報保護委員会のページは、今回の作成時に当編集部が直接開いて再確認できなかったため、AI社員の記事（2026-11-05に原資料を確認と記載）の整理を引用しています。</p>
+
+<h2>同じAIでも、契約の種類で入力データの扱いはどう違うのか？</h2>
+<p>同じClaude Codeでも、個人向けプランと商用プランでは、学習への利用と保持期間が異なります。Anthropicの公式ドキュメント「Data usage」（確認日 2026-11-06）の記載を、契約の種類ごとに並べ直しました。</p>
+<div class="tblwrap">
+<table>
+<tr><th>契約の種類</th><th>学習への利用</th><th>Anthropic側の保持期間</th><th>備考</th></tr>
+<tr><td>Team・Enterprise・API（商用）</td><td>顧客がモデル改善へのデータ提供を選んだ場合を除き、コードやプロンプトで生成モデルを学習しない</td><td>標準30日</td><td>ゼロデータ保持は適格なEnterpriseに組織ごとに有効化され、標準のEnterpriseには含まれない</td></tr>
+<tr><td>Free・Pro・Max・Ultra（個人）で学習を許可</td><td>設定がオンのとき、Claude Codeの利用も学習に使う</td><td>5年</td><td>—</td></tr>
+<tr><td>Free・Pro・Max・Ultra（個人）で学習を許可しない</td><td>使わない</td><td>30日</td><td>—</td></tr>
+</table>
+</div>
+<p>このほか、Claude Codeは利用者のPC内にもセッション記録を平文で既定30日間保存し、期間は設定項目「cleanupPeriodDays」で変えられると公式に書かれています。また、「/feedback」などで共有した会話は5年間保持されると記載されています。条件は変わりうるため、導入の直前に公式ページで再確認してください。実務上は、業務の情報を入れるアカウントを会社が契約した商用プランに限る、という線引きが必要になります。なお、契約書の条文は公式ドキュメントより優先するため、法務部門の確認が前提です。</p>
+
+<h2>自社の場合はどこまで入れられるか？6つの質問で絞る</h2>
+<p>上から順に答え、最初に「はい」になった行の行き先に進んでください。この表は、上の2つの表と各サイトの記事の判断軸を1枚に並べ替えた当編集部の整理です。</p>
+<div class="tblwrap">
+<table>
+<tr><th>順</th><th>質問</th><th>「はい」のときの行き先</th><th>詳しく読む</th></tr>
+<tr><td>1</td><td>入れたい情報が、本籍・出生地・思想信条など、そもそも集めない項目を含む</td><td>AIに入れる前に、収集していること自体を見直す</td><td><a href="https://solederlego8-a11y.github.io/ai-shain-lp/blog/oubosha-rirekisho-seiseiai-nyuryoku-kojin-joho.html">AI社員：履歴書とAI</a></td></tr>
+<tr><td>2</td><td>入れたい情報が、顧客の個人情報・認証情報・秘密保持契約の対象のどれかである</td><td>原則入れない。例外は承認者を決めてから</td><td><a href="https://solederlego8-a11y.github.io/nagi-ai-hp/blog/posts/2026-10-09-claude-code-joho-rouei-shanai-rule.html">凪AI：社内ルール</a></td></tr>
+<tr><td>3</td><td>氏名・連絡先などの個人データを含み、使うAIの契約が個人プランである</td><td>入れない。会社契約の商用プランに切り替えてから、利用目的と学習の扱いを確認</td><td><a href="https://solederlego8-a11y.github.io/nagi-ai-hp/blog/posts/2026-11-03-claude-code-houjin-data-gakushu-hoji.html">凪AI：学習と保持期間</a></td></tr>
+<tr><td>4</td><td>個人データを含み、外注先のAIに預ける</td><td>預ける範囲・再委託・終了時の削除を書面で決めてから</td><td><a href="https://solederlego8-a11y.github.io/ai-shain-lp/blog/ai-gyomu-itaku-keiyaku-mae-kakunin.html">AI社員：契約前チェックリスト</a></td></tr>
+<tr><td>5</td><td>AIに投稿や入力の操作まで任せ、確認なしで実行させたい</td><td>権限の範囲を先に決める。MOAIでは「おまかせ」と「すべて許可」で許可範囲が異なる</td><td><a href="https://solederlego8-a11y.github.io/moai/blog/moai-ai-jikko-kengen-preset-erabikata.html">MOAI：実行権限の選び方</a></td></tr>
+<tr><td>6</td><td>上のどれにも当てはまらない（公開情報か、範囲を決めた社内限定情報）</td><td>対象業務を1つに絞り、確認者を決めて始める</td><td><a href="ai-dounyu-route-erabikata.html">AI導入ルートの判断フロー</a></td></tr>
+</table>
+</div>
+<p>3行目を個人データと契約の組み合わせにしたのは、同じ情報でも契約が違うと保持期間が30日にも5年にもなるためです。5行目の「確認なしで実行」は、MOAIの記事でも公式ドキュメントの記載として、権限確認を省くモードは隔離された環境での利用が想定されると整理されています。</p>
+
+<h2>外注先に情報を預けるときは、何を決めておくのか？</h2>
+<p>外注先に預ける場合は、AIサービスへの入力の扱い、再委託、契約終了時のデータ返却・削除を、契約書か発注書に書いてもらいます。AI社員の契約前チェックリストでは、確認する7項目のうち、秘密保持・個人情報・再委託・契約の終わり方の4つが、情報の線引きに直結します。</p>
+<ul>
+<li><strong>秘密保持：</strong>秘密情報の定義、AIへの入力の扱い、期間</li>
+<li><strong>個人情報：</strong>預ける範囲、委託先の監督、漏えい時の対応</li>
+<li><strong>再委託：</strong>可否、事前承諾、同等の義務</li>
+<li><strong>契約の終わり方：</strong>データ・権限の返却と削除</li>
+</ul>
+
+<h2>無料ツールや手元のAIで自前運用する場合は、どこに気をつけるのか？</h2>
+<p>無料ツールで自前運用する場合は、ツールに保存するデータと、AIに貼り付けた内容を分けて考えます。MOAIの記事では、AIは画面の裏でClaude Codeとして動き、途中で人が許可を答える場面がないため、事前に許可の範囲を決めるとされています。貼り付けた内容の扱いは、使うAIサービスの規約と契約（上の2つ目の表）によります。</p>
+
+<h2>入力する前に、書き出しておく4点は？</h2>
+<p>次の4点が書き出せない場合は、それが先に社内で決めることです。</p>
+<ol>
+<li><strong>情報の区分：</strong>公開／社内限定／厳重管理のどれか</li>
+<li><strong>使う契約：</strong>会社契約の商用プランか、個人プランか、外注先か</li>
+<li><strong>確認者：</strong>AIの出力と、入力してよいかを判断する人</li>
+<li><strong>消すとき：</strong>AIサービス側や自分のPCに残る記録を、いつどう削除するか</li>
+</ol>
+
+<h2>よくある質問</h2>
+<h3>Q. 氏名を消せば、履歴書をAIに入力しても問題ありませんか。</h3>
+<p>問題ないとは言えません。氏名を外した情報が個人情報に当たるかは、他の情報との組み合わせによる個別判断で、AI社員の記事でも判断基準は確認できていないと書かれています。専門家に確認してください。</p>
+<h3>Q. 会社の契約ならChatGPTやClaudeに何を入れてもよいですか。</h3>
+<p>そうとは言えません。Claude Codeの商用プランでは学習に使われない旨が公式に書かれていますが、保持期間は標準で30日あり、契約書の条文や社内の情報区分が優先します。顧客の個人情報や秘密保持契約の対象情報は、原則として入れない区分にするのが安全側です。</p>
+<h3>Q. 個人のアカウントで業務の情報を扱ってもよいですか。</h3>
+<p>避けるのが安全です。Anthropic公式では、個人向けプランは学習利用の設定がオンだと保持期間が5年、オフでも30日と書かれており、会社が契約した商用プランと条件が異なります。</p>
+<h3>Q. 外注先に情報を渡すとき、何を決めておけばよいですか。</h3>
+<p>預ける情報の範囲、AIサービスへの入力の扱い、再委託の可否、契約終了時の返却と削除を書面で決めます。詳しい項目はAI社員の契約前チェックリストにあります。</p>
+
+<h2>関連記事（運営サイト別）</h2>
+<ul class="related">
+<li><a href="https://solederlego8-a11y.github.io/ai-shain-lp/blog/oubosha-rirekisho-seiseiai-nyuryoku-kojin-joho.html">応募者の履歴書を生成AIに入力してよい？個人情報保護委員会の注意点と採用担当の確認表（AI社員）</a></li>
+<li><a href="https://solederlego8-a11y.github.io/ai-shain-lp/blog/ai-gyomu-itaku-keiyaku-mae-kakunin.html">AIの業務代行を発注する契約前チェックリスト（AI社員）</a></li>
+<li><a href="https://solederlego8-a11y.github.io/nagi-ai-hp/blog/posts/2026-11-03-claude-code-houjin-data-gakushu-hoji.html">Claude Code 法人利用で入力データは学習される？保持期間は何日？（凪AI）</a></li>
+<li><a href="https://solederlego8-a11y.github.io/nagi-ai-hp/blog/posts/2026-10-09-claude-code-joho-rouei-shanai-rule.html">Claude Codeの情報漏えい対策｜社内利用ルールの作り方（凪AI）</a></li>
+<li><a href="https://solederlego8-a11y.github.io/moai/blog/moai-ai-jikko-kengen-preset-erabikata.html">MOAIのAI自動実行の権限｜「おまかせ」と「すべて許可」の違い（MOAI）</a></li>
+<li><a href="ai-dounyu-route-erabikata.html">中小企業のAI導入は外注・Claude Code・無料ツールのどれ？6問の判断フロー表（判断ガイド）</a></li>
+</ul>
+
+<div class="box">
+<p><strong>情報の取り扱い：</strong>この記事は、上記の各記事と公開資料の内容を並べ替えた整理です。Anthropicの記載は公式ドキュメントを2026-11-06に確認しました。個人情報保護委員会と厚生労働省の記載はAI社員の記事経由で、罰則・保管期間など確認できていない事項は書いていません。「安全」「必ず問題ない」といった保証はしません。法律上の判断は専門家に、最新の条件は公式サイトで確認してください。</p>
+</div>
+</article>
+<footer>
+  <a href="../">運営メディア一覧</a>｜<a href="./">判断ガイド一覧</a>｜運営：フォローズ
+</footer>
+</div>
+</body>
+</html>
