@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FERS Annuity Calculator with Sick Leave &amp; Survivor Election — Free Estimate Tool</title>
+<meta name="description" content="Free FERS annuity calculator that credits unused sick leave using OPM's official Chart 2 (not a ÷174 shortcut), applies the MRA+10 reduction by exact full months, and prices the survivor election. Estimate only — with formulas, sources, and worked examples shown.">
+<!-- Publication checklist (Day 8, after user final confirmation):
+     - Replace the canonical URL below with the final public URL.
+     - Submit the URL to Google Search Console (see fers-search-console-prep.md).
+     - This file is a LOCAL pre-publication artifact. Do not publish before Day 8. -->
+<link rel="canonical" href="https://solederlego8-a11y.github.io/fers/">
+<style>
+  body { font-family: system-ui, sans-serif; max-width: 760px; margin: 2rem auto; padding: 0 1rem; line-height: 1.6; color: #1c1c1c; }
+  h1 { line-height: 1.25; }
+  h2 { margin-top: 2.2rem; border-bottom: 2px solid #d8e2d8; padding-bottom: .3rem; }
+  fieldset { margin-bottom: 1rem; }
+  label { display: block; margin: .45rem 0; }
+  input, select { padding: .3rem; }
+  .inline input { width: 5.5rem; }
+  button { padding: .6rem 1.4rem; font-size: 1rem; cursor: pointer; }
+  #results { background: #f4f7f4; border: 1px solid #cdd8cd; padding: 1rem; margin-top: 1rem; }
+  .disclaimer { font-size: .85rem; color: #444; border-top: 1px solid #ccc; margin-top: 2rem; padding-top: 1rem; }
+  .flag { background: #fff3cd; padding: .5rem; }
+  .example { background: #fbfbf7; border: 1px solid #e2e2d5; padding: .8rem 1rem; margin: 1rem 0; }
+  .example h3 { margin-top: 0; }
+  table { border-collapse: collapse; margin: .6rem 0; }
+  th, td { border: 1px solid #ccc; padding: .35rem .7rem; text-align: left; }
+  code { background: #f0f0ea; padding: 0 .25rem; }
+  .src { font-size: .92rem; }
+</style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "FERS Annuity Calculator with Sick Leave & Survivor Election",
+  "applicationCategory": "FinanceApplication",
+  "operatingSystem": "Any (web browser)",
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+  "description": "Free FERS annuity estimate using OPM Chart 2 sick-leave conversion, exact-month MRA+10 reduction, and survivor election pricing."
+}
+</script>
+</head>
+<body>
+
+<h1>FERS Annuity Calculator — with Sick Leave Credit &amp; Survivor Election</h1>
+<p>Most FERS calculators either ignore your unused sick leave or convert it with a rough
+&quot;hours ÷ 174&quot; shortcut. This one follows the method OPM itself prescribes:
+<strong>unused sick leave is converted with Chart 2 of the CSRS &amp; FERS Handbook, Chapter 50</strong>,
+added to your actual service, and only then are leftover days dropped. It also applies the
+MRA+10 reduction by <em>exact full months</em> — not by whole years of age — and shows you
+every step of the math.</p>
+<p><strong>Free. No sign-up. Nothing you type leaves your browser.</strong></p>
+
+<form id="calc">
+  <fieldset>
+    <legend>Pay &amp; service</legend>
+    <label>High-3 average salary ($): <input type="number" id="high3" value="100000" min="0" step="any" required></label>
+    <label>Service entry:
+      <select id="serviceMode">
+        <option value="ymd">Enter years / months / days</option>
+        <option value="dates">Enter start &amp; separation dates</option>
+      </select>
+    </label>
+    <div id="ymdInputs" class="inline">
+      <label>Actual creditable service:
+        <input type="number" id="svcY" value="30" min="0"> years
+        <input type="number" id="svcM" value="5" min="0" max="11"> months
+        <input type="number" id="svcD" value="18" min="0" max="29"> days
+      </label>
+    </div>
+    <div id="dateInputs" style="display:none">
+      <label>Service start date: <input type="date" id="svcStart"></label>
+      <label>Separation date: <input type="date" id="svcEnd"></label>
+    </div>
+    <label>Unused sick leave (hours): <input type="number" id="sickHours" value="1300" min="0" step="any"></label>
+  </fieldset>
+
+  <fieldset>
+    <legend>Retirement</legend>
+    <label>Retirement type:
+      <select id="retType">
+        <option value="immediate">Immediate (unreduced)</option>
+        <option value="mra10">MRA+10 (reduced)</option>
+        <option value="special">Special category (LEO / FF / ATC)</option>
+      </select>
+    </label>
+    <label>Date of birth: <input type="date" id="dob" value="1966-01-01"></label>
+    <label>Annuity start date: <input type="date" id="annStart" value="2026-01-01"></label>
+    <label>Survivor election:
+      <select id="survivor">
+        <option value="none">None</option>
+        <option value="50">50% survivor benefit (annuity −10%)</option>
+        <option value="25">25% survivor benefit (annuity −5%)</option>
+      </select>
+    </label>
+  </fieldset>
+  <button type="submit">Calculate</button>
+</form>
+
+<div id="results" hidden></div>
+
+<h2>How the calculation works</h2>
+<p>The basic FERS annuity formula is:</p>
+<p><code>Annuity = High-3 average salary × factor × years of creditable service</code></p>
+<table>
+  <tr><th>Element</th><th>How this tool applies it</th></tr>
+  <tr><td>Factor</td><td>1.0% per year of service. <strong>1.1%</strong> if you retire at age 62 or older with at least 20 years of service. Special-category employees (law enforcement, firefighters, air traffic controllers): 1.7% for the first 20 years of special service, 1.0% beyond — sick-leave credit itself is always valued at 1.0%.</td></tr>
+  <tr><td>Sick leave</td><td>Converted with OPM Chart 2 (2,087-hour chart): hours between chart entries round <em>up</em> to the next entry. The converted time is added to your actual service, and leftover days under a full month are dropped <em>after</em> combining — exactly the sequence in OPM's own worked examples.</td></tr>
+  <tr><td>MRA+10 reduction</td><td>5% per year under age 62, prorated by <strong>full months</strong>: full months from your annuity start date to your 62nd birthday × 5/12%. Using whole years of age instead can misprice the reduction.</td></tr>
+  <tr><td>Survivor election</td><td>Electing a 50% survivor benefit reduces your own annuity by 10%; a 25% survivor benefit reduces it by 5%. The survivor benefit is 50% (or 25%) of the annuity before your own survivor reduction but after any MRA+10 reduction.</td></tr>
+</table>
+
+<h2>Sources</h2>
+<ul class="src">
+  <li>U.S. Office of Personnel Management, <em>CSRS and FERS Handbook</em>, Chapter 50 — computation of annuity, including Chart 2 (Sick Leave Chart, 2,087 hours) used for the sick-leave conversion.</li>
+  <li>OPM, FERS retirement eligibility and annuity computation guidance (opm.gov) — 1.0% / 1.1% factors, MRA+10 reduction of 5% per year (5/12% per month), survivor election reductions of 10% / 5%.</li>
+  <li>OPM Benefits Administration Letter 18-103 — position on crediting sick leave toward the 20 years required for the 1.1% factor at age 62. <em>Note: this tool follows the BAL 18-103 position (sick leave counts). We have verified this against three agreeing secondary summaries but have not yet re-verified the original letter text; when this point is what qualifies you for 1.1%, the result is flagged on screen.</em></li>
+</ul>
+<p class="src">Worked examples published by NARFE and in OPM's handbook were used to cross-check
+this calculator's arithmetic during development. No third-party calculator's numbers are copied:
+several popular calculators were found to disagree with the handbook method during testing.</p>
+
+<h2>Worked examples</h2>
+
+<div class="example">
+  <h3>Example 1 — Age 62, 30 years, 50% survivor election</h3>
+  <p>High-3 $100,000 · actual service 30 years 0 months · unused sick leave 1,044 hours ·
+  retires on the 62nd birthday · 50% survivor election.</p>
+  <ol>
+    <li>Sick leave 1,044 hrs → <strong>6 months</strong> (Chart 2). Total creditable service: <strong>30 years 6 months</strong>.</li>
+    <li>Age 62+ with 20+ years → factor <strong>1.1%</strong>. Annuity = $100,000 × 1.1% × 30.5 = <strong>$33,550 / year</strong>.</li>
+    <li>50% survivor election costs 10% → your annuity <strong>$30,195 / year ($2,516.25 / month)</strong>; survivor benefit <strong>$16,775 / year</strong>.</li>
+  </ol>
+</div>
+
+<div class="example">
+  <h3>Example 2 — Sick leave tips you over 20 years</h3>
+  <p>High-3 $100,000 · actual service 19 years 6 months · unused sick leave 1,300 hours · retires at 62 · no survivor election.</p>
+  <ol>
+    <li>Sick leave 1,300 hrs → <strong>7 months 15 days</strong> (Chart 2). Combined: 20 years 1 month, with the extra 15 days dropped.</li>
+    <li>Because total service reaches 20 years, the <strong>1.1%</strong> factor applies (BAL 18-103 position — flagged on screen): annuity = $100,000 × 1.1% × 20 years 1 month = <strong>$22,091.67 / year ($1,840.97 / month)</strong>.</li>
+    <li>At the 1.0% factor the same record would pay $20,083.33 / year — the sick-leave credit is worth about <strong>$2,008 / year</strong> here.</li>
+  </ol>
+</div>
+
+<div class="example">
+  <h3>Example 3 — MRA+10: why exact months matter</h3>
+  <p>High-3 $60,000 · service 20 years · no sick leave · annuity starts 21 full months before the 62nd birthday.</p>
+  <ol>
+    <li>Unreduced annuity = $60,000 × 1.0% × 20 = <strong>$12,000 / year</strong>.</li>
+    <li>Reduction = 21 full months × 5/12% = <strong>8.75%</strong> → <strong>$10,950 / year ($912.50 / month)</strong>.</li>
+    <li>A calculator that only counts whole years of age would apply either 5% or 10% — both wrong. The exact-month figure is the OPM method.</li>
+  </ol>
+</div>
+
+<h2>What this tool does not do</h2>
+<ul>
+  <li>It does not compute the <strong>FERS Supplement</strong> or the <strong>earnings test</strong> — those are covered by a separate tool in preparation. (For reference: Supplement service years are civilian service only, rounded to the nearest whole year and capped at 40; sick leave and military buyback do not count. The earnings test is based on your earnings in the <em>prior</em> year and applies in the following year, and it does not apply to special-category retirees until the Minimum Retirement Age.)</li>
+  <li>It does not handle deposits / redeposits, part-time proration, or disability retirement.</li>
+  <li>It is an estimate tool, not OPM. Your agency's HR office and OPM make the official determination.</li>
+</ul>
+
+<div class="disclaimer">
+  <p><strong>Estimate only.</strong> This calculator gives an estimate; it does not match
+  OPM's official computation in every case, and it is not financial, tax, or legal advice.</p>
+  <p>The FERS Supplement (a separate tool) is also an estimate: it uses civilian service only,
+  rounded to the nearest whole year and capped at 40 years — sick leave and military buyback
+  service are not counted. The Supplement earnings test is based on your earnings in the
+  <em>prior</em> year and applies in the following year; the earnings test does not apply to
+  special-category retirees until the Minimum Retirement Age.</p>
+  <p>Note: whether unused sick leave counts toward the 20 years needed for the 1.1% factor at
+  age 62 follows OPM Benefits Administration Letter 18-103; when that is what qualifies you,
+  the result is flagged on screen.</p>
+</div>
+
+<script src="fers-tool2-core.js"></script>
+<script>
+function parseDate(id) {
+  const v = document.getElementById(id).value;
+  if (!v) return null;
+  const p = v.split('-').map(Number);
+  return { y: p[0], m: p[1], d: p[2] };
+}
+document.getElementById('serviceMode').addEventListener('change', function () {
+  const dates = this.value === 'dates';
+  document.getElementById('ymdInputs').style.display = dates ? 'none' : '';
+  document.getElementById('dateInputs').style.display = dates ? '' : 'none';
+});
+document.getElementById('calc').addEventListener('submit', function (e) {
+  e.preventDefault();
+  let service;
+  if (document.getElementById('serviceMode').value === 'dates') {
+    service = FersTool2.serviceFromDates(parseDate('svcStart'), parseDate('svcEnd'));
+  } else {
+    service = {
+      years: +document.getElementById('svcY').value || 0,
+      months: +document.getElementById('svcM').value || 0,
+      days: +document.getElementById('svcD').value || 0
+    };
+  }
+  const r = FersTool2.computeAnnuity({
+    high3: +document.getElementById('high3').value || 0,
+    actualService: service,
+    sickLeaveHours: +document.getElementById('sickHours').value || 0,
+    retirementType: document.getElementById('retType').value,
+    dob: parseDate('dob'),
+    annuityStart: parseDate('annStart'),
+    survivorElection: document.getElementById('survivor').value
+  });
+  const fmt = n => '$' + n.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+  let html = '<h2>Your estimate</h2>' +
+    '<p>Creditable service used: <strong>' + r.creditable.years + ' years, ' + r.creditable.months +
+    ' months</strong> (' + r.creditable.leftoverDays + ' leftover day(s) dropped).</p>' +
+    '<p>Annuity: <strong>' + fmt(r.retireeAnnual) + ' / year</strong> &nbsp;|&nbsp; <strong>' +
+    fmt(r.retireeMonthly) + ' / month</strong></p>';
+  if (r.survivorAnnual > 0) html += '<p>Survivor benefit: <strong>' + fmt(r.survivorAnnual) + ' / year</strong></p>';
+  if (r.sickLeaveMade20) html += '<p class="flag">The 1.1% factor applies because your sick leave brings total service to 20 years (BAL 18-103 position — see note below).</p>';
+  html += '<h3>How it was calculated</h3><ol>' + r.steps.map(s => '<li>' + s + '</li>').join('') + '</ol>';
+  const box = document.getElementById('results');
+  box.innerHTML = html;
+  box.hidden = false;
+});
+</script>
+</body>
+</html>
