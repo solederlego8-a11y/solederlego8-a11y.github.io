@@ -1,27 +1,63 @@
 <!doctype html>
 <html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>SCS評価制度 ★3 26要件ギャップ診断（無料）｜中小企業のサイバー対策</title>
-<meta name="description" content="SCS評価制度（サプライチェーン強化に向けたセキュリティ対策評価制度）★3の要求事項26件を、平易な26の質問で自己点検できる無料診断。7つの分類ごとに不足が見えます。">
+<meta name="description" content="SCS評価制度（サプライチェーン強化に向けたセキュリティ対策評価制度）★3の要求事項26件を、平易な26の質問で自己点検できる無料診断。公式文書SCS-400に基づく項目構成。7つの分類ごとに不足が見えます。">
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-W02HK1VTYF"></script>
 <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-W02HK1VTYF');</script>
-<style>body{font-family:system-ui,sans-serif;max-width:760px;margin:0 auto;padding:24px;line-height:1.8;color:#222}
-h1{font-size:1.5em;line-height:1.4}h2{margin-top:2em;border-bottom:2px solid #0a6}nav a{margin-right:12px}
-.card{border:1px solid #ccc;border-radius:8px;padding:16px;margin:12px 0}.note{background:#f6f6f6;padding:12px;border-radius:6px;font-size:.92em}
-a{color:#0a5}.q{border:1px solid #ddd;border-radius:8px;padding:12px 16px;margin:10px 0}
+<style>
+body{font-family:system-ui,-apple-system,"Hiragino Kaku Gothic ProN",sans-serif;max-width:880px;margin:0 auto;padding:0 20px 40px;line-height:1.85;color:#1d2620;background:#fbfbf9}
+h1{font-size:1.6em;line-height:1.4;margin:.3em 0}h2{margin-top:2em;border-bottom:2px solid #0a6;padding-bottom:.2em;font-size:1.2em}
+nav{padding:16px 0 4px}nav a{margin-right:12px;color:#0a5;text-decoration:none;font-size:.95em}
+a{color:#0a5}
+.hero{background:linear-gradient(135deg,#06402a,#0a6 90%);color:#fff;border-radius:14px;padding:28px 30px;margin-top:10px}
+.hero p{margin:.4em 0}
+.badges{margin-top:10px}.badge{display:inline-block;background:rgba(255,255,255,.16);border:1px solid rgba(255,255,255,.55);color:#fff;border-radius:999px;padding:3px 12px;font-size:.82em;margin:0 6px 6px 0}
+.card{background:#fff;border:1px solid #ccc;border-radius:10px;padding:16px 18px;margin:12px 0}
+.note{background:#f1f1ec;padding:12px 14px;border-radius:8px;font-size:.92em}
+.src{background:#fff;border:1px dashed #0a6;border-radius:10px;padding:14px 18px;font-size:.92em;margin-top:20px}
+.q{background:#fff;border:1px solid #ddd;border-radius:10px;padding:12px 16px;margin:10px 0}
 .q p{margin:4px 0}.req{font-size:.82em;color:#555}
 .q label{display:block;margin:4px 0;cursor:pointer}
-button{background:#0a6;color:#fff;border:0;border-radius:6px;padding:12px 28px;font-size:1em;cursor:pointer}
-.bar{background:#eee;border-radius:4px;height:14px;overflow:hidden}.bar i{display:block;height:100%;background:#0a6}
-.warn{color:#b00;font-weight:bold}table{border-collapse:collapse;width:100%}td,th{border:1px solid #ccc;padding:6px 10px;text-align:left}
+button{background:#0a6;color:#fff;border:0;border-radius:8px;padding:13px 30px;font-size:1.05em;font-weight:bold;cursor:pointer}
+.bar{background:#e6ece7;border-radius:4px;height:14px;overflow:hidden}.bar i{display:block;height:100%;background:#0a6}
+.pbar{background:#e6ece7;border-radius:999px;height:12px;overflow:hidden;margin:6px 0}
+.pbar i{display:block;height:100%;background:#0a6;transition:width .2s}
+.warn{color:#b00;font-weight:bold}
+table{border-collapse:collapse;width:100%;background:#fff}td,th{border:1px solid #c9d4cb;padding:6px 10px;text-align:left}
+th{background:#eef6f1}.small{font-size:.88em;color:#445}
 </style></head><body>
 <nav><a href="index.html">トップ</a><a href="6jo.html">6か条の実装手順</a><a href="compare.html">対策の比較表</a><a href="subsidy.html">補助金の要点</a><a href="checklist.html">無料チェックシート</a></nav>
-<h1>SCS評価制度 ★3 26要件ギャップ診断（無料）</h1>
-<p>経済産業省・IPAの「サプライチェーン強化に向けたセキュリティ対策評価制度（SCS評価制度）」で、★3に求められる<strong>要求事項26件</strong>を、平易な26の質問に置き換えた自己点検ツールです。★3は原則として<strong>全ての要求事項への適合</strong>が必要で、有効期間は1年、登録申請の受付は2027年3月開始予定と公表されています。いまの不足を分類ごとに見えるようにするのが目的です。</p>
-<div class="note"><strong>注意：</strong>この診断は自己評価の予習であり、公式の判定・評価ではありません。実際の適合判断は、公式文書（SCS-400「★3・★4 要求事項・評価基準」、SCS-410「★3・★4 自己評価等ガイド」）と、SCSセキュリティ専門家による確認に基づいて行われます。回答は送信されず、このブラウザの中だけで集計されます。</div>
+
+<div class="hero">
+<p class="small" style="color:#cfe8da;margin:0">経済産業省・IPA「SCS評価制度」★3対応・無料自己点検</p>
+<h1>SCS★3 26要件ギャップ診断</h1>
+<p>★3の要求事項26件を平易な26の質問に置き換えました。7つの分類ごとに、いまの不足が見えます（約5分）。</p>
+<div class="badges">
+<span class="badge">✓ 公式文書 SCS-400 の項目構成に基づく</span>
+<span class="badge">✓ 登録不要・回答は送信されません</span>
+<span class="badge">✓ 2026年11月9日に公式情報で確認</span>
+</div>
+</div>
+
+<p>★3は原則として<strong>全ての要求事項への適合</strong>が必要で、有効期間は1年、登録申請の受付は2027年3月開始予定と公表されています。各質問には、対応する公式の要求事項番号を併記しています。</p>
+<div class="note"><strong>注意：</strong>この診断は自己評価の予習であり、公式の判定・評価ではありません。実際の適合判断は、公式文書（SCS-400「★3・★4 要求事項・評価基準」、SCS-410「★3・★4 自己評価等ガイド」）と、SCSセキュリティ専門家による確認に基づいて行われます。回答はこのブラウザの中だけで集計され、外部に送信されません。</div>
+
+<p><strong>回答の進み具合：<span id="progText">0 / 26</span></strong></p>
+<div class="pbar"><i id="progBar" style="width:0%"></i></div>
+
 <form id="diag"></form>
-<p><button type="button" id="calc">診断する（26件すべてに回答してください）</button></p>
+<p><button type="button" id="calc">診断する</button></p>
 <p id="msg" class="warn"></p>
 <div id="result"></div>
+
+<div class="src"><strong>この診断の根拠（2026年11月9日確認）</strong>
+<ul style="margin:.5em 0">
+<li>項目構成：IPA SCS-400「★3・★4 要求事項・評価基準」（Ver.1.1）の★3 要求事項26件（7大分類・16中分類）</li>
+<li>解説の参照：SCS-620「★3・★4 要求事項・評価基準 解説書」、SCS-410「★3・★4 自己評価等ガイド」</li>
+<li>公式ページ：<a href="https://www.ipa.go.jp/security/scs/requirements-criteria.html">IPA「要求事項・評価基準」</a>／<a href="https://www.ipa.go.jp/security/scs/details.html">IPA「SCS評価制度の詳細情報」</a></li>
+</ul>
+本診断は民間の自己点検ツールであり、IPA・経済産業省の認定・推奨を受けたものではありません。</div>
+
 <script>
 var CATS=[
  {id:1,name:"1. ガバナンスの整備"},
@@ -71,6 +107,12 @@ QS.forEach(function(q,i){
   '<label><input type="radio" name="q'+i+'" value="0"> できていない／分からない</label>';
   form.appendChild(d);
 });
+function updateProgress(){
+  var n=0;QS.forEach(function(q,i){if(form.querySelector('input[name="q'+i+'"]:checked'))n++;});
+  document.getElementById('progText').textContent=n+' / 26';
+  document.getElementById('progBar').style.width=Math.round(n/26*100)+'%';
+}
+form.addEventListener('change',updateProgress);
 function score(vals){
   var per={},done=0,part=0,none=0;
   CATS.forEach(function(c){per[c.id]={n:0,pts:0,gap:0};});
