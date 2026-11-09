@@ -40,6 +40,21 @@ summary{cursor:pointer;font-weight:bold;color:#06402a}
 .cta{background:#06402a;color:#fff;border-radius:12px;padding:20px 22px;text-align:center;margin:26px 0}
 .cta a{display:inline-block;background:#fff;color:#06402a;font-weight:bold;border-radius:8px;padding:10px 26px;text-decoration:none;margin-top:8px}
 .small{font-size:.88em;color:#445}
+.src a{overflow-wrap:anywhere}
+.pnote{display:block;font-size:.72em;font-weight:normal;color:#445}
+@media (max-width:640px){
+  body{padding:0 14px 32px}
+  .hero{padding:24px 18px}h1{font-size:1.45em}h2{font-size:1.15em}
+  nav a{display:inline-block;margin-bottom:4px}
+  table{font-size:.94em}
+  table.items tr:first-child{display:none}
+  table.items tr{display:block;border-bottom:2px solid #0a6;margin-bottom:6px}
+  table.items td{display:block;border:0;border-bottom:1px dotted #c9d4cb}
+  table.items td:first-child{font-weight:bold;background:#eef6f1;color:#06402a}
+  table.prices td:last-child{width:42%}
+  .stat{flex:1 1 40%}
+  .step{flex:1 1 42%}
+}
 </style></head><body>
 <nav><a href="index.html">トップ</a><a href="6jo.html">6か条の実装手順</a><a href="compare.html">対策の比較表</a><a href="subsidy.html">補助金の要点</a><a href="checklist.html">無料チェックシート</a></nav>
 
@@ -83,7 +98,7 @@ summary{cursor:pointer;font-weight:bold;color:#06402a}
 </div>
 
 <h2>パックの中身（9点）</h2>
-<table>
+<table class="items">
 <tr><th style="width:34%">納品物</th><th>内容</th></tr>
 <tr><td>1. 26要件ギャップ診断シート（本診断版）</td><td>26要件ごとに実施状況・根拠資料名・保管場所・担当・期限を記入し、7分類ごとの適合率を自動集計。公式アセスメントシートへの転記対応表つき</td></tr>
 <tr><td>2. 記入例集（PDF）</td><td>モデル企業（従業員30人の製造業＝架空）で、26要件すべてに「不十分な記入例／十分な記入例／根拠資料の例」を対照</td></tr>
@@ -112,11 +127,11 @@ summary{cursor:pointer;font-weight:bold;color:#06402a}
 </div>
 
 <h2>価格</h2>
-<table>
+<table class="prices">
 <tr><th>商品</th><th>価格（税込）</th></tr>
-<tr><td>SCS★3 取得準備パック（本体）</td><td class="price">¥14,800（買い切り）</td></tr>
-<tr><td>「6か条実装キット」購入者のアップグレード</td><td>¥5,000（差額のみ）</td></tr>
-<tr><td>年次更新パック（2028年度版以降・任意）</td><td>¥4,980／年（買い切り型・自動課金なし）</td></tr>
+<tr><td>SCS★3 取得準備パック（本体）</td><td class="price">¥14,800<span class="pnote">買い切り</span></td></tr>
+<tr><td>「6か条実装キット」購入者のアップグレード</td><td class="price">¥5,000<span class="pnote">差額のみ</span></td></tr>
+<tr><td>年次更新パック（2028年度版以降・任意）</td><td class="price">¥4,980<span class="pnote">／年・買い切り型（自動課金なし）</span></td></tr>
 </table>
 <p>別途かかる公式費用の目安：登録料 ¥10,000（2028年3月31日までの割引価格）と、SCSセキュリティ専門家へ確認を依頼する費用です。専門家の登録・公表は2026年12月下旬予定で、費用相場はまだ公表されていません。分からないものは分からないと表示し、総額の見通しを誤解させないようにしています。</p>
 <div class="card"><h3 style="margin-top:.2em">現在の状態</h3>
@@ -143,11 +158,11 @@ summary{cursor:pointer;font-weight:bold;color:#06402a}
 
 <div class="src"><strong>このページの情報源（2026年11月9日確認）</strong>
 <ul style="margin:.5em 0">
-<li>IPA「SCS評価制度」公式ページ：<a href="https://www.ipa.go.jp/security/scs/index.html">https://www.ipa.go.jp/security/scs/index.html</a></li>
-<li>IPA「SCS評価制度の詳細情報」（要求事項26件、評価の流れ、有効期間）：<a href="https://www.ipa.go.jp/security/scs/details.html">https://www.ipa.go.jp/security/scs/details.html</a></li>
-<li>IPA「要求事項・評価基準」（SCS-400／410／620の各文書）：<a href="https://www.ipa.go.jp/security/scs/requirements-criteria.html">https://www.ipa.go.jp/security/scs/requirements-criteria.html</a></li>
-<li>IPA「よくある質問」（登録料、任意制度であること、受付開始時期）：<a href="https://www.ipa.go.jp/security/scs/faq.html">https://www.ipa.go.jp/security/scs/faq.html</a></li>
-<li>経済産業省「サプライチェーン強化に向けたセキュリティ対策評価制度」：<a href="https://www.meti.go.jp/policy/netsecurity/scs.html">https://www.meti.go.jp/policy/netsecurity/scs.html</a></li>
+<li><a href="https://www.ipa.go.jp/security/scs/index.html">IPA「SCS評価制度」公式ページ</a></li>
+<li><a href="https://www.ipa.go.jp/security/scs/details.html">IPA「SCS評価制度の詳細情報」</a>（要求事項26件、評価の流れ、有効期間）</li>
+<li><a href="https://www.ipa.go.jp/security/scs/requirements-criteria.html">IPA「要求事項・評価基準」</a>（SCS-400／410／620の各文書）</li>
+<li><a href="https://www.ipa.go.jp/security/scs/faq.html">IPA「よくある質問」</a>（登録料、任意制度であること、受付開始時期）</li>
+<li><a href="https://www.meti.go.jp/policy/netsecurity/scs.html">経済産業省「サプライチェーン強化に向けたセキュリティ対策評価制度」</a></li>
 </ul>
 本パックは民間の準備支援商品であり、IPA・経済産業省の認定・推奨を受けたものではありません。制度は任意であり、★の取得を取引要件とするかは契約当事者間で決めるものです。</div>
 

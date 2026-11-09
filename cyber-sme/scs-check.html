@@ -25,6 +25,14 @@ button{background:#0a6;color:#fff;border:0;border-radius:8px;padding:13px 30px;f
 .warn{color:#b00;font-weight:bold}
 table{border-collapse:collapse;width:100%;background:#fff}td,th{border:1px solid #c9d4cb;padding:6px 10px;text-align:left}
 th{background:#eef6f1}.small{font-size:.88em;color:#445}
+@media (max-width:640px){
+  body{padding:0 14px 32px}
+  .hero{padding:22px 18px}h1{font-size:1.4em}h2{font-size:1.12em}
+  nav a{display:inline-block;margin-bottom:4px}
+  .q{padding:10px 12px}.q label{line-height:1.65;margin:6px 0}
+  table{font-size:.92em}td,th{padding:5px 7px}
+  button{width:100%}
+}
 </style></head><body>
 <nav><a href="index.html">トップ</a><a href="6jo.html">6か条の実装手順</a><a href="compare.html">対策の比較表</a><a href="subsidy.html">補助金の要点</a><a href="checklist.html">無料チェックシート</a></nav>
 
@@ -137,7 +145,7 @@ document.getElementById('calc').addEventListener('click',function(){
   var r=score(vals);
   if(window.gtag){gtag('event','scs_check_complete',{done:r.done,part:r.part,none:r.none});}
   var html='<h2>診断結果</h2><p>26件のうち、<strong>できている '+r.done+'件／一部 '+r.part+'件／できていない '+r.none+'件</strong>でした。★3は原則として全26件への適合が必要なため、<strong>あと '+r.gap+' 件</strong>が対応対象です（「一部」は、評価基準の粒度では不適合として扱われる可能性があります）。</p>';
-  html+='<table><tr><th>分類</th><th>充足度</th><th>対応が必要な件数</th></tr>';
+  html+='<table><tr><th style="width:44%">分類</th><th style="width:32%">充足度</th><th style="width:24%">要対応</th></tr>';
   CATS.forEach(function(c){var p=r.per[c.id];
     html+='<tr><td>'+c.name+'（'+p.n+'件）</td><td><div class="bar"><i style="width:'+p.rate+'%"></i></div>'+p.rate+'%</td><td>'+p.gap+'件</td></tr>';});
   html+='</table>';
