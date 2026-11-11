@@ -9,6 +9,140 @@ h1{font-size:1.6em;line-height:1.4}h2{margin-top:2em;border-bottom:2px solid #a5
 a{color:#a50}</style></head><body>
 <nav><a href="index.html">トップ</a><a href="measures.html">10の措置とは</a><a href="templates.html">文書テンプレート</a><a href="cost.html">費用の比較</a><a href="checklist.html">無料チェックシート</a></nav>
 <h1>小さな会社のカスハラ対策キット</h1>
+<div class="sim" id="kasuhara-sim">
+<h2 style="margin-top:0;border-bottom:none">30秒シミュレーター：自社の「対策度」をチェック</h2>
+<p style="margin:.4em 0">3ステップの選択だけで、今の対策の到達度と不足項目が分かります。これは簡易版の目安です（項目は令和8年厚生労働省告示第51号にもとづく<a href="checklist.html">無料チェックシート（10項目）</a>から抜粋）。</p>
+<p class="sim-progress" id="sim-progress">ステップ 1 / 3</p>
+<div class="sim-step" id="sim-step1">
+<p class="sim-q">ステップ1：業種は？</p>
+<div class="sim-opts" data-group="industry">
+<button type="button" data-value="飲食店">飲食店</button>
+<button type="button" data-value="小売店">小売店</button>
+<button type="button" data-value="宿泊業">宿泊業</button>
+<button type="button" data-value="介護・医療">介護・医療</button>
+<button type="button" data-value="コールセンター・電話対応中心">コールセンター・電話対応中心</button>
+<button type="button" data-value="その他サービス業">その他サービス業</button>
+</div>
+</div>
+<div class="sim-step" id="sim-step2" hidden>
+<p class="sim-q">ステップ2：従業員の規模は？</p>
+<div class="sim-opts" data-group="size">
+<button type="button" data-value="1〜5人">1〜5人</button>
+<button type="button" data-value="6〜10人">6〜10人</button>
+<button type="button" data-value="11〜30人">11〜30人</button>
+<button type="button" data-value="31人以上">31人以上</button>
+</div>
+<p class="sim-back"><button type="button" class="sim-textbtn" data-back="1">← ステップ1に戻る</button></p>
+</div>
+<div class="sim-step" id="sim-step3" hidden>
+<p class="sim-q">ステップ3：今できている対策にチェックを入れてください（複数可）</p>
+<label class="sim-check"><input type="checkbox" value="policy"> 「毅然と対応し従業員を守る」という会社方針を、文書で明文化している</label>
+<label class="sim-check"><input type="checkbox" value="desk"> 労働者からの相談窓口（担当者名・連絡方法）が決まっている</label>
+<label class="sim-check"><input type="checkbox" value="flow"> 事案が起きたときの対応手順と、「上長に引き継ぐ」「対応を打ち切る」判断基準が決まっている</label>
+<label class="sim-check"><input type="checkbox" value="script"> 電話・対面での言い方スクリプト（打ち切りまでの一連の言い方）がある</label>
+<label class="sim-check"><input type="checkbox" value="record"> 対応の記録を残すシート（いつ・誰が・何を・どう対応したか）がある</label>
+<p><button type="button" class="sim-go" id="sim-show-result">結果を見る（30秒で完了）</button></p>
+<p class="sim-back"><button type="button" class="sim-textbtn" data-back="2">← ステップ2に戻る</button></p>
+</div>
+<div class="sim-step" id="sim-result" hidden>
+<p class="sim-q">結果：<span id="sim-score"></span></p>
+<p id="sim-message"></p>
+<div id="sim-missing-wrap">
+<p style="margin-bottom:.3em"><strong>不足している項目</strong></p>
+<ul id="sim-missing" style="margin-top:.2em"></ul>
+</div>
+<p id="sim-done-note" hidden>5項目すべてにチェックがつきました。骨格は整っています。詳細版で残りの項目（方針の従業員・顧客への周知、プライバシー保護、不利益取扱いの周知など）も確認してください。</p>
+<div class="sim-cta">
+<a class="sim-btn" href="checklist.html" data-cta="checklist">無料チェックシート（10項目）で詳しく確認する</a>
+<a class="sim-btn sub" href="measures.html" data-cta="measures">指針の10の措置を見る</a>
+<a class="sim-btn sub" href="templates.html" data-cta="templates">文書テンプレートを見る</a>
+</div>
+<p class="sim-back"><button type="button" class="sim-textbtn" id="sim-restart">最初からやり直す</button></p>
+<p class="note" style="margin-bottom:0">この結果は簡易版の目安であり、法的な適合性の判断ではありません。対策義務は従業員規模・業種にかかわらず、労働者を雇用するすべての事業主にあります（改正労働施策総合推進法、2026年10月1日施行）。</p>
+</div>
+</div>
+<style>
+.sim{border:2px solid #a50;border-radius:10px;padding:18px;margin:16px 0;background:#fffdf9}
+.sim-progress{font-size:.85em;color:#a50;font-weight:bold;margin:.2em 0 .6em}
+.sim-q{font-weight:bold;margin:.3em 0 .6em}
+.sim-opts{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.sim-opts button{min-height:48px;padding:10px;border:1px solid #a50;border-radius:8px;background:#fff;color:#222;font-size:1em;cursor:pointer}
+.sim-opts button.sel{background:#a50;color:#fff}
+.sim-check{display:block;border:1px solid #ccc;border-radius:8px;padding:10px 12px;margin:8px 0;background:#fff;cursor:pointer}
+.sim-check input{margin-right:8px;transform:scale(1.2)}
+.sim-go{width:100%;min-height:52px;padding:12px;border:none;border-radius:8px;background:#a50;color:#fff;font-size:1.05em;font-weight:bold;cursor:pointer}
+.sim-cta{display:grid;gap:8px;margin-top:14px}
+.sim-btn{display:block;text-align:center;padding:12px;border-radius:8px;background:#a50;color:#fff;text-decoration:none;font-weight:bold;min-height:28px}
+.sim-btn.sub{background:#fff;color:#a50;border:1px solid #a50}
+.sim-textbtn{background:none;border:none;color:#a50;text-decoration:underline;cursor:pointer;font-size:.95em;padding:6px 0}
+.sim-back{margin:.4em 0 0}
+@media (max-width:480px){.sim{padding:14px}.sim-opts{grid-template-columns:1fr}}
+</style>
+<script>
+(function(){
+var answers={industry:null,size:null},started=false;
+var missingInfo={
+policy:{label:"会社方針の明文化",href:"templates.html",text:"方針文のひな形を見る"},
+desk:{label:"相談窓口の設置",href:"measures.html",text:"相談体制の整備のしかたを見る"},
+flow:{label:"対応手順と打ち切り・引き継ぎの判断基準",href:"measures.html",text:"事後対応と抑止措置を見る"},
+script:{label:"言い方スクリプト",href:"templates.html",text:"スクリプトのひな形を見る"},
+record:{label:"対応記録シート",href:"record.html",text:"記録の取り方・残し方を見る"}
+};
+function ev(name,params){if(typeof gtag==="function"){gtag("event",name,params||{});}}
+function show(id,progress){
+["sim-step1","sim-step2","sim-step3","sim-result"].forEach(function(s){document.getElementById(s).hidden=(s!==id);});
+document.getElementById("sim-progress").textContent=progress;
+document.getElementById("kasuhara-sim").scrollIntoView({behavior:"smooth",block:"start"});
+}
+document.querySelectorAll(".sim-opts").forEach(function(group){
+group.addEventListener("click",function(e){
+var btn=e.target.closest("button");if(!btn)return;
+group.querySelectorAll("button").forEach(function(b){b.classList.remove("sel");});
+btn.classList.add("sel");
+var g=group.getAttribute("data-group");answers[g]=btn.getAttribute("data-value");
+if(!started){started=true;ev("sim_start",{sim_name:"kasuhara_check"});}
+if(g==="industry"){show("sim-step2","ステップ 2 / 3");}
+else if(g==="size"){show("sim-step3","ステップ 3 / 3");}
+});
+});
+document.querySelectorAll("[data-back]").forEach(function(b){
+b.addEventListener("click",function(){
+var to=b.getAttribute("data-back");
+if(to==="1"){show("sim-step1","ステップ 1 / 3");}else{show("sim-step2","ステップ 2 / 3");}
+});
+});
+document.getElementById("sim-show-result").addEventListener("click",function(){
+var checked=[],missing=[];
+document.querySelectorAll(".sim-check input").forEach(function(c){
+if(c.checked){checked.push(c.value);}else{missing.push(c.value);}
+});
+var score=checked.length;
+document.getElementById("sim-score").textContent="対策度 "+(score*20)+"%（5項目中 "+score+" 項目）";
+var msg="";
+if(score===5){msg="指針の骨格は整っています。年1回の見直しと記録の管理を続けてください。";}
+else if(score>=3){msg="土台はできています。不足項目を埋めれば骨格が完成します。まず方針文と相談窓口、次に記録シートの順番が早いです。";}
+else{msg="まだ入り口の段階です。まず「10の措置とは」を読み、方針文1枚と相談窓口の決定から始めてください。1週間で基礎は整います。";}
+if(answers.industry||answers.size){msg+="（業種："+(answers.industry||"未選択")+"／規模："+(answers.size||"未選択")+"。義務は規模・業種にかかわらず全事業主共通です）";}
+document.getElementById("sim-message").textContent=msg;
+var ul=document.getElementById("sim-missing");ul.innerHTML="";
+missing.forEach(function(k){var info=missingInfo[k];var li=document.createElement("li");li.innerHTML=info.label+" → <a href=\""+info.href+"\">"+info.text+"</a>";ul.appendChild(li);});
+document.getElementById("sim-missing-wrap").hidden=(missing.length===0);
+document.getElementById("sim-done-note").hidden=(missing.length!==0);
+ev("sim_complete",{sim_name:"kasuhara_check",score:score,industry:answers.industry||"",size:answers.size||""});
+show("sim-result","結果");
+});
+document.querySelectorAll(".sim-btn").forEach(function(a){
+a.addEventListener("click",function(){ev("sim_cta_click",{sim_name:"kasuhara_check",cta:a.getAttribute("data-cta")});});
+});
+document.getElementById("sim-restart").addEventListener("click",function(){
+answers={industry:null,size:null};
+document.querySelectorAll(".sim-opts button").forEach(function(b){b.classList.remove("sel");});
+document.querySelectorAll(".sim-check input").forEach(function(c){c.checked=false;});
+show("sim-step1","ステップ 1 / 3");
+});
+})();
+</script>
+
 <p><strong>結論：2026年10月1日から、カスハラ対策は「努力」ではなく「義務」です。</strong>改正労働施策総合推進法（令和7年法律第63号）により、労働者を1人でも雇用するすべての事業主に、カスタマーハラスメント防止措置が義務づけられました。業種・企業規模による区別はなく、中小企業の経過措置もありません。このサイトは、従業員数名〜30人程度の小さな会社が、指針の求める措置を「どの順番で・何を書いて・誰が見るか」で1週間で整えるための、公式資料にもとづく実装ガイドです。</p>
 <div class="card"><h2>まず押さえる3つの数字（出典つき）</h2>
 <ul>
