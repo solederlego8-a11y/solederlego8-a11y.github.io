@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex">
+<title>無料チェック・試算ツール｜小さな会社の価格転嫁交渉キット</title>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-W02HK1VTYF"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-W02HK1VTYF');</script>
+<style>body{font-family:system-ui,sans-serif;max-width:760px;margin:0 auto;padding:24px;line-height:1.8;color:#222}
+h1{font-size:1.6em;line-height:1.4}h2{margin-top:2em;border-bottom:2px solid #a50}nav a{margin-right:12px}
+.card{border:1px solid #ccc;border-radius:8px;padding:16px;margin:12px 0}.note{background:#f6f6f6;padding:12px;border-radius:6px;font-size:.92em}
+a{color:#a50}.tool{border:2px solid #a50;border-radius:8px;padding:20px;margin:16px 0}
+label{display:block;margin:8px 0}input{padding:8px;width:180px;font-size:1em}
+button{background:#a50;color:#fff;padding:12px 28px;border:none;border-radius:6px;font-size:1.05em;cursor:pointer}
+table{border-collapse:collapse;width:100%}th,td{border:1px solid #ccc;padding:8px;text-align:left}th{background:#f6f6f6}
+.result{font-size:1.1em;font-weight:bold}</style></head><body>
+<nav><a href="index.html">トップ</a><a href="steps.html">交渉の段取り</a><a href="calc.html">原価の棚卸し・試算の考え方</a><a href="letters.html">申入書文例・協議記録</a><a href="checklist.html">無料チェック・試算ツール</a></nav>
+<h1>無料チェック・試算ツール</h1>
+<p>製品・サービスの現行単価と、費目別の1個あたり原価・上昇率を入れると、費目別の影響額と、転嫁率100%・75%・50%の3パターンの試算改定単価が出ます。全国平均の転嫁率54.2%（中小企業庁・2026年3月調査）との比較も表示します。入力した数字はこのブラウザの中だけで計算し、外部に送信されません。</p>
+
+<div class="tool">
+<h2>1. 製品・サービスの基本情報</h2>
+<label>現行単価（1個あたり・円）<input type="number" id="price" min="0" value="1000"></label>
+<label>月間出荷数（個）<input type="number" id="volume" min="0" value="10000"></label>
+
+<h2>2. 費目別の1個あたり原価と上昇率</h2>
+<p>前回の価格決定時から直近までの上昇率を入れてください。分からない費目は0のままで構いません。</p>
+<table>
+<tr><th>費目</th><th>1個あたり原価（円）</th><th>上昇率（%）</th></tr>
+<tr><td>材料費</td><td><input type="number" id="cost0" min="0" value="400"></td><td><input type="number" id="rate0" min="0" step="0.1" value="10"></td></tr>
+<tr><td>労務費</td><td><input type="number" id="cost1" min="0" value="300"></td><td><input type="number" id="rate1" min="0" step="0.1" value="8"></td></tr>
+<tr><td>エネルギー費</td><td><input type="number" id="cost2" min="0" value="100"></td><td><input type="number" id="rate2" min="0" step="0.1" value="10"></td></tr>
+<tr><td>外注費</td><td><input type="number" id="cost3" min="0" value="100"></td><td><input type="number" id="rate3" min="0" step="0.1" value="9"></td></tr>
+<tr><td>物流費</td><td><input type="number" id="cost4" min="0" value="50"></td><td><input type="number" id="rate4" min="0" step="0.1" value="10"></td></tr>
+</table>
+
+<h2>3. 現在の転嫁率（任意）</h2>
+<p>上がったコストのうち、実際に価格に反映できた割合を入れると、全国平均54.2%との比較が表示されます。分からなければ空欄のままで構いません。</p>
+<label>現在の転嫁率（%）<input type="number" id="currentRate" min="0" max="100" step="0.1" placeholder="例：50"></label>
+
+<p><button onclick="calc()">試算する</button></p>
+<div id="out"></div>
+</div>
+
+<script>
+function num(id){var v=parseFloat(document.getElementById(id).value);return isNaN(v)?0:v;}
+function fmt(n){return Math.round(n).toLocaleString('ja-JP');}
+function calc(){
+  var price=num('price'), vol=num('volume');
+  var names=['材料費','労務費','エネルギー費','外注費','物流費'];
+  var totalCost=0, totalUp=0, rows='';
+  for(var i=0;i<5;i++){
+    var c=num('cost'+i), r=num('rate'+i);
+    var up=c*r/100;
+    totalCost+=c; totalUp+=up;
+    rows+='<tr><td>'+names[i]+'</td><td>'+fmt(c)+'円</td><td>'+r+'%</td><td>+'+fmt(up)+'円</td></tr>';
+  }
+  var upRate=price>0?totalUp/price*100:0;
+  var p100=price+totalUp, p75=price+totalUp*0.75, p50=price+totalUp*0.5;
+  var monthly=totalUp*vol;
+  var html='<h2>試算結果</h2>';
+  html+='<table><tr><th>費目</th><th>1個あたり原価</th><th>上昇率</th><th>影響額</th></tr>'+rows;
+  html+='<tr><td><strong>合計</strong></td><td><strong>'+fmt(totalCost)+'円</strong></td><td>—</td><td><strong>+'+fmt(totalUp)+'円</strong></td></tr></table>';
+  html+='<p class="result">1個あたりの上昇額：+'+fmt(totalUp)+'円（現行単価に対する上昇率 '+upRate.toFixed(1)+'%）</p>';
+  html+='<table><tr><th>転嫁率</th><th>試算改定単価</th><th>改定率</th></tr>';
+  html+='<tr><td>100%（満額）</td><td>'+fmt(p100)+'円</td><td>+'+upRate.toFixed(1)+'%</td></tr>';
+  html+='<tr><td>75%</td><td>'+fmt(p75)+'円</td><td>+'+(upRate*0.75).toFixed(1)+'%</td></tr>';
+  html+='<tr><td>50%</td><td>'+fmt(p50)+'円</td><td>+'+(upRate*0.5).toFixed(1)+'%</td></tr></table>';
+  html+='<p class="result">月間影響額：'+fmt(monthly)+'円（1個あたり+'+fmt(totalUp)+'円 × 月間'+fmt(vol)+'個）</p>';
+  html+='<p>「7%上げてください」より、「月間'+fmt(monthly)+'円の負担増が出ています」のほうが、相手の社内で動きます。この月間影響額を申入書に載せてください。</p>';
+  var cr=document.getElementById('currentRate').value;
+  if(cr!==''&&cr!==null){
+    var crn=parseFloat(cr);
+    if(!isNaN(crn)){
+      var diff=(crn-54.2).toFixed(1);
+      var msg=crn>=54.2?'全国平均（54.2%）を'+Math.abs(diff)+'%上回っています。':'全国平均（54.2%）を'+Math.abs(diff)+'%下回っています。';
+      html+='<h2>転嫁率の比較</h2><p class="result">自社の転嫁率 '+crn+'% は、'+msg+'</p>';
+      html+='<p>全額転嫁できた企業は27.2%、転嫁できなかった・マイナスになった企業は16.0%です（中小企業庁・2026年3月調査）。</p>';
+    }
+  }
+  html+='<p>次の価格交渉促進月間は2027年3月です。交渉の段取りは<a href="steps.html">こちら</a>、申入書の文例は<a href="letters.html">こちら</a>をご覧ください。</p>';
+  document.getElementById('out').innerHTML=html;
+}
+</script>
+
+<h2>チェックリスト：交渉の前に確認すること</h2>
+<div class="card">
+<ul>
+<li>□ 製品ごとに、前回の価格決定時から何がいくら上がったかを整理したか</li>
+<li>□ 自社の数字（請求書・検針票・賃金台帳）と公表資料（最低賃金・春闘妥結額・企業物価指数）の両方をそろえたか</li>
+<li>□ 満額（転嫁率100%）と下限（75%・50%）の3パターンを用意したか</li>
+<li>□ 月間影響額を計算したか</li>
+<li>□ 次の価格交渉促進月間（2027年3月）に向けて、2か月前から準備を始めているか</li>
+<li>□ 書面（メールでも可）で協議を申し入れる準備ができているか</li>
+<li>□ 協議の記録を残す型を用意したか</li>
+<li>□ 応じてもらえない場合の相談窓口（よろず支援拠点・下請かけこみ寺など）を確認したか</li>
+</ul>
+</div>
+<div class="note"><p><strong>免責・境界の明記：</strong>このツールは一般的な試算のためのものであり、個別の価格交渉の代行・助言、個別の取引が法律に照らして問題かどうかの判断は行いません。入力した数字はこのブラウザの中だけで計算し、外部に送信されません。最終的な判断は、公正取引委員会・中小企業庁の公表資料、よろず支援拠点・下請かけこみ寺などの相談窓口、または専門家にご確認ください。出典：中小企業庁「価格交渉促進月間（2026年3月）フォローアップ調査結果」（2026年6月26日公表）。</p></div>
+</body></html>
