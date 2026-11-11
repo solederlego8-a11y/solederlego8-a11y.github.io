@@ -1,0 +1,182 @@
+<!doctype html>
+<html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex">
+<title>無料判定ツール｜小さな会社の2割特例終了対応キット</title>
+<style>body{font-family:system-ui,sans-serif;max-width:760px;margin:0 auto;padding:24px;line-height:1.8;color:#222}
+h1{font-size:1.6em;line-height:1.4}h2{margin-top:2em;border-bottom:2px solid #a50}nav a{margin-right:12px}
+table{border-collapse:collapse;width:100%;margin:12px 0}th,td{border:1px solid #ccc;padding:8px;text-align:left;font-size:.95em}
+.card{border:1px solid #ccc;border-radius:8px;padding:16px;margin:12px 0}.note{background:#f6f6f6;padding:12px;border-radius:6px;font-size:.92em}
+a{color:#a50}
+label{display:block;margin:14px 0 4px;font-weight:600}select,input[type=number]{width:100%;max-width:420px;padding:8px;font-size:1em;box-sizing:border-box}
+.hint{font-size:.88em;color:#555;margin:2px 0 0}.radio label{display:inline-block;font-weight:400;margin:4px 16px 4px 0}
+button{margin-top:20px;padding:12px 28px;font-size:1.05em;background:#a50;color:#fff;border:0;border-radius:6px;cursor:pointer}
+.best{background:#fdf3e3}.warn{background:#fdeeee;border:1px solid #d88;border-radius:8px;padding:12px 16px;margin:12px 0}
+ol.steps li{margin:8px 0}</style><script async src="https://www.googletagmanager.com/gtag/js?id=G-W02HK1VTYF"></script><script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-W02HK1VTYF');</script></head><body>
+<nav><a href="index.html">トップ</a><a href="deadline.html">決算月別の期限</a><a href="compare.html">3つの計算方法の比較</a><a href="steps.html">手順と届出</a><a href="checklist.html">無料判定ツール</a></nav>
+<h1>無料判定ツール：最後の特例期間・届出期限・納付額の比較</h1>
+<p>事業形態・決算月・業種・売上にかかる消費税額を入れると、<strong>(1)2割特例を最後に使える課税期間、(2)3割特例の適用可否と簡易課税への移行の届出期限、(3)本則課税・簡易課税・3割特例の納付額の比較、(4)やることの順番</strong>が出ます。会計ソフトで計算する前に「どの方式を選び、いつまでに届け出るか」を決めるためのツールです。計算はこのページの中だけで行われ、入力した内容が外部に送信されることはありません。</p>
+<div class="card">
+<h2>入力</h2>
+<label>事業形態</label>
+<div class="radio">
+<label><input type="radio" name="type" value="ind" checked> 個人事業主</label>
+<label><input type="radio" name="type" value="corp"> 法人</label>
+</div>
+<div id="closeWrap" style="display:none">
+<label for="closeMonth">決算月（法人の場合）</label>
+<select id="closeMonth">
+<option value="1">1月</option><option value="2">2月</option><option value="3" selected>3月</option><option value="4">4月</option><option value="5">5月</option><option value="6">6月</option><option value="7">7月</option><option value="8">8月</option><option value="9">9月</option><option value="10">10月</option><option value="11">11月</option><option value="12">12月</option>
+</select>
+</div>
+<label for="industry">業種（簡易課税のみなし仕入率の区分）</label>
+<select id="industry">
+<option value="0.9">第1種 卸売業（みなし仕入率90%）</option>
+<option value="0.8">第2種 小売業・飲食料品の販売（80%）</option>
+<option value="0.7">第3種 製造業・建設業など（70%）</option>
+<option value="0.6">第4種 飲食店業など（60%）</option>
+<option value="0.5" selected>第5種 サービス業など（50%）</option>
+<option value="0.4">第6種 不動産業（40%）</option>
+</select>
+<p class="hint">区分の詳しい内容は<a href="compare.html">3つの計算方法の比較</a>へ。2つ以上の事業を営む場合は事業ごとに計算が分かれます。</p>
+<label for="scale">基準期間（2年前）の課税売上高の目安</label>
+<select id="scale">
+<option value="le1000" selected>1,000万円以下</option>
+<option value="mid">1,000万円超〜5,000万円以下</option>
+<option value="over">5,000万円超</option>
+<option value="unknown">わからない</option>
+</select>
+<p class="hint">1,000万円を超える年は2割特例が、5,000万円を超える年は簡易課税が使えません（判定結果に注意として表示します）。</p>
+<label for="salesTax">1年分の「売上にかかる消費税額」の目安（円）</label>
+<input type="number" id="salesTax" min="0" step="1000" placeholder="例：480000">
+<p class="hint">直近の申告書の「課税標準額に対する消費税額」が目安です。税込みの売上高しか分からない場合は、税込売上高 × 10/110 が概算になります。空欄でも期限の判定は出ます（金額の比較だけ空欄になります）。</p>
+<label for="purchTax">「仕入れ・経費にかかる消費税額」の目安（円・任意）</label>
+<input type="number" id="purchTax" min="0" step="1000" placeholder="任意入力">
+<p class="hint">入れると、本則課税の納付額の目安（売上税額 − 仕入税額）も比較に出ます。</p>
+<button id="run" type="button">判定する</button>
+</div>
+<div id="result" style="display:none">
+<h2>判定結果</h2>
+<div id="warnings"></div>
+<div class="card"><h3>(1) 2割特例を最後に使える課税期間</h3><p id="r-last"></p></div>
+<div class="card"><h3>(2) 3割特例と、簡易課税への移行の届出期限</h3><p id="r-next"></p></div>
+<div class="card"><h3>(3) 納付額の比較（<span id="r-year"></span>・売上税額が同じ前提の単純比較）</h3>
+<table><tr><th>計算方法</th><th>納める消費税の目安</th><th>備考</th></tr><tbody id="r-rows"></tbody></table>
+<p id="r-cheapest"></p>
+<p class="hint">本則課税は実際の仕入税額で変わります。設備投資などで仕入税額が大きい年は本則課税が有利なことがあり、簡易課税と特例ではふつう還付はありません。計算式と落とし穴は<a href="compare.html">3つの計算方法の比較</a>へ。</p></div>
+<div class="card"><h3>(4) 推奨アクション（この順番で進める）</h3><ol class="steps" id="r-steps"></ol>
+<p class="hint">自分の決算月の行は<a href="deadline.html">決算月別の期限</a>の早見表でも確認できます。届出の進め方は<a href="steps.html">手順と届出</a>へ。</p></div>
+</div>
+<div class="card"><h2>届出の段取りまで済ませたい方へ：届出パック（準備中）</h2>
+<p>判定で「簡易課税を選ぶ」と決まった後の段取り——決算月別の届出スケジュール表、届出書の記入見本、みなし仕入率の業種判定メモ、2年縛り回避チェック、申告前チェックリスト——を1つにまとめた「届出パック」を準備中です。<strong>買い切り4,980円</strong>（2028年3月までの制度変更アップデート込み。月額プランはありません）。</p></div>
+<div class="note"><strong>注意：</strong>このツールは一般的な情報提供であり、個別の税務判断・税務相談・申告の代理を行うものではありません。表示される期限は、申告期限の延長を受けていない場合の目安です（延長を受けている場合は延長後の期限が届出の期限になります）。自分の期間・期限・納付額の最終確認は、顧問税理士、所轄の税務署、または国税庁の公式資料（タックスアンサーNo.6498・No.6505、インボイスQ&amp;A）で行ってください。制度の内容は2026年11月7日時点の公開情報にもとづきます。</div>
+<p><a href="index.html">← トップに戻る</a></p>
+<script>
+function lastDay(y,m){return new Date(y,m,0).getDate();}
+function fmt(y,m,d){return y+"年"+m+"月"+d+"日";}
+function addMonthsEnd(y,m,delta){var nm=m+delta,ny=y;while(nm>12){nm-=12;ny++;}return{y:ny,m:nm,d:lastDay(ny,nm)};}
+function yen(n){return Math.round(n).toLocaleString("ja-JP")+"円";}
+function judge(inp){
+  var st=(inp.salesTax==null||isNaN(inp.salesTax))?null:inp.salesTax;
+  var pt=(inp.purchTax==null||isNaN(inp.purchTax))?null:inp.purchTax;
+  var warnings=[],rows=[],steps=[],cheapest=null;
+  var kaniExcluded=(inp.scale==="over");
+  function honRow(){
+    if(pt==null||st==null)return{name:"本則課税",amount:null,note:"売上税額 − 実際の仕入税額。仕入税額を入力すると目安が出ます"};
+    var v=st-pt;
+    if(v<0)return{name:"本則課税",amount:v,note:"仕入税額が売上税額を上回るため、還付の目安 約"+yen(-v)};
+    return{name:"本則課税",amount:v,note:"売上税額 − 仕入税額（入力値）で計算"};
+  }
+  function kaniRow(){
+    if(kaniExcluded)return{name:"簡易課税",amount:null,excluded:true,note:"基準期間の課税売上高が5,000万円を超える年は使えません"};
+    if(st==null)return{name:"簡易課税",amount:null,note:"売上税額 × "+Math.round((1-inp.rate)*100)+"%（みなし仕入率"+Math.round(inp.rate*100)+"%）"};
+    return{name:"簡易課税",amount:st*(1-inp.rate),note:"売上税額 ×（1 − みなし仕入率"+Math.round(inp.rate*100)+"%）"};
+  }
+  function pickCheapest(){
+    var best=null;
+    rows.forEach(function(r){if(r.excluded||r.ref||r.amount==null)return;if(best==null||r.amount<best.amount)best=r;});
+    return best;
+  }
+  if(inp.scale==="mid")warnings.push("基準期間（2年前）の課税売上高が1,000万円を超える年は、2割特例を使えません。下の「最後の期」は、特例が使えた場合の最後の期です。自分の年が使える年かどうかは、税務署・税理士に確認してください。");
+  if(inp.scale==="over")warnings.push("基準期間の課税売上高が5,000万円を超える年は、簡易課税を使えません（比較表では対象外として表示しています）。また1,000万円を超える年は2割特例も使えません。");
+  if(inp.scale==="unknown")warnings.push("基準期間（2年前）の課税売上高を確認してください。1,000万円を超える年は2割特例が、5,000万円を超える年は簡易課税が使えません。");
+  var res={warnings:warnings,rows:rows,steps:steps};
+  if(inp.type==="ind"){
+    res.lastText="2026年分（2026年1月1日〜12月31日）が最後です。申告期限は2027年3月31日です。"+(st!=null?"その期の納付額の目安は、売上税額×20% ＝ "+yen(st*0.2)+" です。":"");
+    res.nextText="3割特例は使えます（個人事業主のみ・2027年分と2028年分。届出は不要で、申告書に適用を受ける旨を付記するだけです）。簡易課税への移行は、2027年分から使う場合、原則の届出期限は2026年12月31日ですが、2割特例を使った翌年の特例（円滑移行措置）により、2027年分の申告期限である2028年3月31日までに出せば2027年分から簡易課税にできます。2028年分から使う場合は、原則2027年12月31日まで、特例では2029年3月31日まで（2028年分で3割特例を使った場合）です。";
+    res.compareYear="2027年分";
+    rows.push({name:"参考：2割特例（2026年分まで）",ref:true,amount:(st==null?null:st*0.2),note:"最後の期の納付額"});
+    rows.push({name:"3割特例",amount:(st==null?null:st*0.3),note:"届出不要。2027年分・2028年分のみ"});
+    rows.push(kaniRow());
+    rows.push(honRow());
+    steps.push("2026年分は2割特例で申告する（申告期限：2027年3月31日）。"+(st!=null?"納付額の目安は "+yen(st*0.2)+" です。":""));
+    steps.push("上の比較で、2027年分にいちばん安くなる方式を確認する。方式で迷う場合は、会計ソフトの試算ではなく「方式と期限」を先に決めるのが順番です。");
+    steps.push("簡易課税を選ぶ場合は「消費税簡易課税制度選択届出書」を所轄の税務署へ提出する。2027年分からなら特例で2028年3月31日まで（原則は2026年12月31日）。一度選ぶと原則2年間は本則課税に戻れません（2年縛り）。翌年以降の設備投資の予定も見てから決めてください。");
+    steps.push("3割特例を選ぶ場合は届出不要です。2027年分・2028年分の申告書に、適用を受ける旨を付記します。");
+    steps.push("2029年分からは特例がなくなります。簡易課税か本則課税の二択を、原則の届出期限である2028年12月31日までに決めてください。");
+  }else{
+    var M=inp.closeMonth;
+    var endYear=(M>=9)?2026:2027;
+    var startY=(M===12)?endYear:endYear-1;
+    var startM=(M%12)+1;
+    var lastEnd={y:endYear,m:M,d:lastDay(endYear,M)};
+    var lastFile=addMonthsEnd(lastEnd.y,lastEnd.m,2);
+    var nextStartD=new Date(lastEnd.y,lastEnd.m-1,lastEnd.d+1);
+    var nextEnd={y:endYear+1,m:M,d:lastDay(endYear+1,M)};
+    var nextFile=addMonthsEnd(nextEnd.y,nextEnd.m,2);
+    var lastPeriod=fmt(startY,startM,1)+"〜"+fmt(lastEnd.y,lastEnd.m,lastEnd.d)+"（"+endYear+"年"+M+"月期）";
+    var nextPeriod=fmt(nextStartD.getFullYear(),nextStartD.getMonth()+1,nextStartD.getDate())+"〜"+fmt(nextEnd.y,nextEnd.m,nextEnd.d)+"（"+(endYear+1)+"年"+M+"月期）";
+    res.lastText=lastPeriod+" が最後です。申告期限の目安は "+fmt(lastFile.y,lastFile.m,lastFile.d)+" です。"+(st!=null?"その期の納付額の目安は、売上税額×20% ＝ "+yen(st*0.2)+" です。":"");
+    var startedNote=(nextStartD<=inp.today)?"次の期（"+nextPeriod+"）はすでに始まっています。":"";
+    res.nextText="3割特例は法人では使えません（個人事業主のみ）。簡易課税への移行は、次の期（"+nextPeriod+"）から使う場合、原則の届出期限は "+fmt(lastEnd.y,lastEnd.m,lastEnd.d)+"（次の期の初日の前日）ですが、2割特例を使った翌年の特例（円滑移行措置）により、次の期の申告期限の目安である "+fmt(nextFile.y,nextFile.m,nextFile.d)+" までに出せば、次の期から簡易課税にできます。"+startedNote;
+    res.compareYear="次の期（"+(endYear+1)+"年"+M+"月期）";
+    rows.push({name:"参考：2割特例（最後の期まで）",ref:true,amount:(st==null?null:st*0.2),note:"最後の期の納付額"});
+    rows.push(kaniRow());
+    rows.push(honRow());
+    steps.push("最後の2割特例期間（"+lastPeriod+"）を、申告期限の目安 "+fmt(lastFile.y,lastFile.m,lastFile.d)+" までに2割で申告する。"+(st!=null?"納付額の目安は "+yen(st*0.2)+" です。":""));
+    steps.push("上の比較で、次の期（"+(endYear+1)+"年"+M+"月期）にいちばん安くなる方式を確認する。");
+    steps.push("簡易課税を選ぶ場合は「消費税簡易課税制度選択届出書」を所轄の税務署へ提出する。原則の期限は "+fmt(lastEnd.y,lastEnd.m,lastEnd.d)+" ですが、特例で "+fmt(nextFile.y,nextFile.m,nextFile.d)+" まで出せます。一度選ぶと原則2年間は本則課税に戻れません（2年縛り）。");
+    steps.push("申告期限の延長を受けている法人は、延長後の期限が届出の期限になります。個別の期限は税務署・税理士に確認してください。");
+  }
+  cheapest=pickCheapest();
+  res.cheapestText=(st==null)?"売上税額を入力すると、金額での比較と「いちばん安い方式」が出ます。":(cheapest?("試算上いちばん安いのは「"+cheapest.name+"」です。ただし売上や仕入の構成が変わると順位は変わります。最終判断の前に、税理士・税務署で確認してください。"):"");
+  return res;
+}
+if(typeof document!=="undefined"){
+  document.querySelectorAll('input[name="type"]').forEach(function(r){
+    r.addEventListener("change",function(){
+      document.getElementById("closeWrap").style.display=(document.querySelector('input[name="type"]:checked').value==="corp")?"block":"none";
+    });
+  });
+  document.getElementById("run").addEventListener("click",function(){
+    var type=document.querySelector('input[name="type"]:checked').value;
+    var sv=document.getElementById("salesTax").value, pv=document.getElementById("purchTax").value;
+    var inp={type:type,closeMonth:parseInt(document.getElementById("closeMonth").value,10),
+      rate:parseFloat(document.getElementById("industry").value),
+      scale:document.getElementById("scale").value,
+      salesTax:(sv===""?null:parseFloat(sv)),purchTax:(pv===""?null:parseFloat(pv)),today:new Date()};
+    var res=judge(inp);
+    var w=document.getElementById("warnings");w.innerHTML="";
+    res.warnings.forEach(function(t){var d=document.createElement("div");d.className="warn";d.textContent=t;w.appendChild(d);});
+    document.getElementById("r-last").textContent=res.lastText;
+    document.getElementById("r-next").textContent=res.nextText;
+    document.getElementById("r-year").textContent=res.compareYear;
+    var tb=document.getElementById("r-rows");tb.innerHTML="";
+    var bestName=null,bestAmt=null;
+    res.rows.forEach(function(r){if(!r.excluded&&!r.ref&&r.amount!=null&&(bestAmt==null||r.amount<bestAmt)){bestAmt=r.amount;bestName=r.name;}});
+    res.rows.forEach(function(r){
+      var tr=document.createElement("tr");
+      if(bestName===r.name)tr.className="best";
+      var td1=document.createElement("td");td1.textContent=r.name;
+      var td2=document.createElement("td");td2.textContent=(r.amount==null?"―":(r.amount<0?"還付の目安 約"+yen(-r.amount):yen(r.amount)));
+      var td3=document.createElement("td");td3.textContent=r.note;
+      tr.appendChild(td1);tr.appendChild(td2);tr.appendChild(td3);tb.appendChild(tr);
+    });
+    document.getElementById("r-cheapest").textContent=res.cheapestText;
+    var ol=document.getElementById("r-steps");ol.innerHTML="";
+    res.steps.forEach(function(t){var li=document.createElement("li");li.textContent=t;ol.appendChild(li);});
+    document.getElementById("result").style.display="block";
+    document.getElementById("result").scrollIntoView({behavior:"smooth"});
+  });
+}
+</script>
+</body></html>
