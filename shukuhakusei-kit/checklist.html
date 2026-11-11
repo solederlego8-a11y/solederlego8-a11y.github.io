@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex">
+<title>無料試算ツール｜小さな宿の宿泊税対応キット</title>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-W02HK1VTYF"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-W02HK1VTYF');</script>
+<style>body{font-family:system-ui,sans-serif;max-width:760px;margin:0 auto;padding:24px;line-height:1.8;color:#222}
+h1{font-size:1.6em;line-height:1.4}h2{margin-top:2em;border-bottom:2px solid #a50}nav a{margin-right:12px}
+.card{border:1px solid #ccc;border-radius:8px;padding:16px;margin:12px 0}.note{background:#f6f6f6;padding:12px;border-radius:6px;font-size:.92em}
+a{color:#a50}.tool{border:2px solid #a50;border-radius:8px;padding:20px;margin:16px 0}
+label{display:block;margin:12px 0 4px}select,input{font-size:1em;padding:8px;width:100%;max-width:320px}
+button{background:#a50;color:#fff;border:0;padding:12px 28px;border-radius:6px;font-size:1.05em;cursor:pointer}
+#result{font-size:1.15em;font-weight:bold;margin-top:16px}#detail{margin-top:8px}</style></head><body>
+<nav><a href="index.html">トップ</a><a href="rates.html">自治体別早見表</a><a href="steps.html">登録と申告の手順</a><a href="ota.html">OTA・民泊の計算</a><a href="checklist.html">無料試算ツール</a></nav>
+<h1>無料試算ツール：宿泊税の税額を試算する</h1>
+<p>自治体と1人1泊の宿泊料金（税抜）、宿泊人数を入れるだけで、1人あたりの税額と合計税額が出ます。料金表示やゲストへの案内を見直す前に、まず自施設の税額を確認してください。税額は1人1泊あたり、宿泊料金は税抜きで計算します。京都市のように「1室いくら」の料金の場合は、清掃料などを含めた金額を宿泊人数で割った1人あたりの額を入れてください（OTAの手数料は差し引かないのが基本です）。</p>
+<div class="tool">
+<label for="area">自治体</label>
+<select id="area">
+<option value="tokyo_now">東京都（現行・2027年3月31日まで）</option>
+<option value="tokyo_2027">東京都（2027年4月1日〜・定率3%）</option>
+<option value="kyoto">京都市（2026年3月1日〜）</option>
+<option value="osaka">大阪府（2025年9月1日〜）</option>
+<option value="hokkaido">北海道（2026年4月〜）</option>
+<option value="sapporo">札幌市＋北海道（2026年4月1日〜）</option>
+<option value="miyagi">宮城県（2026年1月13日〜）</option>
+<option value="okinawa">沖縄県（2027年2月1日予定・定率2%）</option>
+<option value="oita">大分県（2027年1月以降予定）</option>
+<option value="nagasaki">長崎市（2027年4月1日予定）</option>
+</select>
+<label for="price">1人1泊の宿泊料金（税抜・円）</label>
+<input id="price" type="number" min="0" step="1" value="15000">
+<label for="people">宿泊人数（人）</label>
+<input id="people" type="number" min="1" step="1" value="2">
+<br><br><button onclick="calc()">税額を試算する</button>
+<div id="result"></div>
+<div id="detail"></div>
+</div>
+<script>
+var RATES={
+tokyo_now:{name:"東京都（現行・2027年3月31日まで）",type:"fixed",bands:[[0,9999,0],[10000,14999,100],[15000,999999999,200]]},
+tokyo_2027:{name:"東京都（2027年4月1日〜・定率3%）",type:"rate",rate:0.03,exempt:13000,cap:null},
+kyoto:{name:"京都市（2026年3月1日〜）",type:"fixed",bands:[[0,5999,200],[6000,19999,400],[20000,49999,1000],[50000,99999,4000],[100000,999999999,10000]]},
+osaka:{name:"大阪府（2025年9月1日〜）",type:"fixed",bands:[[0,4999,0],[5000,14999,200],[15000,19999,400],[20000,999999999,500]]},
+hokkaido:{name:"北海道（2026年4月〜）",type:"fixed",bands:[[0,19999,100],[20000,49999,200],[50000,999999999,500]]},
+sapporo:{name:"札幌市＋北海道（2026年4月1日〜）",type:"fixed",bands:[[0,19999,300],[20000,49999,400],[50000,999999999,1000]]},
+miyagi:{name:"宮城県（2026年1月13日〜）",type:"fixed",bands:[[0,5999,0],[6000,999999999,300]]},
+okinawa:{name:"沖縄県（2027年2月1日予定・定率2%）",type:"rate",rate:0.02,exempt:0,cap:2000},
+oita:{name:"大分県（2027年1月以降予定）",type:"fixed",bands:[[0,4999,100],[5000,19999,200],[20000,99999,500],[100000,999999999,2000]]},
+nagasaki:{name:"長崎市（2027年4月1日予定）",type:"fixed",bands:[[0,5999,100],[6000,19999,300],[20000,999999999,500]]}
+};
+function calcTax(key,price){
+var r=RATES[key];
+if(r.type==="fixed"){
+for(var i=0;i<r.bands.length;i++){var b=r.bands[i];if(price>=b[0]&&price<=b[1])return b[2];}
+return 0;
+}
+if(price<r.exempt)return 0;
+var t=Math.floor(price*r.rate);
+if(r.cap!==null&&t>r.cap)t=r.cap;
+return t;
+}
+function calc(){
+var key=document.getElementById("area").value;
+var price=parseInt(document.getElementById("price").value,10);
+var people=parseInt(document.getElementById("people").value,10);
+if(isNaN(price)||price<0){document.getElementById("result").textContent="宿泊料金を0円以上で入力してください。";document.getElementById("detail").textContent="";return;}
+if(isNaN(people)||people<1){document.getElementById("result").textContent="宿泊人数を1人以上で入力してください。";document.getElementById("detail").textContent="";return;}
+var per=calcTax(key,price);
+var total=per*people;
+var r=RATES[key];
+document.getElementById("result").textContent=r.name+"：1人あたり "+per.toLocaleString()+"円 × "+people+"人 ＝ 合計 "+total.toLocaleString()+"円（1泊あたり）";
+var d="1人1泊の宿泊料金（税抜）"+price.toLocaleString()+"円で計算しました。";
+if(r.type==="rate"){d+=" 定率制のため、端数処理は自治体の手引きで確認してください（このツールでは切り捨てで計算しています）。";}
+if(key==="okinawa"){d+=" 沖縄県の免税点は、確認できた範囲では記載がなく、0円として計算しています。最新の条例で確認してください。";}
+if(key==="tokyo_2027"){d+=" 2027年4月1日から、簡易宿所・特区民泊・新法民泊も課税対象に加わります。登録は2026年12月末までの案内です。";}
+document.getElementById("detail").textContent=d;
+}
+</script>
+<div class="card"><h2>境界値の確認に使えます</h2>
+<ul>
+<li>東京都（現行）：9,999円→0円、10,000円→100円、14,999円→100円、15,000円→200円。</li>
+<li>東京都（2027年4月1日〜）：12,999円→0円、13,000円→390円（3%）。</li>
+<li>京都市：5,999円→200円、6,000円→400円、19,999円→400円、20,000円→1,000円、99,999円→4,000円、100,000円→10,000円。</li>
+<li>大阪府：4,999円→0円、5,000円→200円。</li>
+<li>札幌市＋北海道：19,999円→300円、20,000円→400円、49,999円→400円、50,000円→1,000円。</li>
+<li>宮城県：5,999円→0円、6,000円→300円。</li>
+</ul></div>
+<div class="card"><h2>宿泊税対応パック（買い切り・2027年6月までの更新込み）¥4,980</h2>
+<p>無料ツールとこのサイトの早見表・手順で足りない場合に、自治体別早見表（主要自治体の税額・免税点・申告期限）、特別徴収義務者の登録手順書、毎月の申告・納入手順書（納入申告書の書き方・月計表の作り方）、OTA料金からの税額計算の考え方（京都の人数割り・OTA手数料の扱い・Airbnbの代理徴収との二重申告回避）、宿泊者への案内文のひな形、帳簿処理の手順（預り金としての管理・消費税との切り分け）を1つのパックにまとめたものです。買い切りで、2027年6月までの更新（新規導入自治体の追加・税率改定の追従）が含まれます。個別の税務判断・申告の代理は行いません。最終判断は税理士・税務署で確認してください。価格は自社設定予定価格です。</p></div>
+<div class="note"><p>このツールは一般的な情報提供です。個別の税務判断・申告の代理は行わず、最終判断は税理士・税務署で確認してください。税額・免税点は改正されることがあります。最新の内容は、必ず各自治体の公式サイトで確認してください。定率制（東京都2027年4月1日〜・沖縄県2027年2月1日予定）の端数処理は未確認のため、このツールでは切り捨てで計算しています。沖縄県の免税点は、確認できた範囲では記載がなく、0円として計算しています。</p></div>
+</body></html>
