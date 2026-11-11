@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex">
+<title>無料チェックツール｜小さな免税店のリファンド方式対応キット</title>
+<style>body{font-family:system-ui,sans-serif;max-width:760px;margin:0 auto;padding:24px;line-height:1.8;color:#222}
+h1{font-size:1.6em;line-height:1.4}h2{margin-top:2em;border-bottom:2px solid #a50}nav a{margin-right:12px}
+.card{border:1px solid #ccc;border-radius:8px;padding:16px;margin:12px 0}.note{background:#f6f6f6;padding:12px;border-radius:6px;font-size:.92em}
+a{color:#a50}.tool{border:2px solid #a50;border-radius:8px;padding:20px;margin:16px 0}
+button{background:#a50;color:#fff;border:0;padding:12px 28px;border-radius:6px;font-size:1.05em;cursor:pointer}
+.q{margin:14px 0}.q p{margin:4px 0}.q label{margin-right:14px}
+input[type=number]{padding:8px;font-size:1em;width:180px}
+.result{border:2px solid #a50;border-radius:8px;padding:16px;margin:16px 0;display:none}
+.result.bad{border-color:#c00}.warn{color:#c00;font-weight:bold}</style><script async src="https://www.googletagmanager.com/gtag/js?id=G-W02HK1VTYF"></script><script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-W02HK1VTYF');</script></head><body>
+<nav><a href="index.html">トップ</a><a href="changes.html">何が変わったか</a><a href="steps.html">販売と返金の流れ</a><a href="permit.html">許可の確認と手続</a><a href="checklist.html">無料チェックツール</a></nav>
+<h1>無料チェックツール：自店の対応状況と返金額の試算</h1>
+<p>6つの質問に答えるだけで、自店の許可・届出・POS・返金の対応状況が分かります。あわせて、税込価格から返金する消費税相当額を試算できます。運用を始める前に、どこが未対応かを確認するためのツールです。個別の税務判断・申告の代理は行いません。最終判断は税理士・税務署で確認してください。</p>
+
+<div class="tool"><h2>（1）対応状況のチェック：6つの質問</h2>
+<div class="q"><p><strong>Q1.</strong> 「購入記録情報の提供方法等の届出書」を2026年10月31日までに提出しましたか？</p>
+<label><input type="radio" name="q1" value="yes"> はい</label><label><input type="radio" name="q1" value="no"> いいえ</label><label><input type="radio" name="q1" value="unknown"> わからない</label></div>
+<div class="q"><p><strong>Q2.</strong> POS・レジはリファンド方式（税込販売・購入記録の送信）に対応していますか？</p>
+<label><input type="radio" name="q2" value="yes"> はい</label><label><input type="radio" name="q2" value="no"> いいえ</label><label><input type="radio" name="q2" value="unknown"> わからない</label></div>
+<div class="q"><p><strong>Q3.</strong> 返金の方法（銀行振込・クレジットカード送金・アプリ送金・現金返金など）を決めましたか？自社で行うか委託するかも決めましたか？</p>
+<label><input type="radio" name="q3" value="yes"> はい</label><label><input type="radio" name="q3" value="no"> いいえ</label><label><input type="radio" name="q3" value="unknown"> わからない</label></div>
+<div class="q"><p><strong>Q4.</strong> 購入記録情報の送信と税関確認情報の取得の方法（自社システムか承認送受信事業者か）を決めましたか？</p>
+<label><input type="radio" name="q4" value="yes"> はい</label><label><input type="radio" name="q4" value="no"> いいえ</label><label><input type="radio" name="q4" value="unknown"> わからない</label></div>
+<div class="q"><p><strong>Q5.</strong> 購入記録情報と税関確認情報の保存方法（7年間）を決めましたか？</p>
+<label><input type="radio" name="q5" value="yes"> はい</label><label><input type="radio" name="q5" value="no"> いいえ</label><label><input type="radio" name="q5" value="unknown"> わからない</label></div>
+<div class="q"><p><strong>Q6.</strong> 店員向けの手順書（税込販売・旅券の確認・返金方法の案内）を見直しましたか？（特殊包装の手順は廃止されました）</p>
+<label><input type="radio" name="q6" value="yes"> はい</label><label><input type="radio" name="q6" value="no"> いいえ</label><label><input type="radio" name="q6" value="unknown"> わからない</label></div>
+<button id="checkBtn" type="button">対応状況を判定する</button>
+<div id="checkResult" class="result"></div>
+</div>
+
+<div class="tool"><h2>（2）返金額の試算：税込価格から消費税相当額を出す</h2>
+<p>税込価格を入れると、返金する消費税相当額（税込価格に含まれる消費税）と税抜価格が出ます。10%の商品（一般物品など）と8%の商品（飲食料品など）で計算が変わります。例：税込10,000円の10%の商品なら、消費税相当額は909円です。</p>
+<p>税込価格（円）：<input id="price" type="number" min="0" step="1" placeholder="例：10000"></p>
+<p>税率：
+<label><input type="radio" name="rate" value="10" checked> 10%</label>
+<label><input type="radio" name="rate" value="8"> 8%（飲食料品など）</label></p>
+<button id="calcBtn" type="button">返金額を試算する</button>
+<div id="calcResult" class="result"></div>
+</div>
+
+<div class="card"><h2>リファンド方式対応パック（買い切り・2027年6月までの更新込み）¥4,980</h2>
+<p>無料ツールとこのサイトの早見表・手順で足りない場合に、許可・届出の確認シート、POS改修の確認リスト、返金手続きの運用手順書、経理処理の振替手順、店員向け手順書のひな形、購入記録情報の項目チェック表を1つのパックにまとめたものです。買い切りで、2027年6月までの更新（国税庁Q&amp;Aの改訂・返金の運用事例の追従）が含まれます。個別の税務判断・申告の代理は行いません。最終判断は税理士・税務署で確認してください。価格は自社設定予定価格です。</p></div>
+<div class="note"><p>このサイトは一般的な情報提供です。個別の税務判断・申告の代理は行わず、最終判断は税理士・税務署で確認してください。数字の出典は各ページに記載しています。</p></div>
+<script>
+function val(name){var els=document.getElementsByName(name);for(var i=0;i<els.length;i++){if(els[i].checked)return els[i].value;}return null;}
+function fmt(n){return n.toLocaleString('ja-JP');}
+var items={
+ q1:{label:'Q1 届出の提出（許可の有効性）',fix:'最優先：所轄税務署に自店の許可が有効かを確認してください。届出を出していなければ、10月31日で許可の効力を失っています。新たに許可を受ける手続が必要です。詳しくは「許可の確認と手続」を参照してください。'},
+ q2:{label:'Q2 POS・レジのリファンド方式対応',fix:'システム会社に、税込販売・購入記録の送信・税関確認情報の取得・課税売上げから免税売上げへの振替に対応しているか確認してください。未対応なら直ちに整えます。'},
+ q3:{label:'Q3 返金の方法の決定',fix:'返金の方法（銀行振込・クレジットカード送金・アプリ送金・出国港内での現金返金など）と、自社で行うか返金事業者に委託するかを決めてください。返金の方法は法令に定めがないため、店が決めます。'},
+ q4:{label:'Q4 購入記録の送信と税関確認情報の取得の方法',fix:'購入記録情報の送信と税関確認情報の取得の方法（自社システムか承認送受信事業者か）を決めてください。誤りや入力漏れがあると税関確認ができません。'},
+ q5:{label:'Q5 購入記録情報と税関確認情報の保存',fix:'購入記録情報と税関確認情報の保存方法を決めてください。保存がないと免税は適用されません。保存期間は、販売した課税期間の末日の翌日から2か月を過ぎた日から7年間です。'},
+ q6:{label:'Q6 店員向け手順書の見直し',fix:'店員向けの手順書を見直してください。特殊包装の要件は廃止されたため、古い手順書（「食品は袋に詰めて封をする」など）のままでは混乱します。税込販売・旅券の確認・返金方法の案内を盛り込みます。'}
+};
+document.getElementById('checkBtn').addEventListener('click',function(){
+ var keys=['q1','q2','q3','q4','q5','q6'],missing=[],open=[];
+ for(var i=0;i<keys.length;i++){var v=val(keys[i]);if(!v){missing.push('Q'+(i+1));}else if(v!=='yes'){open.push(keys[i]);}}
+ var r=document.getElementById('checkResult');r.style.display='block';
+ if(missing.length){r.className='result bad';r.innerHTML='<p class="warn">未回答の質問があります：'+missing.join('、')+'。すべての質問に答えてください。</p>';return;}
+ if(open.length===0){r.className='result';r.innerHTML='<p><strong>対応は整っています。</strong>6項目すべて「はい」でした。返金の運用と保存の継続を確認しながら、運用を続けてください。国税庁Q&amp;Aの改訂があれば、手順書に反映します。</p>';return;}
+ var html='<p class="warn"><strong>未対応の項目が'+open.length+'件あります。</strong></p><ol>';
+ var permitLost=(val('q1')!=='yes');
+ if(permitLost){html+='<li><strong>'+items.q1.label+'：最優先</strong><br>'+items.q1.fix+'</li>';}
+ for(var j=0;j<open.length;j++){if(open[j]==='q1')continue;html+='<li><strong>'+items[open[j]].label+'</strong><br>'+items[open[j]].fix+'</li>';}
+ html+='</ol><p>未対応の項目から順に対応し、対応が済んだら再度このツールで確認してください。</p>';
+ r.className='result bad';r.innerHTML=html;
+});
+document.getElementById('calcBtn').addEventListener('click',function(){
+ var p=Number(document.getElementById('price').value);
+ var rate=Number(val('rate'));
+ var r=document.getElementById('calcResult');r.style.display='block';
+ if(!p||p<=0){r.className='result bad';r.innerHTML='<p class="warn">税込価格を正の数で入力してください。</p>';return;}
+ var tax=Math.floor(p*rate/(100+rate));
+ var net=p-tax;
+ r.className='result';
+ var warn='';
+ if(net<5000){warn='<p class="warn">注意：税抜価格が5,000円未満のため、この購入は免税の対象になりません（同一店舗・1日の購入額が税抜5,000円以上であることが条件です）。</p>';}
+ r.innerHTML='<p>税込価格 '+fmt(p)+' 円（税率'+rate+'%）の場合：</p><ul><li><strong>返金する消費税相当額：'+fmt(tax)+' 円</strong></li><li>税抜価格：'+fmt(net)+' 円</li></ul>'+warn+'<p>税関の確認後に、この消費税相当額を旅行者に返金します。税関確認の前に返金（事前返金）することも可能ですが、旅行者が出国時に税関の確認を受けなかった場合は免税の適用を受けられず、返金後の販売金額による課税販売になります。</p>';
+});
+</script>
+</body></html>
