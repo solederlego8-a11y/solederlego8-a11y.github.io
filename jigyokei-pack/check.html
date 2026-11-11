@@ -1,0 +1,177 @@
+<!doctype html>
+<html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>ジギョケイ間に合うかチェック｜補助金・税制の締切から逆算</title>
+<meta name="description" content="事業継続力強化計画（ジギョケイ）の認定が、狙う補助金や税制の締切に間に合うかを無料で判定します。審査約45日とGビズID取得約2週間から、あなたの申請期限日を日付で表示します。">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-W02HK1VTYF"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-W02HK1VTYF');</script>
+<style>
+body{font-family:system-ui,sans-serif;max-width:760px;margin:0 auto;padding:24px;line-height:1.8;color:#222}
+h1{font-size:1.5em;line-height:1.4}h2{margin-top:1.6em;border-bottom:2px solid #1F3864;padding-bottom:4px}
+nav a{margin-right:12px}a{color:#1F3864}
+.card{border:1px solid #ccc;border-radius:8px;padding:16px;margin:12px 0}
+.note{background:#f6f6f6;padding:12px;border-radius:6px;font-size:.92em}
+fieldset{border:1px solid #ccc;border-radius:8px;margin:12px 0;padding:12px 16px}
+legend{font-weight:bold;padding:0 6px}
+label{display:block;margin:6px 0}
+input[type=date],select{font-size:1em;padding:6px;margin:4px 0}
+button{font-size:1.05em;padding:12px 20px;background:#1F3864;color:#fff;border:none;border-radius:8px;cursor:pointer;width:100%}
+.badge{display:inline-block;font-weight:bold;font-size:1.15em;padding:8px 14px;border-radius:8px;margin:8px 0}
+.ok{background:#e2efda;color:#375623}.tight{background:#fff2cc;color:#7f6000}.ng{background:#fbe0e0;color:#8c1d1d}.done{background:#dce6f1;color:#1F3864}
+.big{font-size:1.3em;font-weight:bold}
+footer{margin-top:3em;font-size:.88em;color:#555}
+@media(max-width:480px){body{padding:16px}}
+</style></head><body>
+<nav><a href="index.html">パックのご案内</a><a href="check.html">間に合うかチェック（無料）</a></nav>
+<h1>ジギョケイ間に合うかチェック（無料・登録不要）</h1>
+<p>事業継続力強化計画（ジギョケイ）の認定には、申請から<strong>標準で約45日</strong>かかります。補助金の加点は「申請中」では受けられず、締切時点で認定済みであることが条件です。このチェックでは、あなたの状況から<strong>申請期限の目安日</strong>を日付で判定します。</p>
+
+<form id="checkForm">
+<fieldset><legend>Q1. 認定の状況は？</legend>
+<label><input type="radio" name="status" value="none" checked> まだ申請していない</label>
+<label><input type="radio" name="status" value="applied"> 申請中（申請日：<input type="date" id="appliedDate">）</label>
+<label><input type="radio" name="status" value="certified"> 認定済み（実施期間の終了月：<input type="month" id="periodEnd">）</label>
+<label><input type="radio" name="status" value="expired"> 以前取ったが実施期間が終わった</label>
+</fieldset>
+
+<fieldset><legend>Q2. 狙っているものは？</legend>
+<select id="target">
+<option value="jizokuka">小規模事業者持続化補助金</option>
+<option value="other">ものづくり・新事業進出／省力化投資／事業承継・M&A 等の補助金</option>
+<option value="tax">防災設備の税制（特別償却16%）だけ</option>
+<option value="undecided">まだ決めていない（認定だけ先に取りたい）</option>
+</select>
+</fieldset>
+
+<fieldset><legend>Q3. その締切日は？</legend>
+<input type="date" id="deadline">
+<p class="note" id="presetNote">プリセット：持続化補助金 第20回 申請締切 2026年12月15日（公募要領で確認・2026年11月11日時点）。回の異なる公募を狙う場合は、最新の公募要領の締切日に直してください。税制を選んだ場合は 2027年3月31日（認定分の期限）が自動で入ります。</p>
+</fieldset>
+
+<fieldset><legend>Q4. GビズID（プライム）はありますか？</legend>
+<label><input type="radio" name="gbiz" value="yes"> ある</label>
+<label><input type="radio" name="gbiz" value="applying"> 申請中</label>
+<label><input type="radio" name="gbiz" value="no" checked> ない・分からない</label>
+</fieldset>
+
+<fieldset><legend>Q5. 防災・減災設備の購入予定は？</legend>
+<label><input type="radio" name="equip" value="yes"> ある</label>
+<label><input type="radio" name="equip" value="no" checked> ない・分からない</label>
+</fieldset>
+
+<button type="submit">判定する</button>
+</form>
+
+<div id="result" class="card" style="display:none"></div>
+
+<div class="note">
+<p><strong>判定の根拠</strong>：審査の標準処理期間 約45日、GビズID取得 約2週間（いずれも中小企業庁の案内）。余裕として7日を見ています。この判定は目安であり、認定・加点を保証するものではありません。対象補助金と条件は公募回ごとに変わります。必ず最新の公募要領をご確認ください。</p>
+<p>無料の支援もあります：中小機構の専門家派遣（無料）や、地域の商工会・商工会議所でも策定の相談ができます。締切が決まっていて、今すぐ自分のペースで下書きを進めたい方には、<a href="index.html">ジギョケイ取得準備パック</a>があります。</p>
+</div>
+
+<footer>
+<p>出典：中小企業庁「事業継続力強化計画」「事業継続力強化計画の申請方法等について」／各補助金の公募要領（2026年11月11日確認）。本ページは中小企業庁・経済産業省の公式ページではありません。</p>
+</footer>
+
+<script>
+var PRESET = {jizokuka: "2026-12-15", tax: "2027-03-31"};
+var form = document.getElementById('checkForm');
+var targetSel = document.getElementById('target');
+var deadlineInput = document.getElementById('deadline');
+deadlineInput.value = PRESET.jizokuka;
+targetSel.addEventListener('change', function(){
+  if (PRESET[targetSel.value]) { deadlineInput.value = PRESET[targetSel.value]; }
+});
+function parseDate(v){ if(!v) return null; var p=v.split('-'); return new Date(+p[0], +p[1]-1, +p[2]); }
+function fmt(d){ return d.getFullYear() + "年" + (d.getMonth()+1) + "月" + d.getDate() + "日"; }
+function addDays(d, n){ var x = new Date(d.getTime()); x.setDate(x.getDate()+n); return x; }
+form.addEventListener('submit', function(e){
+  e.preventDefault();
+  var status = form.querySelector('input[name=status]:checked').value;
+  var gbiz = form.querySelector('input[name=gbiz]:checked').value;
+  var equip = form.querySelector('input[name=equip]:checked').value;
+  var deadline = parseDate(deadlineInput.value);
+  var today = new Date(); today.setHours(0,0,0,0);
+  var box = document.getElementById('result');
+  var html = "", judge = "";
+  if (!deadline && status !== 'certified') {
+    box.style.display = 'block';
+    box.innerHTML = "<p>Q3の締切日を入力してください。狙う公募の締切日が未定の場合は、目標にする日付を仮に入れて試算できます。</p>";
+    return;
+  }
+  if (status === 'certified') {
+    var pe = document.getElementById('periodEnd').value;
+    var periodEnd = null;
+    if (pe) { var pp = pe.split('-'); periodEnd = new Date(+pp[0], +pp[1], 0); }
+    if (periodEnd && deadline && periodEnd >= deadline) {
+      judge = "usable";
+      html = "<span class='badge done'>認定は使えます</span>" +
+        "<p>実施期間が締切日を含んでいます。補助金の加点は「締切時点で有効な認定」が条件です。受付番号（10桁）と実施期間を控えて、補助金の申請に進んでください。</p>";
+    } else if (periodEnd) {
+      judge = "expired_period";
+      html = "<span class='badge ng'>実施期間に注意</span>" +
+        "<p>入力された実施期間の終了月（" + fmt(periodEnd) + "）が、締切日より前になっています。期間が終わった認定は加点の対象になりません。満了後の再取得は新規申請です。</p>";
+    } else {
+      judge = "usable_unknown";
+      html = "<span class='badge done'>認定済み</span><p>実施期間の終了月を入れると、締切日に有効かどうかまで判定できます。加点の条件は「締切時点で有効な認定」です。</p>";
+    }
+  } else if (status === 'applied') {
+    var ad = parseDate(document.getElementById('appliedDate').value);
+    if (!ad) {
+      box.style.display='block';
+      box.innerHTML = "<p>申請中を選んだ場合は、申請日を入力してください。</p>";
+      return;
+    }
+    var expected = addDays(ad, 45);
+    if (expected <= deadline) {
+      judge = "applied_ok";
+      html = "<span class='badge ok'>間に合う見込みです</span>" +
+        "<p>申請日＋45日の認定目安は <span class='big'>" + fmt(expected) + "</span> で、締切（" + fmt(deadline) + "）の前です。経済産業局から照会が来たら、早めに修正・回答すると認定が早まります。</p>";
+    } else {
+      judge = "applied_ng";
+      html = "<span class='badge ng'>今回は間に合わない可能性</span>" +
+        "<p>申請日＋45日の認定目安は <span class='big'>" + fmt(expected) + "</span> で、締切（" + fmt(deadline) + "）の後です。申請中のままでは加点は受けられません。認定自体は実施期間（最長3年）の間の他の公募で使えます。</p>";
+    }
+  } else {
+    var applyDeadline = addDays(deadline, -52);
+    var gbizDeadline = addDays(applyDeadline, -14);
+    var needGbiz = (gbiz === 'no');
+    if (!needGbiz && today <= addDays(applyDeadline, -14)) {
+      judge = "ok";
+      html = "<span class='badge ok'>間に合います（余裕あり）</span>" +
+        "<p>あなたの申請期限の目安は <span class='big'>" + fmt(applyDeadline) + "</span> です（締切 " + fmt(deadline) + " − 審査45日 − 余裕7日）。この日までに電子申請を終えてください。</p>";
+    } else if (!needGbiz && today <= applyDeadline) {
+      judge = "tight";
+      html = "<span class='badge tight'>ギリギリです</span>" +
+        "<p>あなたの申請期限の目安は <span class='big'>" + fmt(applyDeadline) + "</span> です。今週中に下書きを終える進め方が条件になります。</p>";
+    } else if (needGbiz && today <= gbizDeadline) {
+      judge = "ok";
+      html = "<span class='badge ok'>間に合います</span>" +
+        "<p>GビズIDの申請期限の目安は <span class='big'>" + fmt(gbizDeadline) + "</span>、認定申請の期限の目安は <span class='big'>" + fmt(applyDeadline) + "</span> です。まずGビズID（プライム）を申請し、その間に下書きを進めてください。</p>";
+    } else if (needGbiz && today <= applyDeadline) {
+      judge = "tight";
+      html = "<span class='badge tight'>ギリギリです</span>" +
+        "<p>認定申請の期限の目安は <span class='big'>" + fmt(applyDeadline) + "</span> ですが、GビズIDの取得（約2週間）が先に必要です。<strong>今日GビズIDを申請し、今週中に下書きに着手する</strong>ことが条件になります。</p>";
+    } else {
+      judge = "ng";
+      html = "<span class='badge ng'>今回は間に合いません</span>" +
+        "<p>認定申請の期限の目安（" + fmt(applyDeadline) + "）を過ぎています。ただし認定は無駄になりません。実施期間は最長3年あり、その間の複数の補助金公募で加点に使えます。次回公募に向けて先に取っておくのが安全です。</p>";
+    }
+    html += "<ul><li>今週やること：GビズID（プライム）の申請" + (needGbiz ? "" : "（取得済み・申請中なら不要）") + "</li>" +
+      "<li>次に：ハザードマップで自社拠点のリスク確認 → 下書き → 電子申請</li></ul>";
+  }
+  if (equip === 'yes' || targetSel.value === 'tax') {
+    html += "<p class='note'>設備の税制（特別償却16%）は、<strong>2027年3月31日までの認定</strong>と、<strong>認定日から1年以内の対象設備の取得</strong>が条件です。設備は計画への記載と認定が先で、認定前に取得した設備は対象になりません。対象設備の種類（機械装置／器具備品／建物附属設備）は税理士等の判断を受けてください。</p>";
+  }
+  html += "<p><a href='index.html' id='toSales'>申請期限までに下書きを完成させる準備パックを見る</a>（まずは無料チェックの結果と照らしてご判断ください）</p>";
+  box.style.display = 'block';
+  box.innerHTML = html;
+  if (typeof gtag === 'function') {
+    gtag('event', 'check_complete', {judge: judge, target: targetSel.value});
+    var link = document.getElementById('toSales');
+    if (link) link.addEventListener('click', function(){ gtag('event', 'check_to_sales', {judge: judge}); });
+  }
+  box.scrollIntoView({behavior:'smooth'});
+});
+</script>
+</body></html>
