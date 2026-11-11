@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex">
+<title>無料チェック・試算ツール｜小さな会社の178万円の壁・年末調整対応キット</title>
+<style>body{font-family:system-ui,sans-serif;max-width:760px;margin:0 auto;padding:24px;line-height:1.8;color:#222}
+h1{font-size:1.6em;line-height:1.4}h2{margin-top:2em;border-bottom:2px solid #a50}nav a{margin-right:12px}
+.card{border:1px solid #ccc;border-radius:8px;padding:16px;margin:12px 0}.note{background:#f6f6f6;padding:12px;border-radius:6px;font-size:.92em}
+a{color:#a50}.tool{border:2px solid #a50;border-radius:8px;padding:20px;margin:16px 0}
+label{display:block;margin:10px 0 4px;font-weight:bold}input,select{width:100%;padding:10px;font-size:1em;box-sizing:border-box}
+button{background:#a50;color:#fff;border:none;padding:12px 28px;border-radius:6px;font-size:1.05em;cursor:pointer;margin-top:12px}
+.result{margin-top:16px;padding:16px;background:#f6f6f6;border-radius:6px;display:none}
+.result p{margin:8px 0}.ok{color:#1a7a1a;font-weight:bold}.warn{color:#b35400;font-weight:bold}</style><script async src="https://www.googletagmanager.com/gtag/js?id=G-W02HK1VTYF"></script><script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-W02HK1VTYF');</script></head><body>
+<nav><a href="index.html">トップ</a><a href="changes.html">4大改正</a><a href="walls.html">年収の壁の早見表</a><a href="steps.html">申告書の書き方と手順</a><a href="checklist.html">無料チェック・試算ツール</a></nav>
+<h1>無料チェック・試算ツール</h1>
+<p>給与収入・事業所得・扶養する家族の収入を入れるだけで、(1)本人の所得税がかかるか（178万円の線）、(2)家族を税の扶養に入れられるか（136万円の線）、(3)社会保険の扶養に入れるか（130万円の線）、(4)個人事業主の所得税の線（所得104万円）が分かります。計算はすべてお使いのブラウザの中で行われ、入力した数字が外部に送信されることはありません。</p>
+<div class="tool">
+<h2>1．本人の給与収入（年収）を入れてください</h2>
+<label for="salary">年間の給与収入（円）</label>
+<input id="salary" type="number" min="0" step="10000" placeholder="例：1500000">
+<p style="font-size:.92em">給与だけの方の場合、年収178万円以下なら本人の所得税はかからない計算になります（他の控除を考慮しない場合の目安）。</p>
+<h2>2．扶養する家族の給与収入（年収）を入れてください</h2>
+<label for="family">扶養する家族の年間の給与収入（円）</label>
+<input id="family" type="number" min="0" step="10000" placeholder="例：1200000">
+<label for="relation">家族との関係</label>
+<select id="relation">
+<option value="spouse">配偶者</option>
+<option value="child">19歳以上23歳未満の子</option>
+<option value="other">その他の家族（親・子など）</option>
+</select>
+<h2>3．個人事業主の方は、事業所得を入れてください（給与所得者の方は空欄のままでかまいません）</h2>
+<label for="business">事業所得（売上から経費と青色申告特別控除を引いた後の金額・円）</label>
+<input id="business" type="number" min="0" step="10000" placeholder="例：900000">
+<p style="font-size:.92em">事業所得には給与所得控除がありません。個人事業主の線は「所得104万円」です。判定に使う「合計所得金額」は、iDeCoや小規模企業共済、社会保険料などの所得控除を引く前の金額です。</p>
+<button type="button" onclick="calc()">判定する</button>
+<div class="result" id="result"></div>
+</div>
+<script>
+function fmt(n){return n.toLocaleString('ja-JP');}
+function calc(){
+  var s=parseFloat(document.getElementById('salary').value);
+  var f=parseFloat(document.getElementById('family').value);
+  var rel=document.getElementById('relation').value;
+  var b=parseFloat(document.getElementById('business').value);
+  var out=[];
+  if(!isNaN(s)){
+    if(s<=1780000){
+      out.push('<p class="ok">■ 本人の所得税：年収'+fmt(s)+'円は178万円以下のため、本人の所得税はかからない計算になります（給与だけの方で、他の控除を考慮しない場合の目安）。</p>');
+    }else{
+      out.push('<p class="warn">■ 本人の所得税：年収'+fmt(s)+'円は178万円を超えているため、所得税がかかり始めます。基礎控除は、合計所得金額が489万円以下なら104万円です。489万円を超えると67万円に下がります。</p>');
+    }
+  }
+  if(!isNaN(f)){
+    if(f<=1360000){
+      out.push('<p class="ok">■ 税の扶養：家族の給与収入'+fmt(f)+'円は136万円以下のため、税の扶養親族・同一生計配偶者に入れられます（所得62万円以下の場合）。</p>');
+    }else if(rel==='child'&&f<=1970000){
+      out.push('<p class="warn">■ 税の扶養：家族の給与収入'+fmt(f)+'円は136万円を超えているため、扶養親族からは外れます。ただし19歳以上23歳未満の子の場合、197万円以下なら「特定親族特別控除」の対象になります。</p>');
+    }else if(rel==='spouse'&&f<2016000){
+      out.push('<p class="warn">■ 税の扶養：家族の給与収入'+fmt(f)+'円は136万円を超えているため、扶養からは外れます。ただし配偶者の場合、201.6万円未満なら「配偶者特別控除」の対象になります。169万円までは満額38万円の控除があります。</p>');
+    }else{
+      out.push('<p class="warn">■ 税の扶養：家族の給与収入'+fmt(f)+'円は136万円を超えているため、税の扶養親族・同一生計配偶者からは外れます。特定親族特別控除・配偶者特別控除の対象かどうかは、関係と金額を別途確認してください。</p>');
+    }
+    if(f<1300000){
+      out.push('<p class="ok">■ 社会保険の扶養：家族の年収'+fmt(f)+'円は130万円未満のため、社会保険の扶養に入れる見込みです（60歳以上・障害のある方は180万円未満、かつ被保険者の年間収入の2分の1未満が条件）。</p>');
+    }else{
+      out.push('<p class="warn">■ 社会保険の扶養：家族の年収'+fmt(f)+'円は130万円以上のため、社会保険の扶養から外れ、自分で国民健康保険・国民年金（または勤務先の社会保険）を払う必要があります。税の136万円とはズレている点にご注意ください。</p>');
+    }
+    if(f>=1060000){
+      out.push('<p>■ 106万円の壁：年収が約106万円以上で、週20時間以上・月額8.8万円以上等の要件に当てはまる場合、勤務先の社会保険に加入することになります。手取りから月約1.2万〜1.5万円の社会保険料が引かれます。</p>');
+    }
+  }
+  if(!isNaN(b)){
+    if(b<=1040000){
+      out.push('<p class="ok">■ 個人事業主の所得税：事業所得'+fmt(b)+'円は104万円以下のため、所得税はかからない計算になります（他の控除を考慮しない場合の目安）。ただし住民税の基礎控除（43万円）は今回変わらないため、住民税と国民健康保険料は下がりません。</p>');
+    }else{
+      out.push('<p class="warn">■ 個人事業主の所得税：事業所得'+fmt(b)+'円は104万円を超えているため、所得税がかかります。試算では、所得税が所得300万円で約8千円、400万円で約3.7万円下がるとされています（二次情報による試算の目安）。</p>');
+    }
+  }
+  if(out.length===0){
+    out.push('<p>数字を入力して「判定する」を押してください。</p>');
+  }
+  var r=document.getElementById('result');
+  r.innerHTML=out.join('');
+  r.style.display='block';
+}
+</script>
+<div class="card"><h2>このツールで分かること・分からないこと</h2>
+<ul>
+<li>分かること：178万円・136万円・130万円・104万円の各線を、自分の数字で超えているかどうか。</li>
+<li>分からないこと：実際の納税額（社会保険料控除・生命保険料控除・住宅ローン控除などの他の控除によって変わります）。実際の納税額は、会計ソフトの試算機能や税理士・税務署で確認してください。</li>
+<li>2028年分以降の数字：基礎控除は2028年分以降、99万円となる予定です（二次情報）。136万円も、給与所得控除の特例（74万円）が令和10年分以後は元の計算式に戻るため動きます。2028年分以降の数字は、確定した公表を確認してください。</li>
+</ul></div>
+<div class="note"><p>このツールは一般的な情報提供のための目安です。個別の税務判断・申告の代理は行わず、最終判断は税理士・税務署で確認してください。出典：国税庁「源泉所得税の改正のあらまし（令和8年4月）」、国税庁タックスアンサーNo.1199・No.1410、健康保険法第3条第7項、昭和52年4月6日保発第9号・庁保発第9号。</p></div>
+</body></html>
