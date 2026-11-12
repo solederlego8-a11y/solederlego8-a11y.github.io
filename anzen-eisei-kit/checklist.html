@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex">
+<title>無料チェック（10項目）｜小さな現場の個人事業者安全衛生対応キット</title>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-W02HK1VTYF"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-W02HK1VTYF');</script>
+<style>body{font-family:system-ui,sans-serif;max-width:760px;margin:0 auto;padding:24px;line-height:1.8;color:#222}
+h1{font-size:1.6em;line-height:1.4}h2{margin-top:2em;border-bottom:2px solid #a50}nav a{margin-right:12px}
+.card{border:1px solid #ccc;border-radius:8px;padding:16px;margin:12px 0}.note{background:#f6f6f6;padding:12px;border-radius:6px;font-size:.92em}
+a{color:#a50}.check{display:block;border:1px solid #ccc;border-radius:8px;padding:12px;margin:10px 0;background:#fff;cursor:pointer}
+.check input{margin-right:8px;transform:scale(1.2)}
+.go{width:100%;min-height:52px;padding:12px;border:none;border-radius:8px;background:#a50;color:#fff;font-size:1.05em;font-weight:bold;cursor:pointer}
+.result{border:2px solid #a50;border-radius:8px;padding:16px;margin:16px 0;background:#fffdf9}
+.result a{display:block;text-align:center;padding:12px;border-radius:8px;background:#a50;color:#fff;text-decoration:none;font-weight:bold;margin-top:8px}
+.result a.sub{background:#fff;color:#a50;border:1px solid #a50}</style></head><body>
+<nav><a href="index.html">トップ</a><a href="report.html">2027年1月 報告制度</a><a href="coordination.html">2027年4月 連絡調整</a><a href="duties.html">個人事業者自身の措置</a><a href="checklist.html">無料チェック（10項目）</a></nav>
+<h1>無料チェック（10項目）：自社の対応度を確認する</h1>
+<p>できている項目にチェックを入れてください。結果は目安です（法的な適合性の判断ではありません）。</p>
+<div id="checks">
+<label class="check"><input type="checkbox" value="1"> 1. 個人事業者（一人親方・フリーランス）が労働者と同じ場所で作業する現場を洗い出している</label>
+<label class="check"><input type="checkbox" value="2"> 2. 報告制度（2027年1月1日）の対象（死亡・休業4日以上）と対象外（過重労働による脳・心臓疾患・精神障害）を把握している</label>
+<label class="check"><input type="checkbox" value="3"> 3. 報告の判断フロー（4つの問い）がある</label>
+<label class="check"><input type="checkbox" value="4"> 4. 個人事業者からの報告を受ける窓口・連絡先を決め、入場者への通知・掲示で周知している</label>
+<label class="check"><input type="checkbox" value="5"> 5. 報告の手順（電子申請が原則・所轄の労働基準監督署・遅滞なく）を文書化している</label>
+<label class="check"><input type="checkbox" value="6"> 6. 報告を受けたことを理由とする取引停止などの不利益な取扱いの禁止を、現場の担当者に周知している</label>
+<label class="check"><input type="checkbox" value="7"> 7. 連絡調整義務（2027年4月1日・安衛法第30条の4）の対象業務（特別教育の対象業務・貨物自動車の搬入搬出・定期検査・補修）を確認している</label>
+<label class="check"><input type="checkbox" value="8"> 8. 作業間の連絡調整の記録様式がある</label>
+<label class="check"><input type="checkbox" value="9"> 9. 特別教育の受講確認の仕組み（作業開始前の受講状況・技能講習の修了・免許の取得の有無の確認）がある</label>
+<label class="check"><input type="checkbox" value="10"> 10. 機械の定期自主検査の実施・結果共有の仕組みがある</label>
+</div>
+<p><button type="button" class="go" id="show-result">結果を見る</button></p>
+<div class="result" id="result" hidden>
+<p><strong>結果：<span id="score"></span></strong></p>
+<p id="message"></p>
+<ul id="missing"></ul>
+<a href="index.html#kit">キットを見る（買い切り4,980円）</a>
+<a class="sub" href="report.html">2027年1月の報告制度を読む</a>
+<a class="sub" href="coordination.html">2027年4月の連絡調整を読む</a>
+<a class="sub" href="duties.html">個人事業者自身の措置を読む</a>
+</div>
+<script>
+(function(){
+var labels={
+"1":["現場の洗い出し","index.html","トップのシミュレーターで確認する"],
+"2":["報告制度の対象と対象外","report.html","報告の判断フローを読む"],
+"3":["報告の判断フロー","report.html","報告の判断フローを読む"],
+"4":["報告を受ける窓口・連絡先の決定と周知","report.html","現場での把握の仕組みを読む"],
+"5":["報告の手順の文書化","report.html","どうやって報告するかを読む"],
+"6":["不利益取扱いの禁止の周知","report.html","不利益な取扱いの禁止を読む"],
+"7":["連絡調整義務の対象業務の確認","coordination.html","対象業務を読む"],
+"8":["連絡調整の記録様式","coordination.html","記録の型を読む"],
+"9":["特別教育の受講確認の仕組み","duties.html","受講確認の仕組みを読む"],
+"10":["定期自主検査の実施・結果共有","duties.html","定期自主検査の進め方を読む"]
+};
+document.getElementById("show-result").addEventListener("click",function(){
+var checked=[],missing=[];
+document.querySelectorAll("#checks input").forEach(function(c){
+if(c.checked){checked.push(c.value);}else{missing.push(c.value);}
+});
+var score=checked.length;
+document.getElementById("score").textContent="対応度 "+(score*10)+"%（10項目中 "+score+" 項目）";
+var msg="";
+if(score===10){msg="骨格は整っています。通達・Q&Aの更新を年1回確認し、記録の管理を続けてください。";}
+else if(score>=7){msg="土台はできています。不足項目を埋めれば骨格が完成します。まず報告の判断フローと窓口の決定、次に連絡調整の記録様式の順番が早いです。";}
+else if(score>=4){msg="半分まで来ています。まず「2027年1月の報告制度」を読み、判断フロー1枚と窓口の決定から始めてください。1週間で基礎は整います。";}
+else{msg="まだ入り口の段階です。まずトップの30秒シミュレーターで自社の立場と現場の状況を確認し、「2027年1月の報告制度」から読み始めてください。";}
+document.getElementById("message").textContent=msg;
+var ul=document.getElementById("missing");ul.innerHTML="";
+missing.forEach(function(k){var info=labels[k];var li=document.createElement("li");li.innerHTML=info[0]+" → <a href=\""+info[1]+"\">"+info[2]+"</a>";ul.appendChild(li);});
+document.getElementById("result").hidden=false;
+document.getElementById("result").scrollIntoView({behavior:"smooth",block:"start"});
+if(typeof gtag==="function"){gtag("event","check_complete",{tool:"anzen_eisei_checklist",score:score});}
+});
+})();
+</script>
+<h2>チェックの使い方</h2>
+<p>このチェックは、2027年1月1日の報告制度と2027年4月1日の連絡調整義務・個人事業者自身の措置への対応度を確認するためのものです。チェックがつかなかった項目は、対応するページで確認してください。報告制度の対象・報告主体の判定、連絡調整義務の対象業務の判定は現場ごとに異なります。最終的な判断は、厚生労働省・都道府県労働局の公表資料、所轄の労働基準監督署、または社会保険労務士などの専門家にご確認ください。</p>
+<div class="note"><p><strong>免責・境界の明記：</strong>このページは一般的な情報提供であり、個別の安全衛生判断、労災認定の代理、個別の事案が法律に照らして問題かどうかの判断は行いません。アフィリエイトリンクはありません。個別相談は受け付けていません。</p></div>
+</body></html>
