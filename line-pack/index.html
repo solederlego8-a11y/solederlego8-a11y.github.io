@@ -1,0 +1,155 @@
+<!doctype html>
+<html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex">
+<title>小さな店のLINE構築パック｜業者に10万円払わずに、1週間でLINE公式アカウントの型を整える（実測中）</title>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-W02HK1VTYF"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-W02HK1VTYF');</script>
+<style>body{font-family:system-ui,sans-serif;max-width:760px;margin:0 auto;padding:24px;line-height:1.8;color:#222}
+h1{font-size:1.6em;line-height:1.4}h2{margin-top:2em;border-bottom:2px solid #06C755}
+.card{border:1px solid #ccc;border-radius:8px;padding:16px;margin:12px 0}.note{background:#f6f6f6;padding:12px;border-radius:6px;font-size:.92em}
+a{color:#06C755}.sim{border:2px solid #06C755;border-radius:10px;padding:18px;margin:16px 0;background:#f6fff9}
+.sim-progress{font-size:.85em;color:#06C755;font-weight:bold;margin:.2em 0 .6em}
+.sim-q{font-weight:bold;margin:.3em 0 .6em}
+.sim-opts{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.sim-opts button{min-height:48px;padding:10px;border:1px solid #06C755;border-radius:8px;background:#fff;color:#222;font-size:1em;cursor:pointer}
+.sim-opts button.sel{background:#06C755;color:#fff}
+.sim-check{display:block;border:1px solid #ccc;border-radius:8px;padding:10px 12px;margin:8px 0;background:#fff;cursor:pointer}
+.sim-check input{margin-right:8px;transform:scale(1.2)}
+.sim-go{width:100%;min-height:52px;padding:12px;border:none;border-radius:8px;background:#06C755;color:#fff;font-size:1.05em;font-weight:bold;cursor:pointer}
+.sim-cta{display:grid;gap:8px;margin-top:14px}
+.sim-btn{display:block;text-align:center;padding:12px;border-radius:8px;background:#06C755;color:#fff;text-decoration:none;font-weight:bold;min-height:28px}
+.sim-btn.sub{background:#fff;color:#06C755;border:1px solid #06C755}
+.sim-textbtn{background:none;border:none;color:#06C755;text-decoration:underline;cursor:pointer;font-size:.95em;padding:6px 0}
+.sim-back{margin:.4em 0 0}
+@media (max-width:480px){.sim{padding:14px}.sim-opts{grid-template-columns:1fr}}</style></head><body>
+<h1>小さな店のLINE構築パック</h1>
+<p>業者に10万円払わずに、1週間でLINE公式アカウントの「友だちを集める・配信する・リピートさせる」型を整えるための構築手順と配信シナリオ。買い切り¥9,800（制作中・発売通知の事前登録を受け付けています）。</p>
+<p class="note">このページは実測用です。パックの中身は現在制作中で、発売日は未定です。個別の構築代行・相談は受けません。LINE公式アカウント本体の料金（無料プラン〜月額15,000円）はLINEヤフーへ別途お支払いいただきます。拡張ツール（Lステップ等）の契約・設定代行は含みません。</p>
+
+<div class="sim" id="line-sim">
+<h2 style="margin-top:0;border-bottom:none">30秒シミュレーター：あなたの店のLINE「対応度」をチェック</h2>
+<p style="margin:.4em 0">3ステップの選択だけで、今のLINEの状態と、次に整えるべき項目が分かります。これは簡易版の目安です。</p>
+<p class="sim-progress" id="sim-progress">ステップ 1 / 3</p>
+<div class="sim-step" id="sim-step1">
+<p class="sim-q">ステップ1：あなたの業種は？</p>
+<div class="sim-opts" data-group="biz">
+<button type="button" data-value="飲食店">飲食店</button>
+<button type="button" data-value="美容・サロン">美容・サロン</button>
+<button type="button" data-value="クリニック・整体">クリニック・整体</button>
+<button type="button" data-value="小売・物販">小売・物販</button>
+</div>
+</div>
+<div class="sim-step" id="sim-step2" hidden>
+<p class="sim-q">ステップ2：今のLINEの状態は？</p>
+<div class="sim-opts" data-group="state">
+<button type="button" data-value="not-yet">まだ作っていない</button>
+<button type="button" data-value="idle">作ったが配信していない</button>
+<button type="button" data-value="no-reaction">配信しているが反応がない</button>
+<button type="button" data-value="blocked">配信するほどブロックが増える</button>
+</div>
+<p class="sim-back"><button type="button" class="sim-textbtn" data-back="1">← ステップ1に戻る</button></p>
+</div>
+<div class="sim-step" id="sim-step3" hidden>
+<p class="sim-q">ステップ3：今できていることにチェックを入れてください（複数可）</p>
+<label class="sim-check"><input type="checkbox" value="greeting"> あいさつメッセージ（友だち追加直後の自動返信）がある</label>
+<label class="sim-check"><input type="checkbox" value="richmenu"> リッチメニュー（予約・クーポン・メニューのボタン）がある</label>
+<label class="sim-check"><input type="checkbox" value="coupon"> クーポン・ショップカードを設定している</label>
+<label class="sim-check"><input type="checkbox" value="funnel"> 友だち集めの導線（店頭POP・QR・レジでの声かけ）がある</label>
+<label class="sim-check"><input type="checkbox" value="calendar"> 1か月分の配信カレンダー（何をいつ送るか）が決まっている</label>
+<p><button type="button" class="sim-go" id="sim-show-result">結果を見る（30秒で完了）</button></p>
+<p class="sim-back"><button type="button" class="sim-textbtn" data-back="2">← ステップ2に戻る</button></p>
+</div>
+<div class="sim-step" id="sim-result" hidden>
+<p class="sim-q">結果：<span id="sim-score"></span></p>
+<p id="sim-message"></p>
+<div id="sim-missing-wrap">
+<p style="margin-bottom:.3em"><strong>次に整える項目</strong></p>
+<ul id="sim-missing" style="margin-top:.2em"></ul>
+</div>
+<p id="sim-done-note" hidden>5項目すべてにチェックがつきました。骨格は整っています。配信の反応が落ちている場合は、頻度と内容の比率（お知らせとクーポンの配分）の見直しから始めてください。</p>
+<div class="sim-cta">
+<a class="sim-btn" href="#kit" data-cta="kit">パックを見る（買い切り9,800円・制作中）</a>
+<a class="sim-btn sub" href="#free" data-cta="free">無料プランでできること早見表を見る</a>
+</div>
+<p class="sim-back"><button type="button" class="sim-textbtn" id="sim-restart">最初からやり直す</button></p>
+<p class="note" style="margin-bottom:0">この結果は簡易版の目安です。LINE公式アカウントの料金・通数は2026年10月時点のものです（無料プラン：月1,000通まで／ライト：月額5,000円・15,000通／スタンダード：月額15,000円・30,000通）。</p>
+</div>
+</div>
+<script>
+(function(){
+var state={biz:null,cond:null};
+function ev(n,p){if(typeof gtag==="function"){gtag("event",n,p||{});}}
+function show(n){["sim-step1","sim-step2","sim-step3","sim-result"].forEach(function(id){document.getElementById(id).hidden=(id!==n);});
+document.getElementById("sim-progress").textContent=(n==="sim-result"?"結果":"ステップ "+n.slice(-1)+" / 3");}
+document.querySelectorAll(".sim-opts[data-group='biz'] button").forEach(function(b){b.addEventListener("click",function(){
+document.querySelectorAll(".sim-opts[data-group='biz'] button").forEach(function(x){x.classList.remove("sel");});b.classList.add("sel");
+state.biz=b.getAttribute("data-value");ev("sim_start",{item:"line_pack"});show("sim-step2");});});
+document.querySelectorAll(".sim-opts[data-group='state'] button").forEach(function(b){b.addEventListener("click",function(){
+document.querySelectorAll(".sim-opts[data-group='state'] button").forEach(function(x){x.classList.remove("sel");});b.classList.add("sel");
+state.cond=b.getAttribute("data-value");show("sim-step3");});});
+document.querySelectorAll("[data-back]").forEach(function(b){b.addEventListener("click",function(){show("sim-step"+b.getAttribute("data-back"));});});
+document.getElementById("sim-show-result").addEventListener("click",function(){
+var labels={greeting:"あいさつメッセージ",richmenu:"リッチメニュー",coupon:"クーポン・ショップカード",funnel:"友だち集めの導線",calendar:"1か月分の配信カレンダー"};
+var done=[];document.querySelectorAll("#sim-step3 input[type=checkbox]:checked").forEach(function(c){done.push(c.value);});
+var missing=Object.keys(labels).filter(function(k){return done.indexOf(k)<0;});
+var msg="";
+if(state.cond==="not-yet"){msg="まだ作っていない段階です。最初に整えるのは「あいさつメッセージ」と「リッチメニュー」と「友だち集めの導線」の3点です。作るだけでは友だちは増えません。";}
+else if(state.cond==="idle"){msg="作ったが配信していない状態です。「作っただけ」で止まるのがいちばん多い失敗です。1か月分の配信カレンダーと配信シナリオを先に決めてから再開してください。";}
+else if(state.cond==="no-reaction"){msg="配信しているのに反応がない状態です。配信の頻度と内容の比率（お知らせばかりになっていないか）を見直してください。";}
+else{msg="配信するほどブロックが増えている状態です。配信回数を週1回に落とし、クーポンとお知らせの比率を見直してください。";}
+document.getElementById("sim-score").textContent=done.length+" / 5項目";
+document.getElementById("sim-message").textContent=msg;
+var ul=document.getElementById("sim-missing");ul.innerHTML="";
+missing.forEach(function(k){var li=document.createElement("li");li.textContent=labels[k];ul.appendChild(li);});
+document.getElementById("sim-missing-wrap").hidden=(missing.length===0);
+document.getElementById("sim-done-note").hidden=(missing.length!==0);
+ev("sim_complete",{item:"line_pack",score:done.length});show("sim-result");});
+document.getElementById("sim-restart").addEventListener("click",function(){
+state={biz:null,cond:null};
+document.querySelectorAll(".sim-opts button").forEach(function(x){x.classList.remove("sel");});
+document.querySelectorAll("#sim-step3 input[type=checkbox]").forEach(function(c){c.checked=false;});
+show("sim-step1");});
+document.querySelectorAll("[data-cta]").forEach(function(a){a.addEventListener("click",function(){ev("sim_cta_click",{item:"line_pack",cta:a.getAttribute("data-cta")});});});
+})();
+</script>
+
+<h2 id="free">無料プランでできること早見表（2026年10月時点）</h2>
+<div class="card">
+<p>LINE公式アカウント本体の料金は、友だち数ではなく「配信するメッセージの通数」で決まります。</p>
+<ul>
+<li><strong>無料プラン</strong>：月額0円・月1,000通まで。友だち100人×週1回（月4回）＝月400通なら無料プランで足ります。</li>
+<li><strong>ライト</strong>：月額5,000円（税別）・月15,000通まで。友だち500人×週1回＝月2,000通ならライトが必要です。</li>
+<li><strong>スタンダード</strong>：月額15,000円（税別）・月30,000通まで。友だち1,000人×週2回＝月8,000通でもライトの範囲内ですが、セグメント配信で通数が増えるとスタンダードになります。</li>
+</ul>
+<p>「友だち数 × 月の配信回数」で通数を試算してください。無料プランのつもりが通数を超えて課金される、という失敗がいちばん多いつまずきです。出典：LINE公式アカウント料金プラン（2026年10月時点の比較記事による二次情報）。最新の料金はLINE for Businessの公式ページでご確認ください。</p>
+</div>
+
+<h2 id="kit">パックの中身（制作中）</h2>
+<div class="card">
+<p><strong>「小さな店のLINE構築パック」買い切り¥9,800（2027年9月までの更新込み）</strong>。月額更新¥980は任意です（配信シナリオの追加・LINEの仕様変更と料金改定の追従）。</p>
+<ol>
+<li>構築手順書：アカウント開設〜あいさつメッセージ〜リッチメニュー〜クーポン・ショップカードまで、1週間で整える順番</li>
+<li>リッチメニュー画像テンプレート：業種別4種（飲食・美容・クリニック・小売）。Canva無料版で編集できます</li>
+<li>配信シナリオ30日分：週1回×4週の文例と画像の型（クーポンとお知らせの比率つき）</li>
+<li>友だち集めの導線セット：店頭POP・QR・レジでの声かけ文例</li>
+<li>料金・通数の試算シート：無料プランで足りるか、ライトが必要かを判定する早見表</li>
+<li>ブロックを増やさない配信の型：頻度・内容の比率と、拡張ツール（Lステップ等）を「入れるべきタイミング」の線引き</li>
+</ol>
+<p>業者に頼む場合の構築費の目安は、個人10万〜30万円、専門制作会社50万〜150万円です（2026年8月更新の比較情報）。パック¥9,800はその10分の1以下です。ただし、業者が「作ってくれる」のに対し、パックは「自分で作るための型」です。作る作業そのものはご自身で行っていただきます。</p>
+</div>
+
+<div class="card" id="kit-prereg"><h2>パック発売通知の事前登録（無料）</h2><p>構築パック（買い切り¥9,800）は現在制作中です。発売日にメールでお知らせします。登録は無料で、発売のご案内以外のメールは送りません。</p><p><a style="display:block;text-align:center;padding:12px;border-radius:8px;background:#06C755;color:#fff;text-decoration:none;font-weight:bold" href="mailto:naoren.38@gmail.com?subject=%E5%B0%8F%E3%81%95%E3%81%AA%E5%BA%97%E3%81%AELine%E6%A7%8B%E7%AF%89%E3%83%91%E3%83%83%E3%82%AF%E7%99%BA%E5%A3%B2%E9%80%9A%E7%9F%A5%E5%B8%8C%E6%9C%9B" id="kit-preregister">発売通知を受け取る（メールで登録）</a></p></div><script>document.getElementById("kit-preregister").addEventListener("click",function(){if(typeof gtag==="function"){gtag("event","kit_preregister_click",{item:"line_pack"});}});</script>
+
+<h2>なぜLINEなのか（数字）</h2>
+<div class="card">
+<ul>
+<li>LINEの国内月間利用者数は1億人を突破（2025年12月末時点、LINEヤフー発表）。</li>
+<li>有償LINE公式アカウントは50.0万件（2026年6月末、LINEヤフー決算）。1年前の45.4万件から+10.1%増加。</li>
+<li>LINE公式アカウントの広告売上は383億円（2026年度Q1、前年同期比+13.3%）。</li>
+<li>2026年6月から飲食・理美容向けに月額5,000円の店舗DXプランが始まり、公式も小規模店舗への普及を進めています。</li>
+<li>2027年第1四半期にLINE公式アカウントへAIエージェントプラットフォームの提供が予定されています（LINE CONVERGE 2026）。</li>
+<li>クラウドワークスではLINE構築の募集49件のうち55%が10万円以上の予算でした（2026年9月集計）。店は「作ってもらう」ためにお金を払っています。</li>
+</ul>
+<p class="note">数字は各社の公表資料・比較記事による二次情報です。最新の料金・仕様はLINE for Businessの公式ページでご確認ください。</p>
+</div>
+</body></html>
