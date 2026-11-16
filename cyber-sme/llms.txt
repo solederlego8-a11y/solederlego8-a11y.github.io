@@ -1,0 +1,13 @@
+# IT担当者ゼロの中小企業のサイバー対策｜6か条から始める実装ガイド
+
+## Pages
+- [情報セキュリティ6か条の実装手順｜IT担当者ゼロの中小企業向け](https://solederlego8-a11y.github.io/cyber-sme/6jo.html)
+- [無料チェックシート｜5分で自社の穴を見つける](https://solederlego8-a11y.github.io/cyber-sme/checklist.html)
+- [取引先のセキュリティチェックシートへの答え方｜6か条で回答を作る](https://solederlego8-a11y.github.io/cyber-sme/checksheet.html)
+- [中小企業向け対策の比較表｜価格と「誰が見るか」で選ぶ](https://solederlego8-a11y.github.io/cyber-sme/compare.html)
+- [IT担当者ゼロの中小企業のサイバー対策｜6か条から始める実装ガイド](https://solederlego8-a11y.github.io/cyber-sme/)
+- [パスワード強化と多要素認証（MFA）の導入手順｜経営者・経理から先に](https://solederlego8-a11y.github.io/cyber-sme/mfa.html)
+- [ランサムウェア感染時の初動対応｜電源を切る前にやる順番](https://solederlego8-a11y.github.io/cyber-sme/ransomware.html)
+- [補助金の要点｜デジタル化・AI導入補助金セキュリティ対策推進枠](https://solederlego8-a11y.github.io/cyber-sme/subsidy.html)
+- [ブログ｜中小企業の情報セキュリティ6か条 実装キット](https://solederlego8-a11y.github.io/cyber-sme/blog/)
+- [中小企業の情報セキュリティ対策は何から始める？IPA「6か条」の順番｜6か条実装キット ブログ](https://solederlego8-a11y.github.io/cyber-sme/blog/security-hajimekata.html)

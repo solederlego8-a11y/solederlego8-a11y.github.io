@@ -1,0 +1,8 @@
+# 小さな宿の宿泊税対応キット｜2027年4月の東京都の定率3%化と民泊への拡大を前に「自分の自治体の税額・登録期限・毎月の申告」を間違えないための早見表と手順
+
+## Pages
+- [無料試算ツール｜小さな宿の宿泊税対応キット](https://solederlego8-a11y.github.io/shukuhakusei-kit/checklist.html)
+- [小さな宿の宿泊税対応キット｜2027年4月の東京都の定率3%化と民泊への拡大を前に「自分の自治体の税額・登録期限・毎月の申告」を間違えないための早見表と手順](https://solederlego8-a11y.github.io/shukuhakusei-kit/)
+- [OTA・民泊の計算｜小さな宿の宿泊税対応キット](https://solederlego8-a11y.github.io/shukuhakusei-kit/ota.html)
+- [自治体別早見表｜小さな宿の宿泊税対応キット](https://solederlego8-a11y.github.io/shukuhakusei-kit/rates.html)
+- [登録と申告の手順｜小さな宿の宿泊税対応キット](https://solederlego8-a11y.github.io/shukuhakusei-kit/steps.html)

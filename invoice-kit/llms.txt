@@ -1,0 +1,11 @@
+# 小さな会社の2割特例終了対応キット｜インボイス2割特例が終わった後の消費税を、判定ツールと決算月別の期限で整える
+
+## Pages
+- [インボイス登録の取消し・取りやめの手続き｜小さな会社の2割特例終了対応キット](https://solederlego8-a11y.github.io/invoice-kit/cancel.html)
+- [無料判定ツール｜小さな会社の2割特例終了対応キット](https://solederlego8-a11y.github.io/invoice-kit/checklist.html)
+- [3つの計算方法の比較｜小さな会社の2割特例終了対応キット](https://solederlego8-a11y.github.io/invoice-kit/compare.html)
+- [決算月別の期限｜小さな会社の2割特例終了対応キット](https://solederlego8-a11y.github.io/invoice-kit/deadline.html)
+- [みなし仕入率の業種判定の考え方｜小さな会社の2割特例終了対応キット](https://solederlego8-a11y.github.io/invoice-kit/gyoshu.html)
+- [小さな会社の2割特例終了対応キット｜インボイス2割特例が終わった後の消費税を、判定ツールと決算月別の期限で整える](https://solederlego8-a11y.github.io/invoice-kit/)
+- [手順と届出｜小さな会社の2割特例終了対応キット](https://solederlego8-a11y.github.io/invoice-kit/steps.html)
+- [簡易課税選択届出書の書き方と出し方｜小さな会社の2割特例終了対応キット](https://solederlego8-a11y.github.io/invoice-kit/todokede.html)
