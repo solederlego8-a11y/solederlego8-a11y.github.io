@@ -14,109 +14,205 @@ gtag('js', new Date());
 gtag('config', 'G-W02HK1VTYF');
 </script>
 <style>
+/* ===== Design tokens（仕様書パッケージ準拠：CSS変数で差し替え可能に） ===== */
 :root{
---navy:#0f2a43; --navy2:#16395c; --ink:#1c2733; --sub:#5a6a7a;
---line:#dde5ec; --soft:#f3f6f9; --accent:#e8a33d; --accent-ink:#7a5200;
---radius:14px;
+--base:#ffffff;
+--ink:#22262b; /* 黒に近い濃いグレー */
+--ink-soft:#3d454e;
+--sub:#6b7684;
+--accent:#1d4e79; /* 落ち着いたブルー */
+--accent-deep:#0f2f4d; /* ネイビー */
+--accent-pale:#eaf1f7;
+--cta:#e8a33d;
+--cta-ink:#241a00;
+--line:#e2e7ec;
+--soft:#f6f8fa;
+--radius:6px; /* 角丸は控えめ */
+--font:"Hiragino Kaku Gothic ProN","Hiragino Sans","Noto Sans JP","Yu Gothic UI",sans-serif;
+--font-en:"Helvetica Neue",Arial,sans-serif;
 }
 *{box-sizing:border-box; margin:0; padding:0;}
-body{font-family:"Hiragino Kaku Gothic ProN","Hiragino Sans","Noto Sans JP",sans-serif; color:var(--ink); line-height:1.8; background:#fff;}
-.wrap{max-width:880px; margin:0 auto; padding:0 20px;}
-header.site{border-bottom:1px solid var(--line); padding:14px 0;}
-header.site.wrap{display:flex; justify-content:space-between; align-items:center;}
-.brand{font-weight:700; color:var(--navy); font-size:15px; letter-spacing:.04em;}
-.brand small{display:block; font-weight:400; color:var(--sub); font-size:11px; letter-spacing:.08em;}
-header.site a.consult{font-size:13px; color:var(--navy); text-decoration:none; border:1px solid var(--navy); border-radius:999px; padding:6px 14px;}
-.hero{background:linear-gradient(160deg, var(--navy) 0%, var(--navy2) 100%); color:#fff; padding:64px 0 56px;}
-.hero.tag{display:inline-block; background:rgba(255,255,255,.14); border:1px solid rgba(255,255,255,.35); border-radius:999px; padding:3px 14px; font-size:13px; margin-bottom:20px;}
-.hero h1{font-size:32px; line-height:1.45; font-weight:700; margin-bottom:18px;}
-.hero h1.hl{color:var(--accent);}
-.hero p.lead{font-size:16px; color:#dbe6f0; max-width:640px; margin-bottom:28px;}
-.hero.facts{display:flex; flex-wrap:wrap; gap:10px; margin-bottom:32px;}
-.hero.fact{background:#fff; color:var(--navy); border-radius:10px; padding:10px 16px; font-size:14px;}
-.hero.fact b{font-size:18px;}
-.btn{display:inline-block; background:var(--accent); color:#231a00; font-weight:700; text-decoration:none; border-radius:999px; padding:14px 32px; font-size:16px; border:none; cursor:pointer;}
-.btn:hover{opacity:.92;}
-.hero.note{font-size:12.5px; color:#b9cbdd; margin-top:14px;}
-section{padding:56px 0;}
+html{scroll-behavior:smooth;}
+body{font-family:var(--font); color:var(--ink); line-height:1.85; background:var(--base); -webkit-font-smoothing:antialiased;}
+.wrap{max-width:920px; margin:0 auto; padding:0 24px;}
+img{max-width:100%;}
+a{color:var(--accent);}
+.fade{opacity:0; transform:translateY(14px); transition:opacity.7s ease, transform.7s ease;}
+.fade.on{opacity:1; transform:none;}
+
+/* ===== Header ===== */
+header.site{position:sticky; top:0; z-index:50; background:rgba(255,255,255,.92); backdrop-filter:blur(8px); border-bottom:1px solid var(--line);}
+header.site.wrap{display:flex; align-items:center; justify-content:space-between; height:64px;}
+.brand{line-height:1.3;}
+.brand.en{font-family:var(--font-en); font-size:10.5px; letter-spacing:.28em; color:var(--accent); font-weight:700;}
+.brand.jp{font-size:15.5px; font-weight:700; color:var(--accent-deep); letter-spacing:.03em;}
+nav.gnav{display:flex; gap:26px; align-items:center;}
+nav.gnav a{font-size:13.5px; color:var(--ink-soft); text-decoration:none;}
+nav.gnav a:hover{color:var(--accent);}
+nav.gnav a.hcta{border:1px solid var(--accent-deep); color:var(--accent-deep); border-radius:999px; padding:6px 16px; font-weight:600;}
+nav.gnav a.hcta:hover{background:var(--accent-deep); color:#fff;}
+@media (max-width:760px){ nav.gnav a:not(.hcta){display:none;}}
+
+/* ===== Hero / FV ===== */
+.hero{position:relative; overflow:hidden; background:
+linear-gradient(180deg, #fbfcfd 0%, var(--soft) 100%);}
+.hero::before{content:""; position:absolute; inset:0;
+background-image:linear-gradient(var(--line) 1px, transparent 1px), linear-gradient(90deg, var(--line) 1px, transparent 1px);
+background-size:56px 56px; opacity:.35;
+mask-image:linear-gradient(180deg, transparent, #000 30%, #000 75%, transparent);}
+.hero.wrap{position:relative; padding:92px 24px 84px; text-align:left;}
+.hero.en{font-family:var(--font-en); letter-spacing:.34em; font-size:12px; font-weight:700; color:var(--accent); margin-bottom:22px;}
+.hero h1{font-size:42px; line-height:1.5; font-weight:700; color:var(--accent-deep); letter-spacing:.01em; margin-bottom:24px;}
+.hero h1.hl{box-shadow:inset 0 -0.42em 0 #f6d9a0;}
+.hero p.lead{font-size:16.5px; color:var(--ink-soft); max-width:620px; margin-bottom:38px;}
+.hero.ctas{display:flex; flex-wrap:wrap; gap:14px; align-items:center; margin-bottom:52px;}
+.btn{display:inline-block; background:var(--cta); color:var(--cta-ink); font-weight:700; text-decoration:none; border-radius:999px; padding:15px 34px; font-size:16px; border:none; cursor:pointer; box-shadow:0 6px 18px rgba(232,163,61,.35); transition:transform.15s ease, box-shadow.15s ease;}
+.btn:hover{transform:translateY(-1px); box-shadow:0 10px 22px rgba(232,163,61,.4);}
+.btn.ghost{background:transparent; color:var(--accent-deep); border:1px solid var(--accent-deep); box-shadow:none; font-weight:600;}
+.hero.note{font-size:12.5px; color:var(--sub); margin-top:14px;}
+.stats{display:grid; grid-template-columns:repeat(3,1fr); border:1px solid var(--line); border-radius:var(--radius); background:#fff; overflow:hidden;}
+.stat{padding:22px 26px; border-left:1px solid var(--line);}
+.stat:first-child{border-left:none;}
+.stat.k{font-family:var(--font-en); font-size:11px; letter-spacing:.22em; color:var(--sub); margin-bottom:4px;}
+.stat.v{font-size:17px; color:var(--ink-soft);}
+.stat.v b{font-size:27px; color:var(--accent-deep); letter-spacing:.01em;}
+@media (max-width:640px){
+.hero.wrap{padding:60px 24px 56px;}
+.hero h1{font-size:29px;}
+.stats{grid-template-columns:1fr;}
+.stat{border-left:none; border-top:1px solid var(--line);}
+.stat:first-child{border-top:none;}
+}
+
+/* ===== Sections ===== */
+section{padding:88px 0;}
 section.alt{background:var(--soft);}
-h2{font-size:24px; color:var(--navy); line-height:1.5; margin-bottom:10px;}
-h2 + p.intro{color:var(--sub); margin-bottom:28px; max-width:680px;}
-.cards{display:grid; grid-template-columns:1fr 1fr; gap:14px;}
-.card{background:#fff; border:1px solid var(--line); border-radius:var(--radius); padding:20px 22px;}
-.card h3{font-size:16px; color:var(--navy); margin-bottom:6px;}
-.card p{font-size:14.5px; color:#33424f;}
-ul.check{list-style:none;}
-ul.check li{padding:10px 0 10px 30px; position:relative; border-bottom:1px dashed var(--line); font-size:15.5px;}
+.shead{margin-bottom:40px;}
+.shead.en{font-family:var(--font-en); font-size:11.5px; letter-spacing:.3em; font-weight:700; color:var(--accent); margin-bottom:10px;}
+.shead h2{font-size:27px; color:var(--accent-deep); line-height:1.55; font-weight:700;}
+.shead p.intro{color:var(--sub); margin-top:12px; max-width:660px; font-size:15.5px;}
+@media (max-width:640px){ section{padding:60px 0;}.shead h2{font-size:22px;}}
+
+ul.check{list-style:none; background:#fff; border:1px solid var(--line); border-radius:var(--radius); padding:10px 28px;}
+ul.check li{padding:15px 0 15px 34px; position:relative; border-bottom:1px solid var(--line); font-size:15.5px; color:var(--ink-soft);}
 ul.check li:last-child{border-bottom:none;}
-ul.check li::before{content:"✓"; position:absolute; left:2px; top:10px; color:var(--accent-ink); font-weight:700;}
-.scope{display:grid; grid-template-columns:1fr 1fr; gap:14px;}
-.scope.in,.scope.out{border-radius:var(--radius); padding:22px;}
-.scope.in{background:#eef4ea; border:1px solid #cfdfc4;}
-.scope.out{background:#faf1ec; border:1px solid #ecd5c8;}
-.scope h3{font-size:16px; margin-bottom:10px;}
-.scope ul{list-style:none; font-size:14.5px;}
-.scope li{padding:4px 0;}
-.steps{display:grid; gap:14px;}
-.step{display:flex; gap:16px; background:#fff; border:1px solid var(--line); border-radius:var(--radius); padding:20px 22px;}
-.step.num{flex:0 0 44px; height:44px; border-radius:50%; background:var(--navy); color:#fff; font-weight:700; display:flex; align-items:center; justify-content:center; font-size:17px;}
-.step h3{font-size:16.5px; color:var(--navy); margin-bottom:4px;}
-.step p{font-size:14.5px; color:#33424f;}
-.price-box{background:var(--navy); color:#fff; border-radius:18px; padding:36px 32px; text-align:center;}
-.price-box.pname{font-size:15px; letter-spacing:.06em; color:#bcd0e2; margin-bottom:8px;}
-.price-box.price{font-size:20px;}
-.price-box.price b{font-size:44px; line-height:1.2;}
-.price-box.cap{display:inline-block; margin-top:14px; background:var(--accent); color:#231a00; font-weight:700; border-radius:999px; padding:5px 18px; font-size:14.5px;}
-.price-box p.why{font-size:14px; color:#cfdfec; max-width:560px; margin:18px auto 0;}
-form.apply{background:#fff; border:1px solid var(--line); border-radius:var(--radius); padding:26px;}
-form.apply label{display:block; font-size:14px; font-weight:600; color:var(--navy); margin-bottom:14px;}
+ul.check li::before{content:""; position:absolute; left:2px; top:22px; width:16px; height:9px; border-left:3px solid var(--cta); border-bottom:3px solid var(--cta); transform:rotate(-45deg);}
+
+.cards{display:grid; grid-template-columns:1fr 1fr; gap:16px;}
+.card{background:#fff; border:1px solid var(--line); border-top:3px solid var(--accent); border-radius:var(--radius); padding:26px 28px; transition:box-shadow.2s ease, transform.2s ease;}
+.card:hover{box-shadow:0 12px 28px rgba(15,47,77,.08); transform:translateY(-2px);}
+.card.no{font-family:var(--font-en); font-size:12px; letter-spacing:.2em; color:var(--sub); margin-bottom:8px;}
+.card h3{font-size:17px; color:var(--accent-deep); margin-bottom:8px;}
+.card p{font-size:14.5px; color:var(--ink-soft);}
+.card.key{border-top-color:var(--cta); background:linear-gradient(180deg,#fffdf6,#fff);}
+@media (max-width:640px){.cards{grid-template-columns:1fr;}}
+
+.scope{display:grid; grid-template-columns:1fr 1fr; gap:16px;}
+.scope > div{border-radius:var(--radius); padding:28px;}
+.scope.in{background:#fff; border:1px solid var(--line); border-top:3px solid var(--accent);}
+.scope.out{background:#fbf7f4; border:1px solid #eadfd6; border-top:3px solid #c8a58e;}
+.scope h3{font-size:16.5px; color:var(--accent-deep); margin-bottom:14px;}
+.scope ul{list-style:none; font-size:14.5px; color:var(--ink-soft);}
+.scope li{padding:7px 0 7px 20px; position:relative; border-bottom:1px dashed var(--line);}
+.scope li:last-child{border-bottom:none;}
+.scope.in li::before{content:"＋"; position:absolute; left:0; color:var(--accent); font-weight:700;}
+.scope.out li::before{content:"−"; position:absolute; left:0; color:#b08a6d; font-weight:700;}
+@media (max-width:640px){.scope{grid-template-columns:1fr;}}
+
+.steps{position:relative; display:grid; gap:16px;}
+.step{display:flex; gap:20px; background:#fff; border:1px solid var(--line); border-radius:var(--radius); padding:26px 28px;}
+.step.num{flex:0 0 46px; height:46px; border-radius:50%; border:2px solid var(--accent-deep); color:var(--accent-deep); font-family:var(--font-en); font-weight:700; display:flex; align-items:center; justify-content:center; font-size:17px; background:#fff;}
+.step.free.num{background:var(--cta); border-color:var(--cta); color:var(--cta-ink);}
+.step h3{font-size:16.5px; color:var(--accent-deep); margin-bottom:5px;}
+.step h3.ph{font-family:var(--font-en); font-size:11px; letter-spacing:.18em; color:var(--sub); display:block; margin-bottom:3px;}
+.step p{font-size:14.5px; color:var(--ink-soft);}
+
+/* ===== Price + footer CTA ===== */
+.price-band{background:linear-gradient(150deg, var(--accent-deep), var(--accent)); color:#fff; border-radius:10px; padding:52px 40px; text-align:center; position:relative; overflow:hidden;}
+.price-band::after{content:"PRICE"; position:absolute; right:-8px; bottom:-30px; font-family:var(--font-en); font-size:120px; font-weight:700; letter-spacing:.05em; color:rgba(255,255,255,.06);}
+.price-band.en{font-family:var(--font-en); font-size:11.5px; letter-spacing:.3em; color:#bcd2e6; margin-bottom:12px;}
+.price-band.pname{font-size:16px; letter-spacing:.08em; margin-bottom:10px;}
+.price-band.price{font-size:21px;}
+.price-band.price b{font-size:52px; line-height:1.15; letter-spacing:.01em;}
+.price-band.cap{display:inline-block; margin-top:18px; background:var(--cta); color:var(--cta-ink); font-weight:700; border-radius:999px; padding:6px 20px; font-size:15px;}
+.price-band p.why{font-size:14px; color:#d7e5f0; max-width:560px; margin:20px auto 0; position:relative; z-index:1;}
+@media (max-width:640px){.price-band{padding:40px 22px;}.price-band.price b{font-size:38px;}}
+
+/* ===== Form ===== */
+.sent-note{display:none; background:#eef4ea; border:1px solid #cfdfc4; border-radius:var(--radius); padding:18px 22px; margin-bottom:18px; font-size:15px;}
+form.apply{background:#fff; border:1px solid var(--line); border-radius:var(--radius); padding:32px;}
+form.apply label{display:block; font-size:14px; font-weight:600; color:var(--accent-deep); margin-bottom:16px;}
 form.apply label span.req{color:#b3541e; font-size:12px; margin-left:6px;}
 form.apply label span.opt{color:var(--sub); font-size:12px; margin-left:6px;}
-form.apply input, form.apply select, form.apply textarea{width:100%; margin-top:6px; padding:11px 12px; border:1px solid #c3d0dc; border-radius:8px; font-size:15px; font-family:inherit; font-weight:400;}
-form.apply.btn{width:100%; margin-top:6px;}
-form.apply.fine{font-size:12.5px; color:var(--sub); margin-top:12px;}
-.sent-note{display:none; background:#eef4ea; border:1px solid #cfdfc4; border-radius:var(--radius); padding:18px 22px; margin-bottom:18px; font-size:15px;}
-.faq details{background:#fff; border:1px solid var(--line); border-radius:10px; padding:16px 20px; margin-bottom:10px;}
-.faq summary{font-weight:600; color:var(--navy); cursor:pointer; font-size:15.5px;}
-.faq details p{font-size:14.5px; color:#33424f; margin-top:8px;}
-footer.site{border-top:1px solid var(--line); padding:30px 0 44px; color:var(--sub); font-size:13px;}
-footer.site.op{color:var(--ink);}
-@media (max-width:640px){
-.hero h1{font-size:25px;}
-.cards,.scope{grid-template-columns:1fr;}
-.price-box.price b{font-size:34px;}
-section{padding:42px 0;}
-}
+form.apply input, form.apply select, form.apply textarea{width:100%; margin-top:6px; padding:12px 13px; border:1px solid #c3d0dc; border-radius:var(--radius); font-size:15px; font-family:inherit; font-weight:400; background:#fcfdfe;}
+form.apply input:focus, form.apply select:focus, form.apply textarea:focus{outline:2px solid var(--accent-pale); border-color:var(--accent);}
+form.apply.btn{width:100%; margin-top:8px;}
+form.apply.fine{font-size:12.5px; color:var(--sub); margin-top:14px;}
+@media (max-width:640px){ form.apply{padding:24px 20px;}}
+
+/* ===== FAQ ===== */
+.faq details{background:#fff; border:1px solid var(--line); border-radius:var(--radius); padding:18px 22px; margin-bottom:10px;}
+.faq summary{font-weight:600; color:var(--accent-deep); cursor:pointer; font-size:15.5px; list-style:none; position:relative; padding-right:26px;}
+.faq summary::-webkit-details-marker{display:none;}
+.faq summary::after{content:"＋"; position:absolute; right:2px; top:0; color:var(--accent); font-weight:700;}
+.faq details[open] summary::after{content:"−";}
+.faq details p{font-size:14.5px; color:var(--ink-soft); margin-top:10px;}
+
+/* ===== Footer CTA + footer ===== */
+.foot-cta{background:var(--accent-deep); color:#fff; padding:64px 0;}
+.foot-cta.en{font-family:var(--font-en); font-size:11.5px; letter-spacing:.3em; color:#9db9d2; margin-bottom:12px;}
+.foot-cta h2{font-size:25px; line-height:1.6; margin-bottom:14px;}
+.foot-cta p{color:#cfdfec; font-size:15px; max-width:600px; margin-bottom:28px;}
+footer.site{padding:36px 0 48px; color:var(--sub); font-size:13px;}
+footer.site.fnav{display:flex; flex-wrap:wrap; gap:20px; margin-bottom:18px;}
+footer.site.fnav a{color:var(--ink-soft); text-decoration:none; font-size:13.5px;}
+footer.site.op{color:var(--ink); font-weight:600;}
 </style>
 </head>
 <body>
 
 <header class="site">
 <div class="wrap">
-<div class="brand">マンツーマンAIスタートアップ<small>SEED WORKS JAPAN</small></div>
-<a class="consult" href="#apply">無料相談30分</a>
+<div class="brand">
+<div class="en">MAN-TO-MAN AI STARTUP</div>
+<div class="jp">マンツーマンAIスタートアップ</div>
+</div>
+<nav class="gnav">
+<a href="#problem">課題</a>
+<a href="#service">支援内容</a>
+<a href="#flow">進め方</a>
+<a href="#price">料金</a>
+<a href="#faq">FAQ</a>
+<a class="hcta" href="#apply">無料相談30分</a>
+</nav>
 </div>
 </header>
 
 <div class="hero">
 <div class="wrap">
-<span class="tag">小さな会社の経営者・個人事業主のための、1対1のAI導入伴走</span>
+<div class="en">AI IMPLEMENTATION SUPPORT FOR SMALL BUSINESS</div>
 <h1>AIを入れたい。でも、<br>何から手をつければいいか<span class="hl">分からない</span>。</h1>
 <p class="lead">ツールを調べるだけで終わらせないために。あなたの会社の業務を一緒に棚卸しし、AIの導入、自動化、そして「回る状態」までの定着を、マンツーマンで伴走します。</p>
-<div class="facts">
-<div class="fact">月額 <b>198,000円</b></div>
-<div class="fact">定員 <b>5社</b>まで</div>
-<div class="fact">入口は <b>無料相談30分</b></div>
-</div>
+<div class="ctas">
 <a class="btn" href="#apply">無料相談30分に申し込む</a>
+<a class="btn ghost" href="#service">支援内容を見る</a>
+</div>
+<div class="stats">
+<div class="stat"><div class="k">PRICE</div><div class="v">月額 <b>198,000</b> 円</div></div>
+<div class="stat"><div class="k">CAPACITY</div><div class="v">定員 <b>5</b> 社まで</div></div>
+<div class="stat"><div class="k">FIRST STEP</div><div class="v">無料相談 <b>30</b> 分</div></div>
+</div>
 <p class="note">相談だけで終わっても構いません。合わないと感じたら、その場で断っていただいて大丈夫です。</p>
 </div>
 </div>
 
-<section>
-<div class="wrap">
+<section id="problem">
+<div class="wrap fade">
+<div class="shead">
+<div class="en">PROBLEM</div>
 <h2>こんな「手作業」が、いまも残っていませんか</h2>
 <p class="intro">AIで置き換えられるはずの作業が、無理やり手で回され続けている。この状態が続く限り、AI導入はいつまでも始まりません。</p>
+</div>
 <ul class="check">
 <li>売上や在庫の数字を、Excelへコピペして手で集計している</li>
 <li>見積書・請求書の転記を、目で見て手で入力している</li>
@@ -128,24 +224,31 @@ section{padding:42px 0;}
 </div>
 </section>
 
-<section class="alt">
-<div class="wrap">
+<section class="alt" id="reason">
+<div class="wrap fade">
+<div class="shead">
+<div class="en">WHY IT STALLS</div>
 <h2>なぜ、AI導入は進まないのか</h2>
 <p class="intro">理由は能力や意欲ではありません。「自社の業務の、どこに、どの順番で入れるか」を決める相手がいないことです。</p>
+</div>
 <div class="cards">
 <div class="card">
+<div class="no">REASON 01</div>
 <h3>ツールが多すぎて選べない</h3>
 <p>情報は溢れていますが、自社の業務に合うかどうかは別の話です。選定で止まって、数か月が過ぎます。</p>
 </div>
 <div class="card">
+<div class="no">REASON 02</div>
 <h3>入れたのに、定着しない</h3>
 <p>アカウントは作った。でも日々の業務の流れに組み込まれず、結局もとの手作業に戻ってしまいます。</p>
 </div>
 <div class="card">
+<div class="no">REASON 03</div>
 <h3>社内に相談できる人がいない</h3>
 <p>小さな会社ほど、経営者が自分で判断するしかありません。壁打ち相手がいないことが、一番の摩擦です。</p>
 </div>
-<div class="card">
+<div class="card key">
+<div class="no">OUR APPROACH</div>
 <h3>このサービスがやること</h3>
 <p>棚卸しから導入、自動化、定着までを、あなたの会社の業務に即して1対1で進めます。一般論ではなく、あなたの数字と手順で決めます。</p>
 </div>
@@ -153,66 +256,72 @@ section{padding:42px 0;}
 </div>
 </section>
 
-<section>
-<div class="wrap">
+<section id="service">
+<div class="wrap fade">
+<div class="shead">
+<div class="en">SERVICE SCOPE</div>
 <h2>支援の範囲</h2>
 <p class="intro">「何でもやります」とは言いません。範囲をはっきりさせることが、定員5社で1社ずつ深く伴走するための前提です。</p>
+</div>
 <div class="scope">
 <div class="in">
 <h3>支援に含まれること</h3>
 <ul>
-<li>・業務の棚卸し（手作業の洗い出しと優先順位づけ）</li>
-<li>・AI導入の設計（どの業務に、何を、どの順で入れるか）</li>
-<li>・ツールの選定と導入・初期設定の伴走</li>
-<li>・定型業務の自動化の組み立て支援</li>
-<li>・手順書・マニュアル化による社内への定着</li>
-<li>・月次の振り返りと、次に手を入れる業務の決定</li>
+<li>業務の棚卸し（手作業の洗い出しと優先順位づけ）</li>
+<li>AI導入の設計（どの業務に、何を、どの順で入れるか）</li>
+<li>ツールの選定と導入・初期設定の伴走</li>
+<li>定型業務の自動化の組み立て支援</li>
+<li>手順書・マニュアル化による社内への定着</li>
+<li>月次の振り返りと、次に手を入れる業務の決定</li>
 </ul>
 </div>
 <div class="out">
 <h3>支援に含まれないこと</h3>
 <ul>
-<li>・システム開発・アプリ開発そのものの受託</li>
-<li>・常駐対応、即時返信の保証</li>
-<li>・売上や成果金額の保証</li>
-<li>・法務・税務など、資格が必要な業務の代行</li>
-<li>・範囲を超える大量の制作物の一括請負</li>
+<li>システム開発・アプリ開発そのものの受託</li>
+<li>常駐対応、即時返信の保証</li>
+<li>売上や成果金額の保証</li>
+<li>法務・税務など、資格が必要な業務の代行</li>
+<li>範囲を超える大量の制作物の一括請負</li>
 </ul>
 </div>
 </div>
 </div>
 </section>
 
-<section class="alt">
-<div class="wrap">
+<section class="alt" id="flow">
+<div class="wrap fade">
+<div class="shead">
+<div class="en">FLOW</div>
 <h2>進め方</h2>
 <p class="intro">進み方は固定です。毎月、何がどこまで進んだかが分かる状態で進めます。</p>
+</div>
 <div class="steps">
-<div class="step">
+<div class="step free">
 <div class="num">0</div>
 <div>
-<h3>無料相談（30分）</h3>
+<h3><span class="ph">FREE CONSULTATION</span>無料相談（30分）</h3>
 <p>いま手作業で回している業務を聞き取り、AIに置き換えられそうな箇所の当たりをつけます。ここで合わないと感じたら、契約には進みません。</p>
 </div>
 </div>
 <div class="step">
 <div class="num">1</div>
 <div>
-<h3>1か月目：棚卸しと導入計画</h3>
+<h3><span class="ph">MONTH 1</span>棚卸しと導入計画</h3>
 <p>業務全体を棚卸しし、手作業の時間と頻度を見える化します。そのうえで、効果の大きい順に導入計画を組みます。納品物は「棚卸しリスト」と「導入計画」です。</p>
 </div>
 </div>
 <div class="step">
 <div class="num">2</div>
 <div>
-<h3>2か月目：導入と自動化</h3>
+<h3><span class="ph">MONTH 2</span>導入と自動化</h3>
 <p>計画に沿ってツールを導入し、定型業務の自動化を組み立てます。経営者ご自身が触って回せる状態まで、一緒に手を動かします。</p>
 </div>
 </div>
 <div class="step">
 <div class="num">3</div>
 <div>
-<h3>3か月目以降：定着と改善</h3>
+<h3><span class="ph">MONTH 3+</span>定着と改善</h3>
 <p>手順書に落として「担当が変わっても回る」状態にし、月次で振り返ります。次に手を入れる業務を決め、少しずつ範囲を広げます。</p>
 </div>
 </div>
@@ -220,11 +329,12 @@ section{padding:42px 0;}
 </div>
 </section>
 
-<section>
-<div class="wrap">
-<div class="price-box">
+<section id="price">
+<div class="wrap fade">
+<div class="price-band">
+<div class="en">PRICE &amp; CAPACITY</div>
 <div class="pname">マンツーマンAIスタートアップ</div>
-<div class="price">月額 <b>198,000円</b></div>
+<div class="price">月額 <b>198,000</b> 円</div>
 <div><span class="cap">定員 5社まで</span></div>
 <p class="why">1社ごとに業務へ深く入る伴走型のため、受けられる数に限りがあります。定員に達した場合は、空きが出るまで新規の受け入れを止めます。</p>
 </div>
@@ -232,9 +342,12 @@ section{padding:42px 0;}
 </section>
 
 <section class="alt" id="apply">
-<div class="wrap">
+<div class="wrap fade">
+<div class="shead">
+<div class="en">FREE CONSULTATION</div>
 <h2>無料相談30分の申し込み</h2>
 <p class="intro">フォームを送っていただければ、折り返し日程調整のご連絡をします。相談はオンラインで行います。</p>
+</div>
 <div class="sent-note" id="sentNote">申し込みを受け付けました。折り返しご連絡しますので、しばらくお待ちください。</div>
 <form class="apply" action="https://formsubmit.co/naoren.38@gmail.com" method="POST">
 <input type="hidden" name="_subject" value="無料相談30分の申し込み">
@@ -272,10 +385,12 @@ section{padding:42px 0;}
 </div>
 </section>
 
-<section class="faq">
-<div class="wrap">
+<section class="faq" id="faq">
+<div class="wrap fade">
+<div class="shead">
+<div class="en">FAQ</div>
 <h2>よくある質問</h2>
-<p class="intro"></p>
+</div>
 <details>
 <summary>ITやAIに詳しくなくても大丈夫ですか</summary>
 <p>大丈夫です。むしろ「詳しくないので進まなかった」という経営者のためのサービスです。専門用語ではなく、いまの業務の手順を起点に話を進めます。</p>
@@ -303,11 +418,28 @@ section{padding:42px 0;}
 </div>
 </section>
 
+<div class="foot-cta">
+<div class="wrap">
+<div class="en">CONTACT</div>
+<h2>まずは30分、<br>いまの手作業を聞かせてください。</h2>
+<p>置き換えられる業務があるかどうかは、話してみないと分かりません。無料相談で当たりをつけてから、契約するかどうかを決めてください。</p>
+<a class="btn" href="#apply">無料相談30分に申し込む</a>
+</div>
+</div>
+
 <footer class="site">
 <div class="wrap">
+<div class="fnav">
+<a href="#problem">課題</a>
+<a href="#service">支援内容</a>
+<a href="#flow">進め方</a>
+<a href="#price">料金</a>
+<a href="#faq">FAQ</a>
+<a href="#apply">無料相談</a>
+</div>
 <p class="op">運営：Seed Works Japan（マンツーマンAIスタートアップ）</p>
-<p>お問い合わせ：フォームよりご連絡ください。</p>
-<p>本サービスはAI導入の伴走支援です。売上等の成果を保証するものではありません。</p>
+<p>お問い合わせ：フォームよりご連絡ください。本サービスはAI導入の伴走支援です。売上等の成果を保証するものではありません。</p>
+<p>© Seed Works Japan. All Rights Reserved.</p>
 </div>
 </footer>
 
@@ -315,6 +447,10 @@ section{padding:42px 0;}
 if (new URLSearchParams(location.search).get('sent') === '1') {
 document.getElementById('sentNote').style.display = 'block';
 }
+var io = new IntersectionObserver(function(entries){
+entries.forEach(function(e){ if (e.isIntersecting) { e.target.classList.add('on'); io.unobserve(e.target);}});
+}, {threshold: 0.08});
+document.querySelectorAll('.fade').forEach(function(el){ io.observe(el);});
 </script>
 </body>
 </html>
