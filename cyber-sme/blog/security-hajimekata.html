@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>中小企業の情報セキュリティ対策は何から始める？IPA「6か条」の順番｜6か条実装キット ブログ</title>
+<meta name="description" content="IT担当者がいない中小企業の情報セキュリティ対策は、IPA「中小企業の情報セキュリティ対策ガイドライン第4.0版」の6か条を順番に実装するのが近道です。各条の内容と、最初に手をつけるべき項目を解説します。">
+<link rel="canonical" href="https://solederlego8-a11y.github.io/cyber-sme/blog/security-hajimekata.html">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-W02HK1VTYF"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-W02HK1VTYF');
+</script>
+<style>
+  body{font-family:"Hiragino Kaku Gothic ProN","Hiragino Sans","Yu Gothic",sans-serif;max-width:760px;margin:0 auto;padding:20px;line-height:1.9;color:#222;background:#fff}
+  h1{font-size:1.5em;line-height:1.5}
+  h2{font-size:1.2em;border-left:4px solid #36c;padding-left:10px;margin-top:1.8em}
+  .conclusion{background:#eef4ff;border:1px solid #bcd;padding:14px 18px;border-radius:8px}
+  .cta{display:block;text-align:center;padding:14px;border-radius:8px;background:#36c;color:#fff;text-decoration:none;font-weight:bold;margin:24px 0}
+  .note{font-size:.88em;color:#555}
+  nav a{margin-right:12px}
+</style>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+{"@type":"Question","name":"中小企業の情報セキュリティ対策は、何から始めればいいですか？","acceptedAnswer":{"@type":"Answer","text":"IPA（情報処理推進機構）の「中小企業の情報セキュリティ対策ガイドライン第4.0版」が示す6か条を、順番に実装するのが近道です。順番は「侵入を減らす→入られても戻せる→だまされない」という考え方で並んでいます。最初はOS・ソフトの自動更新の有効化と、使っていないリモートデスクトップを閉じることから始めてください。費用ゼロでできる項目も多くあります。"}},
+{"@type":"Question","name":"情報セキュリティ5か条と6か条は何が違いますか？","acceptedAnswer":{"@type":"Answer","text":"第4.0版（2026年3月27日公表）で、従来の5か条に「バックアップを取ろう！」が加わり6か条になりました。ランサムウェア被害の拡大を受け、侵入を防ぐだけでなく「入られても戻せる」備えが独立した条として明示された形です。"}},
+{"@type":"Question","name":"バックアップで一番大事なことは何ですか？","acceptedAnswer":{"@type":"Answer","text":"実際に1ファイル戻せることを一度確かめることです。バックアップがあっても復元できなかった事例が報告されています。重要なデータはPC本体とは別の場所に保存し、復元テストの日を決めて記録してください。"}}
+]}
+</script>
+</head>
+<body>
+<nav><a href="../index.html">キットのトップ</a><a href="index.html">ブログ一覧</a></nav>
+<h1>中小企業の情報セキュリティ対策は何から始める？IPA「6か条」の順番</h1>
+<p class="note">公開：2026年11月16日／出典：IPA「中小企業の情報セキュリティ対策ガイドライン第4.0版」（2026年3月27日公表）</p>
+
+<div class="conclusion">
+<p><strong>結論：</strong>IT担当者がいない中小企業は、独自に悩むより<strong>IPAの「情報セキュリティ6か条」を順番に実装する</strong>のが近道です。順番は「侵入を減らす→入られても戻せる→だまされない」。最初の一手は、OS・ソフトの自動更新を有効にすることと、使っていないリモートデスクトップを閉じることです（費用ゼロでできます）。</p>
+</div>
+
+<h2>6か条の中身</h2>
+<ol>
+<li><strong>OS・ソフトを常に最新に</strong>：自動更新を有効にし、VPN機器・ルーターのファームウェア更新日をカレンダーに登録する。警察庁公表の侵入経路では、VPN機器とリモートデスクトップ経由が8割超と報じられています</li>
+<li><strong>ウイルス対策・EDRを入れる</strong>：まず全PCにウイルス対策を。EDRを買う場合は「アラートを見る人（監視）」が価格に含まれているかを必ず確認する</li>
+<li><strong>パスワード強化＋多要素認証（MFA）</strong>：使い回しをやめ、メールとクラウドにMFAを。経営者・経理・クラウド管理者の3アカウントから先に</li>
+<li><strong>共有設定を見直す</strong>：退職者のアカウント停止、共有フォルダの「全員アクセス」解除、外部共有リンクの棚卸し。費用ゼロでできます</li>
+<li><strong>バックアップを取り、戻せるか試す</strong>：第4.0版で加わった最重要の追加項目。PC本体とは別の場所に保存し、実際に1ファイル戻せることを一度確かめる</li>
+<li><strong>脅威・手口を知り、報告先を決める</strong>：怪しいメールを開いたときの報告先を決め、朝礼などで15分共有する</li>
+</ol>
+
+<h2>なぜ「順番」が大事なのか</h2>
+<p>対策製品を先に買うと、「EDRを入れたのにアラートを見る人がおらず放置」のような失敗が起きます。6か条は、侵入経路を減らす基本（更新・閉鎖）→検知→認証→共有→復旧→人の備え、という依存関係の順に並んでいます。前の条ができていないと、後の条の効果が落ちます。</p>
+
+<h2>自社の現在地を確認する</h2>
+<p>当サイトの<a href="../checklist.html">無料チェックシート</a>で6か条への対応状況を確認できます。実装の手順・記録様式まで一式で進めたい場合は、<a href="../index.html">中小企業の情報セキュリティ6か条 実装キット</a>（買い切り¥9,800）をご覧ください。</p>
+
+<a class="cta" href="https://buy.stripe.com/5kQcN57tT3sTfCXaDZ18c03">6か条実装キットを購入する（¥9,800・買い切り）</a>
+
+<h2>よくある質問</h2>
+<p><strong>Q. 何から始めればいいですか？</strong><br>6か条を順番に。最初はOS・ソフトの自動更新と、使っていないリモートデスクトップを閉じることです。</p>
+<p><strong>Q. 5か条と6か条の違いは？</strong><br>第4.0版で「バックアップを取ろう！」が加わり6か条になりました。</p>
+<p><strong>Q. バックアップで一番大事なことは？</strong><br>実際に1ファイル戻せることを一度確かめることです。</p>
+
+<p class="note">本記事はIPA「中小企業の情報セキュリティ対策ガイドライン第4.0版」の公表内容に基づきます。最新のガイドラインはIPAの公式サイトでご確認ください。</p>
+</body>
+</html>
