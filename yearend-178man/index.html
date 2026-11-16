@@ -9,6 +9,146 @@ a{color:#a50}.tool{border:2px solid #a50;border-radius:8px;padding:20px;margin:1
 .tool a.btn{display:inline-block;background:#a50;color:#fff;padding:12px 28px;border-radius:6px;text-decoration:none;font-size:1.05em;margin-top:8px}</style><script async src="https://www.googletagmanager.com/gtag/js?id=G-W02HK1VTYF"></script><script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-W02HK1VTYF');</script></head><body>
 <nav><a href="index.html">トップ</a><a href="changes.html">4大改正</a><a href="walls.html">年収の壁の早見表</a><a href="steps.html">申告書の書き方と手順</a><a href="checklist.html">無料チェック・試算ツール</a></nav>
 <h1>小さな会社の178万円の壁・年末調整対応キット</h1>
+<div class="sim" id="wall-sim">
+<h2 style="margin-top:0;border-bottom:none">30秒シミュレーター：あなたの「178万円・136万円・130万円の線」チェック</h2>
+<p style="margin:.4em 0">3ステップの選択だけで、年収がどの線を超えているかが分かります。これは簡易版の目安です（正確な金額は<a href="checklist.html">無料チェック・試算ツール</a>で判定できます）。</p>
+<p class="sim-progress" id="ws-progress">ステップ 1 / 3</p>
+<div class="sim-step" id="ws-step1">
+<p class="sim-q">ステップ1：チェックしたいのは、誰の給与収入ですか？</p>
+<div class="sim-opts" data-group="who">
+<button type="button" data-value="self">本人</button>
+<button type="button" data-value="spouse">配偶者</button>
+<button type="button" data-value="family">配偶者以外の扶養家族</button>
+<button type="button" data-value="employee">パート従業員（会社側で確認）</button>
+</div>
+</div>
+<div class="sim-step" id="ws-step2" hidden>
+<p class="sim-q">ステップ2：その人の給与年収は、どの帯ですか？</p>
+<div class="sim-opts" data-group="band">
+<button type="button" data-value="0">106万円未満</button>
+<button type="button" data-value="1">106万円〜129万円</button>
+<button type="button" data-value="2">130万円〜136万円</button>
+<button type="button" data-value="3">137万円〜178万円</button>
+<button type="button" data-value="4">179万円〜207万円</button>
+<button type="button" data-value="5">208万円以上</button>
+</div>
+<p class="sim-back"><button type="button" class="sim-textbtn" data-back="1">← ステップ1に戻る</button></p>
+</div>
+<div class="sim-step" id="ws-step3" hidden>
+<p class="sim-q">ステップ3：その人の社会保険は、今どうなっていますか？</p>
+<div class="sim-opts" data-group="shaho">
+<button type="button" data-value="hiyo">家族の社会保険の扶養に入っている</button>
+<button type="button" data-value="own">自分の勤務先の社会保険に加入している</button>
+<button type="button" data-value="kokuho">加入していない（国民健康保険・国民年金など）</button>
+<button type="button" data-value="unknown">わからない</button>
+</div>
+<p class="sim-back"><button type="button" class="sim-textbtn" data-back="2">← ステップ2に戻る</button></p>
+</div>
+<div class="sim-step" id="ws-result" hidden>
+<p class="sim-q">結果：<span id="ws-headline"></span></p>
+<ul id="ws-lines" style="margin:.4em 0"></ul>
+<p id="ws-message"></p>
+<div class="sim-cta">
+<a class="sim-btn" href="https://buy.stripe.com/8x2bJ129z5B18avaDZ18c04" data-cta="buy">パックを購入する（買い切り ¥4,980）<sub>申告書の記入例・扶養判定の手順・就労調整シートまで一式</sub></a>
+<a class="sim-btn sub" href="#kit" data-cta="kit">パックの中身を見る</a>
+<a class="sim-btn sub" href="checklist.html" data-cta="checklist">無料チェック・試算ツールで金額を正確に判定する</a>
+<a class="sim-btn sub" href="walls.html" data-cta="walls">年収の壁の早見表を見る</a>
+</div>
+<p class="sim-back"><button type="button" class="sim-textbtn" id="ws-restart">最初からやり直す</button></p>
+<p class="note" style="margin-bottom:0">この結果は年収の帯だけから判定した簡易版の目安です。所得税の178万円は「給与だけの人」が前提で、他の所得や控除で変わります。社会保険の扶養は年収130万円未満が目安ですが、勤務先の規模・労働時間・収入の内訳でも変わります。個別の判断は税理士・税務署・年金事務所で確認してください。</p>
+</div>
+</div>
+<style>
+.sim{border:2px solid #a50;border-radius:10px;padding:18px;margin:16px 0;background:#fffdf9}
+.sim-progress{font-size:.85em;color:#a50;font-weight:bold;margin:.2em 0 .6em}
+.sim-q{font-weight:bold;margin:.3em 0 .6em}
+.sim-opts{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.sim-opts button{min-height:48px;padding:10px;border:1px solid #a50;border-radius:8px;background:#fff;color:#222;font-size:1em;cursor:pointer;text-align:left}
+.sim-opts button.sel{background:#a50;color:#fff}
+.sim-go{width:100%;min-height:52px;padding:12px;border:none;border-radius:8px;background:#a50;color:#fff;font-size:1.05em;font-weight:bold;cursor:pointer}
+.sim-cta{display:grid;gap:8px;margin-top:14px}
+.sim-btn{display:block;text-align:center;padding:12px;border-radius:8px;background:#a50;color:#fff;text-decoration:none;font-weight:bold;min-height:28px}
+.sim-btn sub{display:block;font-weight:normal;font-size:.78em;margin-top:2px}
+.sim-btn.sub{background:#fff;color:#a50;border:1px solid #a50}
+.sim-textbtn{background:none;border:none;color:#a50;text-decoration:underline;cursor:pointer;font-size:.95em;padding:6px 0}
+.sim-back{margin:.4em 0 0}
+.ws-ok{color:#1a7a1a;font-weight:bold}
+.ws-warn{color:#b35400;font-weight:bold}
+@media (max-width:480px){.sim{padding:14px}.sim-opts{grid-template-columns:1fr}}
+</style>
+<script>
+(function(){
+var answers={who:null,band:null,shaho:null},started=false;
+function ev(name,params){if(typeof gtag==="function"){gtag("event",name,params||{});}}
+function show(id,progress){
+["ws-step1","ws-step2","ws-step3","ws-result"].forEach(function(s){document.getElementById(s).hidden=(s!==id);});
+document.getElementById("ws-progress").textContent=progress;
+document.getElementById("wall-sim").scrollIntoView({behavior:"smooth",block:"start"});
+}
+document.querySelectorAll("#wall-sim .sim-opts").forEach(function(group){
+group.addEventListener("click",function(e){
+var btn=e.target.closest("button");if(!btn)return;
+group.querySelectorAll("button").forEach(function(b){b.classList.remove("sel");});
+btn.classList.add("sel");
+var g=group.getAttribute("data-group");answers[g]=btn.getAttribute("data-value");
+if(!started){started=true;ev("sim_start",{sim_name:"yearend_178man"});}
+if(g==="who"){show("ws-step2","ステップ 2 / 3");}
+else if(g==="band"){show("ws-step3","ステップ 3 / 3");}
+else if(g==="shaho"){result();}
+});
+});
+document.querySelectorAll("#wall-sim [data-back]").forEach(function(b){
+b.addEventListener("click",function(){
+var to=b.getAttribute("data-back");
+if(to==="1"){show("ws-step1","ステップ 1 / 3");}else{show("ws-step2","ステップ 2 / 3");}
+});
+});
+document.getElementById("ws-restart").addEventListener("click",function(){
+answers={who:null,band:null,shaho:null};started=false;
+document.querySelectorAll("#wall-sim .sim-opts button").forEach(function(b){b.classList.remove("sel");});
+show("ws-step1","ステップ 1 / 3");
+});
+document.querySelectorAll("#wall-sim .sim-cta a").forEach(function(a){
+a.addEventListener("click",function(){ev("sim_cta_click",{sim_name:"yearend_178man",cta:a.getAttribute("data-cta")});});
+});
+function result(){
+var band=parseInt(answers.band,10), who=answers.who;
+var lines=[],msg=[];
+function line(label,over,textOver,textUnder){
+lines.push('<li>'+label+'：'+(over?'<span class="ws-warn">'+textOver+'</span>':'<span class="ws-ok">'+textUnder+'</span>')+'</li>');
+}
+line("所得税がかからない線（178万円）",band>=4,"超えています（所得税がかかり始めます）","以内です（給与だけなら所得税はかからない目安）");
+line("税の扶養に入れる線（136万円）",band>=3,"超えています（扶養親族・同一生計配偶者からは外れます）","以内です（税の扶養に入れられる目安）");
+line("社会保険の扶養に入れる線（130万円未満）",band>=2,"超えています（社会保険の扶養からは外れる目安）","未満です（社会保険の扶養に入れる見込み）");
+var headline;
+if(who==="self"){
+headline="まず見るべきは「178万円の線」です";
+msg.push("あなたの場合は本人の所得税が焦点です。"+(band>=4?"年収が178万円を超えているため、年末調整では所得税の精算が発生します。":"178万円以内なら、給与だけの場合は本人の所得税はかからない計算です。"));
+if(answers.shaho==="hiyo"){msg.push("社会保険の扶養に入ったままの方は、所得税より先に130万円の線が効きます。178万円まで働けるようになったわけではありません。");}
+}else if(who==="spouse"){
+headline="焦点は「136万円（税）」と「130万円（社会保険）」のズレです";
+if(band>=3&&band<=4){msg.push("税の扶養からは外れますが、配偶者の場合は207万円以下なら配偶者特別控除の対象になり得ます（金額は帯で変わります）。");}
+if(band>=2){msg.push("社会保険の扶養は130万円以上で外れる目安です。税の136万円まで大丈夫と思って働くと、社会保険料の負担が先に発生します。");}
+if(band<2){msg.push("今の帯なら税・社会保険とも扶養の範囲内の目安です。就労調整をするなら、まず130万円の線から意識してください。");}
+}else if(who==="family"){
+headline="焦点は「136万円（税）」と「130万円（社会保険）」のズレです";
+if(band>=3){msg.push("税の扶養からは外れる帯です。19歳以上23歳未満の子なら、197万円以下で特定親族特別控除の対象になり得ます。");}
+if(band>=2){msg.push("社会保険の扶養は130万円以上で外れる目安です。");}
+if(band<2){msg.push("今の帯なら税・社会保険とも扶養の範囲内の目安です。");}
+}else{
+headline="会社側の焦点は、従業員への「3つの線」の説明です";
+msg.push("税の178万円・136万円と、社会保険の130万円は別ルールです。パート従業員が「178万円まで大丈夫」と誤解したままシフトを組むと、社会保険料の負担をめぐるトラブルになります。年末調整の前に、3つの線を分けて説明しておくのが安全です。");
+if(band>=2){msg.push("今回チェックした従業員は社会保険の130万円の線を超えている目安です。扶養の扱いを個別に確認してください。");}
+}
+document.getElementById("ws-headline").textContent=headline;
+document.getElementById("ws-lines").innerHTML=lines.join("");
+document.getElementById("ws-message").textContent=msg.join(" ");
+show("ws-result","結果");
+ev("sim_complete",{sim_name:"yearend_178man",who:who,band:answers.band});
+}
+})();
+</script>
+
 <p><strong>結論：2026年分の年末調整は、基礎控除が最大104万円、給与所得控除の最低保障額が74万円になり、給与だけの人は年収178万円まで所得税がかからなくなりました。</strong>改正は2026年12月1日に施行され、2026年分以後の所得税に適用されます。11月までの源泉徴収事務に変更はなく、1年分の差は12月の年末調整でまとめて精算されます。ただし「178万円まで働いても社会保険料はかからない」は勘違いです。社会保険の扶養は130万円未満のままで、税の136万円とはズレています。このサイトは、専任総務がいない小さな会社が、2026年12月の年末調整でそのズレを間違えず、パートの就労調整と申告書を1週間で整えるための、公式資料にもとづく実装ガイドです。</p>
 <div class="tool"><h2>無料チェック・試算ツール：自分の「178万円・136万円・130万円の線」が出ます</h2>
 <p>給与収入・事業所得・扶養する家族の収入を入れるだけで、(1)本人の所得税がかかるか（178万円の線）、(2)家族を税の扶養に入れられるか（136万円の線）、(3)社会保険の扶養に入れるか（130万円の線）、(4)個人事業主の所得税の線（所得104万円）が分かります。申告書を書く前に、どの線を超えているかを確認するためのツールです。</p>
