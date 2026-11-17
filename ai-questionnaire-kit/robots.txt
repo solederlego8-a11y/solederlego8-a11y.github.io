@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://solederlego8-a11y.github.io/ai-questionnaire-kit/sitemap.xml

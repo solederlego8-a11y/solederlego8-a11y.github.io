@@ -1,6 +1,5 @@
 <!doctype html>
 <html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="robots" content="noindex">
 <title>無料チェックツール｜小さな免税店のリファンド方式対応キット</title>
 <style>body{font-family:system-ui,sans-serif;max-width:760px;margin:0 auto;padding:24px;line-height:1.8;color:#222}
 h1{font-size:1.6em;line-height:1.4}h2{margin-top:2em;border-bottom:2px solid #a50}nav a{margin-right:12px}
@@ -33,7 +32,7 @@ input[type=number]{padding:8px;font-size:1em;width:180px}
 </div>
 
 <div class="tool"><h2>（2）返金額の試算：税込価格から消費税相当額を出す</h2>
-<p>税込価格を入れると、返金する消費税相当額（税込価格に含まれる消費税）と税抜価格が出ます。10%の商品（一般物品など）と8%の商品（飲食料品など）で計算が変わります。例：税込10,000円の10%の商品なら、消費税相当額は909円です。</p>
+<p>税込価格を入れると、返金する消費税相当額（税込価格に含まれる消費税）と税抜価格が出ます。10%の商品（一般物品など）と8%の商品（飲食料品など）で計算が変わります。例：税込10,000円の10%の商品なら、消費税相当額は909円です。返金額の端数は、各店の返金規程・POSの設定で統一してください。</p>
 <p>税込価格（円）：<input id="price" type="number" min="0" step="1" placeholder="例：10000"></p>
 <p>税率：
 <label><input type="radio" name="rate" value="10" checked> 10%</label>
@@ -42,8 +41,11 @@ input[type=number]{padding:8px;font-size:1em;width:180px}
 <div id="calcResult" class="result"></div>
 </div>
 
-<div class="card"><h2>リファンド方式対応パック（買い切り・2027年6月までの更新込み）¥4,980</h2>
-<p>無料ツールとこのサイトの早見表・手順で足りない場合に、許可・届出の確認シート、POS改修の確認リスト、返金手続きの運用手順書、経理処理の振替手順、店員向け手順書のひな形、購入記録情報の項目チェック表を1つのパックにまとめたものです。買い切りで、2027年6月までの更新（国税庁Q&amp;Aの改訂・返金の運用事例の追従）が含まれます。個別の税務判断・申告の代理は行いません。最終判断は税理士・税務署で確認してください。価格は自社設定予定価格です。</p></div>
+<div class="card"><h2>リファンド方式対応パック（販売中）</h2>
+<p>許可の確認から返金の運用まで、店に置く文書と台帳を1つにまとめました。収録内容：許可・届出の確認シート（失効している場合の再許可の手順つき）、POS・システム改修の確認リスト、販売から返金までの8ステップ手順書と店員向け手順書のひな形、返金手続きの運用手順書と返金管理台帳、経理処理（課税売上げから免税売上げへの振替）の手順、購入記録情報の項目チェック表、旅行者向け案内文のひな形（日本語・英語）。</p>
+<p>価格：<strong>買い切り ¥4,980</strong>（2027年6月までの更新込み。国税庁Q&amp;Aの改訂・返金の運用事例に追従します。月額プランはありません）</p>
+<p><a style="display:block;text-align:center;padding:12px;border-radius:8px;background:#a50;color:#fff;text-decoration:none;font-weight:bold" href="https://buy.stripe.com/8x23cv29z8Nd62n7rN18c07" id="kit-order">今すぐ購入する（Stripe決済ページへ）</a></p>
+<p>※ 本パックは一般的な情報提供であり、個別の税務判断・申告の代理は行いません。最終判断は税理士・税務署で確認してください。</p></div>
 <div class="note"><p>このサイトは一般的な情報提供です。個別の税務判断・申告の代理は行わず、最終判断は税理士・税務署で確認してください。数字の出典は各ページに記載しています。</p></div>
 <script>
 function val(name){var els=document.getElementsByName(name);for(var i=0;i<els.length;i++){if(els[i].checked)return els[i].value;}return null;}

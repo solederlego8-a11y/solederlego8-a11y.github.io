@@ -1,4 +1,9 @@
-# 小さな店のLINE構築パック｜業者に10万円払わずに、1週間でLINE公式アカウントの型を整える（実測中）
+# 小さな店のLINE構築パック｜業者に10万円払わずに、1週間でLINE公式アカウントの型を整える
 
 ## Pages
-- [小さな店のLINE構築パック｜業者に10万円払わずに、1週間でLINE公式アカウントの型を整える（実測中）](https://solederlego8-a11y.github.io/line-pack/)
+- [小さな店のLINE構築パック｜業者に10万円払わずに、1週間でLINE公式アカウントの型を整える](https://solederlego8-a11y.github.io/line-pack/)
+- [ブログ｜小さな店のLINE構築パック](https://solederlego8-a11y.github.io/line-pack/blog/)
+- [LINE公式アカウントの料金は「通数」で決まる](https://solederlego8-a11y.github.io/line-pack/blog/line-tsusu-200.html)
+
+## Purchase
+- 小さな店のLINE公式アカウント構築パック ¥9,800（買い切り・月額更新¥980は任意）販売中： https://buy.stripe.com/5kQaEX7tT1kL9ez4fB18c0c

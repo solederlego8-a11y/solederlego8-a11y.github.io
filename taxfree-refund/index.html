@@ -1,13 +1,12 @@
 <!doctype html>
 <html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="robots" content="noindex">
 <title>小さな免税店のリファンド方式対応キット｜2026年11月1日の制度変更で「税込販売・購入記録・返金」を間違えないための早見表と手順</title>
 <style>body{font-family:system-ui,sans-serif;max-width:760px;margin:0 auto;padding:24px;line-height:1.8;color:#222}
 h1{font-size:1.6em;line-height:1.4}h2{margin-top:2em;border-bottom:2px solid #a50}nav a{margin-right:12px}
 .card{border:1px solid #ccc;border-radius:8px;padding:16px;margin:12px 0}.note{background:#f6f6f6;padding:12px;border-radius:6px;font-size:.92em}
 a{color:#a50}.tool{border:2px solid #a50;border-radius:8px;padding:20px;margin:16px 0}
 .tool a.btn{display:inline-block;background:#a50;color:#fff;padding:12px 28px;border-radius:6px;text-decoration:none;font-size:1.05em;margin-top:8px}</style><script async src="https://www.googletagmanager.com/gtag/js?id=G-W02HK1VTYF"></script><script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-W02HK1VTYF');</script></head><body>
-<nav><a href="index.html">トップ</a><a href="changes.html">何が変わったか</a><a href="steps.html">販売と返金の流れ</a><a href="permit.html">許可の確認と手続</a><a href="checklist.html">無料チェックツール</a></nav>
+<nav><a href="index.html">トップ</a><a href="changes.html">何が変わったか</a><a href="steps.html">販売と返金の流れ</a><a href="permit.html">許可の確認と手続</a><a href="checklist.html">無料チェックツール</a><a href="blog/index.html">ブログ</a></nav>
 <h1>小さな免税店のリファンド方式対応キット</h1>
 <p><strong>結論：2026年11月1日から、免税店の制度は「購入時に税抜で売る」方式から「税込で売り、出国時の税関確認のあとで消費税相当額を返金する」リファンド方式へ移行しました。</strong>移行期間はなく、11月1日以降の販売はすべてリファンド方式です。店は、税込で販売し、購入記録情報を国税庁へ送り、税関の確認結果を受け取ってから返金する役目を負います。2026年10月31日までに「購入記録情報の提供方法等の届出書」を出していなかった免税店は、同日で許可の効力を失っています。このサイトは、専任の経理担当者がいない小さな免税店が、リファンド方式の運用を1週間で整えるための、公式資料にもとづく実装ガイドです。</p>
 <div class="tool"><h2>無料チェックツール：自店の「許可・届出・POS・返金」の対応状況が出ます</h2>
@@ -28,19 +27,21 @@ a{color:#a50}.tool{border:2px solid #a50;border-radius:8px;padding:20px;margin:1
 <li><a href="permit.html">許可の確認と手続</a> — 届出の確認方法、許可を失った場合の再許可、新規に許可を受ける場合の申請、変更届出書の出し方を整理しました。</li>
 <li><a href="checklist.html">無料チェックツール</a> — 6つの質問で自店の対応状況を判定し、未対応の項目を優先順位つきで出します。税込価格から返金する消費税相当額の試算もできます。</li>
 </ul></div>
-<div class="card"><h2>リファンド方式対応パック（買い切り・2027年6月までの更新込み）¥4,980</h2>
-<p>無料ツールとこのサイトの早見表・手順で足りない場合に、許可・届出の確認シート、POS改修の確認リスト、返金手続きの運用手順書、経理処理の振替手順、店員向け手順書のひな形、購入記録情報の項目チェック表を1つのパックにまとめたものです。買い切りで、2027年6月までの更新（国税庁Q&amp;Aの改訂・返金の運用事例の追従）が含まれます。個別の税務判断・申告の代理は行いません。最終判断は税理士・税務署で確認してください。価格は自社設定予定価格です。</p></div>
-<div class="card" id="kit-prereg"><h2>パック発売通知の事前登録（無料）</h2><p>対応パック（買い切り4,980円）は現在制作中です。発売日にメールでお知らせします。登録は無料で、発売のご案内以外のメールは送りません。</p><form id="kit-prereg-form" style="margin:14px 0">
-<input type="email" name="email" required placeholder="メールアドレス（発売通知の送付先）" style="width:100%;box-sizing:border-box;padding:12px;border:1px solid #999;border-radius:8px;font-size:1em">
-<button type="submit" style="display:block;width:100%;margin-top:10px;padding:12px;border:none;border-radius:8px;background:#36c;color:#fff;font-weight:bold;font-size:1em;cursor:pointer">発売通知を受け取る（無料で登録）</button>
-</form>
-<p id="kit-prereg-done" style="display:none;color:#18794e;font-weight:bold;text-align:center">登録を受け付けました。発売日にメールでお知らせします。</p>
-<p id="kit-prereg-err" style="display:none;color:#b3261e;text-align:center">送信できませんでした。時間をおいて再度お試しいただくか、下のメール登録をご利用ください。</p>
-<script>
-document.getElementById("kit-prereg-form").addEventListener("submit",function(e){e.preventDefault();var f=this;var email=f.querySelector("input[name=email]").value;fetch("https://formsubmit.co/ajax/naoren.38@gmail.com",{method:"POST",headers:{"Content-Type":"application/json","Accept":"application/json"},body:JSON.stringify({email:email,_subject:"免税店リファンド対応パック発売通知希望",_template:"table",_replyto:email})}).then(function(r){return r.json().then(function(d){if(!r.ok||String(d.success)!=="true"){throw new Error("send failed");}f.style.display="none";document.getElementById("kit-prereg-done").style.display="block";if(typeof gtag==="function"){gtag("event","kit_preregister_submit",{item:"taxfree_pack"});}});}).catch(function(){document.getElementById("kit-prereg-err").style.display="block";});});
-</script>
-<p style="text-align:center;font-size:.9em"><a href="mailto:naoren.38@gmail.com?subject=%E5%85%8D%E7%A8%8E%E5%BA%97%E3%83%AA%E3%83%95%E3%82%A1%E3%83%B3%E3%83%89%E5%AF%BE%E5%BF%9C%E3%83%91%E3%83%83%E3%82%AF%E7%99%BA%E5%A3%B2%E9%80%9A%E7%9F%A5%E5%B8%8C%E6%9C%9B" id="kit-preregister">メールソフトで登録する場合はこちら</a></p></div>
-<script>document.getElementById("kit-preregister").addEventListener("click",function(){if(typeof gtag==="function"){gtag("event","kit_preregister_click",{item:"taxfree_pack"});}});</script>
+<div class="card"><h2>リファンド方式対応パック（販売中）</h2>
+<p>許可の確認から返金の運用まで、店に置く文書と台帳を1つにまとめました。</p>
+<p>収録内容：</p>
+<ul>
+<li>許可・届出の確認シート（失効している場合の再許可の手順つき）</li>
+<li>POS・システム改修の確認リスト</li>
+<li>販売から返金までの8ステップ手順書と店員向け手順書のひな形</li>
+<li>返金手続きの運用手順書と返金管理台帳</li>
+<li>経理処理（課税売上げから免税売上げへの振替）の手順</li>
+<li>購入記録情報の項目チェック表</li>
+<li>旅行者向け案内文のひな形（日本語・英語）</li>
+</ul>
+<p>価格：<strong>買い切り ¥4,980</strong>（2027年6月までの更新込み。国税庁Q&amp;Aの改訂・返金の運用事例に追従します。月額プランはありません）</p>
+<p><a style="display:block;text-align:center;padding:12px;border-radius:8px;background:#a50;color:#fff;text-decoration:none;font-weight:bold" href="https://buy.stripe.com/8x23cv29z8Nd62n7rN18c07" id="kit-order">今すぐ購入する（Stripe決済ページへ）</a></p>
+<p>※ 本パックは一般的な情報提供であり、個別の税務判断・申告の代理は行いません。最終判断は税理士・税務署で確認してください。</p></div>
 <div id="kit-series" style="border:1px solid #ccc;border-radius:8px;padding:12px 16px;margin:20px 0"><h2 style="margin-top:0;font-size:1.1em">小さな会社の制度対応シリーズ</h2><p style="font-size:.92em">制度改正への対応を、無料ツールとキットで支援するシリーズです。</p><ul><li><a href="https://solederlego8-a11y.github.io/kasuhara-kit/">小さな会社のカスハラ対策キット</a>（販売中 ¥9,800）</li><li><a href="https://solederlego8-a11y.github.io/cyber-sme/">6か条実装キット（中小企業の情報セキュリティ）</a>（販売中 ¥9,800）</li><li><a href="https://solederlego8-a11y.github.io/invoice-kit/">インボイス2割特例 終了対応キット</a>（無料判定ツール公開中）</li><li><a href="https://solederlego8-a11y.github.io/yearend-178man/">178万円の壁・年末調整対応キット</a>（無料チェック公開中）</li><li><a href="https://solederlego8-a11y.github.io/kakaku-tenka/">価格転嫁交渉キット</a>（無料計算ツール公開中）</li><li><a href="https://solederlego8-a11y.github.io/shukuhakusei-kit/">小さな宿の宿泊税対応キット</a>（無料試算ツール公開中）</li></ul></div>
 <div class="note"><p>このサイトは一般的な情報提供です。個別の税務判断・申告の代理は行わず、最終判断は税理士・税務署で確認してください。数字の出典は各ページに記載しています。国税庁の特設サイト・リーフレット・Q&amp;A、観光庁の免税店向け案内も、併せて確認することをおすすめします。</p></div>
 </body></html>

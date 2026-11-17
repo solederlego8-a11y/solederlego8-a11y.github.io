@@ -6,3 +6,9 @@
 - [小さな会社の価格転嫁交渉キット｜2027年3月の価格交渉促進月間を前に「上がったコストの半分を自社で抱えたまま」の状態を抜け出すための交渉文例と原価計算シート](https://solederlego8-a11y.github.io/kakaku-tenka/)
 - [申入書文例・協議記録の型｜小さな会社の価格転嫁交渉キット](https://solederlego8-a11y.github.io/kakaku-tenka/letters.html)
 - [交渉の段取り（7ステップ）｜小さな会社の価格転嫁交渉キット](https://solederlego8-a11y.github.io/kakaku-tenka/steps.html)
+
+## Purchase
+- [価格転嫁交渉パック（販売中・買い切り ¥4,980）](https://buy.stripe.com/3cI6oH4hH7J9eyTdQb18c08) — 購入はトップページ（https://solederlego8-a11y.github.io/kakaku-tenka/）の購入セクションから。手順書6本・ひな形8点（申入書・文例レター集・原価計算シート等）を収録
+## Blog
+- [ブログ｜小さな会社の価格転嫁交渉キット](https://solederlego8-a11y.github.io/kakaku-tenka/blog/)
+- [取適法で何が変わったか：協議に応じない一方的な代金決定の禁止](https://solederlego8-a11y.github.io/kakaku-tenka/blog/tekiseihou-kyougi.html)

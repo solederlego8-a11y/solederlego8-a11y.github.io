@@ -6,3 +6,8 @@
 - [OTA・民泊の計算｜小さな宿の宿泊税対応キット](https://solederlego8-a11y.github.io/shukuhakusei-kit/ota.html)
 - [自治体別早見表｜小さな宿の宿泊税対応キット](https://solederlego8-a11y.github.io/shukuhakusei-kit/rates.html)
 - [登録と申告の手順｜小さな宿の宿泊税対応キット](https://solederlego8-a11y.github.io/shukuhakusei-kit/steps.html)
+- [ブログ｜小さな宿の宿泊税対応キット](https://solederlego8-a11y.github.io/shukuhakusei-kit/blog/)
+- [東京都と沖縄県の宿泊税は「端数処理」で税額が変わる](https://solederlego8-a11y.github.io/shukuhakusei-kit/blog/tokyo-okinawa-tanusu.html)
+
+## Purchase
+- 宿泊税対応パック ¥4,980（買い切り・2027年6月までの更新込み）販売中： https://buy.stripe.com/00w14naG5aVLduPbI318c09

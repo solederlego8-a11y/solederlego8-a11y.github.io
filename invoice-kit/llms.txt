@@ -9,3 +9,9 @@
 - [小さな会社の2割特例終了対応キット｜インボイス2割特例が終わった後の消費税を、判定ツールと決算月別の期限で整える](https://solederlego8-a11y.github.io/invoice-kit/)
 - [手順と届出｜小さな会社の2割特例終了対応キット](https://solederlego8-a11y.github.io/invoice-kit/steps.html)
 - [簡易課税選択届出書の書き方と出し方｜小さな会社の2割特例終了対応キット](https://solederlego8-a11y.github.io/invoice-kit/todokede.html)
+
+## Purchase
+- [届出パック（販売中・買い切り ¥4,980）](https://buy.stripe.com/7sY6oH5lL4wXduPdQb18c06) — 購入はトップページ（https://solederlego8-a11y.github.io/invoice-kit/）の購入セクションから。決算月別スケジュール表・届出書の記入見本・試算シート等を収録
+## Blog
+- [ブログ｜小さな会社の2割特例終了対応キット](https://solederlego8-a11y.github.io/invoice-kit/blog/)
+- [2割特例が終わった後の選び方：3割特例・簡易課税・本則課税](https://solederlego8-a11y.github.io/invoice-kit/blog/niwari-tokurei-owari.html)
