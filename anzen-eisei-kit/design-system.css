@@ -1,0 +1,340 @@
+/* ============================================================
+   Seed Works Japan — 共通デザインテンプレート v1
+   土台: 仕様書パッケージ（コーポレート仕様）のデザイン指定
+   白ベース / 濃グレー文字 / 落ち着いたブルー〜ネイビー / 角丸控えめ
+   アニメーションはフェードインのみ / CSS変数で全差し替え可能
+   取り入れた考え方:
+   - Tailwind CSS の余白・文字スケール（4pxベース、8の倍数中心）
+   - shadcn/ui のミニマルなカード・ボタンの階層
+   - Lucide アイコン（HTML側で CDN + data-lucide 属性）
+   - AOS の「スクロールでフェードイン」を IntersectionObserver で軽量実装
+   使い方: このファイルを各リポジトリにコピーし、<link> で読み込むだけ。
+   色を変えたい場合は :root の変数だけ書き換える。
+   ============================================================ */
+
+:root{
+  /* --- 色（仕様書パッケージ 6.2 初期配色が正本） --- */
+  --bg:#FFFFFF;
+  --bg-soft:#F5F7FA;
+  --bg-navy:#0B2A4A;
+  --text:#1F2933;
+  --text-sub:#5B6770;
+  --text-faint:#8492A6;
+  --accent:#0F4C81;
+  --accent-hover:#0C3D68;
+  --accent-soft:#EAF1F8;
+  --border:#E2E8F0;
+  --border-strong:#CBD5E1;
+  --success:#157347;
+  --warning:#9A6700;
+  --warning-bg:#FFF8E1;
+
+  /* --- タイポグラフィ（Tailwind系スケール） --- */
+  --font:system-ui,-apple-system,BlinkMacSystemFont,"Helvetica Neue","Hiragino Kaku Gothic ProN","Hiragino Sans","Yu Gothic UI",sans-serif;
+  --fs-xs:12px; --fs-sm:14px; --fs-base:16px; --fs-lg:18px;
+  --fs-xl:20px; --fs-2xl:24px; --fs-3xl:30px; --fs-4xl:38px; --fs-5xl:48px;
+  --lh-tight:1.3; --lh-base:1.8; --lh-loose:2.0;
+
+  /* --- 余白（4pxベーススペーシング） --- */
+  --sp-1:4px; --sp-2:8px; --sp-3:12px; --sp-4:16px; --sp-6:24px;
+  --sp-8:32px; --sp-10:40px; --sp-12:48px; --sp-16:64px; --sp-20:80px; --sp-24:96px;
+  --section-y:var(--sp-24);
+
+  /* --- 形・影 --- */
+  --radius:6px;          /* 角丸は控えめ（仕様どおり） */
+  --radius-lg:10px;
+  --shadow-sm:0 1px 2px rgba(15,42,74,.06);
+  --shadow:0 4px 16px rgba(15,42,74,.08);
+  --shadow-lg:0 12px 32px rgba(15,42,74,.12);
+
+  --container:1120px;
+  --header-h:64px;
+}
+
+/* ---------- ベース ---------- */
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;background:var(--bg);color:var(--text);
+  font-family:var(--font);font-size:var(--fs-base);line-height:var(--lh-base);
+  -webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;
+}
+img{max-width:100%;height:auto}
+a{color:var(--accent);text-decoration:none}
+a:hover{text-decoration:underline}
+::selection{background:var(--accent-soft)}
+
+/* ---------- レイアウト ---------- */
+.container{max-width:var(--container);margin:0 auto;padding:0 var(--sp-6)}
+.section{padding:var(--section-y) 0}
+.section--soft{background:var(--bg-soft)}
+.section--navy{background:var(--bg-navy);color:#fff}
+.grid{display:grid;gap:var(--sp-6)}
+.grid--2{grid-template-columns:repeat(2,1fr)}
+.grid--3{grid-template-columns:repeat(3,1fr)}
+@media(max-width:900px){.grid--3{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:640px){
+  :root{--section-y:var(--sp-16)}
+  .grid--2,.grid--3{grid-template-columns:1fr}
+  .container{padding:0 var(--sp-4)}
+}
+
+/* ---------- 見出し（英字＋日本語の型・仕様書どおり） ---------- */
+.eyebrow{
+  display:flex;align-items:center;gap:var(--sp-3);
+  font-size:var(--fs-sm);font-weight:700;letter-spacing:.18em;
+  text-transform:uppercase;color:var(--accent);margin:0 0 var(--sp-3);
+}
+.eyebrow::after{content:"";height:1px;width:48px;background:var(--accent);opacity:.5}
+.section--navy .eyebrow{color:#9CC3E5}
+h1,h2,h3{line-height:var(--lh-tight);margin:0;font-weight:700}
+.h-display{font-size:var(--fs-5xl);letter-spacing:.01em}
+.h-section{font-size:var(--fs-3xl);margin-bottom:var(--sp-4)}
+.h-card{font-size:var(--fs-lg);margin-bottom:var(--sp-2)}
+.lead{font-size:var(--fs-lg);color:var(--text-sub);line-height:var(--lh-loose)}
+@media(max-width:640px){.h-display{font-size:var(--fs-3xl)}.h-section{font-size:var(--fs-2xl)}}
+.marker{background:linear-gradient(transparent 62%,#FCE9A8 62%);padding:0 2px}
+
+/* ---------- ヘッダー ---------- */
+.header{
+  position:sticky;top:0;z-index:50;height:var(--header-h);
+  background:rgba(255,255,255,.92);backdrop-filter:blur(8px);
+  border-bottom:1px solid var(--border);
+}
+.header__inner{max-width:var(--container);margin:0 auto;padding:0 var(--sp-6);
+  height:100%;display:flex;align-items:center;justify-content:space-between;gap:var(--sp-6)}
+.logo{font-weight:800;letter-spacing:.08em;color:var(--text);font-size:var(--fs-base)}
+.logo small{display:block;font-size:var(--fs-xs);letter-spacing:.02em;color:var(--text-sub);font-weight:500}
+.nav{display:flex;gap:var(--sp-8);align-items:center}
+.nav a{color:var(--text);font-size:var(--fs-sm);font-weight:600}
+.nav a:hover{color:var(--accent);text-decoration:none}
+@media(max-width:820px){.nav a:not(.btn){display:none}}
+
+/* ---------- ボタン（shadcn/ui式の階層） ---------- */
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:var(--sp-2);
+  min-height:48px;padding:0 var(--sp-8);border-radius:var(--radius);
+  font-size:var(--fs-base);font-weight:700;line-height:1;cursor:pointer;
+  border:1px solid transparent;transition:background .15s,border-color .15s,transform .15s;
+}
+.btn:hover{text-decoration:none}
+.btn--primary{background:var(--accent);color:#fff;box-shadow:var(--shadow-sm)}
+.btn--primary:hover{background:var(--accent-hover)}
+.btn--secondary{background:#fff;color:var(--accent);border-color:var(--accent)}
+.btn--secondary:hover{background:var(--accent-soft)}
+.btn--ghost{background:transparent;color:var(--text);border-color:var(--border-strong)}
+.btn--ghost:hover{background:var(--bg-soft)}
+.btn--lg{min-height:56px;padding:0 var(--sp-10);font-size:var(--fs-lg)}
+.btn--block{width:100%}
+.btn .lucide{width:20px;height:20px}
+
+/* ---------- カード ---------- */
+.card{
+  background:#fff;border:1px solid var(--border);border-radius:var(--radius-lg);
+  padding:var(--sp-8);box-shadow:var(--shadow-sm);
+}
+.card--hover{transition:box-shadow .2s,transform .2s}
+.card--hover:hover{box-shadow:var(--shadow);transform:translateY(-2px)}
+.card__icon{
+  width:48px;height:48px;border-radius:var(--radius);background:var(--accent-soft);
+  display:flex;align-items:center;justify-content:center;margin-bottom:var(--sp-4);color:var(--accent);
+}
+.card__icon .lucide{width:24px;height:24px}
+.card p{color:var(--text-sub);margin:0;font-size:var(--fs-sm);line-height:var(--lh-loose)}
+
+/* ---------- 数値・指標ブロック ---------- */
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--sp-4)}
+.stat{border:1px solid var(--border);border-radius:var(--radius-lg);padding:var(--sp-6);text-align:center;background:#fff}
+.stat__num{font-size:var(--fs-3xl);font-weight:800;color:var(--accent);line-height:1.2}
+.stat__label{font-size:var(--fs-sm);color:var(--text-sub);margin-top:var(--sp-1)}
+@media(max-width:640px){.stats{grid-template-columns:1fr}}
+
+/* ---------- ステップ ---------- */
+.steps{counter-reset:step;display:grid;gap:var(--sp-4)}
+.step{display:flex;gap:var(--sp-4);align-items:flex-start;background:#fff;
+  border:1px solid var(--border);border-radius:var(--radius-lg);padding:var(--sp-6)}
+.step::before{
+  counter-increment:step;content:counter(step);
+  flex:0 0 40px;width:40px;height:40px;border-radius:50%;
+  background:var(--accent);color:#fff;font-weight:800;
+  display:flex;align-items:center;justify-content:center;font-size:var(--fs-lg);
+}
+.step p{margin:0;color:var(--text-sub);font-size:var(--fs-sm)}
+
+/* ---------- 料金カード ---------- */
+.price-card{border:2px solid var(--accent);border-radius:var(--radius-lg);
+  padding:var(--sp-10);background:#fff;box-shadow:var(--shadow);text-align:center}
+.price{font-size:var(--fs-5xl);font-weight:800;line-height:1.1}
+.price small{font-size:var(--fs-base);font-weight:600;color:var(--text-sub)}
+.checklist{list-style:none;margin:var(--sp-6) 0;padding:0;text-align:left;display:grid;gap:var(--sp-3)}
+.checklist li{display:flex;gap:var(--sp-3);align-items:flex-start;font-size:var(--fs-sm)}
+.checklist .lucide{width:18px;height:18px;color:var(--success);flex:0 0 18px;margin-top:4px}
+
+/* ---------- FAQ ---------- */
+.faq{border-top:1px solid var(--border)}
+.faq details{border-bottom:1px solid var(--border);padding:var(--sp-4) 0}
+.faq summary{font-weight:700;cursor:pointer;list-style:none;display:flex;justify-content:space-between;gap:var(--sp-4)}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";color:var(--accent);font-size:var(--fs-xl);line-height:1}
+.faq details[open ] summary::after{content:"−"}
+.faq p{color:var(--text-sub);font-size:var(--fs-sm);margin:var(--sp-3) 0 0}
+
+/* ---------- バッジ・注意 ---------- */
+.badge{display:inline-flex;align-items:center;gap:var(--sp-2);
+  background:var(--accent-soft);color:var(--accent);
+  font-size:var(--fs-xs);font-weight:700;padding:var(--sp-1) var(--sp-3);border-radius:999px}
+.notice{background:var(--warning-bg);border:1px solid #F0D48A;border-radius:var(--radius);
+  padding:var(--sp-4) var(--sp-6);font-size:var(--fs-sm);color:var(--warning)}
+
+/* ---------- CTA帯・フッター ---------- */
+.cta-band{background:var(--bg-navy);color:#fff;border-radius:var(--radius-lg);
+  padding:var(--sp-12);text-align:center}
+.cta-band .lead{color:#C7D6E6}
+.footer{border-top:1px solid var(--border);padding:var(--sp-12) 0 var(--sp-8);
+  color:var(--text-sub);font-size:var(--fs-sm)}
+.footer__nav{display:flex;gap:var(--sp-6);flex-wrap:wrap;margin-bottom:var(--sp-6)}
+.footer__nav a{color:var(--text-sub)}
+
+/* ---------- フェードイン（AOS相当・ライブラリなし） ----------
+   要素に data-reveal を付けると、画面に入った時にふわっと出す。
+   JSは prototype 側の小さな IntersectionObserver のみ。 */
+/* フェイルセーフ: JSが有効な時だけ最初は隠す。
+   プレビュー環境などでJSが動かなくても、本文はそのまま見える。 */
+.js [data-reveal]{opacity:0;transform:translateY(16px);transition:opacity .6s ease,transform .6s ease}
+.js [data-reveal].is-visible{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){
+  .js [data-reveal]{opacity:1;transform:none;transition:none}
+  html{scroll-behavior:auto}
+}
+
+/* Lucide アイコンの標準サイズ */
+.lucide{width:20px;height:20px;stroke-width:1.8}
+
+/* ============================================================
+   v2 追加（2026-11-17 ユーザー指摘「殺風景」への対応）
+   原因: 白背景＋細い境界線＋単色ネイビーだけで、写真・図形・色面が無かった。
+   方針: 土台の落ち着きは保ちつつ、色面・グラデーション・大きな図形・
+   製品モック（シミュレーター画面）で「目で見て分かる」面を作る。
+   ============================================================ */
+:root{
+  --accent-2:#0E7C7B;      /* ティール：2色目のアクセント */
+  --accent-3:#E8A317;      /* アンバー：注意・強調 */
+  --accent-soft-2:#E6F4F3;
+  --accent-soft-3:#FDF3D7;
+  --grad-hero:linear-gradient(135deg,#0B2A4A 0%,#0F4C81 55%,#0E7C7B 130%);
+  --grad-btn:linear-gradient(135deg,#0F4C81,#14619E);
+  --grad-icon:linear-gradient(135deg,#0F4C81,#2B7BB9);
+  --grad-icon-2:linear-gradient(135deg,#0E7C7B,#25A19E);
+  --grad-icon-3:linear-gradient(135deg,#C77F0A,#E8A317);
+}
+.btn--primary{background:var(--grad-btn)}
+.btn--primary:hover{filter:brightness(1.08);background:var(--grad-btn)}
+
+/* ヒーロー：色面＋ドット柄＋大きな円の装飾 */
+.hero{
+  position:relative;overflow:hidden;color:#fff;
+  background:var(--grad-hero);
+}
+.hero::before{ /* ドット柄 */
+  content:"";position:absolute;inset:0;opacity:.14;
+  background-image:radial-gradient(rgba(255,255,255,.9) 1px,transparent 1px);
+  background-size:22px 22px;
+}
+.hero::after{ /* 右上の大きな光の円 */
+  content:"";position:absolute;width:560px;height:560px;border-radius:50%;
+  right:-160px;top:-220px;background:radial-gradient(circle,rgba(255,255,255,.22),transparent 65%);
+}
+.hero .container{position:relative;z-index:1}
+.hero .eyebrow{color:#F2C14E}
+.hero .eyebrow::after{background:#F2C14E}
+.hero .lead{color:#D7E5F2}
+.hero .marker{background:linear-gradient(transparent 60%,rgba(232,163,23,.55) 60%);color:#fff}
+.hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:var(--sp-12);align-items:center}
+@media(max-width:900px){.hero-grid{grid-template-columns:1fr}}
+
+/* 製品モック（シミュレーター画面の見た目） */
+.mock{
+  background:#fff;color:var(--text);border-radius:14px;box-shadow:var(--shadow-lg);
+  padding:var(--sp-6);transform:rotate(1.2deg);
+}
+.mock__head{display:flex;align-items:center;gap:var(--sp-2);margin-bottom:var(--sp-4)}
+.mock__dot{width:10px;height:10px;border-radius:50%}
+.mock__bar{height:10px;border-radius:99px;background:var(--bg-soft)}
+.mock__bar--accent{background:linear-gradient(90deg,var(--accent) 62%,var(--border) 62%)}
+.mock__bar--teal{background:linear-gradient(90deg,var(--accent-2) 38%,var(--border) 38%)}
+.mock__row{display:flex;justify-content:space-between;align-items:center;
+  padding:var(--sp-3) 0;border-bottom:1px dashed var(--border);font-size:var(--fs-sm)}
+.mock__row:last-child{border-bottom:none}
+.mock__num{font-weight:800;font-size:var(--fs-xl);color:var(--accent)}
+.mock__num--warn{color:#B97A06}
+.float-chip{
+  display:inline-flex;align-items:center;gap:var(--sp-2);background:#fff;color:var(--text);
+  border-radius:999px;box-shadow:var(--shadow);padding:var(--sp-2) var(--sp-4);
+  font-size:var(--fs-sm);font-weight:700;
+}
+.float-chip .lucide{color:var(--accent-2)}
+
+/* カードの色付きバリエーション */
+.card__icon--grad{background:var(--grad-icon);color:#fff}
+.card__icon--teal{background:var(--grad-icon-2);color:#fff}
+.card__icon--amber{background:var(--grad-icon-3);color:#fff}
+.card--tint-blue{background:linear-gradient(180deg,#fff, var(--accent-soft))}
+.card--tint-teal{background:linear-gradient(180deg,#fff, var(--accent-soft-2))}
+.card--tint-amber{background:linear-gradient(180deg,#fff, var(--accent-soft-3))}
+
+/* 悩みカード（引用風） */
+.pain{background:#fff;border:1px solid var(--border);border-left:5px solid var(--accent-3);
+  border-radius:var(--radius-lg);padding:var(--sp-6);box-shadow:var(--shadow-sm)}
+.pain p{margin:0;font-weight:600}
+.pain small{color:var(--text-sub)}
+
+/* 数字の帯 */
+.band{background:var(--bg-navy);color:#fff}
+.band .stat{background:transparent;border-color:rgba(255,255,255,.25);color:#fff}
+.band .stat__num{color:#F2C14E}
+.band .stat__label{color:#C7D6E6}
+
+/* セクション見出し中央型 */
+.head-center{text-align:center}
+.head-center .eyebrow{justify-content:center}
+.head-center .eyebrow::after{display:none}
+.head-center .lead{margin-left:auto;margin-right:auto}
+
+/* 料金セクションは色面で締める */
+.price-wrap{background:var(--grad-hero);border-radius:16px;padding:var(--sp-12) var(--sp-8);position:relative;overflow:hidden}
+.price-wrap::before{content:"";position:absolute;inset:0;opacity:.12;
+  background-image:radial-gradient(rgba(255,255,255,.9) 1px,transparent 1px);background-size:22px 22px}
+.price-wrap>*{position:relative}
+
+/* ============================================================
+   v3 追加（信頼要素＋無料3ステップ診断）
+   ============================================================ */
+/* 無料診断フォーム */
+.diag{background:#fff;border:2px solid var(--accent);border-radius:16px;
+  box-shadow:var(--shadow-lg);padding:var(--sp-10)}
+.diag__q{margin-bottom:var(--sp-8)}
+.diag__q-title{font-weight:800;margin-bottom:var(--sp-3);display:flex;gap:var(--sp-3);align-items:center}
+.diag__step{background:var(--accent);color:#fff;border-radius:999px;
+  font-size:var(--fs-xs);padding:2px var(--sp-3);letter-spacing:.08em}
+.diag__opts{display:flex;gap:var(--sp-3);flex-wrap:wrap}
+.diag__opt{position:relative}
+.diag__opt input{position:absolute;opacity:0;inset:0;cursor:pointer}
+.diag__opt span{display:inline-block;border:1px solid var(--border-strong);border-radius:999px;
+  padding:var(--sp-2) var(--sp-4);font-size:var(--fs-sm);font-weight:600;background:#fff}
+.diag__opt input:checked+span{background:var(--accent);border-color:var(--accent);color:#fff}
+.diag__opt input:focus-visible+span{outline:2px solid var(--accent-3);outline-offset:2px}
+.diag__result{background:var(--accent-soft);border-radius:var(--radius-lg);
+  padding:var(--sp-6);margin-top:var(--sp-2)}
+.diag__result strong{color:var(--accent);font-size:var(--fs-lg)}
+/* 信頼カード */
+.trust-card{background:#fff;border:1px solid var(--border);border-radius:var(--radius-lg);
+  padding:var(--sp-8);box-shadow:var(--shadow-sm)}
+.trust-card .card__icon{margin-bottom:var(--sp-3)}
+.guarantee-seal{
+  display:inline-flex;align-items:center;gap:var(--sp-2);
+  background:var(--accent-soft-3);color:#8A5E04;border:1px solid #F0D48A;
+  font-weight:800;font-size:var(--fs-sm);border-radius:999px;padding:var(--sp-2) var(--sp-4)}
+/* 中身サンプル（目次） */
+.sample{background:var(--bg-soft);border:1px dashed var(--border-strong);
+  border-radius:var(--radius-lg);padding:var(--sp-6);font-size:var(--fs-sm)}
+.sample li{margin-bottom:var(--sp-2)}
