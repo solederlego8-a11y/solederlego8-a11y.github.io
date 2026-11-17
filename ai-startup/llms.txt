@@ -1,0 +1,9 @@
+# マンツーマンAIスタートアップ
+
+小さな会社の経営者向けに、業務の棚卸しからAI導入・自動化・定着までを1対1で伴走するサービス。月額198,000円、定員5社、入口は無料相談30分。
+
+- サービスページ: https://solederlego8-a11y.github.io/ai-startup/
+- コラム一覧: https://solederlego8-a11y.github.io/ai-startup/blog/
+- コラム「小さな会社のAI導入、最初の90日でやること」: https://solederlego8-a11y.github.io/ai-startup/blog/ai-dounyu-saisho-no-90nichi.html
+- 線引き: AI導入の伴走支援であり、売上等の成果を保証するものではありません
+- 運営: Seed Works Japan
