@@ -4,3 +4,5 @@
 
 ## Pages
 - [FERS Annuity Calculator with Sick Leave &amp; Survivor Election — Free Estimate Tool](https://solederlego8-a11y.github.io/fers/)
+- [FERS Blog](https://solederlego8-a11y.github.io/fers/blog/)
+- [5 Common Mistakes When Estimating Your FERS Annuity](https://solederlego8-a11y.github.io/fers/blog/fers-annuity-estimate-mistakes.html)

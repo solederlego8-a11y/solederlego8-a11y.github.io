@@ -6,3 +6,6 @@
 - 内容: 確認票の読み解き、質問項目別の回答文例集、生成AI利用規程ひな形、利用台帳、証跡文書一式、改善計画書ひな形
 - 線引き: 一般的な情報提供とひな形の提供。個別の法的判断・監査・回答代行は含まない
 - 購入: Stripe決済リンク（ページ内の購入ボタン）
+
+- ブログ: https://solederlego8-a11y.github.io/ai-questionnaire-kit/blog/
+- 記事「取引先から生成AI利用確認書が届いたら、まず何を確認するか」: https://solederlego8-a11y.github.io/ai-questionnaire-kit/blog/ai-kakuninsho-kaitou.html

@@ -5,3 +5,5 @@
 ## Pages
 - [ジギョケイ間に合うかチェック｜補助金・税制の締切から逆算](https://solederlego8-a11y.github.io/jigyokei-pack/check.html)
 - [ジギョケイ取得準備パック｜補助金・税制の締切から逆算して、申請の下書きを自力で完成させる](https://solederlego8-a11y.github.io/jigyokei-pack/)
+- [ブログ｜ジギョケイ取得準備パック](https://solederlego8-a11y.github.io/jigyokei-pack/blog/)
+- [ジギョケイの認定申請、締切から逆算すると自分の期限日はいつか](https://solederlego8-a11y.github.io/jigyokei-pack/blog/jigyokei-shinsei-kigen.html)
