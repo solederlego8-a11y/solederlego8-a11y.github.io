@@ -11,3 +11,4 @@
 - [年収の壁の早見表｜小さな会社の178万円の壁・年末調整対応キット](https://solederlego8-a11y.github.io/yearend-178man/walls.html)
 - [178万円の壁とは？所得税の壁と社会保険の壁を混同しないための早見｜178万円の壁キット ブログ](https://solederlego8-a11y.github.io/yearend-178man/blog/178man-kabe-toha.html)
 - [ブログ｜178万円の壁・年末調整対応キット](https://solederlego8-a11y.github.io/yearend-178man/blog/)
+- [年末調整の扶養判定は2つの基準で見る｜税の136万円と社会保険の130万円](https://solederlego8-a11y.github.io/yearend-178man/blog/nenmatsu-fuyou-hantei.html)
