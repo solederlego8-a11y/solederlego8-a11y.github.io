@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>バックアップは「戻せるか」が本番｜中小企業の復旧テストの進め方｜6か条実装キット ブログ</title>
+<meta name="description" content="IPA「情報セキュリティ6か条」で加わったバックアップは、取るだけでは不十分です。バックアップ先を本体と分ける、つなぎっぱなしにしない、実際に1ファイルを戻して確かめる復旧テストの手順を、中小企業向けに解説します。">
+<link rel="canonical" href="https://solederlego8-a11y.github.io/cyber-sme/blog/backup-fukkyu-test.html">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-W02HK1VTYF"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-W02HK1VTYF');
+</script>
+<style>
+  body{font-family:"Hiragino Kaku Gothic ProN","Hiragino Sans","Yu Gothic",sans-serif;max-width:760px;margin:0 auto;padding:20px;line-height:1.9;color:#222;background:#fff}
+  h1{font-size:1.5em;line-height:1.5}
+  h2{font-size:1.2em;border-left:4px solid #36c;padding-left:10px;margin-top:1.8em}
+  .conclusion{background:#eef4ff;border:1px solid #bcd;padding:14px 18px;border-radius:8px}
+  .cta{display:block;text-align:center;padding:14px;border-radius:8px;background:#36c;color:#fff;text-decoration:none;font-weight:bold;margin:24px 0}
+  .note{font-size:.88em;color:#555}
+  nav a{margin-right:12px}
+</style>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+{"@type":"Question","name":"バックアップはどこに置けばよいですか？","acceptedAnswer":{"@type":"Answer","text":"PC本体とは別の場所です。IPAの解説では、バックアップに使う装置や媒体はバックアップのときだけパソコンにつなぐこと、バックアップしたデータを戻せるか定期的に確認することが対策例として挙げられています。"}},
+{"@type":"Question","name":"3-2-1ルールとは何ですか？","acceptedAnswer":{"@type":"Answer","text":"データのコピーを本体を含めて3つ以上持ち、2種類の媒体に保存し、1つは別の拠点などに置く考え方です。IPAの「情報セキュリティ6か条（解説編）」で紹介されています。"}},
+{"@type":"Question","name":"復旧テストはどれくらいの頻度でやればよいですか？","acceptedAnswer":{"@type":"Answer","text":"IPAの解説は「定期的に確認すること」としています。具体的な頻度は自社で決める事項で、当サイトでは目安として月1回、まず1ファイルから試す進め方を提案しています。"}}
+]}
+</script>
+<meta property="og:title" content="バックアップは「戻せるか」が本番｜中小企業の復旧テストの進め方｜6か条実装キット ブログ">
+<meta property="og:description" content="IPA「情報セキュリティ6か条」で加わったバックアップは、取るだけでは不十分です。バックアップ先を本体と分ける、つなぎっぱなしにしない、実際に1ファイルを戻して確かめる復旧テストの手順を、中小企業向けに解説します。">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://solederlego8-a11y.github.io/cyber-sme/blog/backup-fukkyu-test.html">
+<script type="application/ld+json">
+{"@context": "https://schema.org", "@type": "BlogPosting", "headline": "バックアップは「戻せるか」が本番｜中小企業の復旧テストの進め方｜6か条実装キット ブログ", "description": "IPA「情報セキュリティ6か条」で加わったバックアップは、取るだけでは不十分です。バックアップ先を本体と分ける、つなぎっぱなしにしない、実際に1ファイルを戻して確かめる復旧テストの手順を、中小企業向けに解説します。", "datePublished": "2026-11-18", "dateModified": "2026-11-18", "author": {"@type": "Organization", "name": "Seed Works Japan（編集部）"}, "publisher": {"@type": "Organization", "name": "Seed Works Japan"}, "mainEntityOfPage": "https://solederlego8-a11y.github.io/cyber-sme/blog/backup-fukkyu-test.html"}
+</script>
+</head>
+<body>
+<nav><a href="../index.html">キットのトップ</a><a href="index.html">ブログ一覧</a></nav>
+<h1>バックアップは「戻せるか」が本番｜中小企業の復旧テストの進め方</h1>
+<p class="note">公開：2026年11月18日／出典：IPA「中小企業の情報セキュリティ対策ガイドライン第4.0版」（2026年3月27日公表）、IPA「情報セキュリティ6か条（解説編）」</p>
+
+<div class="conclusion">
+<p><strong>結論：</strong>バックアップは<strong>取るだけでは対策になりません</strong>。要点は3つです。<strong>（1）バックアップ先をPC本体と別の場所に置く、（2）バックアップ用の装置は使うときだけ接続する、（3）実際に1ファイルを戻して開けることを定期的に確かめる</strong>。この「戻せるかの確認」までが、IPAの6か条で追加されたバックアップの実務です。</p>
+</div>
+
+<h2>「取っているのに戻せない」が起きる理由</h2>
+<ul>
+<li><strong>つなぎっぱなし</strong>：バックアップ先が常時接続されていると、本体がウイルス感染で暗号化されたときに、バックアップ側まで一緒に暗号化されることがあります</li>
+<li><strong>上書きで世代が残っていない</strong>：異常に気づく前にバックアップが回ると、壊れた状態で上書きされます</li>
+<li><strong>戻し方を知っている人がいない</strong>：手順が特定の担当者の頭の中だけにあり、いざというときに復旧できません</li>
+</ul>
+
+<h2>復旧テストの手順（まず1ファイルから）</h2>
+<ul>
+<li>手順1：業務で使うファイル（請求書、顧客台帳など）を1つ選ぶ</li>
+<li>手順2：本番のフォルダとは別の、テスト用フォルダへ復元する（本番へ直接上書きしない）</li>
+<li>手順3：復元したファイルを開き、内容が読めること・日付が想定どおりであることを確認する</li>
+<li>手順4：テストした日付、対象ファイル、結果を記録に残す</li>
+</ul>
+<p>IPAのガイドラインは、バックアップの運用として、取得対象の選定、保管場所の検討、世代管理、保管期間、復旧計画を決めておくことを挙げています。復旧テストの記録は、この復旧計画が実際に機能しているかの確認になります。</p>
+<p>出典：IPA「中小企業の情報セキュリティ対策ガイドライン」 <a href="https://www.ipa.go.jp/security/guide/sme/about.html">IPA公式サイトのガイドライン紹介ページ</a></p>
+
+<h2>まず自社の現在地を確認する</h2>
+<p>6か条全体への対応状況は、当サイトの<a href="../checklist.html">無料チェックシート</a>で確認できます。バックアップを含む6か条の実装手順・記録様式まで一式で進めたい場合は、<a href="../index.html">中小企業の情報セキュリティ6か条 実装キット</a>（買い切り¥9,800）をご覧ください。</p>
+
+<a class="cta" href="https://buy.stripe.com/5kQcN57tT3sTfCXaDZ18c03">6か条実装キットを購入する（¥9,800・買い切り）</a>
+
+<h2>よくある質問</h2>
+<p><strong>Q. バックアップはどこに置けばよいですか？</strong><br>PC本体とは別の場所です。IPAの解説では、バックアップに使う装置や媒体はバックアップのときだけパソコンにつなぐこと、バックアップしたデータを戻せるか定期的に確認することが対策例として挙げられています。</p>
+<p><strong>Q. 3-2-1ルールとは何ですか？</strong><br>データのコピーを本体を含めて3つ以上持ち、2種類の媒体に保存し、1つは別の拠点などに置く考え方です。IPAの「情報セキュリティ6か条（解説編）」で紹介されています。</p>
+<p><strong>Q. 復旧テストはどれくらいの頻度でやればよいですか？</strong><br>IPAの解説は「定期的に確認すること」としています。具体的な頻度は自社で決める事項で、当サイトでは目安として月1回、まず1ファイルから試す進め方を提案しています。</p>
+
+<p class="note">本記事はIPA「中小企業の情報セキュリティ対策ガイドライン第4.0版」の公表内容に基づきます。最新のガイドラインはIPAの公式サイトでご確認ください。</p>
+</body>
+</html>

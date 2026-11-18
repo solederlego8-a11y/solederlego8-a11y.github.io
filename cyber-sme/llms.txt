@@ -12,3 +12,4 @@
 - [ブログ｜中小企業の情報セキュリティ6か条 実装キット](https://solederlego8-a11y.github.io/cyber-sme/blog/)
 - [中小企業の情報セキュリティ対策は何から始める？IPA「6か条」の順番｜6か条実装キット ブログ](https://solederlego8-a11y.github.io/cyber-sme/blog/security-hajimekata.html)
 - [SCS評価制度 ★3 取得準備パック（販売ページ）](https://solederlego8-a11y.github.io/cyber-sme/scs.html)
+- [バックアップは「戻せるか」が本番｜中小企業の復旧テストの進め方](https://solederlego8-a11y.github.io/cyber-sme/blog/backup-fukkyu-test.html)

@@ -11,3 +11,4 @@
 - [小さな会社のカスハラ研修の進め方｜小さな会社のカスハラ対策キット](https://solederlego8-a11y.github.io/kasuhara-kit/training.html)
 - [ブログ｜小さな会社のカスハラ対策キット](https://solederlego8-a11y.github.io/kasuhara-kit/blog/)
 - [カスハラ対策は何から始める？小さな会社の最初の一歩｜カスハラ対策キット ブログ](https://solederlego8-a11y.github.io/kasuhara-kit/blog/kasuhara-hajimekata.html)
+- [カスハラの相談を受けた後はどうする？事実確認から再発防止までの手順](https://solederlego8-a11y.github.io/kasuhara-kit/blog/kasuhara-soudan-ato-taiou.html)
