@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>建設業の締切モニタリング｜許可・経審・助成金・労務を毎月「今月やること」でお届け</title>
+<meta name="description" content="建設業許可の更新、経営事項審査、決算変更届、助成金の計画届、安全衛生・労務の法改正。建設会社の締切を一元管理し、毎月「今月やることリスト」をLINE・メールでお届けする月額9,800円のモニタリングサービス。まず無料の「建設業 締切カレンダー2027」と3問診断から。">
+<style>
+:root{
+--base:#ffffff; --ink:#22262b; --ink-soft:#3d454e; --sub:#6b7684;
+--accent:#1d4e79; --accent-deep:#0f2f4d; --accent-pale:#eaf1f7;
+--cta:#e8a33d; --cta-ink:#241a00; --line:#e2e7ec; --soft:#f6f8fa;
+--radius:6px;
+--font:"Hiragino Kaku Gothic ProN","Hiragino Sans","Noto Sans JP","Yu Gothic UI",sans-serif;
+--font-en:"Helvetica Neue",Arial,sans-serif;
+}
+*{box-sizing:border-box; margin:0; padding:0;}
+body{font-family:var(--font); color:var(--ink); line-height:1.85; background:var(--base); -webkit-font-smoothing:antialiased;}
+.wrap{max-width:920px; margin:0 auto; padding:0 24px;}
+a{color:var(--accent);}
+header.site{position:sticky; top:0; z-index:50; background:rgba(255,255,255,.94); border-bottom:1px solid var(--line);}
+header.site .wrap{display:flex; align-items:center; justify-content:space-between; height:64px;}
+.brand .en{font-family:var(--font-en); font-size:10.5px; letter-spacing:.28em; color:var(--accent); font-weight:700;}
+.brand .jp{font-size:15.5px; font-weight:700; color:var(--accent-deep);}
+.hcta{border:1px solid var(--accent-deep); color:var(--accent-deep); border-radius:999px; padding:6px 16px; font-weight:600; text-decoration:none; font-size:13.5px;}
+.hero{background:linear-gradient(180deg,#fbfcfd 0%,var(--soft) 100%); padding:64px 0 56px;}
+.hero h1{font-size:30px; line-height:1.5; color:var(--accent-deep); margin-bottom:16px;}
+.hero p.lead{font-size:16.5px; color:var(--ink-soft); max-width:720px;}
+.target{display:inline-block; background:var(--accent-pale); color:var(--accent-deep); border-radius:999px; padding:4px 14px; font-size:13px; font-weight:600; margin-bottom:18px;}
+.cta-row{display:flex; gap:14px; flex-wrap:wrap; margin-top:28px;}
+.btn{display:inline-block; text-decoration:none; font-weight:700; border-radius:var(--radius); padding:14px 26px; font-size:15.5px;}
+.btn-cta{background:var(--cta); color:var(--cta-ink);}
+.btn-ghost{border:1.5px solid var(--accent-deep); color:var(--accent-deep); background:#fff;}
+section{padding:52px 0;}
+section.alt{background:var(--soft);}
+h2{font-size:22px; color:var(--accent-deep); margin-bottom:18px;}
+h2 .en{display:block; font-family:var(--font-en); font-size:10.5px; letter-spacing:.28em; color:var(--accent); font-weight:700; margin-bottom:6px;}
+p.body{color:var(--ink-soft); max-width:760px;}
+.cards{display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:16px; margin-top:22px;}
+.card{background:#fff; border:1px solid var(--line); border-radius:var(--radius); padding:20px;}
+.card h3{font-size:16px; color:var(--accent-deep); margin-bottom:8px;}
+.card p{font-size:14.5px; color:var(--ink-soft);}
+table.cal{width:100%; border-collapse:collapse; margin-top:18px; font-size:14.5px; background:#fff;}
+table.cal th, table.cal td{border:1px solid var(--line); padding:10px 12px; text-align:left; vertical-align:top;}
+table.cal th{background:var(--accent-pale); color:var(--accent-deep); white-space:nowrap;}
+.note{font-size:13px; color:var(--sub); margin-top:10px;}
+.q{margin:22px 0;}
+.q p{font-weight:700; color:var(--accent-deep); margin-bottom:8px;}
+.opts{display:flex; gap:10px; flex-wrap:wrap;}
+.opt{border:1.5px solid var(--border-strong,#cbd5e1); background:#fff; border-radius:var(--radius); padding:10px 18px; cursor:pointer; font-size:14.5px; font-family:var(--font);}
+.opt.sel{border-color:var(--accent); background:var(--accent-pale); font-weight:700;}
+#result{display:none; margin-top:26px; background:#fff; border:2px solid var(--accent); border-radius:var(--radius); padding:24px;}
+#result h3{color:var(--accent-deep); margin-bottom:10px;}
+#result ul{margin:10px 0 10px 20px; color:var(--ink-soft); font-size:15px;}
+.price-box{background:#fff; border:1px solid var(--line); border-radius:var(--radius); padding:28px; margin-top:20px;}
+.price{font-size:30px; font-weight:800; color:var(--accent-deep);}
+.price small{font-size:14px; color:var(--sub); font-weight:400;}
+ul.check{list-style:none; margin-top:14px;}
+ul.check li{padding-left:24px; position:relative; color:var(--ink-soft); margin-bottom:6px;}
+ul.check li::before{content:"✓"; position:absolute; left:0; color:var(--accent); font-weight:700;}
+.faq{margin-top:16px;}
+.faq dt{font-weight:700; color:var(--accent-deep); margin-top:16px;}
+.faq dd{color:var(--ink-soft); margin-top:4px;}
+footer{border-top:1px solid var(--line); padding:28px 0; font-size:13px; color:var(--sub);}
+</style>
+</head>
+<body>
+<header class="site">
+  <div class="wrap">
+    <div class="brand">
+      <div class="en">CONSTRUCTION DEADLINE MONITOR</div>
+      <div class="jp">建設業 締切モニタリング</div>
+    </div>
+    <a class="hcta" href="#diag">無料診断を受ける</a>
+  </div>
+</header>
+
+<div class="hero">
+  <div class="wrap">
+    <span class="target">対象：経審を受ける会社／従業員10人以上の建設会社</span>
+    <h1>許可・経審・助成金・労務の締切を、<br>毎月「今月やること」としてお届けします。</h1>
+    <p class="lead">建設会社には、業種固有の締切だけで年間12〜15件あります。しかも助成金は「実施前の計画届」が多く、公募が始まってから動いても間に合いません。締切と法改正を先回りで知らせ、自社の期限と重ねて、毎月やることだけをLINE・メールで届けるサービスです。</p>
+    <div class="cta-row">
+      <a class="btn btn-cta" href="#diag">3問診断を受ける（無料）</a>
+      <a class="btn btn-ghost" href="mailto:naoren.38@gmail.com?subject=%E3%80%90%E7%84%A1%E6%96%99%E3%82%AB%E3%83%AC%E3%83%B3%E3%83%80%E3%83%BC%E5%B8%8C%E6%9C%9B%E3%80%91%E5%BB%BA%E8%A8%AD%E6%A5%AD%E7%B7%A0%E5%88%87%E3%82%AB%E3%83%AC%E3%83%B3%E3%83%80%E3%83%BC2027">無料カレンダー2027を受け取る</a>
+    </div>
+  </div>
+</div>
+
+<section>
+  <div class="wrap">
+    <h2><span class="en">PROBLEM</span>締切は「知らなかった」では済まないものばかりです</h2>
+    <div class="cards">
+      <div class="card">
+        <h3>決算変更届を忘れると、許可更新も経審も止まる</h3>
+        <p>事業年度終了後4か月以内の提出が前提です。経審は切らすと公共工事を請けられなくなります。</p>
+      </div>
+      <div class="card">
+        <h3>助成金は「始まってから」では遅い</h3>
+        <p>建設業向け助成金の多くは実施前の計画届が必要です。技能実習コースは実習の3か月前から届出が始まります。</p>
+      </div>
+      <div class="card">
+        <h3>2027〜2028年に新しい山が来ます</h3>
+        <p>安衛法改正（2027年1月・4月）、社会保険の適用拡大（2027年10月、36人以上の事業所）、ストレスチェックの全事業場義務化（2028年4月）。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="alt">
+  <div class="wrap">
+    <h2><span class="en">FREE CALENDAR</span>建設業 締切カレンダー2027（要約版）</h2>
+    <p class="body">主な締切の要約です。自社の期限と様式まで入れたフル版は、メールで無料配布しています。</p>
+    <table class="cal">
+      <tr><th>区分</th><th>項目</th><th>時期の目安</th></tr>
+      <tr><td>毎年（業種固有）</td><td>決算変更届</td><td>事業年度終了後4か月以内</td></tr>
+      <tr><td>毎年（業種固有）</td><td>経営事項審査・経営状況分析</td><td>毎年（有効期間は審査基準日から1年7か月）</td></tr>
+      <tr><td>毎年（業種固有）</td><td>産業廃棄物マニフェスト年次報告</td><td>6月末まで</td></tr>
+      <tr><td>毎年（労務）</td><td>労働保険の年度更新</td><td>6月1日〜7月10日</td></tr>
+      <tr><td>毎年（労務）</td><td>社会保険の算定基礎届</td><td>7月</td></tr>
+      <tr><td>毎年（労務）</td><td>年末調整・法定調書</td><td>12月〜翌年1月末</td></tr>
+      <tr><td>毎年（労務）</td><td>36協定の更新／最低賃金の改定確認</td><td>協定の周期ごと／毎年10月</td></tr>
+      <tr><td>周期</td><td>建設業許可の更新</td><td>5年ごと（満了の30日前まで）</td></tr>
+      <tr><td>周期</td><td>CCUS事業者登録の更新</td><td>5年ごと</td></tr>
+      <tr><td>新規</td><td>安衛法改正：個人事業者の死傷病報告／元請の調整義務</td><td>2027年1月／2027年4月</td></tr>
+      <tr><td>新規</td><td>社会保険の適用拡大（36人以上の事業所）</td><td>2027年10月</td></tr>
+      <tr><td>新規</td><td>ストレスチェックの全事業場義務化</td><td>2028年4月</td></tr>
+    </table>
+    <p class="note">※ 時期は一般的な目安です。許可・経審などの期限は会社ごとに異なります。モニタリング契約では自社の期限を登録して個別に管理します。</p>
+    <div class="cta-row">
+      <a class="btn btn-cta" href="mailto:naoren.38@gmail.com?subject=%E3%80%90%E7%84%A1%E6%96%99%E3%82%AB%E3%83%AC%E3%83%B3%E3%83%80%E3%83%BC%E5%B8%8C%E6%9C%9B%E3%80%91%E5%BB%BA%E8%A8%AD%E6%A5%AD%E7%B7%A0%E5%88%87%E3%82%AB%E3%83%AC%E3%83%B3%E3%83%80%E3%83%BC2027">フル版をメールで受け取る（無料）</a>
+    </div>
+  </div>
+</section>
+
+<section id="diag">
+  <div class="wrap">
+    <h2><span class="en">CHECK</span>3問診断：あなたの会社の「締切リスク」</h2>
+    <p class="body">30秒で終わります。当てはまるものを選んでください。</p>
+
+    <div class="q" data-q="keishin">
+      <p>Q1. 経営事項審査（経審）を受けていますか？</p>
+      <div class="opts">
+        <button class="opt" data-v="yes">受けている</button>
+        <button class="opt" data-v="plan">受ける予定がある</button>
+        <button class="opt" data-v="no">受けていない</button>
+      </div>
+    </div>
+    <div class="q" data-q="size">
+      <p>Q2. 従業員数（パート・アルバイトを含む）は？</p>
+      <div class="opts">
+        <button class="opt" data-v="s">1〜9人</button>
+        <button class="opt" data-v="m">10〜35人</button>
+        <button class="opt" data-v="l">36〜49人</button>
+        <button class="opt" data-v="xl">50人以上</button>
+      </div>
+    </div>
+    <div class="q" data-q="grasp">
+      <p>Q3. 建設業許可の更新期限と、決算変更届の提出期限を、正確に言えますか？</p>
+      <div class="opts">
+        <button class="opt" data-v="both">両方言える</button>
+        <button class="opt" data-v="one">片方だけ</button>
+        <button class="opt" data-v="none">把握していない</button>
+      </div>
+    </div>
+
+    <div id="result">
+      <h3 id="r-title"></h3>
+      <p id="r-body" style="color:var(--ink-soft);"></p>
+      <ul id="r-list"></ul>
+      <div class="cta-row" id="r-cta"></div>
+    </div>
+  </div>
+</section>
+
+<section class="alt">
+  <div class="wrap">
+    <h2><span class="en">SERVICE &amp; PRICE</span>月額モニタリングの中身と価格</h2>
+    <div class="price-box">
+      <div class="price">月額 9,800円 <small>（税別）／ 最低契約期間なし・いつでも解約可</small></div>
+      <ul class="check">
+        <li>毎月1回、自社の期限と重ねた「今月やることリスト」をLINE・メールでお届け</li>
+        <li>締切の14日前・7日前・3日前にアラート</li>
+        <li>補助金・助成金は「計画届の締切」から逆算してお知らせ（公募開始の通知だけでは間に合わないため）</li>
+        <li>法改正・新制度は「自社に影響があるもの」だけを選んで要約</li>
+        <li>様式・チェックリストを添付（安全衛生キット等の既存資産を活用）</li>
+      </ul>
+      <p class="note" style="margin-top:14px;">※ 申請書類の作成・提出の代行は行いません（行政書士の業務範囲のため）。必要な場合は、様式と段取りまでをお渡しし、作成は御社の顧問行政書士等へつなぐ形になります。行政書士の月額顧問（許可のみで月2万円台の例もあります）と比べ、対象範囲は補助金・労務・安全衛生まで含みます。</p>
+      <div class="cta-row">
+        <a class="btn btn-cta" href="mailto:naoren.38@gmail.com?subject=%E3%80%90%E7%94%B3%E8%BE%BC%E3%80%91%E5%BB%BA%E8%A8%AD%E6%A5%AD%E7%B7%A0%E5%88%87%E3%83%A2%E3%83%8B%E3%82%BF%E3%83%AA%E3%83%B3%E3%82%B0%EF%BC%88%E6%9C%889%2C800%E5%86%86%EF%BC%89">月額モニタリングに申し込む</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <h2><span class="en">FAQ</span>よくある質問</h2>
+    <dl class="faq">
+      <dt>ダッシュボードへのログインは必要ですか？</dt>
+      <dd>不要です。届け方はLINE・メールのみで、「今月やること」がそのまま届きます。</dd>
+      <dt>顧問の行政書士・社労士がいても意味がありますか？</dt>
+      <dd>あります。士業の顧問は通常「許可だけ」「労務だけ」の範囲です。本サービスは補助金・許可・経審・安全衛生・労務を1つのカレンダーに統合し、士業へ依頼すべきタイミング自体をお知らせします。</dd>
+      <dt>対象外の会社はありますか？</dt>
+      <dd>経審を受けず、従業員9人以下の会社は年間の締切が少なく、無料カレンダーで足りる場合があります。診断結果でもその場合は正直にお伝えします。</dd>
+    </dl>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    運営：Seed Works Japan（建設業 締切モニタリングは先行受付中）<br>
+    本ページは先行案内です。料金は税別表示。特定商取引法に基づく表記は申込確定時にご案内します。
+  </div>
+</footer>
+
+<!-- 公開時TODO: 申込・カレンダー受取の mailto をフォーム/Stripeリンクへ差し替え、GA4タグとSearch Console登録、特商法ページの追加 -->
+<script>
+const ans = {};
+const mailApply = "mailto:naoren.38@gmail.com?subject=%E3%80%90%E7%94%B3%E8%BE%BC%E3%80%91%E5%BB%BA%E8%A8%AD%E6%A5%AD%E7%B7%A0%E5%88%87%E3%83%A2%E3%83%8B%E3%82%BF%E3%83%AA%E3%83%B3%E3%82%B0%EF%BC%88%E6%9C%889%2C800%E5%86%86%EF%BC%89";
+const mailCal = "mailto:naoren.38@gmail.com?subject=%E3%80%90%E7%84%A1%E6%96%99%E3%82%AB%E3%83%AC%E3%83%B3%E3%83%80%E3%83%BC%E5%B8%8C%E6%9C%9B%E3%80%91%E5%BB%BA%E8%A8%AD%E6%A5%AD%E7%B7%A0%E5%88%87%E3%82%AB%E3%83%AC%E3%83%B3%E3%83%80%E3%83%BC2027";
+document.querySelectorAll('.q').forEach(q => {
+  q.querySelectorAll('.opt').forEach(b => {
+    b.addEventListener('click', () => {
+      q.querySelectorAll('.opt').forEach(x => x.classList.remove('sel'));
+      b.classList.add('sel');
+      ans[q.dataset.q] = b.dataset.v;
+      if (ans.keishin && ans.size && ans.grasp) showResult();
+    });
+  });
+});
+function showResult(){
+  const r = document.getElementById('result');
+  const title = document.getElementById('r-title');
+  const body = document.getElementById('r-body');
+  const list = document.getElementById('r-list');
+  const cta = document.getElementById('r-cta');
+  list.innerHTML = ''; cta.innerHTML = '';
+  const small = (ans.keishin === 'no' && ans.size === 's');
+  if (ans.keishin !== 'no') addLi(list, '経審は毎年の受審が前提です。決算変更届の遅れが経審の遅れに直結します');
+  if (ans.size === 'l') addLi(list, '2027年10月の社会保険の適用拡大（36人以上の事業所）の対象です。週20時間以上のパートの洗い出しが必要です');
+  if (ans.size !== 'xl') addLi(list, '2028年4月からストレスチェックが全事業場で義務化されます（現在50人未満は努力義務）');
+  addLi(list, '2027年1月・4月に安衛法改正の新しい義務が始まります');
+  if (ans.grasp === 'none') addLi(list, '許可の更新期限と決算変更届の期限が未把握です。まず自社の期限の棚卸しから始める必要があります');
+  if (ans.grasp === 'one') addLi(list, '期限の片方が未把握です。抜けている側の棚卸しが必要です');
+  if (small) {
+    title.textContent = '診断結果：まずは無料カレンダーで足りる可能性があります';
+    body.textContent = '経審を受けておらず従業員9人以下の場合、年間の締切は決算変更届と労務の年次手続きが中心で、月額サービスが割高になることがあります。無理におすすめはしません。まず無料カレンダーで自社の締切を並べてみてください。';
+    cta.innerHTML = '<a class="btn btn-cta" href="' + mailCal + '">無料カレンダーを受け取る</a>';
+  } else {
+    title.textContent = '診断結果：締切の抜け漏れが起きやすい条件が揃っています';
+    body.textContent = 'あなたの会社に直近で関係するものは次のとおりです。これらを自社の期限と重ねて毎月届けるのが、月額9,800円のモニタリングです。';
+    cta.innerHTML = '<a class="btn btn-cta" href="' + mailApply + '">月額モニタリングに申し込む（9,800円/月・税別）</a>' +
+                    '<a class="btn btn-ghost" href="' + mailCal + '">まず無料カレンダーだけ受け取る</a>';
+  }
+  r.style.display = 'block';
+  r.scrollIntoView({behavior:'smooth', block:'center'});
+}
+function addLi(ul, text){ const li = document.createElement('li'); li.textContent = text; ul.appendChild(li); }
+</script>
+</body>
+</html>
