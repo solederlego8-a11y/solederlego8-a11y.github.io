@@ -1,0 +1,26 @@
+# 運営メディア一覧｜フォローズ
+
+> 固定費の見直し、中小企業向けAI活用、メンズコスメ、業務SaaS、占いなど、テーマ別のメディアと事業サービスを運営しています。最終更新日：2026-11-21。
+
+## メディア
+
+- [生活費ラボ](https://solederlego8-a11y.github.io/koteihi-labo/)
+- [Men's Cosme Review](https://solederlego8-a11y.github.io/mens-cosme-review/)
+- [離婚のお金ツール](https://solederlego8-a11y.github.io/divorce-money-tool/)
+- [そなえる収納](https://solederlego8-a11y.github.io/sonaeru-shunou/)
+- [Akiya Check](https://solederlego8-a11y.github.io/akiya-check/)
+- [今日の総合鑑定（占い）](https://solederlego8-a11y.github.io/uranai-app/)
+
+## 事業・サービス
+
+- [凪AI｜Claude Code法人導入支援](https://solederlego8-a11y.github.io/nagi-ai-hp/)
+- [AI社員](https://solederlego8-a11y.github.io/ai-shain-lp/)
+- [nao｜ホームページ・EC・SNS運用支援（無料診断あり）](https://solederlego8-a11y.github.io/nao-web-support/)
+- [DARUMA WORKS](https://solederlego8-a11y.github.io/daruma-works/)
+- [TOGIYA 研屋](https://solederlego8-a11y.github.io/togiya/)
+- [Macrow（黒の本革バッグと革小物）](https://solederlego8-a11y.github.io/macrow/)
+- [売れる高級ノベルティ](https://solederlego8-a11y.github.io/premium-novelty/)
+
+## ガイド
+
+- [AI導入の進め方ガイド](https://solederlego8-a11y.github.io/guide/)
