@@ -14,40 +14,109 @@
 <meta name="twitter:title" content="生成AI利用確認書 回答キット｜取引先の確認票に、自力で回答する">
 <meta name="twitter:description" content="元請・取引先から届く「生成AIの利用状況」確認票への回答文例集・証跡文書ひな形・改善計画の書き方をまとめた買い切りパック。¥14,800、2028年3月までの更新込み。">
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-W02HK1VTYF"></script>
-<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-W02HK1VTYF');</script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-W02HK1VTYF');
+document.documentElement.classList.add('js');
+</script>
 <style>
-:root{--ink:#2b2f36;--blue:#1f4e79;--navy:#16324f;--bg:#ffffff;--soft:#f4f7fa;--line:#d9e2ec;--radius:8px}
-*{box-sizing:border-box}body{margin:0;font-family:"Hiragino Kaku Gothic ProN","Yu Gothic",sans-serif;color:var(--ink);background:var(--bg);line-height:1.8}
-.wrap{max-width:880px;margin:0 auto;padding:0 20px}
-header{padding:56px 0 32px;border-bottom:1px solid var(--line)}
-h1{font-size:28px;line-height:1.5;color:var(--navy);margin:0 0 12px}
-h2{font-size:21px;color:var(--navy);margin:40px 0 12px}
-.lead{font-size:16px;color:#44546a}
-.card{background:var(--soft);border:1px solid var(--line);border-radius:var(--radius);padding:20px 24px;margin:20px 0}
-.btn{display:inline-block;background:var(--blue);color:#fff;padding:14px 32px;border-radius:var(--radius);text-decoration:none;font-weight:bold;font-size:17px}
-.price{font-size:24px;font-weight:bold;color:var(--navy)}
-ul{padding-left:20px}li{margin:6px 0}
-.small{font-size:13px;color:#66788c}
-footer{border-top:1px solid var(--line);margin-top:56px;padding:24px 0 40px}
-</style>
-<link rel="stylesheet" href="design-system.css">
-<style>
-h1{margin:0 0 12px}
-h2{margin:40px 0 12px}
-header{background:linear-gradient(135deg,#0B2A4A,#0F4C81 60%,#0E7C7B 140%);border-bottom:none;border-radius:0 0 12px 12px}
-header h1{color:#fff}
-header .lead{color:#D7E5F2}
-.card{box-shadow:0 1px 2px rgba(15,42,74,.06)}
-.btn{box-shadow:0 4px 16px rgba(15,42,74,.18)}
+:root{
+  --base:#ffffff; --ink:#1f2933; --ink-soft:#3d454e; --sub:#6b7684;
+  --accent:#0f4c81; --accent-deep:#0b2a4a; --accent-pale:#eaf1f8; --teal:#0e7c7b;
+  --line:#e2e8f0; --soft:#f5f7fa;
+  --radius:8px; --radius-s:6px;
+  --font:"Hiragino Kaku Gothic ProN","Hiragino Sans","Noto Sans JP","Yu Gothic UI",system-ui,sans-serif;
+  --font-en:"Helvetica Neue",Arial,sans-serif;
+  --text-hero:clamp(1.75rem,4.2vw,2.6rem);
+  --text-h2:clamp(1.35rem,2.6vw,1.65rem);
+  --text-h3:clamp(1rem,1.6vw,1.08rem);
+  --text-body:clamp(.9375rem,1.2vw,1rem);
+  --text-lead:clamp(1rem,1.6vw,1.08rem);
+  --space-section:clamp(3rem,7vw,4.5rem);
+  --wrap:960px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:var(--font);color:var(--ink);line-height:1.85;background:var(--base);-webkit-font-smoothing:antialiased;font-size:var(--text-body);margin:0}
+.wrap{max-width:var(--wrap);margin:0 auto;padding:0 24px}
+a{color:var(--accent)}
+.js .fade{opacity:0;transform:translateY(12px);transition:opacity .6s ease,transform .6s ease}
+.js .fade.on{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.js .fade{opacity:1;transform:none;transition:none}*{transition:none!important}}
+header.site{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.94);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+header.site .wrap{display:flex;align-items:center;justify-content:space-between;min-height:64px;padding-top:8px;padding-bottom:8px;gap:16px;flex-wrap:wrap}
+.brand .en{font-family:var(--font-en);font-size:10.5px;letter-spacing:.28em;color:var(--accent);font-weight:700;line-height:1.4}
+.brand .jp{font-size:15.5px;font-weight:700;color:var(--accent-deep);letter-spacing:.03em;line-height:1.4}
+nav.gnav{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+nav.gnav a{font-size:13.5px;color:var(--ink-soft);text-decoration:none;padding:6px 12px;border:1px solid var(--line);border-radius:999px;background:var(--soft)}
+nav.gnav a:hover{background:var(--accent-pale);color:var(--accent)}
+.hero{padding:clamp(2.5rem,6vw,4rem) 0 var(--space-section)}
+.hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(1.5rem,4vw,3rem);align-items:center}
+@media (max-width:760px){.hero-grid{grid-template-columns:1fr}}
+.hero .kicker{font-family:var(--font-en);font-size:11px;letter-spacing:.24em;color:var(--accent);font-weight:700;margin:0 0 10px}
+.hero h1{font-size:var(--text-hero);line-height:1.4;color:var(--accent-deep);margin:0 0 14px}
+.hero .lead{font-size:var(--text-lead);color:var(--ink-soft);margin:0 0 20px}
+.hero-cta{display:flex;flex-wrap:wrap;gap:10px}
+.btn{display:inline-block;text-align:center;padding:13px 22px;border-radius:var(--radius);background:var(--accent);color:#fff;text-decoration:none;font-weight:700}
+.btn.sub{background:#fff;color:var(--accent);border:1px solid var(--accent)}
+.mock{border:1px solid var(--line);border-radius:var(--radius);box-shadow:0 8px 28px rgba(11,42,74,.10);padding:20px 22px;background:#fff}
+.mock .mock-head{display:flex;justify-content:space-between;align-items:baseline;border-bottom:2px solid var(--accent);padding-bottom:8px;margin-bottom:12px}
+.mock .mock-title{font-weight:700;color:var(--accent-deep)}
+.mock .mock-sample{font-size:.78em;color:var(--sub)}
+.mock .score{font-size:2rem;font-weight:700;color:var(--accent-deep);line-height:1.2}
+.mock .meter{height:10px;border-radius:999px;background:var(--soft);overflow:hidden;margin:8px 0 14px}
+.mock .meter i{display:block;height:100%;width:40%;background:linear-gradient(90deg,var(--accent),var(--teal))}
+.mock ul{margin:0;padding-left:1.2em;color:var(--ink-soft);font-size:.94em}
+.mock .mock-note{font-size:.8em;color:var(--sub);margin:12px 0 0}
+.band{border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:var(--soft)}
+.band .wrap{display:grid;grid-template-columns:repeat(4,1fr);gap:0}
+@media (max-width:760px){.band .wrap{grid-template-columns:1fr 1fr}}
+.band .cell{padding:18px 16px;text-align:center;border-left:1px solid var(--line)}
+.band .cell:first-child{border-left:none}
+.band .num{font-size:clamp(1.15rem,2.4vw,1.5rem);font-weight:700;color:var(--accent-deep);line-height:1.3}
+.band .lbl{font-size:.82em;color:var(--sub)}
+main .wrap section{margin:var(--space-section) 0}
+h2{font-size:var(--text-h2);color:var(--accent-deep);border-bottom:2px solid var(--accent);padding-bottom:.2em;line-height:1.5}
+.card{border:1px solid var(--line);border-radius:var(--radius);box-shadow:0 1px 2px rgba(11,42,74,.06);padding:20px;margin:16px 0}
+.note{background:var(--soft);padding:12px 16px;border-radius:var(--radius-s);font-size:.92em;margin:16px 0}
+.guarantee{border:1px solid var(--line);border-radius:var(--radius);padding:12px 16px;margin:20px 0}
+#kit-series{border:1px solid var(--line);border-radius:var(--radius);padding:12px 16px;margin:20px 0}
+footer.site{border-top:1px solid var(--line);margin-top:var(--space-section);padding:20px 0 32px;color:var(--sub);font-size:.9em}
+
+.small{font-size:.85em;color:var(--sub)}
+.price{font-size:1.4em;font-weight:700;color:var(--accent-deep)}
 </style>
 </head>
 <body>
-<header><div class="wrap">
-<p class="small">FOR SMALL BUSINESS / 生成AIガバナンス対応</p>
+<header class="site"><div class="wrap">
+<div class="brand"><div class="en">AI GOVERNANCE KIT</div><div class="jp">生成AI利用確認書 回答キット</div></div>
+<nav class="gnav"><a href="index.html">トップ</a><a href="blog/index.html">ブログ</a></nav>
+</div></header>
+
+<div class="hero"><div class="wrap hero-grid">
+<div class="fade">
+<p class="kicker">FOR SMALL BUSINESS</p>
 <h1>取引先の「生成AI利用確認書」に、<br>自力で回答するための回答キット</h1>
 <p class="lead">元請・取引先の質問票に「生成AIの利用状況」の項目と証跡の添付が加わり始めています。本パックは、確認票の読み解きから、質問項目別の回答文例、証跡文書のひな形、改善計画の書き方までを1つにまとめた買い切りセットです。</p>
-</div></header>
-<main class="wrap">
+<div class="hero-cta"><a class="btn" href="https://buy.stripe.com/28E8wP4hH4wXduPcM718c0d">今すぐ購入する（¥14,800）</a><a class="btn sub" href="#guarantee">14日間返金保証を見る</a></div>
+</div>
+<div class="mock fade" aria-label="回答キットの中身">
+<div class="mock-head"><span class="mock-title">回答キットの中身</span><span class="mock-sample">パック16点</span></div>
+<ul>
+<li>質問項目別の回答文例集（整備済み・未整備の両パターン）</li><li>証跡文書のひな形（生成AI利用規程11条・利用台帳ほか）</li><li>改善計画書ひな形</li><li>提出カバーレター文例3パターン</li>
+</ul>
+<p class="mock-note">確認票の読み解き（設問10カテゴリ）から、10日間で提出まで終えるスケジュールと提出前チェックまで入っています。</p>
+</div>
+</div></div>
+
+<div class="band"><div class="wrap">
+<div class="cell"><div class="num">16点</div><div class="lbl">パックの中身</div></div><div class="cell"><div class="num">10カテゴリ</div><div class="lbl">確認票の設問</div></div><div class="cell"><div class="num">¥14,800</div><div class="lbl">買い切り（月額料金なし）</div></div><div class="cell"><div class="num">14日間</div><div class="lbl">理由を問わず全額返金保証</div></div>
+</div></div>
+
+<main><div class="wrap">
+<section class="fade">
 <h2>こんな状態になっていませんか</h2>
 <ul>
 <li>確認票が届いたが、設問の意味と「どこまで答えればよいか」が分からない</li>
@@ -81,8 +150,8 @@ header .lead{color:#D7E5F2}
 <h2>ブログ</h2>
 <p>確認書対応の考え方を、一次情報に基づいて解説しています。<a href="blog/index.html">ブログ一覧を見る</a></p>
 <p class="small">出典：欧州委員会 AI Act Service Desk（Regulation (EU) 2024/1689）、内閣府（AI推進法）、総務省・経済産業省「AI事業者ガイドライン第1.2版」ほか。各資料の末尾に出典を記載しています。</p>
-</main>
-<footer><div class="guarantee" id="guarantee" style="border:1px solid #ccc;border-radius:8px;padding:12px 16px;margin:20px 0"><h2 style="margin-top:0">14日間・理由を問わず全額返金保証</h2>
+
+<div class="guarantee" id="guarantee" style="border:1px solid #ccc;border-radius:8px;padding:12px 16px;margin:20px 0"><h2 style="margin-top:0">14日間・理由を問わず全額返金保証</h2>
 <p>購入日から14日以内であれば、理由を問わず全額を返金します。「自分の会社のケースに合わなかった」「思っていた内容と違った」という場合でも、申請いただければ返金します。</p>
 <ul>
 <li>申請方法：購入時のメールアドレスから、件名「返金希望：生成AI利用確認書 回答キット」として naoren.38@gmail.com へメールしてください</li>
@@ -91,7 +160,21 @@ header .lead{color:#D7E5F2}
 <li>不正利用が明らかな場合は、保証の対象外とすることがあります</li>
 </ul>
 <p style="margin-bottom:0">運営：Seed Works Japan（編集部）。</p></div>
-<div class="wrap"><p class="small">生成AI利用確認書 回答キット（編集部）</p></div></footer>
+<div class="wrap"><p class="small">生成AI利用確認書 回答キット（編集部）</p></div>
 <div id="kit-series" style="border:1px solid #ccc;border-radius:8px;padding:12px 16px;margin:20px 0"><h2 style="margin-top:0;font-size:1.1em">小さな会社の制度対応シリーズ</h2><p style="font-size:.92em">制度改正への対応を、無料ツールとキットで支援するシリーズです。</p><ul><li><a href="https://solederlego8-a11y.github.io/kasuhara-kit/">小さな会社のカスハラ対策キット</a>（販売中 ¥9,800）</li><li><a href="https://solederlego8-a11y.github.io/cyber-sme/">6か条実装キット（中小企業の情報セキュリティ）</a>（販売中 ¥9,800）</li><li><a href="https://solederlego8-a11y.github.io/invoice-kit/">インボイス2割特例 終了対応キット</a>（無料判定ツール公開中）</li><li><a href="https://solederlego8-a11y.github.io/yearend-178man/">178万円の壁・年末調整対応キット</a>（無料チェック公開中）</li><li><a href="https://solederlego8-a11y.github.io/taxfree-refund/">免税店リファンド対応キット</a>（無料チェック公開中）</li><li><a href="https://solederlego8-a11y.github.io/kakaku-tenka/">価格転嫁交渉キット</a>（無料計算ツール公開中）</li><li><a href="https://solederlego8-a11y.github.io/shukuhakusei-kit/">小さな宿の宿泊税対応キット</a>（無料試算ツール公開中）</li><li><a href="https://solederlego8-a11y.github.io/anzen-eisei-kit/">小さな現場の個人事業者安全衛生対応キット</a>（無料シミュレーター公開中）</li><li><a href="https://solederlego8-a11y.github.io/jigyokei-pack/">ジギョケイ取得準備パック</a>（販売中 ¥29,800）</li></ul></div>
+</section>
+</div></main>
+<footer class="site"><div class="wrap">運営：Seed Works Japan（編集部）／小さな会社の制度対応シリーズ</div></footer>
+<script>
+(function(){
+var els=document.querySelectorAll('.fade');
+function showAll(){els.forEach(function(e){e.classList.add('on');});}
+if('IntersectionObserver' in window){
+var io=new IntersectionObserver(function(entries){entries.forEach(function(en){if(en.isIntersecting){en.target.classList.add('on');io.unobserve(en.target);}});},{threshold:.08});
+els.forEach(function(e){io.observe(e);});
+}else{showAll();}
+setTimeout(showAll,2500);
+})();
+</script>
 </body>
 </html>

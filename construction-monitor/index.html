@@ -6,6 +6,7 @@
 
 <title>建設業の締切モニタリング｜許可・経審・助成金・労務を毎月「今月やること」でお届け</title>
 <meta name="description" content="建設業許可の更新、経営事項審査、決算変更届、助成金の計画届、安全衛生・労務の法改正。建設会社の締切を一元管理し、毎月「今月やることリスト」をLINE・メールでお届けする月額9,800円のモニタリングサービス。まず無料の「建設業 締切カレンダー2027」と3問診断から。">
+<script>document.documentElement.classList.add('js');</script>
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-W02HK1VTYF"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
@@ -70,6 +71,49 @@ ul.check li::before{content:"✓"; position:absolute; left:0; color:var(--accent
 .faq dt{font-weight:700; color:var(--accent-deep); margin-top:16px;}
 .faq dd{color:var(--ink-soft); margin-top:4px;}
 footer{border-top:1px solid var(--line); padding:28px 0; font-size:13px; color:var(--sub);}
+
+/* --- design improvement 2026-11-23: type scale / hero mock / metric band / fade --- */
+:root{
+--text-hero:clamp(1.65rem,4.2vw,1.9rem);
+--text-h2:clamp(1.3rem,2.6vw,1.42rem);
+--text-body:clamp(.9375rem,1.2vw,1rem);
+--text-lead:clamp(1rem,1.6vw,1.05rem);
+--space-section:clamp(2.8rem,6vw,3.4rem);
+--radius:8px;
+}
+body{font-size:var(--text-body);}
+.hero h1{font-size:var(--text-hero);}
+.hero p.lead{font-size:var(--text-lead);}
+section{padding:var(--space-section) 0;}
+h2{font-size:var(--text-h2);}
+.hero-grid{display:grid; grid-template-columns:1.05fr .95fr; gap:clamp(1.5rem,4vw,3rem); align-items:center;}
+@media (max-width:760px){.hero-grid{grid-template-columns:1fr;}}
+.mock{border:1px solid var(--line); border-radius:var(--radius); box-shadow:0 8px 28px rgba(15,47,77,.10); padding:20px 22px; background:#fff;}
+.mock .mock-head{display:flex; justify-content:space-between; align-items:baseline; border-bottom:2px solid var(--accent); padding-bottom:8px; margin-bottom:12px; gap:10px;}
+.mock .mock-title{font-weight:700; color:var(--accent-deep);}
+.mock .mock-sample{font-size:.78em; color:var(--sub); white-space:nowrap;}
+.mock ul{margin:0; padding-left:1.2em; color:var(--ink-soft); font-size:.94em;}
+.mock ul li{margin-bottom:6px;}
+.mock .mock-note{font-size:.8em; color:var(--sub); margin:12px 0 0;}
+.band{border-top:1px solid var(--line); border-bottom:1px solid var(--line); background:var(--soft);}
+.band .wrap{display:grid; grid-template-columns:repeat(4,1fr); gap:0;}
+@media (max-width:760px){.band .wrap{grid-template-columns:1fr 1fr;}}
+.band .cell{padding:18px 16px; text-align:center; border-left:1px solid var(--line);}
+.band .cell:first-child{border-left:none;}
+.band .num{font-size:clamp(1.1rem,2.4vw,1.45rem); font-weight:700; color:var(--accent-deep); line-height:1.3;}
+.band .lbl{font-size:.82em; color:var(--sub);}
+.js .fade{opacity:0; transform:translateY(12px); transition:opacity .6s ease,transform .6s ease;}
+.js .fade.on{opacity:1; transform:none;}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto;} .js .fade{opacity:1; transform:none; transition:none;} *{transition:none!important;}}
+
+/* --- shinsei skeleton 2026-11-23: sub heading / samples --- */
+.subh{font-size:17px; color:var(--accent-deep); margin:28px 0 6px;}
+.sample{background:#fff; border:1px solid var(--line); border-radius:var(--radius); padding:20px; margin-top:16px;}
+.sample .lbl{font-size:.8em; font-weight:700; color:var(--accent-deep); letter-spacing:.06em;}
+.sample .stars{color:#b97f14; font-weight:700; letter-spacing:.15em;}
+.sample .review{color:var(--ink-soft); background:var(--soft); border-radius:var(--radius); padding:12px 14px; margin:10px 0;}
+.sample .reply{border-left:3px solid var(--accent); padding:4px 0 4px 14px; color:var(--ink-soft); margin:10px 0;}
+.sample .point{font-size:.9em; color:var(--sub); margin-top:8px;}
 </style>
 </head>
 <body>
@@ -85,17 +129,32 @@ footer{border-top:1px solid var(--line); padding:28px 0; font-size:13px; color:v
 
 <div class="hero">
   <div class="wrap">
-    <span class="target">対象：経審を受ける会社／従業員10人以上の建設会社</span>
+    <div class="hero-grid">
+<div class="fade">
+<span class="target">対象：経審を受ける会社／従業員10人以上の建設会社</span>
     <h1>許可・経審・助成金・労務の締切を、<br>毎月「今月やること」としてお届けします。</h1>
     <p class="lead">建設会社には、業種固有の締切だけで年間12〜15件あります。しかも助成金は「実施前の計画届」が多く、公募が始まってから動いても間に合いません。締切と法改正を先回りで知らせ、自社の期限と重ねて、毎月やることだけをLINE・メールで届けるサービスです。</p>
     <div class="cta-row">
       <a class="btn btn-cta" href="#diag">3問診断を受ける（無料）</a>
       <a class="btn btn-ghost" href="mailto:naoren.38@gmail.com?subject=%E3%80%90%E7%84%A1%E6%96%99%E3%82%AB%E3%83%AC%E3%83%B3%E3%83%80%E3%83%BC%E5%B8%8C%E6%9C%9B%E3%80%91%E5%BB%BA%E8%A8%AD%E6%A5%AD%E7%B7%A0%E5%88%87%E3%82%AB%E3%83%AC%E3%83%B3%E3%83%80%E3%83%BC2027">無料カレンダー2027を受け取る</a>
+</div>
+<div class="mock fade" aria-label="今月やることリストのサンプル表示">
+<div class="mock-head"><span class="mock-title">今月やることリスト</span><span class="mock-sample">サンプル表示</span></div>
+<ul>
+<li>決算変更届 ― 事業年度終了後4か月以内</li>
+<li>労働保険の年度更新 ― 6月1日〜7月10日</li>
+<li>経営事項審査・経営状況分析 ― 毎年</li>
+</ul>
+<p class="mock-note">締切の14日前・7日前・3日前にアラート。実際の期限は自社の期限を登録して管理します。</p>
+</div>
+</div>
     </div>
   </div>
+<div class="band"><div class="wrap"><div class="cell"><div class="num">年間12〜15件</div><div class="lbl">建設会社の業種固有の締切</div></div><div class="cell"><div class="num">月額9,800円</div><div class="lbl">税別／モニタリング</div></div><div class="cell"><div class="num">3問診断</div><div class="lbl">30秒・無料</div></div><div class="cell"><div class="num">最低契約期間なし</div><div class="lbl">いつでも解約可</div></div></div></div>
+
 </div>
 
-<section>
+<section class="fade">
   <div class="wrap">
     <h2><span class="en">PROBLEM</span>締切は「知らなかった」では済まないものばかりです</h2>
     <div class="cards">
@@ -115,10 +174,47 @@ footer{border-top:1px solid var(--line); padding:28px 0; font-size:13px; color:v
   </div>
 </section>
 
-<section class="alt">
+<section class="fade alt">
+  <div class="wrap">
+    <h2><span class="en">OVERVIEW</span>やることは、3つだけです</h2>
+    <p class="body">締切管理が回らなくなる原因は、量の多さよりも「自社の期限が1か所に並んでいない」ことです。本サービスは、次の3つに絞って回します。このページの下にある無料カレンダーと3問診断は、この3つの仕事の入口です。</p>
+    <div class="cards">
+      <div class="card">
+        <h3>1. 見つける — 自社の締切を全部並べる</h3>
+        <p>建設業許可・経審・決算変更届といった業種固有の期限に、労働保険や算定基礎届などの労務、安全衛生の法改正、助成金の計画届まで。会社ごとに違う期限を登録して、1つのカレンダーに統合します。</p>
+      </div>
+      <div class="card">
+        <h3>2. 届ける — 毎月「今月やること」だけが届く</h3>
+        <p>ダッシュボードへのログインは不要です。自社の期限と重ねたリストをLINE・メールでお届けし、締切の14日前・7日前・3日前にもアラートします。開いて確認するのは、届いたリストだけです。</p>
+      </div>
+      <div class="card">
+        <h3>3. 先回りする — 改正と助成金は締切から逆算</h3>
+        <p>助成金の多くは、実施前の計画届が必要です。公募が始まってからでは間に合わないものを、計画届の締切から逆算してお知らせします。法改正も、自社に影響があるものだけを選んで要約します。</p>
+        <p style="margin-top:10px;">実例として、建設業向け助成金の技能実習コースは、実習開始の3か月前から計画届の受付が始まります。公募の案内を見てから動くと、この時点で間に合わないことがあります。計画届の締切から逆算するのは、このためです。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="fade">
+  <div class="wrap">
+    <h2><span class="en">TRANSPARENCY</span>締切情報は、官公庁の公表情報から集めています</h2>
+    <p class="body">「AIが集めた情報」をそのまま渡す形にはしていません。集め方が分からない情報に、毎月お金を払う必要はないと考えるため、先に公開します。</p>
+    <ul class="check">
+      <li>出典は公表情報です：国土交通省（建設業許可・経営事項審査）、厚生労働省（労働保険・社会保険・安全衛生法の改正、建設業向け助成金）、中小企業庁・都道府県などの公表資料を定期的に確認しています</li>
+      <li>AIの要約だけで判断しません：制度の新設・改正は、公表された原文を確認してからリストに反映します。要約は「自社に関係するか」の選別に使い、期限そのものは原文で確認します</li>
+      <li>一般的な時期と自社の期限を混同しません：このページのカレンダーは一般的な目安です。契約後は、許可の満了日・決算月など会社固有の期限を登録し、個別の期限として管理します</li>
+      <li>集めている範囲：許可・経審・決算変更届／労働保険の年度更新・算定基礎届・年末調整／安全衛生法の改正対応／建設業向け補助金・助成金の計画届と公募の締切</li>
+      <li>確認のタイミング：毎月のリスト作成時に、対象機関の公表情報を再確認します。前月から変わった制度・締切は、リストの中で変更点として分かるようにしてお届けします</li>
+    </ul>
+  </div>
+</section>
+
+<section class="fade alt">
   <div class="wrap">
     <h2><span class="en">FREE CALENDAR</span>建設業 締切カレンダー2027（要約版）</h2>
     <p class="body">主な締切の要約です。自社の期限と様式まで入れたフル版は、メールで無料配布しています。</p>
+    <p class="body" style="margin-top:10px;">下の表は、本サービスが実際に収録し、毎月のリストの元にしている締切の実例です。要約版のため項目を絞っていますが、並び方と管理の単位は実際の配信と同じです。</p>
     <table class="cal">
       <tr><th>区分</th><th>項目</th><th>時期の目安</th></tr>
       <tr><td>毎年（業種固有）</td><td>決算変更届</td><td>事業年度終了後4か月以内</td></tr>
@@ -135,13 +231,22 @@ footer{border-top:1px solid var(--line); padding:28px 0; font-size:13px; color:v
       <tr><td>新規</td><td>ストレスチェックの全事業場義務化</td><td>2028年4月</td></tr>
     </table>
     <p class="note">※ 時期は一般的な目安です。許可・経審などの期限は会社ごとに異なります。モニタリング契約では自社の期限を登録して個別に管理します。</p>
+    <p class="note">※ 締切の出典：国土交通省「建設業許可事務ガイドライン」「経営事項審査の申請について」、厚生労働省「労働保険の年度更新」「安全衛生法の改正について」等の公表情報（2026年11月時点）。制度は改正されることがあるため、配信時にも最新の公表情報を確認しています。</p>
+    <h3 class="subh">実例：2027〜2028年に新しく始まる義務</h3>
+    <ul class="check">
+      <li>2027年1月 — 安全衛生法の改正：個人事業者等の死傷病報告が始まります</li>
+      <li>2027年4月 — 安全衛生法の改正：元請事業者による連絡調整の義務が広がります</li>
+      <li>2027年10月 — 社会保険の適用拡大：従業員36人以上の事業所が対象になります</li>
+      <li>2028年4月 — ストレスチェック：全事業場で義務化されます（現在は50人未満は努力義務）</li>
+    </ul>
+    <p class="note">いずれも法改正・制度改正として公表されている内容です。自社が対象になるかは、従業員数と事業内容で変わります。</p>
     <div class="cta-row">
       <a class="btn btn-cta" href="mailto:naoren.38@gmail.com?subject=%E3%80%90%E7%84%A1%E6%96%99%E3%82%AB%E3%83%AC%E3%83%B3%E3%83%80%E3%83%BC%E5%B8%8C%E6%9C%9B%E3%80%91%E5%BB%BA%E8%A8%AD%E6%A5%AD%E7%B7%A0%E5%88%87%E3%82%AB%E3%83%AC%E3%83%B3%E3%83%80%E3%83%BC2027">フル版をメールで受け取る（無料）</a>
     </div>
   </div>
 </section>
 
-<section id="diag">
+<section id="diag" class="fade">
   <div class="wrap">
     <h2><span class="en">CHECK</span>3問診断：あなたの会社の「締切リスク」</h2>
     <p class="body">30秒で終わります。当てはまるものを選んでください。</p>
@@ -181,7 +286,28 @@ footer{border-top:1px solid var(--line); padding:28px 0; font-size:13px; color:v
   </div>
 </section>
 
-<section class="alt">
+<section class="fade">
+  <div class="wrap">
+    <h2><span class="en">FLOW</span>ご利用の流れ</h2>
+    <div class="cards">
+      <div class="card">
+        <h3>Step 1 — 無料カレンダーと3問診断</h3>
+        <p>まずフル版カレンダー（無料）を受け取り、3問診断で自社の締切リスクを確認します。ここまでは無料で、申込の義務はありません。</p>
+      </div>
+      <div class="card">
+        <h3>Step 2 — 自社の期限を登録する</h3>
+        <p>建設業許可の満了日、決算月、従業員数などをメールでお知らせいただき、締切リストを自社用に組み立てます。様式の準備状況もここで確認します。</p>
+        <p style="margin-top:10px;">登録に必要なのは、許可の満了日が分かるもの（許可証の写しなど）と決算月、従業員数の目安です。書類集めから始める必要はありません。</p>
+      </div>
+      <div class="card">
+        <h3>Step 3 — 毎月、届いて、動くだけ</h3>
+        <p>「今月やることリスト」がLINE・メールで届き、締切の前にはアラートが届きます。申請書類の作成・提出は御社または顧問の士業が行い、様式と段取りはこちらでお渡しします。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="fade alt">
   <div class="wrap">
     <h2><span class="en">SERVICE &amp; PRICE</span>月額モニタリングの中身と価格</h2>
     <div class="price-box">
@@ -198,10 +324,32 @@ footer{border-top:1px solid var(--line); padding:28px 0; font-size:13px; color:v
         <a class="btn btn-cta" href="mailto:naoren.38@gmail.com?subject=%E3%80%90%E7%94%B3%E8%BE%BC%E3%80%91%E5%BB%BA%E8%A8%AD%E6%A5%AD%E7%B7%A0%E5%88%87%E3%83%A2%E3%83%8B%E3%82%BF%E3%83%AA%E3%83%B3%E3%82%B0%EF%BC%88%E6%9C%889%2C800%E5%86%86%EF%BC%89">月額モニタリングに申し込む</a>
       </div>
     </div>
+      <h3 class="subh">自力・士業の顧問との比較</h3>
+      <p class="body">どれが正解かは会社の体制次第です。違いだけを並べます。行政書士の月額顧問は許可の維持そのものに強く、本サービスは「締切を忘れないこと」に絞ったものです。役割が違うので、抜けている側を埋めるものとして見てください。</p>
+      <table class="cal">
+        <tr><th></th><th>自力で管理</th><th>行政書士などの顧問</th><th>本サービス</th></tr>
+        <tr><th>費用</th><td>かからない（担当者の時間はかかる）</td><td>許可のみで月2万円台の例がある</td><td>月9,800円（税別）</td></tr>
+        <tr><th>範囲</th><td>全部を自分で追う</td><td>分野ごとに契約が分かれやすい</td><td>許可・経審・補助金・労務・安全衛生を1つに統合</td></tr>
+        <tr><th>締切の知らせ</th><td>自分で気づく必要がある</td><td>相談したときに確認</td><td>毎月のリスト＋14日前・7日前・3日前のアラート</td></tr>
+        <tr><th>申請書類</th><td>自分で作成</td><td>作成・提出まで依頼できる</td><td>代行はしない（様式と段取りまで）</td></tr>
+        <tr><th>様式・チェックリスト</th><td>自分で探す</td><td>顧問の範囲外のものは自分で探す</td><td>リストに添付してお届け</td></tr>
+      </table>
   </div>
 </section>
 
-<section>
+<section class="fade">
+  <div class="wrap">
+    <h2><span class="en">ASSURANCE</span>安心してお使いいただくために</h2>
+    <ul class="check">
+      <li>最低契約期間はありません。いつでも解約できます</li>
+      <li>申請書類の作成・提出の代行は行いません（行政書士の業務範囲のため）。範囲外のことを「できる」と言わない形にしています</li>
+      <li>向かない会社には正直にお伝えします。経審を受けず従業員9人以下の会社は、無料カレンダーで足りる場合があります</li>
+      <li>本サービスは先行受付中です。料金・内容は、申込確定時に改めてご案内します</li>
+    </ul>
+  </div>
+</section>
+
+<section class="fade">
   <div class="wrap">
     <h2><span class="en">FAQ</span>よくある質問</h2>
     <dl class="faq">
@@ -211,7 +359,27 @@ footer{border-top:1px solid var(--line); padding:28px 0; font-size:13px; color:v
       <dd>あります。士業の顧問は通常「許可だけ」「労務だけ」の範囲です。本サービスは補助金・許可・経審・安全衛生・労務を1つのカレンダーに統合し、士業へ依頼すべきタイミング自体をお知らせします。</dd>
       <dt>対象外の会社はありますか？</dt>
       <dd>経審を受けず、従業員9人以下の会社は年間の締切が少なく、無料カレンダーで足りる場合があります。診断結果でもその場合は正直にお伝えします。</dd>
+      <dt>料金の支払い方法は？</dt>
+      <dd>先行受付中のため、申込確定時にご案内します。最低契約期間はなく、いつでも解約できます。</dd>
+      <dt>すでに過ぎてしまった締切があるのですが。</dt>
+      <dd>まず無料カレンダーと診断で、自社の期限を並べるところから始められます。過ぎた手続きの扱いは個別の事情によるため、必要に応じて顧問の行政書士等へつなぎます。</dd>
+      <dt>対象は建設業だけですか？</dt>
+      <dd>はい。締切の内容は業種で大きく違うため、現在は建設業に絞っています。他業種向けの汎用リストは扱っていません。</dd>
+      <dt>LINEを使っていません。メールだけでも大丈夫ですか？</dt>
+      <dd>はい。お届けはLINE・メールのどちらでも可能です。使い慣れた方で受け取れます。</dd>
+      <dt>建設業許可を持っていない会社でも使えますか？</dt>
+      <dd>許可・経審がない場合、締切は労務と助成金が中心になります。件数が少ない場合は無料カレンダーで足りることがあるため、診断で確認してからご案内します。</dd>
     </dl>
+  </div>
+</section>
+
+<section class="fade alt">
+  <div class="wrap">
+    <h2><span class="en">START</span>まずは、自社の締切を並べてみてください</h2>
+    <p class="body">3問診断（無料・30秒）で、自社に関係する締切の山が見えます。診断結果の画面から、無料カレンダー2027のフル版も受け取れます。</p>
+    <div class="cta-row">
+      <a class="btn btn-cta" href="#diag">3問診断を受ける（無料）</a>
+    </div>
   </div>
 </section>
 
@@ -265,6 +433,17 @@ function showResult(){
   r.scrollIntoView({behavior:'smooth', block:'center'});
 }
 function addLi(ul, text){ const li = document.createElement('li'); li.textContent = text; ul.appendChild(li); }
+</script>
+<script>
+(function(){
+var els=document.querySelectorAll('.fade');
+function showAll(){els.forEach(function(e){e.classList.add('on');});}
+if('IntersectionObserver' in window){
+var io=new IntersectionObserver(function(entries){entries.forEach(function(en){if(en.isIntersecting){en.target.classList.add('on');io.unobserve(en.target);}});},{threshold:.08});
+els.forEach(function(e){io.observe(e);});
+}else{showAll();}
+setTimeout(showAll,2500);
+})();
 </script>
 </body>
 </html>

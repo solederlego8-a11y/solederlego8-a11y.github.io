@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <!-- Google tag (gtag.js) -->
+<script>document.documentElement.classList.add('js');</script>
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-W02HK1VTYF"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
@@ -24,23 +25,63 @@
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://solederlego8-a11y.github.io/fers/">
 <style>
-  body { font-family: system-ui, sans-serif; max-width: 760px; margin: 2rem auto; padding: 0 1rem; line-height: 1.6; color: #1c1c1c; }
-  h1 { line-height: 1.25; }
-  h2 { margin-top: 2.2rem; border-bottom: 2px solid #d8e2d8; padding-bottom: .3rem; }
-  fieldset { margin-bottom: 1rem; }
-  label { display: block; margin: .45rem 0; }
-  input, select { padding: .3rem; }
-  .inline input { width: 5.5rem; }
-  button { padding: .6rem 1.4rem; font-size: 1rem; cursor: pointer; }
-  #results { background: #f4f7f4; border: 1px solid #cdd8cd; padding: 1rem; margin-top: 1rem; }
-  .disclaimer { font-size: .85rem; color: #444; border-top: 1px solid #ccc; margin-top: 2rem; padding-top: 1rem; }
-  .flag { background: #fff3cd; padding: .5rem; }
-  .example { background: #fbfbf7; border: 1px solid #e2e2d5; padding: .8rem 1rem; margin: 1rem 0; }
-  .example h3 { margin-top: 0; }
-  table { border-collapse: collapse; margin: .6rem 0; }
-  th, td { border: 1px solid #ccc; padding: .35rem .7rem; text-align: left; }
-  code { background: #f0f0ea; padding: 0 .25rem; }
-  .src { font-size: .92rem; }
+:root{
+  --base:#ffffff; --ink:#1f2933; --ink-soft:#3d454e; --sub:#6b7684;
+  --accent:#0f4c81; --accent-deep:#0b2a4a; --accent-pale:#eaf1f8;
+  --line:#e2e8f0; --soft:#f5f7fa;
+  --radius:8px; --radius-s:6px;
+  --font:system-ui,-apple-system,"Segoe UI",sans-serif;
+  --font-en:"Helvetica Neue",Arial,sans-serif;
+  --text-hero:clamp(1.7rem,4.2vw,2.5rem);
+  --text-h2:clamp(1.3rem,2.6vw,1.6rem);
+  --text-body:clamp(.9375rem,1.2vw,1rem);
+  --text-lead:clamp(1rem,1.6vw,1.08rem);
+  --space-section:clamp(2.6rem,6vw,4rem);
+  --wrap:880px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:var(--font); color:var(--ink); line-height:1.7; background:var(--base); margin:0; font-size:var(--text-body); -webkit-font-smoothing:antialiased;}
+.wrap{max-width:var(--wrap); margin:0 auto; padding:0 1rem;}
+a{color:var(--accent)}
+header.site{position:sticky; top:0; z-index:50; background:rgba(255,255,255,.94); backdrop-filter:blur(8px); border-bottom:1px solid var(--line)}
+header.site .wrap{display:flex; align-items:center; justify-content:space-between; min-height:64px; padding-top:8px; padding-bottom:8px; gap:16px; flex-wrap:wrap}
+.brand .en{font-family:var(--font-en); font-size:10.5px; letter-spacing:.28em; color:var(--accent); font-weight:700; line-height:1.4}
+.brand .jp{font-size:15.5px; font-weight:700; color:var(--accent-deep); letter-spacing:.03em; line-height:1.4}
+.hcta{border:1px solid var(--accent-deep); color:var(--accent-deep); border-radius:999px; padding:6px 16px; font-weight:600; text-decoration:none; font-size:13.5px;}
+.hero{padding:clamp(2.5rem,6vw,4rem) 0 0}
+.hero .kicker{font-family:var(--font-en); font-size:11px; letter-spacing:.24em; color:var(--accent); font-weight:700; margin:0 0 10px}
+h1{font-size:var(--text-hero); line-height:1.3; color:var(--accent-deep); margin:0 0 14px}
+.hero p{font-size:var(--text-lead); color:var(--ink-soft); max-width:720px}
+.band{border-top:1px solid var(--line); border-bottom:1px solid var(--line); background:var(--soft); margin-top:var(--space-section)}
+.band .wrap{display:grid; grid-template-columns:repeat(4,1fr); gap:0}
+@media (max-width:760px){.band .wrap{grid-template-columns:1fr 1fr}}
+.band .cell{padding:18px 16px; text-align:center; border-left:1px solid var(--line)}
+.band .cell:first-child{border-left:none}
+.band .num{font-size:clamp(1.1rem,2.4vw,1.45rem); font-weight:700; color:var(--accent-deep); line-height:1.3}
+.band .lbl{font-size:.82em; color:var(--sub)}
+main .wrap{padding-bottom:var(--space-section)}
+h2{font-size:var(--text-h2); color:var(--accent-deep); margin-top:2.2rem; border-bottom:2px solid var(--accent); padding-bottom:.3rem; line-height:1.4}
+fieldset{margin-bottom:1rem; border:1px solid var(--line); border-radius:var(--radius); padding:1rem}
+legend{font-weight:700; color:var(--accent-deep); padding:0 .4rem}
+label{display:block; margin:.45rem 0}
+input, select{padding:.3rem}
+.inline input{width:5.5rem}
+button{padding:.6rem 1.4rem; font-size:1rem; cursor:pointer; background:var(--accent); color:#fff; border:none; border-radius:var(--radius); font-weight:700}
+#results{background:var(--accent-pale); border:1px solid var(--accent); border-radius:var(--radius); padding:1rem; margin-top:1rem}
+#results h2{margin-top:0}
+.disclaimer{font-size:.85rem; color:var(--ink-soft); border-top:1px solid var(--line); margin-top:2rem; padding-top:1rem}
+.flag{background:#fff3cd; padding:.5rem; border-radius:var(--radius-s)}
+.example{background:var(--soft); border:1px solid var(--line); border-radius:var(--radius); padding:.8rem 1rem; margin:1rem 0}
+.example h3{margin-top:0; color:var(--accent-deep)}
+table{border-collapse:collapse; margin:.6rem 0}
+th, td{border:1px solid var(--line); padding:.35rem .7rem; text-align:left}
+code{background:var(--accent-pale); padding:0 .25rem}
+.src{font-size:.92rem}
+
+.js .fade{opacity:0; transform:translateY(12px); transition:opacity .6s ease,transform .6s ease;}
+.js .fade.on{opacity:1; transform:none;}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto;} .js .fade{opacity:1; transform:none; transition:none;} *{transition:none!important;}}
 </style>
 <script type="application/ld+json">
 {
@@ -55,7 +96,13 @@
 </script>
 </head>
 <body>
-
+<header class="site"><div class="wrap">
+<div class="brand"><div class="en">FERS ANNUITY CALCULATOR</div><div class="jp">Free Estimate Tool</div></div>
+<a class="hcta" href="#calc">Calculate</a>
+</div></header>
+<main>
+<div class="hero"><div class="wrap">
+<p class="kicker">FERS ANNUITY CALCULATOR</p>
 <h1>FERS Annuity Calculator — with Sick Leave Credit &amp; Survivor Election</h1>
 <p>Most FERS calculators either ignore your unused sick leave or convert it with a rough
 &quot;hours ÷ 174&quot; shortcut. This one follows the method OPM itself prescribes:
@@ -64,6 +111,9 @@ added to your actual service, and only then are leftover days dropped. It also a
 MRA+10 reduction by <em>exact full months</em> — not by whole years of age — and shows you
 every step of the math.</p>
 <p><strong>Free. No sign-up. Nothing you type leaves your browser.</strong></p>
+</div></div>
+<div class="band"><div class="wrap"><div class="cell"><div class="num">$0</div><div class="lbl">Free — no sign-up</div></div><div class="cell"><div class="num">OPM Chart 2</div><div class="lbl">Sick-leave conversion</div></div><div class="cell"><div class="num">Exact full months</div><div class="lbl">MRA+10 reduction</div></div><div class="cell"><div class="num">In your browser</div><div class="lbl">Nothing you type leaves it</div></div></div></div>
+<div class="wrap">
 
 <form id="calc">
   <fieldset>
@@ -136,7 +186,7 @@ several popular calculators were found to disagree with the handbook method duri
 
 <h2>Worked examples</h2>
 
-<div class="example">
+<div class="example fade">
   <h3>Example 1 — Age 62, 30 years, 50% survivor election</h3>
   <p>High-3 $100,000 · actual service 30 years 0 months · unused sick leave 1,044 hours ·
   retires on the 62nd birthday · 50% survivor election.</p>
@@ -147,7 +197,7 @@ several popular calculators were found to disagree with the handbook method duri
   </ol>
 </div>
 
-<div class="example">
+<div class="example fade">
   <h3>Example 2 — Sick leave tips you over 20 years</h3>
   <p>High-3 $100,000 · actual service 19 years 6 months · unused sick leave 1,300 hours · retires at 62 · no survivor election.</p>
   <ol>
@@ -157,7 +207,7 @@ several popular calculators were found to disagree with the handbook method duri
   </ol>
 </div>
 
-<div class="example">
+<div class="example fade">
   <h3>Example 3 — MRA+10: why exact months matter</h3>
   <p>High-3 $60,000 · service 20 years · no sick leave · annuity starts 21 full months before the 62nd birthday.</p>
   <ol>
@@ -174,7 +224,7 @@ several popular calculators were found to disagree with the handbook method duri
   <li>It is an estimate tool, not OPM. Your agency's HR office and OPM make the official determination.</li>
 </ul>
 
-<div class="disclaimer">
+<div class="disclaimer fade">
   <p><strong>Estimate only.</strong> This calculator gives an estimate; it does not match
   OPM's official computation in every case, and it is not financial, tax, or legal advice.</p>
   <p>The FERS Supplement (a separate tool) is also an estimate: it uses civilian service only,
@@ -187,6 +237,8 @@ several popular calculators were found to disagree with the handbook method duri
   the result is flagged on screen.</p>
 </div>
 
+</div>
+</main>
 <script src="fers-tool2-core.js"></script>
 <script>
 function parseDate(id) {
@@ -234,6 +286,17 @@ document.getElementById('calc').addEventListener('submit', function (e) {
   box.innerHTML = html;
   box.hidden = false;
 });
+</script>
+<script>
+(function(){
+var els=document.querySelectorAll('.fade');
+function showAll(){els.forEach(function(e){e.classList.add('on');});}
+if('IntersectionObserver' in window){
+var io=new IntersectionObserver(function(entries){entries.forEach(function(en){if(en.isIntersecting){en.target.classList.add('on');io.unobserve(en.target);}});},{threshold:.08});
+els.forEach(function(e){io.observe(e);});
+}else{showAll();}
+setTimeout(showAll,2500);
+})();
 </script>
 </body>
 </html>

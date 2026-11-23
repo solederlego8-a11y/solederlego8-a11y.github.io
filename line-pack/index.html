@@ -1,5 +1,8 @@
-<!doctype html>
-<html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>小さな店のLINE構築パック｜業者に10万円払わずに、1週間でLINE公式アカウントの型を整える</title>
 <meta name="description" content="業者に10万円払わずに、1週間でLINE公式アカウントの「友だちを集める・配信する・リピートさせる」型を整えるための構築手順と配信シナリオ。買い切り¥9,800（月額更新¥980は任意）。">
 <link rel="canonical" href="https://solederlego8-a11y.github.io/line-pack/">
@@ -10,40 +13,114 @@
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="小さな店のLINE構築パック｜業者に10万円払わずに、1週間でLINE公式アカウントの型を整える">
 <meta name="twitter:description" content="業者に10万円払わずに、1週間でLINE公式アカウントの「友だちを集める・配信する・リピートさせる」型を整えるための構築手順と配信シナリオ。買い切り¥9,800（月額更新¥980は任意）。">
-<link rel="stylesheet" href="design-system.css"><style>
-body{max-width:960px;padding:24px 20px 40px;background:#fff}
-nav{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:20px}
-nav a{margin:0;padding:6px 14px;border:1px solid #E2E8F0;border-radius:999px;color:#1F2933;font-size:.9em;text-decoration:none;background:#F5F7FA}
-nav a:hover{background:#EAF1F8;color:#06C755}
-h1{font-size:1.9em;line-height:1.45;color:#fff;background:linear-gradient(135deg,#04803C,#06C755 60%,#0E7C7B 140%);border-radius:12px;padding:28px 24px;margin:0 0 8px}
-h2{border-bottom:2px solid #06C755;padding-bottom:.2em}
-.card{border:1px solid #E2E8F0;border-radius:10px;box-shadow:0 1px 2px rgba(15,42,74,.06);padding:20px}
-.tool{border:2px solid #06C755;background:#F5F9FD}
-.note{background:#F5F7FA}
-</style><script async src="https://www.googletagmanager.com/gtag/js?id=G-W02HK1VTYF"></script>
-<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-W02HK1VTYF');</script>
-<style>body{font-family:system-ui,sans-serif;max-width:760px;margin:0 auto;padding:24px;line-height:1.8;color:#222}
-h1{font-size:1.6em;line-height:1.4}h2{margin-top:2em;border-bottom:2px solid #06C755}
-.card{border:1px solid #ccc;border-radius:8px;padding:16px;margin:12px 0}.note{background:#f6f6f6;padding:12px;border-radius:6px;font-size:.92em}
-a{color:#06C755}.sim{border:2px solid #06C755;border-radius:10px;padding:18px;margin:16px 0;background:#f6fff9}
-.sim-progress{font-size:.85em;color:#06C755;font-weight:bold;margin:.2em 0 .6em}
-.sim-q{font-weight:bold;margin:.3em 0 .6em}
-.sim-opts{display:grid;grid-template-columns:1fr 1fr;gap:8px}
-.sim-opts button{min-height:48px;padding:10px;border:1px solid #06C755;border-radius:8px;background:#fff;color:#222;font-size:1em;cursor:pointer}
-.sim-opts button.sel{background:#06C755;color:#fff}
-.sim-check{display:block;border:1px solid #ccc;border-radius:8px;padding:10px 12px;margin:8px 0;background:#fff;cursor:pointer}
-.sim-check input{margin-right:8px;transform:scale(1.2)}
-.sim-go{width:100%;min-height:52px;padding:12px;border:none;border-radius:8px;background:#06C755;color:#fff;font-size:1.05em;font-weight:bold;cursor:pointer}
-.sim-cta{display:grid;gap:8px;margin-top:14px}
-.sim-btn{display:block;text-align:center;padding:12px;border-radius:8px;background:#06C755;color:#fff;text-decoration:none;font-weight:bold;min-height:28px}
-.sim-btn.sub{background:#fff;color:#06C755;border:1px solid #06C755}
-.sim-textbtn{background:none;border:none;color:#06C755;text-decoration:underline;cursor:pointer;font-size:.95em;padding:6px 0}
-.sim-back{margin:.4em 0 0}
-@media (max-width:480px){.sim{padding:14px}.sim-opts{grid-template-columns:1fr}}</style></head><body>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-W02HK1VTYF"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-W02HK1VTYF');
+document.documentElement.classList.add('js');
+</script>
+<style>
+:root{
+  --base:#ffffff; --ink:#1f2933; --ink-soft:#3d454e; --sub:#6b7684;
+  --accent:#0f4c81; --accent-deep:#0b2a4a; --accent-pale:#eaf1f8; --teal:#0e7c7b;
+  --line:#e2e8f0; --soft:#f5f7fa;
+  --radius:8px; --radius-s:6px;
+  --font:"Hiragino Kaku Gothic ProN","Hiragino Sans","Noto Sans JP","Yu Gothic UI",system-ui,sans-serif;
+  --font-en:"Helvetica Neue",Arial,sans-serif;
+  --text-hero:clamp(1.75rem,4.2vw,2.6rem);
+  --text-h2:clamp(1.35rem,2.6vw,1.65rem);
+  --text-h3:clamp(1rem,1.6vw,1.08rem);
+  --text-body:clamp(.9375rem,1.2vw,1rem);
+  --text-lead:clamp(1rem,1.6vw,1.08rem);
+  --space-section:clamp(3rem,7vw,4.5rem);
+  --wrap:960px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:var(--font);color:var(--ink);line-height:1.85;background:var(--base);-webkit-font-smoothing:antialiased;font-size:var(--text-body);margin:0}
+.wrap{max-width:var(--wrap);margin:0 auto;padding:0 24px}
+a{color:var(--accent)}
+.js .fade{opacity:0;transform:translateY(12px);transition:opacity .6s ease,transform .6s ease}
+.js .fade.on{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.js .fade{opacity:1;transform:none;transition:none}*{transition:none!important}}
+header.site{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.94);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+header.site .wrap{display:flex;align-items:center;justify-content:space-between;min-height:64px;padding-top:8px;padding-bottom:8px;gap:16px;flex-wrap:wrap}
+.brand .en{font-family:var(--font-en);font-size:10.5px;letter-spacing:.28em;color:var(--accent);font-weight:700;line-height:1.4}
+.brand .jp{font-size:15.5px;font-weight:700;color:var(--accent-deep);letter-spacing:.03em;line-height:1.4}
+nav.gnav{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+nav.gnav a{font-size:13.5px;color:var(--ink-soft);text-decoration:none;padding:6px 12px;border:1px solid var(--line);border-radius:999px;background:var(--soft)}
+nav.gnav a:hover{background:var(--accent-pale);color:var(--accent)}
+.hero{padding:clamp(2.5rem,6vw,4rem) 0 var(--space-section)}
+.hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(1.5rem,4vw,3rem);align-items:center}
+@media (max-width:760px){.hero-grid{grid-template-columns:1fr}}
+.hero .kicker{font-family:var(--font-en);font-size:11px;letter-spacing:.24em;color:var(--accent);font-weight:700;margin:0 0 10px}
+.hero h1{font-size:var(--text-hero);line-height:1.4;color:var(--accent-deep);margin:0 0 14px}
+.hero .lead{font-size:var(--text-lead);color:var(--ink-soft);margin:0 0 20px}
+.hero-cta{display:flex;flex-wrap:wrap;gap:10px}
+.btn{display:inline-block;text-align:center;padding:13px 22px;border-radius:var(--radius);background:var(--accent);color:#fff;text-decoration:none;font-weight:700}
+.btn.sub{background:#fff;color:var(--accent);border:1px solid var(--accent)}
+.mock{border:1px solid var(--line);border-radius:var(--radius);box-shadow:0 8px 28px rgba(11,42,74,.10);padding:20px 22px;background:#fff}
+.mock .mock-head{display:flex;justify-content:space-between;align-items:baseline;border-bottom:2px solid var(--accent);padding-bottom:8px;margin-bottom:12px}
+.mock .mock-title{font-weight:700;color:var(--accent-deep)}
+.mock .mock-sample{font-size:.78em;color:var(--sub)}
+.mock .score{font-size:2rem;font-weight:700;color:var(--accent-deep);line-height:1.2}
+.mock .meter{height:10px;border-radius:999px;background:var(--soft);overflow:hidden;margin:8px 0 14px}
+.mock .meter i{display:block;height:100%;width:40%;background:linear-gradient(90deg,var(--accent),var(--teal))}
+.mock ul{margin:0;padding-left:1.2em;color:var(--ink-soft);font-size:.94em}
+.mock .mock-note{font-size:.8em;color:var(--sub);margin:12px 0 0}
+.band{border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:var(--soft)}
+.band .wrap{display:grid;grid-template-columns:repeat(4,1fr);gap:0}
+@media (max-width:760px){.band .wrap{grid-template-columns:1fr 1fr}}
+.band .cell{padding:18px 16px;text-align:center;border-left:1px solid var(--line)}
+.band .cell:first-child{border-left:none}
+.band .num{font-size:clamp(1.15rem,2.4vw,1.5rem);font-weight:700;color:var(--accent-deep);line-height:1.3}
+.band .lbl{font-size:.82em;color:var(--sub)}
+main .wrap section{margin:var(--space-section) 0}
+h2{font-size:var(--text-h2);color:var(--accent-deep);border-bottom:2px solid var(--accent);padding-bottom:.2em;line-height:1.5}
+.card{border:1px solid var(--line);border-radius:var(--radius);box-shadow:0 1px 2px rgba(11,42,74,.06);padding:20px;margin:16px 0}
+.note{background:var(--soft);padding:12px 16px;border-radius:var(--radius-s);font-size:.92em;margin:16px 0}
+.guarantee{border:1px solid var(--line);border-radius:var(--radius);padding:12px 16px;margin:20px 0}
+#kit-series{border:1px solid var(--line);border-radius:var(--radius);padding:12px 16px;margin:20px 0}
+footer.site{border-top:1px solid var(--line);margin-top:var(--space-section);padding:20px 0 32px;color:var(--sub);font-size:.9em}
+
+</style>
+</head>
+<body>
+<header class="site"><div class="wrap">
+<div class="brand"><div class="en">LINE OFFICIAL ACCOUNT KIT</div><div class="jp">小さな店のLINE構築パック</div></div>
+<nav class="gnav"><a href="index.html">トップ</a><a href="blog/index.html">ブログ</a></nav>
+</div></header>
+
+<div class="hero"><div class="wrap hero-grid">
+<div class="fade">
+<p class="kicker">FOR SMALL SHOPS</p>
 <h1>小さな店のLINE構築パック</h1>
+<p class="lead">業者に10万円払わずに、1週間でLINE公式アカウントの「友だちを集める・配信する・リピートさせる」型を整えるための構築手順と配信シナリオです。まず30秒シミュレーターで、今のLINEの状態と、次に整えるべき項目が分かります。</p>
+<div class="hero-cta"><a class="btn" href="#line-sim">30秒シミュレーターで対応度をチェック</a><a class="btn sub" href="#kit">パックを見る（買い切り9,800円）</a></div>
+</div>
+<div class="mock fade" aria-label="シミュレーター結果のサンプル表示">
+<div class="mock-head"><span class="mock-title">シミュレーター結果</span><span class="mock-sample">サンプル表示</span></div>
+<div class="score">対応度 2 / 5項目</div>
+<div class="meter"><i style="width:40%"></i></div>
+<p style="margin:0 0 6px;color:var(--ink-soft);font-size:.94em">5項目中 2 項目ができている場合の表示例です。</p>
+<ul>
+<li>次に整える：リッチメニュー</li><li>次に整える：クーポン・ショップカード</li><li>次に整える：1か月分の配信カレンダー</li>
+</ul>
+<p class="mock-note">実際の結果は、下のシミュレーターで3ステップの選択をするだけで表示されます（簡易版の目安）。</p>
+</div>
+</div></div>
+
+<div class="band"><div class="wrap">
+<div class="cell"><div class="num">1週間</div><div class="lbl">LINEの型を整える期間</div></div><div class="cell"><div class="num">月200通</div><div class="lbl">無料プラン（コミュニケーション）の上限</div></div><div class="cell"><div class="num">¥9,800</div><div class="lbl">パック買い切り（月額更新¥980は任意）</div></div><div class="cell"><div class="num">14日間</div><div class="lbl">理由を問わず全額返金保証</div></div>
+</div></div>
+
+<main><div class="wrap">
+<section class="fade">
 <p>業者に10万円払わずに、1週間でLINE公式アカウントの「友だちを集める・配信する・リピートさせる」型を整えるための構築手順と配信シナリオ。買い切り¥9,800（月額更新¥980は任意）。</p>
 <p class="note">個別の構築代行・相談は受けません。LINE公式アカウント本体の料金（コミュニケーションプラン月額0円〜スタンダードプラン月額15,000円（税別））はLINEヤフーへ別途お支払いいただきます。拡張ツール（Lステップ等）の契約・設定代行は含みません。</p>
-<nav><a href="blog/index.html">ブログ</a></nav>
+
 
 <div class="sim" id="line-sim">
 <h2 style="margin-top:0;border-bottom:none">30秒シミュレーター：あなたの店のLINE「対応度」をチェック</h2>
@@ -94,6 +171,23 @@ a{color:#06C755}.sim{border:2px solid #06C755;border-radius:10px;padding:18px;ma
 <p class="note" style="margin-bottom:0">この結果は簡易版の目安です。LINE公式アカウントの料金・通数は2026年11月17日確認の現行プランです（コミュニケーションプラン：月額0円・月200通・追加不可／ライトプラン：月額5,000円（税別）・月5,000通・追加不可／スタンダードプラン：月額15,000円（税別）・月30,000通・追加可）。</p>
 </div>
 </div>
+<style>
+.sim{border:2px solid #06C755;border-radius:10px;padding:18px;margin:16px 0;background:#f6fff9}
+.sim-progress{font-size:.85em;color:#06C755;font-weight:bold;margin:.2em 0 .6em}
+.sim-q{font-weight:bold;margin:.3em 0 .6em}
+.sim-opts{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.sim-opts button{min-height:48px;padding:10px;border:1px solid #06C755;border-radius:8px;background:#fff;color:#222;font-size:1em;cursor:pointer}
+.sim-opts button.sel{background:#06C755;color:#fff}
+.sim-check{display:block;border:1px solid #ccc;border-radius:8px;padding:10px 12px;margin:8px 0;background:#fff;cursor:pointer}
+.sim-check input{margin-right:8px;transform:scale(1.2)}
+.sim-go{width:100%;min-height:52px;padding:12px;border:none;border-radius:8px;background:#06C755;color:#fff;font-size:1.05em;font-weight:bold;cursor:pointer}
+.sim-cta{display:grid;gap:8px;margin-top:14px}
+.sim-btn{display:block;text-align:center;padding:12px;border-radius:8px;background:#06C755;color:#fff;text-decoration:none;font-weight:bold;min-height:28px}
+.sim-btn.sub{background:#fff;color:#06C755;border:1px solid #06C755}
+.sim-textbtn{background:none;border:none;color:#06C755;text-decoration:underline;cursor:pointer;font-size:.95em;padding:6px 0}
+.sim-back{margin:.4em 0 0}
+@media (max-width:480px){.sim{padding:14px}.sim-opts{grid-template-columns:1fr}}
+</style>
 <script>
 (function(){
 var state={biz:null,cond:null};
@@ -180,4 +274,19 @@ document.querySelectorAll("[data-cta]").forEach(function(a){a.addEventListener("
 <li>不正利用が明らかな場合は、保証の対象外とすることがあります</li>
 </ul>
 <p style="margin-bottom:0">運営：Seed Works Japan（編集部）。</p></div>
-</body></html>
+</section>
+</div></main>
+<footer class="site"><div class="wrap">運営：Seed Works Japan（編集部）／小さな会社の制度対応シリーズ</div></footer>
+<script>
+(function(){
+var els=document.querySelectorAll('.fade');
+function showAll(){els.forEach(function(e){e.classList.add('on');});}
+if('IntersectionObserver' in window){
+var io=new IntersectionObserver(function(entries){entries.forEach(function(en){if(en.isIntersecting){en.target.classList.add('on');io.unobserve(en.target);}});},{threshold:.08});
+els.forEach(function(e){io.observe(e);});
+}else{showAll();}
+setTimeout(showAll,2500);
+})();
+</script>
+</body>
+</html>

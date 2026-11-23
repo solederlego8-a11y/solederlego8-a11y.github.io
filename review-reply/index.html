@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>口コミ返信の軽量代行｜Google口コミの未返信を数えて、返信サンプル3件を無料で作成</title>
 <meta name="description" content="Google口コミへの返信が追いつかない飲食・美容・整体・クリニック向け。無料の「口コミ放置診断」で未返信件数を数え、返信サンプル3件を無料で作成します。月7,980円・月20件まで、AI下書き＋人の最終確認つき。最低契約期間なし。">
+<script>document.documentElement.classList.add('js');</script>
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-W02HK1VTYF"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
@@ -66,6 +67,52 @@ ul.check li::before{content:"✓"; position:absolute; left:0; color:var(--accent
 .faq dt{font-weight:700; color:var(--accent-deep); margin-top:16px;}
 .faq dd{color:var(--ink-soft); margin-top:4px;}
 footer{border-top:1px solid var(--line); padding:28px 0; font-size:13px; color:var(--sub);}
+
+/* --- design improvement 2026-11-23: type scale / hero mock / metric band / fade --- */
+:root{
+--text-hero:clamp(1.65rem,4.2vw,1.9rem);
+--text-h2:clamp(1.3rem,2.6vw,1.42rem);
+--text-body:clamp(.9375rem,1.2vw,1rem);
+--text-lead:clamp(1rem,1.6vw,1.05rem);
+--space-section:clamp(2.8rem,6vw,3.4rem);
+--radius:8px;
+}
+body{font-size:var(--text-body);}
+.hero h1{font-size:var(--text-hero);}
+.hero p.lead{font-size:var(--text-lead);}
+section{padding:var(--space-section) 0;}
+h2{font-size:var(--text-h2);}
+.hero-grid{display:grid; grid-template-columns:1.05fr .95fr; gap:clamp(1.5rem,4vw,3rem); align-items:center;}
+@media (max-width:760px){.hero-grid{grid-template-columns:1fr;}}
+.mock{border:1px solid var(--line); border-radius:var(--radius); box-shadow:0 8px 28px rgba(15,47,77,.10); padding:20px 22px; background:#fff;}
+.mock .mock-head{display:flex; justify-content:space-between; align-items:baseline; border-bottom:2px solid var(--accent); padding-bottom:8px; margin-bottom:12px; gap:10px;}
+.mock .mock-title{font-weight:700; color:var(--accent-deep);}
+.mock .mock-sample{font-size:.78em; color:var(--sub); white-space:nowrap;}
+.mock ul{margin:0; padding-left:1.2em; color:var(--ink-soft); font-size:.94em;}
+.mock ul li{margin-bottom:6px;}
+.mock .mock-note{font-size:.8em; color:var(--sub); margin:12px 0 0;}
+.band{border-top:1px solid var(--line); border-bottom:1px solid var(--line); background:var(--soft);}
+.band .wrap{display:grid; grid-template-columns:repeat(4,1fr); gap:0;}
+@media (max-width:760px){.band .wrap{grid-template-columns:1fr 1fr;}}
+.band .cell{padding:18px 16px; text-align:center; border-left:1px solid var(--line);}
+.band .cell:first-child{border-left:none;}
+.band .num{font-size:clamp(1.1rem,2.4vw,1.45rem); font-weight:700; color:var(--accent-deep); line-height:1.3;}
+.band .lbl{font-size:.82em; color:var(--sub);}
+.js .fade{opacity:0; transform:translateY(12px); transition:opacity .6s ease,transform .6s ease;}
+.js .fade.on{opacity:1; transform:none;}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto;} .js .fade{opacity:1; transform:none; transition:none;} *{transition:none!important;}}
+
+/* --- shinsei skeleton 2026-11-23: sub heading / samples --- */
+table.cal{width:100%; border-collapse:collapse; margin-top:18px; font-size:14.5px; background:#fff;}
+table.cal th, table.cal td{border:1px solid var(--line); padding:10px 12px; text-align:left; vertical-align:top;}
+table.cal th{background:var(--accent-pale); color:var(--accent-deep); white-space:nowrap;}
+.subh{font-size:17px; color:var(--accent-deep); margin:28px 0 6px;}
+.sample{background:#fff; border:1px solid var(--line); border-radius:var(--radius); padding:20px; margin-top:16px;}
+.sample .lbl{font-size:.8em; font-weight:700; color:var(--accent-deep); letter-spacing:.06em;}
+.sample .stars{color:#b97f14; font-weight:700; letter-spacing:.15em;}
+.sample .review{color:var(--ink-soft); background:var(--soft); border-radius:var(--radius); padding:12px 14px; margin:10px 0;}
+.sample .reply{border-left:3px solid var(--accent); padding:4px 0 4px 14px; color:var(--ink-soft); margin:10px 0;}
+.sample .point{font-size:.9em; color:var(--sub); margin-top:8px;}
 </style>
 </head>
 <body>
@@ -81,17 +128,32 @@ footer{border-top:1px solid var(--line); padding:28px 0; font-size:13px; color:v
 
 <div class="hero">
   <div class="wrap">
-    <span class="target">対象：Google口コミを持つ飲食・美容・整体・クリニック</span>
+    <div class="hero-grid">
+<div class="fade">
+<span class="target">対象：Google口コミを持つ飲食・美容・整体・クリニック</span>
     <h1>返信していない口コミが、<br>来店を止めているかもしれません。</h1>
     <p class="lead">口コミは読まれています。とくに読まれるのは5つ星ではなく1〜2つ星の口コミと、その返信です。返信は「AIの下書き＋自分の言葉での仕上げ」なら短時間で形になります。まず無料の「口コミ放置診断」で未返信が何件あるか数えて、返信サンプル3件を無料で作ります。</p>
     <div class="cta-row">
       <a class="btn btn-cta" href="#diag">3問診断を受ける（無料）</a>
       <a class="btn btn-ghost" href="mailto:naoren.38@gmail.com?subject=%E3%80%90%E7%84%A1%E6%96%99%E3%80%91%E5%8F%A3%E3%82%B3%E3%83%9F%E6%94%BE%E7%BD%AE%E8%A8%BA%E6%96%AD%E5%B8%8C%E6%9C%9B">返信サンプル3件を無料で作ってもらう</a>
+</div>
+<div class="mock fade" aria-label="無料診断の結果イメージ（サンプル表示）">
+<div class="mock-head"><span class="mock-title">口コミ放置診断（無料）</span><span class="mock-sample">サンプル表示</span></div>
+<ul>
+<li>Google口コミの未返信件数を数えます</li>
+<li>★1〜2の口コミを優先して確認します</li>
+<li>返信サンプル3件を無料で作成します</li>
+</ul>
+<p class="mock-note">返信はAI下書き＋人の最終確認つき。投稿するかどうかはお店が決められます。</p>
+</div>
+</div>
     </div>
   </div>
+<div class="band"><div class="wrap"><div class="cell"><div class="num">月額7,980円</div><div class="lbl">税込／返信代行</div></div><div class="cell"><div class="num">月20件まで</div><div class="lbl">★1〜2を優先</div></div><div class="cell"><div class="num">返信サンプル3件</div><div class="lbl">無料で作成</div></div><div class="cell"><div class="num">最低契約期間なし</div><div class="lbl">いつでも解約可</div></div></div></div>
+
 </div>
 
-<section>
+<section class="fade">
   <div class="wrap">
     <h2><span class="en">PROBLEM</span>返信は「やればいい」と分かっていて、後回しになる仕事です</h2>
     <div class="cards">
@@ -111,7 +173,90 @@ footer{border-top:1px solid var(--line); padding:28px 0; font-size:13px; color:v
   </div>
 </section>
 
-<section class="alt" id="diag">
+<section class="fade alt">
+  <div class="wrap">
+    <h2><span class="en">OVERVIEW</span>サービスの全体像：3つの仕事で回します</h2>
+    <p class="body">口コミ返信が続かないのは、気持ちの問題ではなく、件数が見えず、1件ごとの書き方も決まっていないからです。本サービスは、返信の仕事を次の3つに分けて回します。対象は、飲食・美容・整体・クリニックなど、Google口コミが来店の判断材料になるお店です。口コミの件数自体が少ないお店は、無料サンプルだけで足りる場合があります。</p>
+    <div class="cards">
+      <div class="card">
+        <h3>1. 数える — 未返信を棚卸しする</h3>
+        <p>無料の「口コミ放置診断」で、Google口コミの未返信が何件あるかを数えます。★1〜2の口コミを優先して確認し、放置の実態を見える形にします。数えた結果は、件数と★1〜2の一覧でお渡しします。</p>
+      </div>
+      <div class="card">
+        <h3>2. 作る — AI下書き＋人の確認で返信文を作る</h3>
+        <p>口コミの内容に合わせた返信文を作成します。AIの下書きを人が確認し、お店の最終確認を経てから使える形でお渡しします。下書きの段階では、お店の言い回しに寄せすぎず、まず内容の正確さを優先します。</p>
+      </div>
+      <div class="card">
+        <h3>3. 続ける — 毎月の返信を止めない</h3>
+        <p>返信は、口コミがつくたびに発生する日常業務です。月20件まで、★1〜2を優先して対応し、返信が止まらない状態を保ちます。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="fade">
+  <div class="wrap">
+    <h2><span class="en">TRANSPARENCY</span>返信文ができるまでの手順を公開します</h2>
+    <p class="body">「AIが書いた文章をそのまま出す」形にはしていません。返信の出来は、文章力よりも「誰がどう確認したか」で決まります。返信文は、次の4つの手順で作ります。</p>
+    <div class="cards">
+      <div class="card">
+        <h3>1. 口コミを確認する</h3>
+        <p>新着の口コミについて、星の数と内容を確認します。事実と違う内容が含まれていないかも、合わせて見ます。</p>
+      </div>
+      <div class="card">
+        <h3>2. AIが下書きを作る</h3>
+        <p>口コミの内容に触れた返信の下書きを作成します。どの口コミにも同じ文を貼るような定型文にはしません。星の数だけでなく、本文で触れられた具体的な点（待ち時間、味、接客など）を拾います。</p>
+      </div>
+      <div class="card">
+        <h3>3. 人が確認して直す</h3>
+        <p>不適切な表現、事実と違う内容、お店の方針に合わない言い回しがないかを人が確認し、必要な修正を入れます。とくに低評価の返信は、感情的な言い回しが残っていないかを重点的に見ます。</p>
+      </div>
+      <div class="card">
+        <h3>4. お店が最終確認する</h3>
+        <p>完成した返信文をお渡しします。投稿するかどうかはお店が決められます。当方が勝手に投稿することはありません。</p>
+      </div>
+    </div>
+    <p class="note">AIが作るのは、あくまで下書きです。人の確認とお店の最終確認を通ってから、返信として使える形になります。</p>
+    <h3 class="subh">返信文で避けていること</h3>
+    <ul class="check">
+      <li>定型文の一括貼り付け：下書きの元になるのは、その口コミの内容だけです。他の店の返信の使い回しはしません</li>
+      <li>事実と違う内容：行っていない改善や、確認できない事情を、あったことのように書きません</li>
+      <li>お客様を責める言い回し：低評価の返信ほど、読むのは書いた本人より「これから来る人」です。その前提で確認します</li>
+      <li>個人が特定される情報：口コミに来店者の名前などが含まれていても、返信には出しません</li>
+    </ul>
+  </div>
+</section>
+
+<section class="fade alt">
+  <div class="wrap">
+    <h2><span class="en">SAMPLES</span>返信文の作成例（サンプル）</h2>
+    <p class="body">以下は返信文の作成例です。実在の店舗の口コミ・返信ではなく、形を確認していただくためのサンプルとして作成しました。無料診断では、自店の実際の口コミに対してサンプル3件を作成します。サンプルの口コミ文は、よくある不満と感謝のパターンを要約したものです。</p>
+    <p class="body" style="margin-top:10px;">返信の形が見えないと、月額で頼むかどうかは判断できません。だからこそ、先に形を公開します。各サンプルには、返信を作るときの考え方（ポイント）も付けています。</p>
+    <div class="sample">
+      <div class="lbl">サンプル1 — 低評価（待ち時間への不満）</div>
+      <div class="review"><span class="stars">★☆☆☆☆</span><br>予約していたのに30分以上待たされました。対応も事務的で残念でした。</div>
+      <div class="lbl">返信例</div>
+      <p class="reply">ご来店ありがとうございました。ご予約にもかかわらず長時間お待たせし、申し訳ありませんでした。当日の受付体制を見直し、待ち時間の目安を事前にお伝えするよう改善します。またのご来店をお待ちしております。</p>
+      <p class="point">返信のポイント：まず謝罪し、待たせた事実を受け止めてから、改善の内容を具体的に書きます。言い訳から入らないのが原則です。「またのご来店をお待ちしております」で閉じるのは、書いた本人だけでなく、次にこの口コミを読む人への合図でもあります。</p>
+    </div>
+    <div class="sample">
+      <div class="lbl">サンプル2 — 低評価（価格への不満）</div>
+      <div class="review"><span class="stars">★★☆☆☆</span><br>味は普通でした。この価格なら他に行くと思います。</div>
+      <div class="lbl">返信例</div>
+      <p class="reply">ご来店と、率直なご意見をありがとうございました。価格に見合うと感じていただけるよう、仕入れと提供方法を見直しています。次回お越しの際は、ぜひ違いを感じていただければ幸いです。</p>
+      <p class="point">返信のポイント：低い評価の理由を否定せず、率直な意見として受け止めます。「価格に見合うか」は店側の課題として返す形にします。「他に行く」と言われても、引き止める文句は書きません。次に読む人への印象の方が重要だからです。</p>
+    </div>
+    <div class="sample">
+      <div class="lbl">サンプル3 — 高評価（接客への感謝）</div>
+      <div class="review"><span class="stars">★★★★★</span><br>初めて行きましたが、スタッフの方が親切で、気持ちよく過ごせました。</div>
+      <div class="lbl">返信例</div>
+      <p class="reply">うれしいお言葉をありがとうございます。スタッフ一同、励みになります。これからも気持ちよく過ごしていただける店づくりを続けてまいります。またのお越しをお待ちしております。</p>
+      <p class="point">返信のポイント：良い口コミにも短く返信します。具体的に触れられた点（スタッフの対応）にお礼を返す形にします。高評価への返信は、宣伝文句を足さず、短くするのが原則です。</p>
+    </div>
+  </div>
+</section>
+
+<section class="fade alt" id="diag">
   <div class="wrap">
     <h2><span class="en">CHECK</span>3問診断：あなたの店の「口コミ放置リスク」</h2>
     <p class="body">30秒で終わります。当てはまるものを選んでください。</p>
@@ -151,7 +296,29 @@ footer{border-top:1px solid var(--line); padding:28px 0; font-size:13px; color:v
   </div>
 </section>
 
-<section class="alt">
+<section class="fade">
+  <div class="wrap">
+    <h2><span class="en">FLOW</span>ご利用の流れ</h2>
+    <div class="cards">
+      <div class="card">
+        <h3>Step 1 — 無料診断と返信サンプル3件</h3>
+        <p>未返信の件数を数え、自店の口コミへの返信サンプル3件を無料で作成します。ここまでは無料で、申込の義務はありません。ページ内の3問診断の結果画面から、そのまま申し込めます。</p>
+      </div>
+      <div class="card">
+        <h3>Step 2 — サンプルを見て判断する</h3>
+        <p>返信のトーンと形を確認してから、月額の代行を申し込むかどうかを決められます。合わなければ、サンプルだけで終わりにできます。</p>
+        <p style="margin-top:10px;">トーンの希望（丁寧さ、距離感など）は、この段階でお聞きします。</p>
+      </div>
+      <div class="card">
+        <h3>Step 3 — 毎月、返信文が届く</h3>
+        <p>新着口コミへの返信文を作成してお渡しします。最終確認と投稿はお店側で行うため、意図と違う返信が出ることはありません。</p>
+        <p style="margin-top:10px;">返信文はメールでお渡しします。新しい口コミがついたら、その都度作成する形です。月末には、対応した件数と残りの未返信をお知らせします。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="fade alt">
   <div class="wrap">
     <h2><span class="en">SERVICE &amp; PRICE</span>月額の返信代行の中身と価格</h2>
     <div class="price-box">
@@ -167,10 +334,33 @@ footer{border-top:1px solid var(--line); padding:28px 0; font-size:13px; color:v
         <a class="btn btn-cta" href="mailto:naoren.38@gmail.com?subject=%E3%80%90%E7%94%B3%E8%BE%BC%E3%80%91%E5%8F%A3%E3%82%B3%E3%83%9F%E8%BF%94%E4%BF%A1%E4%BB%A3%E8%A1%8C%EF%BC%88%E6%9C%887%2C980%E5%86%86%EF%BC%89">月額の返信代行に申し込む</a>
       </div>
     </div>
+      <h3 class="subh">他の方法との比較</h3>
+      <p class="body">市場の実勢（2026年11月時点の当方調べ）と並べます。その間の層が空白だったところに置いた価格です。ツールの価格帯は「自分で書く時間」が残る価格で、本サービスはその時間を買い取る位置に置いています。</p>
+      <table class="cal">
+        <tr><th></th><th>自分で返信</th><th>返信ツール</th><th>一般の代行</th><th>本サービス</th></tr>
+        <tr><th>費用の目安</th><td>無料（時間は自分持ち）</td><td>月1,500〜5,000円</td><td>月3万〜5万円</td><td>月7,980円（税込）・月20件まで</td></tr>
+        <tr><th>返信文を書く人</th><td>自分</td><td>下書きはツール、仕上げは自分</td><td>代行会社</td><td>AI下書き＋人の確認</td></tr>
+        <tr><th>最終確認</th><td>自分</td><td>自分</td><td>代行会社に委ねる形が多い</td><td>お店</td></tr>
+        <tr><th>対象</th><td>すべての口コミ</td><td>ツールが対応する媒体</td><td>媒体により異なる</td><td>Google口コミのみ</td></tr>
+      </table>
   </div>
 </section>
 
-<section>
+<section class="fade">
+  <div class="wrap">
+    <h2><span class="en">ASSURANCE</span>安心してお使いいただくために</h2>
+    <ul class="check">
+      <li>最低契約期間はありません。いつでもメールで解約できます</li>
+      <li>返信文を勝手に投稿しません。最終確認はお店側です</li>
+      <li>口コミの作成・削除の依頼、虚偽の口コミの投稿は行いません</li>
+      <li>無料の診断とサンプル3件だけで終わりにできます。申込しない場合の連絡は不要です</li>
+      <li>本サービスは先行受付中です。料金・内容は、申込確定時に改めてご案内します</li>
+    </ul>
+    <p class="note">先行受付は、少数のお店から始めて形を確かめるための段階です。受付状況により、開始時期をご相談する場合があります。</p>
+  </div>
+</section>
+
+<section class="fade">
   <div class="wrap">
     <h2><span class="en">FAQ</span>よくある質問</h2>
     <dl class="faq">
@@ -180,7 +370,27 @@ footer{border-top:1px solid var(--line); padding:28px 0; font-size:13px; color:v
       <dd>対象外です。Google口コミのみが対象です。</dd>
       <dt>解約方法は？</dt>
       <dd>最低契約期間はありません。いつでもメールで解約できます。解約後は返信の作成が止まります。</dd>
+      <dt>返信のトーン（丁寧さ・距離感）は指定できますか？</dt>
+      <dd>申込時に希望をお聞きし、無料のサンプル3件の段階で確認します。合わない場合は、サンプルだけで終了できます。</dd>
+      <dt>月20件を超えたらどうなりますか？</dt>
+      <dd>★1〜2を優先して20件まで対応します。超過分は翌月に回す形を基本とし、対応は事前にご相談します。</dd>
+      <dt>悪い口コミを消してもらえますか？</dt>
+      <dd>消すことはできませんし、削除の代行も行いません。できるのは、読んだ人に伝わる返信を付けることです。</dd>
+      <dt>どんな業種が対象ですか？</dt>
+      <dd>飲食・美容・整体・クリニックなど、Google口コミを持つ小規模店舗が対象です。それ以外の業種は、ご相談ください。</dd>
+      <dt>返信文の修正はできますか？</dt>
+      <dd>最終確認の段階で、言い回しの修正希望をお伝えいただければ反映します。投稿するかどうかも含め、最後に決めるのはお店です。大幅な書き直しになる場合は、理由を添えて相談します。</dd>
     </dl>
+  </div>
+</section>
+
+<section class="fade alt">
+  <div class="wrap">
+    <h2><span class="en">START</span>まずは、未返信の件数を数えてみてください</h2>
+    <p class="body">3問診断（無料・30秒）で、自店の口コミ放置リスクが見えます。件数が分かるだけでも、返信の優先順位は付けられます。診断結果の画面から、無料診断と返信サンプル3件も申し込めます。</p>
+    <div class="cta-row">
+      <a class="btn btn-cta" href="#diag">3問診断を受ける（無料）</a>
+    </div>
   </div>
 </section>
 
@@ -232,6 +442,17 @@ function showResult(){
   r.scrollIntoView({behavior:'smooth', block:'center'});
 }
 function addLi(ul, text){ const li = document.createElement('li'); li.textContent = text; ul.appendChild(li); }
+</script>
+<script>
+(function(){
+var els=document.querySelectorAll('.fade');
+function showAll(){els.forEach(function(e){e.classList.add('on');});}
+if('IntersectionObserver' in window){
+var io=new IntersectionObserver(function(entries){entries.forEach(function(en){if(en.isIntersecting){en.target.classList.add('on');io.unobserve(en.target);}});},{threshold:.08});
+els.forEach(function(e){io.observe(e);});
+}else{showAll();}
+setTimeout(showAll,2500);
+})();
 </script>
 </body>
 </html>

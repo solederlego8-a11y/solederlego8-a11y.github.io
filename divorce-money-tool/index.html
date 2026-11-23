@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<!-- ADSENSE:HEAD ここから -->
+<!-- AdSense 審査コード（2026-11-08 有効化） -->
+<script>document.documentElement.classList.add('js');</script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3628281520765955" crossorigin="anonymous"></script>
+<!-- ADSENSE:HEAD ここまで -->
+<!-- GA4（共通測定ID G-W02HK1VTYF、2026-11-11 トップページへ設置） -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-W02HK1VTYF"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-W02HK1VTYF');
+</script>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>養育費シミュレーター｜算定表（令和元年版）に基づく目安｜離婚のお金ツール</title>
+<meta name="description" content="改定標準算定表（令和元年版）に基づき、養育費の月額の目安を計算するための無料ツール。両親の年収と子どもの年齢区分を入力します。一般的な情報提供のための目安計算です。">
+<link rel="canonical" href="https://solederlego8-a11y.github.io/divorce-money-tool/">
+<meta property="og:title" content="養育費シミュレーター｜算定表（令和元年版）に基づく目安｜離婚のお金ツール">
+<meta property="og:description" content="改定標準算定表（令和元年版）に基づき、養育費の月額の目安を計算するための無料ツール。両親の年収と子どもの年齢区分を入力します。一般的な情報提供のための目安計算です。">
+<meta property="og:url" content="https://solederlego8-a11y.github.io/divorce-money-tool/">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary">
+<style>
+:root{
+  --ink:#1f2a37;
+  --sub:#5b6b7c;
+  --line:#d8e0e8;
+  --bg:#f7f9fb;
+  --brand:#17557a;
+  --brand-dark:#0f3d59;
+  --accent:#e8f1f7;
+  --warn-bg:#fff7e6;
+  --warn-line:#e8c87a;
+  --ok:#166a4a;
+  --ng:#9c2b2b;
+  --radius:10px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  font-family:"Hiragino Kaku Gothic ProN","Hiragino Sans","Noto Sans JP",sans-serif;
+  color:var(--ink);
+  background:var(--bg);
+  line-height:1.8;
+  font-size:16px;
+}
+a{color:var(--brand)}
+a:hover{text-decoration:none}
+
+/* header */
+.site-header{
+  background:var(--brand-dark);
+  color:#fff;
+  position:sticky;top:0;z-index:10;
+}
+.site-header .inner{
+  max-width:960px;margin:0 auto;padding:10px 16px;
+  display:flex;flex-wrap:wrap;align-items:center;gap:8px 20px;
+}
+.brand{font-weight:700;font-size:1.05rem;color:#fff;text-decoration:none}
+.brand small{display:block;font-weight:400;font-size:.72rem;color:#bcd3e2}
+.site-nav{display:flex;flex-wrap:wrap;gap:4px 14px;margin-left:auto}
+.site-nav a{color:#dcebf5;text-decoration:none;font-size:.88rem}
+.site-nav a:hover{color:#fff;text-decoration:underline}
+
+/* layout */
+main{max-width:960px;margin:0 auto;padding:24px 16px 56px}
+h1{font-size:1.55rem;line-height:1.45;margin:.4em 0 .6em}
+h2{font-size:1.2rem;border-left:5px solid var(--brand);padding-left:10px;margin:1.8em 0 .6em}
+h3{font-size:1.02rem;margin:1.4em 0 .4em}
+p{margin:.6em 0}
+ul,ol{margin:.5em 0 .8em;padding-left:1.4em}
+li{margin:.25em 0}
+table{border-collapse:collapse;width:100%;margin:1em 0;font-size:.95rem}
+th,td{border:1px solid var(--line);padding:8px 10px;text-align:left;vertical-align:top}
+th{background:var(--accent)}
+.lead{font-size:1.02rem;color:var(--ink)}
+
+/* conclusion block */
+.conclusion{
+  background:#fff;border:1px solid var(--line);border-left:6px solid var(--brand);
+  border-radius:var(--radius);padding:16px 18px;margin:18px 0;
+}
+.conclusion .label{font-size:.78rem;font-weight:700;color:var(--brand);letter-spacing:.08em}
+.conclusion p{margin:.3em 0;font-weight:600}
+
+/* tool card / form */
+.tool-card{
+  background:#fff;border:1px solid var(--line);border-radius:var(--radius);
+  padding:20px;margin:20px 0;
+}
+fieldset{border:1px solid var(--line);border-radius:var(--radius);margin:0 0 16px;padding:14px 16px}
+legend{font-weight:700;padding:0 6px}
+.field{margin:10px 0}
+.field label{display:block;font-weight:600;font-size:.92rem;margin-bottom:4px}
+.field .note{font-size:.8rem;color:var(--sub);margin-top:2px}
+input[type="number"],input[type="date"],select{
+  font-size:1rem;padding:9px 10px;border:1px solid var(--line);border-radius:6px;
+  width:100%;max-width:340px;background:#fff;color:var(--ink);
+}
+input[type="radio"],input[type="checkbox"]{margin-right:6px}
+.radio-group label{display:block;font-weight:400;margin:6px 0;cursor:pointer}
+.inline-fields{display:flex;flex-wrap:wrap;gap:14px}
+.inline-fields .field{flex:1 1 220px}
+.child-row{
+  display:flex;flex-wrap:wrap;gap:10px;align-items:flex-end;
+  border-top:1px dashed var(--line);padding-top:12px;margin-top:12px;
+}
+.child-row .field{margin:0}
+.btn{
+  display:inline-block;background:var(--brand);color:#fff;border:none;cursor:pointer;
+  font-size:1rem;font-weight:700;padding:13px 30px;border-radius:8px;text-decoration:none;
+}
+.btn:hover{background:var(--brand-dark)}
+.btn-sub{
+  background:#fff;color:var(--brand);border:1px solid var(--brand);
+  font-size:.88rem;font-weight:600;padding:7px 14px;border-radius:6px;cursor:pointer;
+}
+.btn-remove{background:#fff;color:var(--ng);border:1px solid var(--line);border-radius:6px;padding:7px 10px;cursor:pointer;font-size:.85rem}
+.error-box{
+  display:none;background:#fdeeee;border:1px solid #e5a3a3;border-radius:8px;
+  padding:12px 16px;margin:14px 0;color:var(--ng);font-size:.92rem;
+}
+
+/* result */
+.result-box{
+  display:none;background:#fff;border:2px solid var(--brand);border-radius:var(--radius);
+  padding:20px;margin:22px 0;
+}
+.result-box .status{font-size:1.25rem;font-weight:700;margin:.2em 0}
+.result-box .status.ok{color:var(--ok)}
+.result-box .status.ng{color:var(--ng)}
+.result-amount{font-size:1.6rem;font-weight:700;color:var(--brand-dark);margin:.2em 0}
+.result-box table{margin:.8em 0}
+.notice{
+  background:var(--warn-bg);border:1px solid var(--warn-line);border-radius:8px;
+  padding:12px 16px;margin:14px 0;font-size:.92rem;
+}
+.info-box{
+  background:var(--accent);border-radius:8px;padding:12px 16px;margin:14px 0;font-size:.94rem;
+}
+
+/* disclaimer */
+.disclaimer{
+  border:1px solid var(--line);background:#fff;border-radius:8px;
+  padding:12px 16px;margin:22px 0;font-size:.86rem;color:var(--sub);
+}
+.disclaimer strong{color:var(--ink)}
+
+/* guide CTA */
+.guide-cta{
+  background:linear-gradient(135deg,var(--brand-dark),var(--brand));
+  color:#fff;border-radius:var(--radius);padding:22px;margin:30px 0;
+}
+.guide-cta h2{border:none;padding:0;color:#fff;margin-top:0}
+.guide-cta p{color:#dcebf5}
+.guide-cta .btn{background:#fff;color:var(--brand-dark)}
+.guide-cta .btn[aria-disabled="true"]{opacity:.75;cursor:default}
+
+/* timeline */
+.timeline{display:flex;flex-wrap:wrap;gap:0;margin:16px 0;border:1px solid var(--line);border-radius:var(--radius);overflow:hidden}
+.timeline .step{flex:1 1 200px;padding:14px 16px;background:#fff}
+.timeline .step + .step{border-left:1px solid var(--line)}
+.timeline .step .when{font-size:.78rem;font-weight:700;color:var(--brand);letter-spacing:.05em}
+.timeline .step .what{font-weight:700}
+.timeline .arrow{align-self:center;padding:0 4px;color:var(--sub);font-weight:700}
+
+/* faq */
+.faq-item{border-bottom:1px solid var(--line);padding:12px 0}
+.faq-item .q{font-weight:700}
+.faq-item .a{color:var(--ink)}
+
+/* article cards */
+.card-list{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:14px;margin:16px 0}
+.card{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:16px}
+.card h3{margin-top:0}
+.card a{text-decoration:none;font-weight:700}
+.card p{font-size:.9rem;color:var(--sub)}
+
+/* footer */
+.site-footer{background:#eef3f7;border-top:1px solid var(--line);margin-top:40px}
+.site-footer .inner{max-width:960px;margin:0 auto;padding:22px 16px;font-size:.85rem;color:var(--sub)}
+.site-footer nav{display:flex;flex-wrap:wrap;gap:6px 16px;margin-bottom:10px}
+.site-footer a{color:var(--brand);text-decoration:none}
+
+/* quick simulator (top, 3-step, 2026-11-11) */
+.quick-sim{
+  background:#fff;border:2px solid var(--brand);border-radius:var(--radius);
+  padding:20px;margin:20px 0;
+}
+.quick-sim h2{border:none;padding:0;margin-top:0}
+.quick-note{font-size:.95rem}
+.quick-choices{display:flex;flex-wrap:wrap;gap:10px}
+.quick-choice{
+  flex:1 1 200px;border:1px solid var(--line);border-radius:8px;
+  padding:12px 14px;cursor:pointer;font-weight:600;background:#fff;
+}
+.quick-choice:has(input:checked){border-color:var(--brand);background:var(--accent)}
+.quick-result-label{font-size:.85rem;font-weight:700;color:var(--brand);letter-spacing:.05em;margin-bottom:0}
+.quick-sub{font-size:.85rem;color:var(--sub)}
+.quick-btn{width:100%;max-width:340px}
+
+@media (max-width:600px){
+  h1{font-size:1.3rem}
+  .result-amount{font-size:1.35rem}
+  .timeline .step + .step{border-left:none;border-top:1px solid var(--line)}
+  .quick-sim{padding:16px 14px}
+  .quick-choices{flex-direction:column}
+  .quick-choice{flex:1 1 auto}
+  .quick-btn{max-width:none}
+  .quick-sim select{max-width:none}
+}
+
+/* --- design improvement 2026-11-23: type scale / metric band / fade (pattern layer) --- */
+:root{
+  --text-hero:clamp(1.6rem,4vw,1.9rem);
+  --text-h2:clamp(1.25rem,2.6vw,1.45rem);
+  --text-lead:clamp(1rem,1.6vw,1.06rem);
+  --space-section:clamp(2.4rem,6vw,3.6rem);
+}
+body{font-size:clamp(.9375rem,1.2vw,1rem)}
+h1{font-size:var(--text-hero)}
+h2{font-size:var(--text-h2)}
+p.lead{font-size:var(--text-lead)}
+.hero{padding-top:clamp(1.2rem,3vw,2rem)}
+.band{border:1px solid var(--line); border-radius:var(--radius); background:#fff; display:grid; grid-template-columns:repeat(4,1fr); margin:20px 0 8px; overflow:hidden}
+@media (max-width:760px){.band{grid-template-columns:1fr 1fr}}
+.band .cell{padding:16px 14px; text-align:center; border-left:1px solid var(--line)}
+.band .cell:first-child{border-left:none}
+.band .num{font-size:clamp(1.05rem,2.4vw,1.35rem); font-weight:700; color:var(--brand-dark); line-height:1.3}
+.band .lbl{font-size:.8em; color:var(--sub)}
+
+.js .fade{opacity:0; transform:translateY(12px); transition:opacity .6s ease,transform .6s ease;}
+.js .fade.on{opacity:1; transform:none;}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto;} .js .fade{opacity:1; transform:none; transition:none;} *{transition:none!important;}}
+
+</style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "養育費シミュレーター",
+  "applicationCategory": "FinanceApplication",
+  "operatingSystem": "Web",
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "JPY" },
+  "description": "改定標準算定表（令和元年版）に基づく養育費の目安計算ツール。一般的な情報提供を目的とします。"
+}
+</script>
+</head>
+<body>
+<header class="site-header"><div class="inner">
+<a class="brand" href="index.html">離婚のお金ツール<small>養育費・婚姻費用の目安計算と解説</small></a>
+<nav class="site-nav">
+<a href="index.html">養育費シミュレーター</a>
+<a href="konpi-hiyo.html">婚姻費用シミュレーター</a>
+<a href="houtei-checker.html">法定養育費チェッカー</a>
+<a href="santei-hyo.html">算定表の見方</a>
+</nav>
+</div></header>
+
+<main>
+<div class="hero">
+<h1>養育費シミュレーター</h1>
+<p class="lead">離婚後の養育費は、家庭裁判所の実務で使われる「算定表」を目安に話し合うのが一般的です。このツールは、改定標準算定表（令和元年版、2019年12月23日公表）に基づき、両親の年収と子どもの年齢区分から目安を確認するためのものです。</p>
+<div class="band"><div class="cell"><div class="num">30秒</div><div class="lbl">簡易シミュレーターの目安</div></div><div class="cell"><div class="num">3ステップ</div><div class="lbl">選択式で結果が出ます</div></div><div class="cell"><div class="num">令和元年版</div><div class="lbl">改定標準算定表が根拠</div></div><div class="cell"><div class="num">目安レンジ</div><div class="lbl">確定額ではありません</div></div></div>
+</div>
+
+<section class="quick-sim fade" id="quick-sim" aria-labelledby="quick-sim-title">
+<h2 id="quick-sim-title">まずは30秒｜目安シミュレーター（簡易版）</h2>
+<p class="quick-note">読む前に、まず目安だけ。選択式の3ステップで、養育費・婚姻費用の目安レンジがすぐ出ます。これは<strong>簡易版・目安</strong>（給与所得の場合）です。正確な年収での確認は、結果の下から詳細ツールへ進めます。</p>
+<form id="quick-form" novalidate>
+  <fieldset>
+    <legend>ステップ1　知りたい費用</legend>
+    <div class="quick-choices">
+      <label class="quick-choice"><input type="radio" name="q-tool" value="yoikuhi" checked> 養育費（離婚後）</label>
+      <label class="quick-choice"><input type="radio" name="q-tool" value="konpi"> 婚姻費用（別居中・離婚前）</label>
+    </div>
+  </fieldset>
+  <fieldset>
+    <legend>ステップ2　子ども</legend>
+    <div class="inline-fields">
+      <div class="field">
+        <label for="q-child-count">子どもの人数</label>
+        <select id="q-child-count">
+          <option value="0" disabled>0人（婚姻費用のみ）</option>
+          <option value="1" selected>1人</option>
+          <option value="2">2人</option>
+          <option value="3">3人</option>
+        </select>
+      </div>
+      <div class="field">
+        <label for="q-old-count">うち15歳以上の人数</label>
+        <select id="q-old-count">
+          <option value="0" selected>0人</option>
+          <option value="1">1人</option>
+          <option value="2">2人</option>
+          <option value="3">3人</option>
+        </select>
+      </div>
+    </div>
+  </fieldset>
+  <fieldset>
+    <legend>ステップ3　双方の年収（給与・おおよそ）</legend>
+    <div class="inline-fields">
+      <div class="field">
+        <label for="q-obligor-income">支払う側の年収</label>
+        <select id="q-obligor-income">
+          <option value="200">約200万円</option>
+          <option value="300">約300万円</option>
+          <option value="400">約400万円</option>
+          <option value="500" selected>約500万円</option>
+          <option value="600">約600万円</option>
+          <option value="700">約700万円</option>
+          <option value="800">約800万円</option>
+          <option value="1000">約1,000万円</option>
+        </select>
+      </div>
+      <div class="field">
+        <label for="q-obligee-income">受け取る側の年収</label>
+        <select id="q-obligee-income">
+          <option value="0">0円（収入なし）</option>
+          <option value="100">約100万円</option>
+          <option value="200" selected>約200万円</option>
+          <option value="300">約300万円</option>
+          <option value="400">約400万円</option>
+        </select>
+      </div>
+    </div>
+    <p class="field note">年収は算定表の目盛りに合わせた代表値で計算します（詳細ツールと同じ算定表・同じ表引きです）。自営業の場合は詳細ツールへ。</p>
+  </fieldset>
+  <p><button type="submit" class="btn quick-btn">目安を見る</button></p>
+</form>
+<div class="result-box" id="quick-result"></div>
+</section>
+
+<div class="conclusion fade">
+<span class="label">このツールの位置づけ</span>
+<p>算定表は金額を1点で決めるものではなく、幅（レンジ）で示されます。本ツールも確定額ではなく「目安レンジ」の確認を目的とし、個別の事情への判断は行いません。</p>
+</div>
+
+<div class="tool-card fade">
+<form id="sim-form" data-tool="yoikuhi" novalidate>
+  <fieldset>
+    <legend>養育する側（受け取る側）</legend>
+    <div class="inline-fields">
+      <div class="field">
+        <label for="obligee-income">年収（万円）</label>
+        <input type="number" id="obligee-income" min="0" step="1" placeholder="例：300">
+      </div>
+      <div class="field">
+        <label for="obligee-type">収入の種類</label>
+        <select id="obligee-type">
+          <option value="salary">給与所得</option>
+          <option value="self">自営業</option>
+        </select>
+      </div>
+    </div>
+  </fieldset>
+
+  <fieldset>
+    <legend>支払う側</legend>
+    <div class="inline-fields">
+      <div class="field">
+        <label for="obligor-income">年収（万円）</label>
+        <input type="number" id="obligor-income" min="0" step="1" placeholder="例：500">
+      </div>
+      <div class="field">
+        <label for="obligor-type">収入の種類</label>
+        <select id="obligor-type">
+          <option value="salary">給与所得</option>
+          <option value="self">自営業</option>
+        </select>
+      </div>
+    </div>
+  </fieldset>
+
+  <p class="field note">年収の考え方：給与の場合は源泉徴収票の「支払金額」、自営業の場合は確定申告の「課税される所得金額」に、実費ではない控除を加算し戻した金額を使います。児童手当・児童扶養手当は、受け取る側の年収には含めません。</p>
+
+  <fieldset>
+    <legend>子ども</legend>
+    <div id="children-fields"></div>
+    <p style="margin-top:12px"><button type="button" class="btn-sub" id="add-child">＋ 子どもを追加</button></p>
+    <p class="field note">算定表では子の生活費指数を、0〜14歳＝62、15歳以上＝85として計算します（令和元年版の値）。</p>
+  </fieldset>
+
+  <div class="error-box" id="form-error"></div>
+  <p><button type="submit" class="btn">入力内容を確認する</button></p>
+</form>
+<div class="result-box" id="result"></div>
+</div>
+
+<h2>算定表の見方（要点）</h2>
+<ul>
+<li>養育費は、まず両親それぞれの収入から「基礎収入」を求め、子の生活費を収入割合で分担する考え方で算定します。</li>
+<li>算定表は年齢区分ごとに子の生活費指数（0〜14歳＝62、15歳以上＝85）を用います。</li>
+<li>算定表自体が1万円／2万円幅のレンジで表示されるため、結果は「目安レンジ」として捉えます。詳しくは「<a href="santei-hyo.html">算定表の見方</a>」をご覧ください。</li>
+</ul>
+
+<h2>目安レンジが動く要因</h2>
+<ul>
+<li>子どもの進学・医療など、通常の生活費に含まれない特別な費用がかかる場合</li>
+<li>離婚後に双方の収入が大きく変わった場合（増額・減額の協議対象になり得ます。詳しくは「<a href="zougen.html">養育費の増額・減額が必要になるケース</a>」）</li>
+<li>子どもの年齢区分が変わる場合（15歳になると生活費指数が62から85に上がります）</li>
+</ul>
+
+<div class="info-box">
+<strong>離婚がまだ成立していない場合</strong>：別居中の生活費は「婚姻費用」として扱われます。離婚前＝婚姻費用、離婚後＝養育費という切り替わりについては「<a href="konpi-hiyo.html">婚姻費用シミュレーター</a>」「<a href="konpi-to-yoikuhi.html">婚姻費用と養育費の違い</a>」をご覧ください。また、離婚時に取り決めをしなかった場合は「<a href="houtei-checker.html">法定養育費チェッカー</a>」で対象かどうかを確認できます。
+</div>
+
+
+<h2>計算例で見る養育費の目安</h2>
+<p>算定表（令和元年版）で実際に引いた例です。いずれも給与所得者同士のケースで、本ツールの計算結果と一致します。</p>
+<table>
+<tr><th>支払う側の年収</th><th>受け取る側の年収</th><th>子どもの構成</th><th>月額の目安</th></tr>
+<tr><td>500万円</td><td>200万円</td><td>子1人（0〜14歳）</td><td>4〜6万円</td></tr>
+<tr><td>500万円</td><td>0円</td><td>子1人（0〜14歳）</td><td>6〜8万円</td></tr>
+<tr><td>600万円</td><td>300万円</td><td>子2人（いずれも0〜14歳）</td><td>6〜8万円</td></tr>
+<tr><td>800万円</td><td>400万円</td><td>子2人（15歳以上・0〜14歳）</td><td>10〜12万円</td></tr>
+<tr><td>300万円</td><td>100万円</td><td>子3人（いずれも0〜14歳）</td><td>4〜6万円</td></tr>
+</table>
+<p>同じ「支払う側500万円・子1人」でも、受け取る側の年収が200万円か0円かで目安が変わります。養育費は支払う側の収入だけで決まるのではなく、双方の収入と子どもの年齢・人数の組み合わせで決まる点が、算定表方式の特徴です。</p>
+
+<h2>養育費が決まるまでの手続きの流れ</h2>
+<p>目安を把握した後の一般的な進め方は、次のとおりです。</p>
+<ol>
+<li><strong>話し合い（協議）</strong>：金額のほか、支払日・支払方法（口座振込など）・いつまで払うか（終期）・進学や医療費など特別な費用の扱いを決めます。決める項目の全体像は「<a href="yoikuhi-kimekata.html">養育費の決め方ガイド</a>」にまとめました。</li>
+<li><strong>書面に残す</strong>：口頭の約束は後で争いになりやすいため、合意書を作成します。支払いが止まったときに裁判所の手続きを経ずに強制執行できるようにするには、公証役場で「強制執行認諾文言付きの公正証書」にしておく方法があります。</li>
+<li><strong>家庭裁判所の調停</strong>：話し合いで決まらない場合は、相手方の住所地を管轄する家庭裁判所へ「養育費請求調停」を申し立てます。調停委員を交えて話し合い、合意できれば調停調書が作られ、支払いがなければ強制執行も可能になります。申立てには収入印紙（子1人につき1,200円）などの実費がかかります。最新の金額・必要書類は裁判所の案内でご確認ください。</li>
+<li><strong>審判</strong>：調停でも合意できない場合は審判に移行し、裁判所が算定表や個別の事情を踏まえて金額を定めます。</li>
+</ol>
+<p>なお、離婚時に養育費の取り決めをしなかった場合でも、2026年4月1日以降の離婚では、暫定的な「法定養育費」（子1人につき月2万円）を請求できる場合があります。対象かどうかは「<a href="houtei-checker.html">法定養育費チェッカー</a>」で確認できます。</p>
+
+<h2>出典・参考資料</h2>
+<p>本ツールの計算は、平成30年度司法研究に基づく「改定標準算定表（令和元年版）」を用いています。算定表の原典と公式の解説は、<a href="https://www.courts.go.jp/tokyo-f/saiban/tetuzuki/youikuhi_santei_hyou/index.html" target="_blank" rel="noopener">東京家庭裁判所「養育費算定表」ページ</a>で公開されています。制度の最新情報は、裁判所・法務省の公式ページでもご確認ください。</p>
+
+<section class="guide-cta fade">
+<h2>取り決め方で失敗しないために</h2>
+<p>金額の目安が分かっても、「どう取り決めるか」で結果は変わります。取り決めの進め方、合意書の記入例、公正証書にする手順、不払い時の初動までをまとめた『養育費の取り決め完全ガイド』を準備しています。</p>
+<a class="btn" href="#" aria-disabled="true">ガイドは準備中です</a>
+</section>
+
+<h2>よくある質問</h2>
+<div class="faq-item">
+<p class="q">Q. このツールの結果は、支払うべき金額を決めるものですか？</p>
+<p class="a">A. いいえ。本ツールは算定表に基づく一般的な目安を示すもので、個別の事情により金額は変わります。正式な取り決めは、専門家（弁護士・家庭裁判所）へご相談ください。</p>
+</div>
+<div class="faq-item">
+<p class="q">Q. 養育費に「相場」はありますか？</p>
+<p class="a">A. 一律の相場があるわけではなく、両親の収入と子どもの人数・年齢から算定表で目安を出すのが実務の方法です。詳しくは「<a href="souba.html">養育費の相場の考え方</a>」をご覧ください。</p>
+</div>
+<div class="faq-item">
+<p class="q">Q. 取り決めをしないまま離婚してしまいました。何か制度はありますか？</p>
+<p class="a">A. 2026年4月1日以降の離婚で、取り決めをすることなく離婚した場合は「法定養育費」（子1人あたり月2万円）の対象になる可能性があります。詳しくは「<a href="houtei-yoikuhi.html">法定養育費とは</a>」「<a href="houtei-checker.html">法定養育費チェッカー</a>」をご覧ください。</p>
+</div>
+<div class="faq-item">
+<p class="q">Q. 収入が変わったら、決まった養育費は変わりますか？</p>
+<p class="a">A. 事情の変更があれば、増額・減額を求める協議や申立てが検討されることがあります。一般的な考え方は「<a href="zougen.html">養育費の増額・減額が必要になるケース</a>」をご覧ください。</p>
+</div>
+<div class="faq-item">
+<p class="q">Q. 離婚のときに確認すべきお金は、養育費だけですか？</p>
+<p class="a">A. いいえ。婚姻期間中の厚生年金記録を分ける「<a href="nenkin-bunkatsu.html">年金分割</a>」、夫婦の財産を清算する「<a href="zaisan-bunyo.html">財産分与</a>」、ひとり親家庭等への支援である「<a href="jidou-fuyou.html">児童扶養手当</a>」もあわせて確認したい制度です。いずれも請求期限や所得制限があるため、早めの確認が大切です。</p>
+</div>
+
+
+<div class="faq-item">
+<p class="q">Q. 算定表の目安と違う金額で取り決めることはできますか？</p>
+<p class="a">A. 当事者同士の話し合いで合意する場合は、算定表の目安と異なる金額でも取り決め自体は可能です。算定表はあくまで標準的な目安です。ただし、家庭裁判所の調停・審判では算定表が基準となり、私立学校の学費や医療費などの特別な事情がある場合に、目安からの調整が検討されます。</p>
+</div>
+<div class="faq-item">
+<p class="q">Q. 取り決めた養育費の支払いが止まったら、どうすればいいですか？</p>
+<p class="a">A. まず相手方へ連絡し、支払いを求めることが第一歩です。応じない場合は、家庭裁判所の履行勧告や、地方裁判所への強制執行（給与・預貯金の差押え）の申立てが検討できます。公正証書（強制執行認諾文言付き）・調停調書・審判書があれば、改めて裁判をしなくても強制執行を申し立てられます。2026年4月1日からは、養育費の債権に先取特権（子1人につき月8万円まで）が認められ、父母間で作成した文書を基に差押えを申し立てられる場合もあります。</p>
+</div>
+
+<div class="disclaimer"><strong>免責</strong>：本ツールは算定表に基づく一般的な目安を示すものです。個別の事情により変わります。正式な取り決めは専門家（弁護士・家庭裁判所）へ。本サイトは個別のケースについての法的判断・助言は行いません。</div>
+</main>
+
+<footer class="site-footer"><div class="inner">
+<nav>
+<a href="index.html">養育費シミュレーター</a>
+<a href="konpi-hiyo.html">婚姻費用シミュレーター</a>
+<a href="houtei-checker.html">法定養育費チェッカー</a>
+<a href="santei-hyo.html">算定表の見方</a>
+<a href="souba.html">養育費の相場</a>
+<a href="houtei-yoikuhi.html">法定養育費とは</a>
+<a href="konpi-to-yoikuhi.html">婚姻費用と養育費の違い</a>
+<a href="zougen.html">養育費の増額・減額</a>
+<a href="nenkin-bunkatsu.html">年金分割の手続きと期限</a>
+<a href="zaisan-bunyo.html">財産分与の割合と税金</a>
+<a href="jidou-fuyou.html">離婚後の児童扶養手当</a>
+<a href="yoikuhi-kimekata.html">養育費の決め方ガイド</a>
+<a href="rikon-okane-nagare.html">離婚とお金の全体像</a>
+<a href="yoikuhi-fubarai.html">養育費が支払われないときの対処法</a>
+</nav>
+<p>本サイトは、離婚時のお金に関する一般的な情報提供と、算定表に基づく目安の計算を行うツールです。個別の事情についての法的判断・助言、交渉、書類作成は行いません。具体的な進め方は、弁護士や家庭裁判所などの専門家にご相談ください。</p>
+<p>運営：編集部</p>
+</div></footer>
+
+<script src="assets/santei-data.js"></script>
+<script src="assets/santei-tables.js"></script>
+<script src="assets/simulator.js"></script>
+<script src="assets/quick-sim.js"></script>
+<script>
+(function(){
+var els=document.querySelectorAll('.fade');
+function showAll(){els.forEach(function(e){e.classList.add('on');});}
+if('IntersectionObserver' in window){
+var io=new IntersectionObserver(function(entries){entries.forEach(function(en){if(en.isIntersecting){en.target.classList.add('on');io.unobserve(en.target);}});},{threshold:.08});
+els.forEach(function(e){io.observe(e);});
+}else{showAll();}
+setTimeout(showAll,2500);
+})();
+</script>
+</body>
+</html>

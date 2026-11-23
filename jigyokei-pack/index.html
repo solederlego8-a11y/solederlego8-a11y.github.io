@@ -1,5 +1,8 @@
-<!doctype html>
-<html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>ジギョケイ取得準備パック｜補助金・税制の締切から逆算して、申請の下書きを自力で完成させる</title>
 <link rel="canonical" href="https://solederlego8-a11y.github.io/jigyokei-pack/">
 <meta property="og:title" content="ジギョケイ取得準備パック｜補助金・税制の締切から逆算して、申請の下書きを自力で完成させる">
@@ -7,34 +10,114 @@
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://solederlego8-a11y.github.io/jigyokei-pack/">
 <meta name="description" content="事業継続力強化計画（ジギョケイ）の認定を自力で目指すための準備パック。締切逆算スケジュール、電子申請の転記用ワークブック、3業種の記入例集など10点。申請・提出はご本人、認定保証なしの準備支援です。">
-<link rel="stylesheet" href="design-system.css">
-<style>
-body{max-width:960px;padding:24px 20px 40px}
-nav{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:20px}
-nav a{margin:0;padding:6px 14px;border:1px solid #E2E8F0;border-radius:999px;color:#1F2933;font-size:.9em;text-decoration:none;background:#F5F7FA}
-nav a:hover{background:#EAF1F8;color:#0F4C81}
-h1{font-size:1.8em;line-height:1.45;color:#fff;background:linear-gradient(135deg,#0B2A4A,#0F4C81 60%,#0E7C7B 140%);border-radius:12px;padding:28px 24px;margin:0 0 8px}
-.card{border:1px solid #E2E8F0;border-radius:10px;box-shadow:0 1px 2px rgba(15,42,74,.06)}
-</style>
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-W02HK1VTYF"></script>
-<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-W02HK1VTYF');</script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-W02HK1VTYF');
+document.documentElement.classList.add('js');
+</script>
 <style>
-body{font-family:system-ui,sans-serif;max-width:760px;margin:0 auto;padding:24px;line-height:1.8;color:#222}
-h1{font-size:1.55em;line-height:1.45}h2{margin-top:2em;border-bottom:2px solid #0F4C81;padding-bottom:4px}
-nav a{margin-right:12px}a{color:#0F4C81}
-.card{border:1px solid #ccc;border-radius:8px;padding:16px;margin:12px 0}
-.note{background:#f6f6f6;padding:12px;border-radius:6px;font-size:.92em}
-.warn{background:#fff8e6;border:1px solid #e0c060;padding:12px;border-radius:6px}
+:root{
+  --base:#ffffff; --ink:#1f2933; --ink-soft:#3d454e; --sub:#6b7684;
+  --accent:#0f4c81; --accent-deep:#0b2a4a; --accent-pale:#eaf1f8; --teal:#0e7c7b;
+  --line:#e2e8f0; --soft:#f5f7fa;
+  --radius:8px; --radius-s:6px;
+  --font:"Hiragino Kaku Gothic ProN","Hiragino Sans","Noto Sans JP","Yu Gothic UI",system-ui,sans-serif;
+  --font-en:"Helvetica Neue",Arial,sans-serif;
+  --text-hero:clamp(1.75rem,4.2vw,2.6rem);
+  --text-h2:clamp(1.35rem,2.6vw,1.65rem);
+  --text-h3:clamp(1rem,1.6vw,1.08rem);
+  --text-body:clamp(.9375rem,1.2vw,1rem);
+  --text-lead:clamp(1rem,1.6vw,1.08rem);
+  --space-section:clamp(3rem,7vw,4.5rem);
+  --wrap:960px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:var(--font);color:var(--ink);line-height:1.85;background:var(--base);-webkit-font-smoothing:antialiased;font-size:var(--text-body);margin:0}
+.wrap{max-width:var(--wrap);margin:0 auto;padding:0 24px}
+a{color:var(--accent)}
+.js .fade{opacity:0;transform:translateY(12px);transition:opacity .6s ease,transform .6s ease}
+.js .fade.on{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.js .fade{opacity:1;transform:none;transition:none}*{transition:none!important}}
+header.site{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.94);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+header.site .wrap{display:flex;align-items:center;justify-content:space-between;min-height:64px;padding-top:8px;padding-bottom:8px;gap:16px;flex-wrap:wrap}
+.brand .en{font-family:var(--font-en);font-size:10.5px;letter-spacing:.28em;color:var(--accent);font-weight:700;line-height:1.4}
+.brand .jp{font-size:15.5px;font-weight:700;color:var(--accent-deep);letter-spacing:.03em;line-height:1.4}
+nav.gnav{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+nav.gnav a{font-size:13.5px;color:var(--ink-soft);text-decoration:none;padding:6px 12px;border:1px solid var(--line);border-radius:999px;background:var(--soft)}
+nav.gnav a:hover{background:var(--accent-pale);color:var(--accent)}
+.hero{padding:clamp(2.5rem,6vw,4rem) 0 var(--space-section)}
+.hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(1.5rem,4vw,3rem);align-items:center}
+@media (max-width:760px){.hero-grid{grid-template-columns:1fr}}
+.hero .kicker{font-family:var(--font-en);font-size:11px;letter-spacing:.24em;color:var(--accent);font-weight:700;margin:0 0 10px}
+.hero h1{font-size:var(--text-hero);line-height:1.4;color:var(--accent-deep);margin:0 0 14px}
+.hero .lead{font-size:var(--text-lead);color:var(--ink-soft);margin:0 0 20px}
+.hero-cta{display:flex;flex-wrap:wrap;gap:10px}
+.btn{display:inline-block;text-align:center;padding:13px 22px;border-radius:var(--radius);background:var(--accent);color:#fff;text-decoration:none;font-weight:700}
+.btn.sub{background:#fff;color:var(--accent);border:1px solid var(--accent)}
+.mock{border:1px solid var(--line);border-radius:var(--radius);box-shadow:0 8px 28px rgba(11,42,74,.10);padding:20px 22px;background:#fff}
+.mock .mock-head{display:flex;justify-content:space-between;align-items:baseline;border-bottom:2px solid var(--accent);padding-bottom:8px;margin-bottom:12px}
+.mock .mock-title{font-weight:700;color:var(--accent-deep)}
+.mock .mock-sample{font-size:.78em;color:var(--sub)}
+.mock .score{font-size:2rem;font-weight:700;color:var(--accent-deep);line-height:1.2}
+.mock .meter{height:10px;border-radius:999px;background:var(--soft);overflow:hidden;margin:8px 0 14px}
+.mock .meter i{display:block;height:100%;width:40%;background:linear-gradient(90deg,var(--accent),var(--teal))}
+.mock ul{margin:0;padding-left:1.2em;color:var(--ink-soft);font-size:.94em}
+.mock .mock-note{font-size:.8em;color:var(--sub);margin:12px 0 0}
+.band{border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:var(--soft)}
+.band .wrap{display:grid;grid-template-columns:repeat(4,1fr);gap:0}
+@media (max-width:760px){.band .wrap{grid-template-columns:1fr 1fr}}
+.band .cell{padding:18px 16px;text-align:center;border-left:1px solid var(--line)}
+.band .cell:first-child{border-left:none}
+.band .num{font-size:clamp(1.15rem,2.4vw,1.5rem);font-weight:700;color:var(--accent-deep);line-height:1.3}
+.band .lbl{font-size:.82em;color:var(--sub)}
+main .wrap section{margin:var(--space-section) 0}
+h2{font-size:var(--text-h2);color:var(--accent-deep);border-bottom:2px solid var(--accent);padding-bottom:.2em;line-height:1.5}
+.card{border:1px solid var(--line);border-radius:var(--radius);box-shadow:0 1px 2px rgba(11,42,74,.06);padding:20px;margin:16px 0}
+.note{background:var(--soft);padding:12px 16px;border-radius:var(--radius-s);font-size:.92em;margin:16px 0}
+.guarantee{border:1px solid var(--line);border-radius:var(--radius);padding:12px 16px;margin:20px 0}
+#kit-series{border:1px solid var(--line);border-radius:var(--radius);padding:12px 16px;margin:20px 0}
+footer.site{border-top:1px solid var(--line);margin-top:var(--space-section);padding:20px 0 32px;color:var(--sub);font-size:.9em}
+
+.warn{background:#fff8e6;border:1px solid #e0c060;padding:12px 16px;border-radius:var(--radius-s);margin:16px 0}
 .price{font-size:1.5em;font-weight:bold}
 .badge{display:inline-block;background:#375623;color:#fff;font-weight:bold;padding:6px 12px;border-radius:6px}
-.btn{display:block;text-align:center;background:#0F4C81;color:#fff;padding:14px;border-radius:8px;text-decoration:none;font-weight:bold;margin:12px 0}
-table{border-collapse:collapse;width:100%}td,th{border:1px solid #ccc;padding:8px;text-align:left}
-footer{margin-top:3em;font-size:.88em;color:#555}
-@media(max-width:480px){body{padding:16px}}
-</style></head><body>
-<nav><a href="index.html">パックのご案内</a><a href="check.html">間に合うかチェック（無料）</a><a href="blog/index.html">ブログ</a></nav>
+main .btn{display:block;text-align:center;margin:12px 0}
+table{border-collapse:collapse;width:100%;margin:16px 0}th,td{border:1px solid var(--line);padding:8px;text-align:left}
+main footer{margin-top:2em;font-size:.92em;color:var(--ink-soft)}
+</style>
+</head>
+<body>
+<header class="site"><div class="wrap">
+<div class="brand"><div class="en">BUSINESS CONTINUITY PLAN</div><div class="jp">ジギョケイ取得準備パック</div></div>
+<nav class="gnav"><a href="index.html">パックのご案内</a><a href="check.html">間に合うかチェック（無料）</a><a href="blog/index.html">ブログ</a></nav>
+</div></header>
 
+<div class="hero"><div class="wrap hero-grid">
+<div class="fade">
+<p class="kicker">DEADLINE-FIRST PREPARATION</p>
 <h1>その補助金、認定が間に合う日付をご存知ですか？</h1>
+<p class="lead">事業継続力強化計画（ジギョケイ）の認定には、申請から標準で約45日かかります。補助金の加点は「申請中」では受けられず、締切時点で認定済みであることが条件です。電子申請に必要なGビズID（プライム）の取得にも約2週間。このパックは、締切から逆算して、電子申請に入力する下書きを自力で完成させるための一式です。</p>
+<div class="hero-cta"><a class="btn" href="check.html">あなたの申請期限日を判定する（無料・登録不要）</a><a class="btn sub" href="#buy">購入する（¥29,800・税込）</a></div>
+</div>
+<div class="mock fade" aria-label="締切逆算の目安">
+<div class="mock-head"><span class="mock-title">締切逆算の目安</span><span class="mock-sample">逆算スケジュール</span></div>
+<ul>
+<li>認定の標準処理期間：約45日</li><li>GビズID（プライム）の取得：約2週間</li><li>防災・減災設備の特別償却16%：2027年3月31日までの認定が条件</li>
+</ul>
+<p class="mock-note">パックには、締切日を入れると申請期限・GビズID期限・週次計画を自動で出す「締切逆算スケジュール」が入っています。</p>
+</div>
+</div></div>
+
+<div class="band"><div class="wrap">
+<div class="cell"><div class="num">約45日</div><div class="lbl">認定の標準処理期間</div></div><div class="cell"><div class="num">約2週間</div><div class="lbl">GビズID（プライム）の取得</div></div><div class="cell"><div class="num">¥29,800</div><div class="lbl">パック（税込・買い切り）</div></div><div class="cell"><div class="num">14日間</div><div class="lbl">理由を問わず全額返金保証</div></div>
+</div></div>
+
+<main><div class="wrap">
+<section class="fade">
 <p>事業継続力強化計画（ジギョケイ）の認定には、申請から<strong>標準で約45日</strong>かかります。補助金の加点は「申請中」では受けられず、締切時点で認定済みであることが条件です。電子申請に必要なGビズID（プライム）の取得にも<strong>約2週間</strong>。締切から逆算した「自分の申請期限日」を知らないまま動くと、取るつもりだった加点と、防災設備の特別償却（16%）の期限を取り逃がします。</p>
 <p>このパックは、締切から逆算して、電子申請に入力する下書きを自力で完成させるための一式です。</p>
 <a class="btn" href="check.html">あなたの申請期限日を判定する（無料・登録不要）</a>
@@ -122,4 +205,19 @@ footer{margin-top:3em;font-size:.88em;color:#555}
 <p>本ページの制度情報は2026年11月17日時点の中小企業庁等の公式情報に基づきます。補助金の加点対象・条件は公募回ごとに変わります。必ず最新の公募要領をご確認ください。本パックは中小企業庁・経済産業省の公式商品ではありません。公的機関のロゴマークは使用していません。</p>
 </footer>
 <div id="kit-series" style="border:1px solid #ccc;border-radius:8px;padding:12px 16px;margin:20px 0"><h2 style="margin-top:0;font-size:1.1em">小さな会社の制度対応シリーズ</h2><p style="font-size:.92em">制度改正への対応を、無料ツールとキットで支援するシリーズです。</p><ul><li><a href="https://solederlego8-a11y.github.io/kasuhara-kit/">小さな会社のカスハラ対策キット</a>（販売中 ¥9,800）</li><li><a href="https://solederlego8-a11y.github.io/cyber-sme/">6か条実装キット（中小企業の情報セキュリティ）</a>（販売中 ¥9,800）</li><li><a href="https://solederlego8-a11y.github.io/invoice-kit/">インボイス2割特例 終了対応キット</a>（無料判定ツール公開中）</li><li><a href="https://solederlego8-a11y.github.io/yearend-178man/">178万円の壁・年末調整対応キット</a>（無料チェック公開中）</li><li><a href="https://solederlego8-a11y.github.io/taxfree-refund/">免税店リファンド対応キット</a>（無料チェック公開中）</li><li><a href="https://solederlego8-a11y.github.io/kakaku-tenka/">価格転嫁交渉キット</a>（無料計算ツール公開中）</li><li><a href="https://solederlego8-a11y.github.io/shukuhakusei-kit/">小さな宿の宿泊税対応キット</a>（無料試算ツール公開中）</li><li><a href="https://solederlego8-a11y.github.io/anzen-eisei-kit/">小さな現場の個人事業者安全衛生対応キット</a>（無料シミュレーター公開中）</li><li><a href="https://solederlego8-a11y.github.io/ai-questionnaire-kit/">生成AI利用確認書 回答キット</a>（販売中 ¥14,800）</li></ul></div>
-</body></html>
+</section>
+</div></main>
+<footer class="site"><div class="wrap">運営：Seed Works Japan（編集部）／小さな会社の制度対応シリーズ</div></footer>
+<script>
+(function(){
+var els=document.querySelectorAll('.fade');
+function showAll(){els.forEach(function(e){e.classList.add('on');});}
+if('IntersectionObserver' in window){
+var io=new IntersectionObserver(function(entries){entries.forEach(function(en){if(en.isIntersecting){en.target.classList.add('on');io.unobserve(en.target);}});},{threshold:.08});
+els.forEach(function(e){io.observe(e);});
+}else{showAll();}
+setTimeout(showAll,2500);
+})();
+</script>
+</body>
+</html>
